@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>TypeScript Fundamentals</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>TypeScript Fundamentals</h1>
+</header>
+
+<section class="slide">
+    <h2>TypeScript Fundamentals</h2>
+    <h3>План по вивченню TypeScript:</h3>
+    <ol>
+        <li>Вступ. Змінні та функції</li>
+        <li>Класи та інтерфейси</li>
+        <li>Generics</li>
+        <li>Модулі та простір імен</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Лекція 1. Типи даних та функції</h2>
+    <h3>План лекції:</h3>
+    <ol>
+        <li>TypeScript, основні можливості</li>
+        <li>Необхідні інструменти</li>
+        <li>Компіляція коду TS. Tsconfig.json</li>
+        <li>Змінні та типи даних</li>
+        <li>Функції</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>TypeScript</h2>
+    <img src="pictures/1.jpg" alt="" width="764" style="display: block; margin: 0 auto">
+    <p>
+        <b>TypeScript</b> – це строго типізована мова програмування, яка базується
+        на JavaScript.
+        <a href="https://www.typescriptlang.org/" target="_blank">https://www.typescriptlang.org/</a>
+    </p>
+</section>
+
+<section class="slide">
+    <h2>TypeScript</h2>
+    <p>
+        Розвиток TypeScript розпочався наприкінці 2012 року. Хоча він виник в компанії Microsoft, його фактичним творцем
+        є програміст Андерс Хейлсберг, також відомий як творець таких мов, як Delphi, C#. Проте цей проект відразу став
+        розвиватися як OpenSource. І вже з самого початку нова мова швидко поширилась через свою гнучкість і
+        продуктивність. Популярність і актуальність ідей нової мови призвели до того, що деякі з цих ідей пізніше стали
+        частиною нового стандарту JavaScript. Переваги TypeScript були взяті на озброєння творцями ряду поширених і
+        широко використовуваних фреймворків, таких як Angular 2+ та Vue3.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>TypeScript</h2>
+    <p>
+        По-перше, слід зазначити, що TypeScript - це строго типізована та компільована мова, що може бути ближчою до
+        програмістів Java, C# і інших строго типізованих мов. На виході компілятор створює той самий JavaScript, який
+        потім виконується браузером. Однак строга типізація зменшує кількість потенційних помилок, які могли б виникнути
+        при розробці на JavaScript.
+    </p>
+    <p>
+        По-друге, TypeScript реалізує багато концепцій, які є властивими об'єктно-орієнтованим мовам, таким як
+        інкапсуляція, наслідування, поліморфізм та модифікатори доступу тощо.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>TypeScript</h2>
+    <p>
+        По-третє, потенціал TypeScript дозволяє швидше і простіше писати великі складні програми, відповідно їх легше
+        підтримувати, розвивати, масштабувати та тестувати, ніж на стандартному JavaScript.
+    </p>
+    <p>
+        По-четверте, TypeScript розвивається як проект з відкритим кодом і, як і багато інших проектів, розміщений на
+        GitHub. Адреса репозиторію -
+        <a href="https://github.com/Microsoft/TypeScript" target="_blank">https://github.com/Microsoft/TypeScript</a>.
+        Крім того, він є крос-платформеним, що означає, що для розробки ми можемо використовувати як Windows, так і
+        MacOS або Linux.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Чому потрібно вивчати TypeScript?</h2>
+    <p>Дослідження DOU:</p>
+    <ul>
+        <li>Кількість проектів написаних на TypeScript збільшилась на 29.9% у 2024 році</li>
+        <li>Лідер “Особистих вподобань” для розробників</li>
+        <li>2 місце у загальному рейтингу мов</li>
+    </ul>
+    <a href="https://dou.ua/lenta/articles/language-rating-2024/" target="_blank">Рейтинг мов програмування 2024</a>
+    <br>
+    <a href=https://dou.ua/lenta/articles/language-rating-2023/" target="_blank">Рейтинг мов програмування 2023</a>
+</section>
+
+<section class="slide">
+    <h2>Транспілятор</h2>
+    <img src="pictures/2.jpg" alt="" width="700" style="display: block; margin: 0 auto">
+    <p>
+        <b>Транскомпілятор</b> або <b>транспілятор</b> - програма, яка приймає вихідний код, написаний на
+        одній мові програмування і повертає еквівалентний вихідний код на тій самій або іншій
+        мові програмування
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Інсталяція та інструменти</h2>
+    <div class="columns two">
+        <div>
+            <ol>
+                <li>Встановити Node.js на ваш компʼютер (<a href="https://nodejs.org/en" target="_blank">nodejs.org</a>)
+                </li>
+                <li>Відкрити проект у редакторі коду</li>
+                <li>Ініціалізувати новий проект - npm init -y</li>
+                <li>Встановити npm пакет TypeScript - npm i -D typescript</li>
+                <li>Транспіляція ваших файлів - npx (npm) tsc helloworld.ts</li>
+            </ol>
+        </div>
+        <div><img src="pictures/3.jpg" alt="" width="100%" style="display: block; margin: 0 auto"></div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Playground</h2>
+    <img src="pictures/4.jpg" alt="" width="750" style="display: block; margin: 0 auto">
+    <p>
+        <a href="https://www.typescriptlang.org/play" target="_blank">https://www.typescriptlang.org/play</a>
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Важливі ключові слова</h2>
+    <img src="pictures/5.jpg" alt="" width="750" style="display: block; margin: 0 auto">
+</section>
+
+<section class="slide">
+    <h2>tsconfig</h2>
+    <div class="columns two">
+        <div>
+            <p><b>Tsconfig.json</b> – файл, вказує на те, що
+                поточна директорія є коренем
+                TypeScript проєкту.
+            </p>
+            <p>При запуску tsc без вказівки файлу для
+                компіляції використовуватимуться
+                налаштування з файлу tsconfig.json</p>
+        </div>
+        <div><img src="pictures/6.jpg" alt="" width="100%" style="display: block; margin: 0 auto"></div>
+    </div>
+    <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank">https://www.typescriptlang.org/docs/handbook/compiler-options.html</a>
+</section>
+
+<section class="slide">
+    <h2>tsconfig</h2>
+    <img src="pictures/7.jpg" alt="" width="100%" style="display: block; margin: 0 auto">
+</section>
+
+<section class="slide">
+    <h2>Змінні та константи. Відмінності між var та let/const</h2>
+    <img src="pictures/8.jpg" alt="" width="600" style="display: block; margin: 0 auto">
+</section>
+
+<section class="slide">
+    <h2>Типи даних</h2>
+    <p>
+        У TypeScript існують такі базові типи:
+    </p>
+    <div class="columns two">
+        <div>
+            <ul>
+                <li>boolean: логічне значення true або false</li>
+                <li>number: числове значення</li>
+                <li>string: рядки</li>
+                <li>Array: масиви</li>
+                <li>кортежі</li>
+                <li>Enum: перелічення</li>
+                <li>Any: довільний тип</li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>Symbol</li>
+                <li>null та undefined: відповідають значенням null та undefined у JavaScript</li>
+                <li>Never: також представляє відсутність значення і використовується як тип, що повертається функціями,
+                    які генерують або повертають помилку
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Функції</h2>
+    <p>
+        TypeScript визначає функції за допомогою ключового слова function, але при цьому додає додаткові можливості з роботи з функціями. Зокрема, можна визначити тип переданих параметрів і тип поверненого значення.
+        Функція може мати параметри, які вказуються після назви функції у дужках через кому. Через двокрапку після імені параметра вказується його тип.
+    </p>
+    <p>
+        Кожна функція має свій тип, як і звичайні змінні. Тип функції фактично представляє комбінацію типів параметрів і типу, який повертається. У загальному вигляді визначення типу функції виглядає наступним чином: (параметр1: тип, параметр2: тип,...параметрN: тип) => тип_результата;
+        У дужках йде перелік через кому параметрів і їх типів. Після списку параметрів через оператор => вказується тип, який повертається функцією.
+    </p>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="shower.js"></script>
+</body>
+</html>
+
