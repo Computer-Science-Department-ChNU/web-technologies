@@ -1,0 +1,18 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+trim_trailing_whitespace = true
+insert_final_newline = true
+ij_javascript_import_merge_members = true
+ij_javascript_blank_lines_after_imports = 1
+ij_javascript_spaces_within_imports = true
+ij_javascript_force_semicolon_style = true
+ij_javascript_enforce_trailing_comma = whenmultiline
+ij_javascript_use_semicolon_after_statement = false
+
+[*.md]
+trim_trailing_whitespace = false
