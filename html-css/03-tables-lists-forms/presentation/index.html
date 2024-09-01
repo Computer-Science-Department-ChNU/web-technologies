@@ -28,6 +28,244 @@
 </section>
 
 <section class="slide">
+  <h2>Створення таблиці</h2>
+  <div class="columns two">
+    <div style="font-size: 18px;">
+      <p>
+        Тег <code>&lt;table&gt;</code>є основним контейнером, у який поміщається таблиця. Саме
+        у ньому вказуються всі атрибути для таблиці та розміщується вся розмітка таблиці.
+      </p>
+      <p>Таблиця часто використовується для візуалізації
+        табличних даних, а також застосовується для
+        реалізації верстки певних сторінок.</p>
+      <p>Іноді весь каркас сторінки будується за допомогою
+        таблиць, але останнім часом ця техніка
+        застосовується рідко.</p>
+    </div>
+    <div>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" target="_blank">MDN: The Table
+        element</a>
+      <br>
+      <br>
+      <img src="images/1.png" alt="">
+      <br>
+      <a href="examples/01-table/01_tag_table.html" target="_blank">Table code example</a>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Поняття рядка та комірки, теги <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code></h2>
+  <p>
+    Таблиця складається з рядків (тег <code>&lt;tr&gt;</code> ... <code>&lt;/tr&gt;</code> ): <a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr" target="_blank">MDN: The Table Row element</a>,
+    які,
+    своєю чергою,
+    складаються з комірок
+    (тег <code>&lt;td&gt;</code> ... <code>&lt;/td&gt;</code>): <a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td" target="_blank">MDN: The Table Data Cell
+    element</a>, <a href="examples/01-table/02_tag_tr_td.html" target="_blank">Tags tr, td code example</a>.
+  </p>
+  <img src="images/2.png" alt="" width="700">
+  <br>
+</section>
+
+<section class="slide">
+  <h2>Заголовні комірки <code>&lt;th&gt;</code></h2>
+  <p>
+    <code>&lt;th&gt;</code>...<code>&lt;/th&gt;</code> - тег, який описує спеціальний вид комірок, заголовних комірок.
+    При цьому текст усередині цих клітинок вважається більш важливим, ніж простих, і
+    набуває особливих властивостей - текст центрується та отримує напівжирне
+    накреслення: <br> <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th" target="_blank">MDN The
+    Table
+    Header
+    element</a>, <a href="examples/01-table/03_tag_th.html" target="_blank">Tag th code example</a>.
+  </p>
+  <img src="images/3.png" alt="">
+</section>
+
+<section class="slide">
+  <h2>Назва таблиці, тег <code>&lt;caption&gt;</code></h2>
+  <p>
+    Тег <code>&lt;caption&gt;</code><code>&lt;/caption&gt;</code> - назва таблиці, яка розміщується зверху над
+    таблицею і вирівнюється по центру.
+    Сам тег слід розмістити одразу після відкриваючого тега <code>&lt;table&gt;</code>. <br><a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption" target="_blank">MDN docs: The Table Caption
+    element</a>, <a href="examples/01-table/04_tag_caption.html" target="_blank">Tag caption code example</a>
+  </p>
+  <img src="images/4.png" alt="">
+</section>
+
+<section class="slide">
+  <h2>Порожні комірки</h2>
+  <p>
+    Не слід залишати порожні комірки, оскільки в деяких браузерах вони будуть
+    відображені некоректно і згодом вплинуть на візуалізацію всієї таблиці.
+    Якщо Вам справді необхідно залишити їх порожніми, розмістіть там пробіл,
+    вказавши його код <code>&amp;nbsp;</code>
+  </p>
+  <a href="examples/01-table/07_empty_cells.html" target="_blank">Empty cells code example</a>
+  <hr>
+  <small>(англ. non-breaking space) - символ нерозривного пробілу в тексті.
+    На
+    відміну від звичайного пробілу &nbsp не дає
+    браузеру розривати рядок у місці, де розташований. Служить для поліпшення читабельності тексту.</small>
+</section>
+
+<section class="slide">
+  <h2>Атрибути тегу <code>&lt;table&gt;</code></h2>
+  <p>
+    Тег <code>&lt;table&gt;</code>, як і інші теги, має свої особливі атрибути:
+  </p>
+  <ol>
+    <li><a href="examples/01-table/05_attr_border.html" target="_blank">border</a> - рамка таблиці, як навколо неї, так
+      і всередині між комірками.
+    </li>
+    <li><a href="examples/01-table/11_attr_cellpadding.html" target="_blank">cellpadding</a> - відступи всередині
+      комірок.
+    </li>
+    <li><a href="examples/01-table/12_attr_cellspacing.html">cellspacing</a> - відступи всередині таблиці між комірками
+      і до меж таблиці.
+    </li>
+    <li><a href="examples/01-table/13_attr_background.html" target="_blank">bgcolor та background</a> - колір фону
+      таблиці та зображення, яке буде
+      використано як фон таблиці.
+    </li>
+    <li><a href="examples/01-table/15_attr_align.html" target="_blank">align</a> - визначає горизонтальне вирівнювання
+      вмісту.
+    </li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>Атрибут cellspacing</h2>
+  <p>
+    Атрибут таблиці <b>cellspacing</b> говорить про відступи між комірками таблиці та відступи
+    від меж комірок до меж самої таблиці.
+  </p>
+  <img src="images/5.png" alt="" width="580">
+</section>
+
+<section class="slide">
+  <h2>Атрибут cellpadding</h2>
+  <p>
+    Атрибут таблиці <b>cellpadding</b> говорить про відступи всередині комірок, тобто відступи від
+    меж комірок до вмісту.
+  </p>
+  <img src="images/6.png" alt="" width="580">
+</section>
+
+<section class="slide">
+  <h2>Атрибут colspan</h2>
+  <p>
+    Атрибут таблиці <b>cellspacing</b> говорить про відступи між комірками таблиці та відступи
+    від меж комірок до меж самої таблиці.
+  </p>
+  <img src="images/7.png" alt="" width="580">
+</section>
+
+<section class="slide">
+  <h2>Атрибут rowspan</h2>
+  <p>
+    Атрибут <b>rowspan</b> встановлює число клітинок, які мають бути об'єднані по
+    вертикалі. Цей атрибут має сенс для таблиць, що складаються з декількох рядків.
+  </p>
+  <img src="images/8.png" alt="" width="580">
+</section>
+
+<section class="slide">
+  <h2>Впорядковані списки (ordered list - ol)</h2>
+  <p>
+    Тег <code>&lt;ol&gt;</code><code>&lt;/ol&gt;</code> є контейнером для впорядкованих списків, так і
+    розшифровується – ordered list.
+    Усі елементи списку розміщують усередині тегів <code>&lt;li&gt;</code>...<code>&lt;/li&gt;</code>, які у свою чергу
+    поміщаються у загальний контейнер <code>&lt;ol&gt;</code><code>&lt;/ol&gt;</code>.
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Атрибут type у впорядкованих списках</h2>
+  <p> Усі списки мають атрибут type, який вказує тип маркера. Впорядковані
+    списки можуть приймати такі значення:</p>
+  <ol>
+    <li>A – вказує на те, що пункти списку нумеруватимуться великими
+      латинські літери.
+    </li>
+    <li>a – вказує на те, що пункти списку нумеруватимуться маленькими
+      латинські літери.
+    </li>
+    <li>I – вказує на те, що пункти списку нумеруватимуться великими римськими
+      цифрами.
+    </li>
+    <li>i – вказує на те, що пункти списку нумеруватимуться маленькими римськими
+      цифрами.
+    </li>
+  </ol>
+  <a href="examples/02-lists/01_tag_ol.html" target="_blank">Code example attrs ordered list</a>
+</section>
+
+<section class="slide">
+  <h2>Невпорядковані списки (unordered list - ul)</h2>
+  <p>
+    Тег
+    <code>&lt;ul&gt;</code><code>&lt;/ul&gt;</code>
+    є контейнером для неупорядкованих списків, так і
+    розшифровується – unordered list.
+    Усі елементи списку полягають усередині тегів
+    <code>&lt;li&gt;</code><code>&lt;/li&gt;</code>
+    , які у свою чергу
+    поміщаються у загальний контейнер
+    <code>&lt;ul&gt;</code><code>&lt;/ul&gt;</code>
+    .
+  </p>
+  <a href="examples/02-lists/02_tag_ul.html" target="_blank">Code example unordered list</a>
+</section>
+
+<section class="slide">
+  <h2>Атрибут type у неупорядкованих списках</h2>
+  <p>Усі списки мають атрибут type, який вказує тип маркера. У невпорядкованих
+    списків може приймати такі значення:</p>
+  <ol>
+    <li>disc – вказує маркер у вигляді чорного зафарбованого кола.</li>
+    <li>circle – вказує маркер у вигляді порожнього кола.</li>
+    <li>square – вказує маркер у вигляді чорного зафарбованого квадрата.</li>
+    <li>none - Вказує, що список необхідно реалізувати без маркера.</li>
+    <li>Свій маркер можна встановити вказавши в атрибуті style властивість list-styleimage:url(), вказавши в ньому
+      адресу зображення, яке буде використане в
+      як маркера.
+    </li>
+  </ol>
+  <a href="examples/02-lists/02_tag_ul.html" target="_blank">Code example attrs type for unordered list</a>
+</section>
+
+<section class="slide">
+  <h2>Вкладені списки (nested lists)</h2>
+  <p>У елементи списку можна вкладати не лише
+    текстовий вміст, а й інші списки.
+    Таким чином будуть реалізовані вкладені
+    списки, а точніше підписки.
+  </p>
+  <p>
+    При цьому за умовчанням у вкладених списках
+    маркер буде відмінним від маркера головного
+    список.
+  </p>
+  <a href="examples/02-lists/03_nested-list.html" target="_blank">Code example nested lists</a>
+</section>
+
+<section class="slide">
+  <h2>Списки визначень (definition term)</h2>
+  <p>Існують спеціальні списки для визначень, для цього слід використовувати
+    контейнер <code>&lt;dl&gt;</code>...<code>&lt;/dl&gt;</code>.
+    Елементи таких списків складаються з двох складових: перша – це сам термін,
+    укладений у тег <code>&lt;dt&gt;</code>...<code>&lt;/dt&gt;</code>, другий – саме визначення, вкладене у тег
+    <code>&lt;dd&gt;</code>...<code>&lt;/dd&gt;</code>.
+  </p>
+  <a href="examples/02-lists/04_tag_dl.html" target="_blank">Code example definition term lists</a>
+</section>
+
+<!-- <code>&lt;  &gt;</code>-->
+<section class="slide">
   <h2 class="shout">Дякую за увагу!</h2>
 </section>
 
