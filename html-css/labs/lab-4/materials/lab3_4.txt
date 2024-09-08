@@ -1,0 +1,120 @@
+<main>
+        <section>
+            <h1>Інформація</h1>
+            <p class="text-background">Lorem ipsum dolor sit, amet consectetur adipisicing elit. <span>Porro aliquid blanditiis repudiandae</span> tempore dicta et quod maiores odit molestiae quam.</p>
+            <div>
+                <p class="text-background"><span>Lorem ipsum dolor</span>, sit amet consectetur adipisicing elit. Magnam quibusdam reiciendis delectus culpa nam accusamus earum nisi, facere, aut, dicta sunt. Laboriosam consectetur nisi odit molestiae aliquam a ullam distinctio, labore quia, nam necessitatibus accusantium?</p>
+                <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span> Reiciendis, hic! Incidunt a vitae magni, quam explicabo reprehenderit amet repudiandae repellendus ab quas perspiciatis suscipit ad dolor perferendis ipsa aspernatur. Perferendis repudiandae itaque fugit culpa, harum amet similique unde vitae commodi quod aliquid officia natus. Tempora distinctio officia expedita quas ullam.</p>
+                <p class="text-background">Lorem ipsum, dolor sit amet consectetur adipisicing elit. <span>Quibusdam maiores alias consequatur est dolorem</span>, ad expedita nam nihil ipsam, ut harum distinctio iusto accusamus ex doloribus neque veniam, minima cum atque libero. Vel labore porro optio ipsam debitis a nihil, aspernatur enim, iste explicabo delectus id, libero autem impedit. Impedit.</p>
+            </div>
+            <div>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem, quia.</p>
+                <img src="#" alt="image1">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste incidunt id assumenda dolorum quam, eveniet sint reiciendis commodi velit facilis eligendi architecto consequuntur cupiditate atque et dolor explicabo quia nobis placeat veniam? Delectus vel aliquam, praesentium quidem doloribus nisi repellendus officia quos tempora labore sunt nemo porro atque nobis id?</p>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia beatae, quisquam deserunt hic voluptates corporis aspernatur porro necessitatibus eius, earum ducimus voluptate adipisci modi quas tempora! Autem facere quos maxime, dolorem provident exercitationem omnis vero corporis quis minus voluptas odit expedita sint nulla velit earum, sed pariatur officia officiis amet.</p>
+                <div>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <img src="#" alt="image2">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, ullam.</p>
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Структура резюме.</h2>
+            <p class="text-background"><span>Lorem ipsum dolor sit amet,</span> consectetur adipisicing elit. Deleniti culpa tempora nulla aliquid quos fugiat.</p>
+            <ol>
+                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. <span>Inventore id natus hic ipsum</span> dolorem veniam rem explicabo optio eveniet nostrum.</li>
+                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <span>Animi saepe eaque fuga magni nam quasi dolorem illum? <span>Accusamus non, corporis possimus, totam odio explicabo nulla et excepturi repellat dicta saepe alias maxime ex harum ipsum.</span></span> Nam, eaque omnis porro quod ipsa ut itaque repellendus soluta aliquam in odit sunt a harum natus tenetur esse, animi dignissimos voluptate reiciendis dolores explicabo beatae! Ducimus magni praesentium nam eos esse cum doloremque, alias nostrum beatae voluptatum quam eum autem temporibus pariatur rerum! Eaque.</li>
+                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus officia error autem iure id expedita voluptatem nobis, consequatur vitae ullam possimus corporis qui excepturi ab, vel iusto repudiandae accusantium magni?</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span><span>Ea omnis vero maxime illo expedita assumenda cupiditate hic illum sed enim fugiat molestias aut, neque modi.</span> Fugiat quas recusandae dignissimos saepe error culpa, ab tempora minus adipisci ipsa obcaecati, distinctio omnis!</span></li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span>Aliquam nulla dolorem fugiat velit nesciunt officia</span> quia nam expedita aut reiciendis maiores optio odio ducimus, quidem magni cum laudantium et commodi doloremque culpa dignissimos nostrum natus at. Sosluta quo est aperiam velit quia veritatis debitis facilis deleniti assumenda! Minus, cum nisi.</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint voluptates exercitationem fugiat perspiciatis expedita natus eius soluta! <span><span>Fuga consectetur necessitatibus placeat impedit iste maxime est distinctio nobis vitae incidunt unde, rem molestiae! </span>Explicabo modi quam doloremque deserunt id rerum accusantium aliquam sapiente quisquam perspiciatis fugit, laboriosam vitae quia nesciunt beatae quibusdam hic voluptates cupiditate sit quos reiciendis ex atque laudantium?</span></li>
+            </ol>
+            <article>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span>Sequi id perferendis</span> necessitatibus nisi magnam quibusdam fuga fugit recusandae assumenda veritatis itaque ipsum esse, debitis unde, nobis aut qui voluptas ad.</p>
+                <div>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt minima cum possimus, quae ipsum aliquid voluptate veniam! Iusto, excepturi maiores!
+                    <ul>
+                        <li>Lorem, ipsum.
+                            <ul>
+                                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, cumque.</li>
+                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, ullam.</li>
+                            </ul>
+                        </li>
+                        <li>Lorem, ipsum.
+                            <ul>
+                                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, reprehenderit?</li>
+                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, soluta.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime earum, velit culpa saepe quasi facilis cum dolor consectetur labore, voluptatem magnam sed. Modi officiis eveniet nesciunt culpa fugit odio ullam neque facilis! <span>Atque accusantium ipsam quasi quis, iste veniam. Cumque temporibus autem hic quae animi.</span></p>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam vel earum cupiditate laudantium veritatis quisquam.</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>Оформлення резюме.</h2>
+            <div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae, perspiciatis.</p>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span>Quae nulla accusantium illum nam modi,</span> ipsum voluptatibus eos exercitationem consequatur magni aperiam quam, hic quo eligendi, rerum ab? Soluta, ratione placeat!</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span><span>Porro doloribus consectetur dignissimos</span> recusandae assumenda nobis maxime, autem, odio saepe nostrum facilis quidem voluptate cum commodi.</span> Blanditiis reiciendis tempora at, fugit fugiat ducimus assumenda quaerat quos quod facilis asperiores dicta recusandae!</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium ut nobis dicta dolorum nisi necessitatibus velit corrupti magni totam reiciendis. <span>Cupiditate, sint labore!</span> Exercitationem a quod dolores tenetur omnis nemo.</li>
+                    <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. <span><span>Quos excepturi repudiandae, velit voluptas modi rerum id ut,</span> temporibus accusamus eos quidem fugit itaque, magni optio reiciendis culpa officiis obcaecati ducimus.</span> Similique consequuntur nam officiis optio ipsum porro commodi unde pariatur?</li>
+                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptas sunt minus dolor, asperiores dolorem suscipit harum nulla, ullam quibusdam, laboriosam earum? Cupiditate nostrum placeat ut molestiae quaerat labore distinctio.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Опис професійної діяльності</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam doloribus eaque illum, perspiciatis cumque quasi tempora nostrum minus veniam excepturi tempore exercitationem obcaecati quo, quam modi harum, id a earum accusantium. Ea non commodi tempore iusto voluptatem a quia ullam cum! <span>A adipisci mollitia placeat.</span> Corporis voluptate minus delectus? Dolor.</p>
+            <p><span>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span> Nulla eos quas consequatur quae incidunt vero aperiam laboriosam fugiat quod optio, beatae accusamus, perspiciatis harum mollitia! Accusamus praesentium quis obcaecati velit, nesciunt fuga consequatur recusandae, in placeat dolore expedita, tenetur illo perspiciatis itaque aperiam dolorem error! Omnis harum nam facere possimus?</p>
+            <p>Онлайн-джерела</p>
+            <ul>
+                <li>Lorem, ipsum.
+                    <ul>
+                        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, cumque.</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, ullam.</li>
+                    </ul>
+                </li>
+                <li>Lorem, ipsum.
+                    <ul>
+                        <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, reprehenderit?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, soluta.</li>
+                    </ul>
+                </li>
+                <li>Lorem, ipsum.
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, repellendus.</li>
+                        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum, rem.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Різне</h2>
+            <div class="bold">
+                Lorem ipsum dolor sit amet.
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                <section>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel, reiciendis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, quibusdam tempore quia, natus dolorum, maiores iusto sequi blanditiis facere recusandae saepe placeat ratione beatae molestias doloremque veritatis ab possimus sapiente illum officiis! Ut ipsam, distinctio temporibus eligendi aliquam quos autem quas amet? Accusamus, culpa ea unde sunt aliquid beatae sequi.</p>
+                    <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi iusto, repellat accusamus porro consequatur dicta.</article>
+                </section>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta, quas?</p>
+                <section>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint sit, consequatur tempora beatae fuga voluptatum vero cumque explicabo temporibus debitis? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum veniam, itaque dicta voluptatibus dolor ea cupiditate asperiores consequuntur saepe fugit. Lorem, ipsum dolor sit amet consectetur adipisicing elit. In, repellat.</p>
+                    <article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, cum.</article>
+                </section>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error laborum veritatis commodi nobis ducimus aliquid!</div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis placeat accusantium delectus reiciendis, temporibus numquam!
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, earum?</p>
+                </p>
+            </div>
+        </section>
+</main>

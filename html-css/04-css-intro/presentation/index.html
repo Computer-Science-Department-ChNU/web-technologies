@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <title>Лекція 4. Вступ до CSS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="../../../core/styles/styles.css">
+  <style>
+    .shower {
+      --slide-ratio: calc(16 / 9);
+    }
+  </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+  <h1>Лекція 4. Вступ до CSS</h1>
+</header>
+
+<section class="slide">
+  <h2>Лекція 4. Вступ до CSS</h2>
+  <h3>План лекції:</h3>
+  <ol>
+    <li>Універсальні атрибути</li>
+    <li>Підключення</li>
+    <li>Селектори</li>
+    <li>Пріоритетність CSS</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>CSS</h2>
+  <p>CSS (каскадні таблиці стилів) – мова, що змінює зовнішній
+    вигляд або поведінку HTML елемента</p>
+  <b>Типи стилів:</b>
+  <ul>
+    <li>Браузерний – оформлення за замовчуванням, задане
+      елементами веб-сторінки самим браузером.
+    </li>
+    <li>Авторський – стилі, додані розробником.</li>
+    <li>Користувальницький – визначення зовнішнього вигляду сайту
+      користувачем через налаштування браузера або веб-сторінки.
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Синтаксис CSS</h2>
+  <p>Структура запису стилю вказується в такий спосіб:</p>
+  <ol>
+    <li>Властивість (ключ, який аспект елемента стилізуватиметься)</li>
+    <li>Двокрапка (перехід, показує, що властивість вже вказано і надалі буде значення для
+      нього)
+    </li>
+    <li>Значення</li>
+    <li>Крапка з комою (правило стилю завершено)</li>
+  </ol>
+  <img src="images/1.png" width="300">
+</section>
+
+<section class="slide">
+  <h2>Додавання стилів на сторінку</h2>
+  <ul>
+    <li>Inline (вбудований) – підключення стилів за допомогою атрибута стиль.</li>
+    <li>Внутрішні стилі – написання глобальних стилів у тезі style</li>
+    <li>Зовнішні стилі – написання глобальних стилів в окремому файлі з
+      розширенням .css, підключається до сторінки HTML через тег link.
+    </li>
+  </ul>
+  <p>
+    Підключення та написання стилів має бути у тезі head, крім inline.
+    <br>
+    Inline краще використовувати якомога рідше!
+  </p>
+</section>
+
+<section class="slide">
+  <h2>Селектори</h2>
+  <img src="images/2.png" width="737">
+</section>
+
+<section class="slide">
+  <h2>Резюме</h2>
+  <ul>
+    <li>Універсальні атрибути - атрибути, застосування яких можливе до всіх елементів html</li>
+    <li>Підключення CSS — створення прив'язки до CSS правил у HTML елементах через
+      селектори.
+    </li>
+    <li>Пріоритет CSS – визначення важливішого запису правила стилю у разі конфлікту.</li>
+    <li>Каскад CSS – можливість застосування правил одного елементу через різні поводження з
+      однаковим пріоритетом (специфічністю). Такі правила з рівною пріоритетністю і з них
+      спрацьовує останній запис.
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Рекомендовані ресурси</h2>
+  <ul>
+    <li><a href="https://css.in.ua/css/properties" target="_blank">https://css.in.ua/css/properties</a></li>
+    <li><a href="https://html-css.co.ua/" target="_blank">https://html-css.co.ua/</a></li>
+    <li><a href="https://www.w3schools.com/css/default.asp"
+           target="_blank">https://www.w3schools.com/css/default.asp</a></li>
+    <li><a href="https://caniuse.com/" target="_blank">https://caniuse.com/</a></li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+

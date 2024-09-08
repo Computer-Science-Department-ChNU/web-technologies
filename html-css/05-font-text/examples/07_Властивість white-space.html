@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>white-space</title>
+</head>
+<body>
+    <!-- 
+         значення                | Перенесення тексту Пробіли/відступи
+         normal(за замовчуванням)| Переноситься       Не враховуються
+         nowrap                  | Не переноситься    Не враховуються
+         pre                     | Не переноситься    Враховуються
+         preline                 | Переноситься       Не враховуються
+         pre-wrap                | Переноситься       Враховуються
+    -->
+    <style>
+        div{
+            width: 200px;
+            background: lightgrey;
+            font-size: 40px;
+            white-space: normal;
+            /* white-space: normal | nowrap | pre | pre-line | pre-wrap */
+        }
+    </style>
+
+    <div>
+        Програміст
+            
+                  від         бога
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <title>Лекція 5. Робота з текстом та видимістю елементів</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="../../../core/styles/styles.css">
+  <style>
+    .shower {
+      --slide-ratio: calc(16 / 9);
+    }
+  </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+  <h1>Лекція 5. Робота з текстом та видимістю елементів</h1>
+</header>
+
+<section class="slide">
+  <h2>Лекція 5. Робота з текстом та видимістю елементів</h2>
+  <h3>План лекції:</h3>
+  <ol>
+    <li>Спадкування</li>
+    <li>Властивості тексту</li>
+    <li>Властивості видимості елементів на сторінці</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>Спадкування</h2>
+  <div style="font-size: 18px;">
+    <p>
+      Більшість css властивостей не успадковані як:
+      width,
+      height,
+      border,
+      background і т.д.
+    </p>
+    <p>
+      Як видно властивість color успадковувалося, а background - ні
+      Успадковані характеристики - це більшість тих правил,
+      які впливають поведінка тексту:
+      text-align,
+      color, font,
+      letter-spasing і т.д
+    </p>
+    <p>Наприклад тег розташований усередині. Взявши фокус на елемент div-a, що проглядається, і через інспектор в
+      панелі зі стилями можна знайти подібний запис (попередньо).</p>
+  </div>
+  <img src="images/1.png" width="800">
+</section>
+
+<section class="slide">
+  <h2>Властивості для тексту</h2>
+  <ul>
+    <li>font – універсальна властивість, що складається з властивостей, що визначають сімейство шрифту,</li>
+    <li>розмір шрифту, зображення шрифту і т.д.</li>
+    <li>text-align – горизонтальне вирівнювання тексту в межах контентної частини елемента.</li>
+    <li>text-indent – відступ першого рядка у тексті.</li>
+    <li>letter-spasing – визначає відстань між символами елемента.</li>
+    <li>word-spasing – визначає відстань між словами елемента.</li>
+    <li>text-decoration - оформлення тексту лінією.</li>
+    <li>text-transform - перетворення (трансформація) тексту в великі або великі літери.</li>
+  </ul>
+  Список css властивостей для тексту вказано не весь!
+</section>
+
+<section class="slide">
+  <h2>Властивості видимості елементів на сторінці</h2>
+  <img src="images/2.png" width="800">
+</section>
+
+<section class="slide">
+  <h2>Резюме</h2>
+  <ul>
+    <li>Спадкування в CSS - можливість використовувати стилі від батьківського елемента в
+      нащадку
+    </li>
+    <li>Прихований елемент - елемент, що займає своє місце на сторінці і візуально ховається.
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Рекомендовані ресурси</h2>
+  <ul>
+    <li><a href="https://css.in.ua/css/properties" target="_blank">https://css.in.ua/css/properties</a></li>
+    <li><a href="https://html-css.co.ua/" target="_blank">https://html-css.co.ua/</a></li>
+    <li><a href="https://www.w3schools.com/css/default.asp"
+           target="_blank">https://www.w3schools.com/css/default.asp</a></li>
+    <li><a href="https://caniuse.com/" target="_blank">https://caniuse.com/</a></li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+

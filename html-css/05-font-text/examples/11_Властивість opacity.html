@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opacity</title>
+</head>
+<body>
+	<style>
+		.container{
+			padding: 20px;
+			border: 1px solid #000;
+		}
+		.block{
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			background: blue;
+			text-align: center;
+			font-size: 30px;
+		}
+		.opacity1{
+			opacity: 1;
+		}
+		.opacity0-5{
+			opacity: 0.5;
+			opacity: .15;
+		}
+		.opacity0{
+			opacity: 0;
+		}
+	</style>
+	<div class="container">
+		<div class="block opacity1">1</div>
+		<div class="block opacity0-5">0.5</div>
+		<div class="block opacity0">
+			<div class="block opacity1">
+				1!!!!!
+			</div>
+		</div>
+		<div class="block opacity1">1</div>
+
+	</div>
+</body>
+</html>

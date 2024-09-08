@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visibility</title>
+</head>
+
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .element {
+            width: 200px;
+            height: 200px;
+            background: blue;
+            display: inline-block;
+            border: 2px solid red;
+            margin-right: 5px;
+            padding: 50px;
+        }
+
+        .block {
+            width: 100px;
+            height: 100px;
+            background: gold;
+            /* Значення якості за промовчанням
+             у більшості елементів */
+            display: block;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .display-none {
+            /*display: none;*/
+        }
+
+        .visibility-hidden {
+            /*visibility: hidden;*/
+        }
+
+        .opacity-0 {
+            /*opacity: 0;*/
+            /*opacity: 0.5;*/
+            /*opacity: .5;*/
+        }
+    </style>
+
+    <div class="container">
+        <div class="display-none element">
+            <div class="block"></div>
+        </div>
+        <!-- .display-none -->
+        <div class="visibility-hidden element">
+            <div class="block"></div>
+        </div>
+        <!-- .visibility-hidden -->
+        <div class="opacity-0 element">
+            <div class="block"></div>
+        </div>
+        <!-- .opacity-0 -->
+    </div>
+    <!-- .container -->
+</body>
+
+</html>
