@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <title>Лекція 7. Робота з відступами, властивість margin</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="../../../core/styles/styles.css">
+  <style>
+    .shower {
+      --slide-ratio: calc(16 / 9);
+    }
+  </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+  <h1>Лекція 7. Робота з відступами, властивість margin</h1>
+</header>
+
+<section class="slide">
+  <h2>Лекція 7. Робота з відступами, властивість margin</h2>
+  <h3>План лекції:</h3>
+  <ol>
+    <li>Зовнішні відступи елемента</li>
+    <li>Провалювання (схлопування)</li>
+    <li>Поведінка при змішаному типі елемента</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>Властивість margin</h2>
+  <div class="columns two" style="font-size: 18px;">
+    <div>
+      <p><b>margin</b> – зовнішні відступи елемента, з усіх чотирьох сторін.</p>
+      <p>Також можна прописати лише конкретну сторону відступу:</p>
+      <ul>
+        <li><b>margin-top</b> – верхній відступ</li>
+        <li><b>margin-right</b> – відступ справа</li>
+        <li><b>margin-bottom</b> – нижній відступ</li>
+        <li><b>margin-left</b> – відступ з лівої сторони</li>
+      </ul>
+      <p>Кожну сторону можна задати за скороченим записом margin!
+        Принцип за годинниковою стрілкою -
+        { margin: 20px 30px 40px 50px; }</p>
+    </div>
+    <div>
+      <img src="images/1.png" width="298">
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <h2>margin: auto;</h2>
+  <p>Значення auto визначає
+    автоматичний відступ
+    обчислюваний браузером</p>
+  <div class="columns two">
+    <img src="images/2.png" width="300">
+    <img src="images/3.png" width="300">
+  </div>
+</section>
+
+<section class="slide">
+  <h2>Механіка margin</h2>
+  <p>Значення <b>auto</b> за замовчуванням не працює вертикальною віссю.</p>
+  <p>Дочірній елемент відштовхується від батьківського верхнього та нижнього
+    краю лише за наявності <b>padding</b> чи <b>border</b> властивості не зі значенням <b>0</b>!</p>
+  <p>Відступи не підсумовуються по вертикалі.</p>
+  <p>По горизонталі відступи підсумовуються.</p>
+</section>
+
+
+<section class="slide">
+  <h2>Резюме</h2>
+  <ul>
+    <li>Спадкування в CSS - можливість використовувати стилі від батьківського елемента в
+      нащадку
+    </li>
+    <li>Прихований елемент - елемент, що займає своє місце на сторінці і візуально ховається.
+    </li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Рекомендовані ресурси</h2>
+  <ul>
+    <li><a href="https://css.in.ua/css/properties" target="_blank">https://css.in.ua/css/properties</a></li>
+    <li><a href="https://html-css.co.ua/" target="_blank">https://html-css.co.ua/</a></li>
+    <li><a href="https://www.w3schools.com/css/default.asp"
+           target="_blank">https://www.w3schools.com/css/default.asp</a></li>
+    <li><a href="https://caniuse.com/" target="_blank">https://caniuse.com/</a></li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+
