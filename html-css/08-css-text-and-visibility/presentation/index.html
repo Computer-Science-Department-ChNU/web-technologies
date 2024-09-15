@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <title>Лекція 8. Робота з текстом та видимістю елементів</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="stylesheet" href="../../../core/styles/styles.css">
+  <style>
+    .shower {
+      --slide-ratio: calc(16 / 9);
+    }
+  </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+  <h1>Лекція 8. Робота з текстом та видимістю елементів</h1>
+</header>
+
+<section class="slide">
+  <h2>Лекція 8. Робота з текстом та видимістю елементів</h2>
+  <h3>План лекції:</h3>
+  <ol>
+    <li>Спадкування в CSS</li>
+    <li>Властивості для тексту</li>
+    <li>Властивості видимості елементів на сторінці</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <h2>Вступ</h2>
+  <p>
+    На лекції ви познайомитеся з різними правилами CSS для стилізації тексту, і як працює
+    успадкування стилів для елементів нащадків. Як можна приховувати елементи розмітки на
+    сторінці та у чому різниця між різними.
+  </p>
+  <b>Вивчивши матеріал даного лекційного заняття, студент зможе:</b>
+  <ul>
+    <li>Надавати стилі для тексту елемента на власний розсуд.</li>
+    <li>Розуміти, як працює спадковість стилів у html.</li>
+    <li>Сховати і робити прозоріші елементи.</li>
+    <li>Розрізняти у чому різниця роботи властивостей, які приховують елементи.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Спадкування в CSS</h2>
+  <div style="font-size: 17px;">
+    <p><b>Спадкування</b> – застосування стилів до елемента та його нащадків, які вкладені у ньому.</p>
+    <p>Більшість css властивостей <b>неуспадковані</b> як: width, height, border, background і т.д</p>
+    <p><b>Успадковані</b> характеристики - це більшість тих правил,
+      які впливають поведінка тексту: text-align, color, font, letter-spasing і т.д</p>
+    <p>Наприклад тег розташований усередині. Взявши фокус на елемент div-a, що проглядається, і через інспектор в
+      панелі зі стилями можна знайти подібний запис (попередньо). Як видно властивість color успадковувалося, а
+      background
+      - ні
+    </p>
+  </div>
+  <img src="images/1.png" width="300">
+</section>
+
+<section class="slide">
+  <h2>Властивості для тексту</h2>
+  <ul>
+    <li><b>font</b> – універсальна властивість, що складається з властивостей, що визначають сімейство шрифту,
+      розмір шрифту, зображення шрифту і т.д.
+    </li>
+    <li><b>text-align</b> – горизонтальне вирівнювання тексту в межах контентної частини елемента.</li>
+    <li><b>text-indent</b> – відступ першого рядка у тексті.</li>
+    <li><b>letter-spacing</b> – визначає відстань між символами елемента.</li>
+    <li><b>word-spacing</b> – визначає відстань між словами елемента.</li>
+    <li><b>text-decoration</b> - оформлення тексту лінією.</li>
+    <li><b>text-transform</b> - перетворення (трансформація) тексту в великі або великі літери.</li>
+  </ul>
+  <b style="color: #cc0000"> Список css властивостей для тексту вказано не весь!
+  </b>
+</section>
+
+<section class="slide">
+  <h2>Властивості видимості елементів на сторінці</h2>
+  <img src="images/2.png" width="800">
+</section>
+
+<section class="slide">
+  <h2>Резюме</h2>
+  <ul>
+    <li>Спадкування в CSS - можливість використовувати стилі від батьківського елемента в нащадку</li>
+    <li>Прихований елемент - елемент, що займає своє місце на сторінці і візуально ховається.</li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2>Рекомендовані ресурси</h2>
+  <ul>
+    <li><a href="https://html-css.co.ua/self-css/spadkuvannya/" target="_blank">https://html-css.co.ua/self-css/spadkuvannya/</a>
+    </li>
+    <li><a href="https://html-css.co.ua/dovidnuk-css-atrubytiv/" target="_blank">Довідник CSS атрибутів</a></li>
+    <li><a href="https://www.w3schools.com/css/default.asp"
+           target="_blank">CSS Tutorial</a></li>
+    <li><a href="https://caniuse.com/" target="_blank">https://caniuse.com/</a></li>
+  </ul>
+</section>
+
+<section class="slide">
+  <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+
