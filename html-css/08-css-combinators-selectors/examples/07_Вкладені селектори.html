@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вкладені селектори</title>
+    <style>
+        /* Вкладені селектори дозволяють задавати стилі елементам, що знаходяться у певному контексті.*/
+        .menu a {
+            color: red;
+        }
+
+        .list li a {
+            background: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+     <br>
+     <ul class="menu">
+         <li>
+             <a href="#">Пункт 1</a>
+         </li>
+         <li><a href="#">Пункт 2</a></li>
+         <li><a href="#">Пункт 3</a></li>
+         <li><a href="#">Пункт 4</a></li>
+     </ul>
+     <hr>
+     <ul class="list">
+         <div>
+             <a href="#">Посилання меню 1</a>
+         </div>
+         <li><a href="#">Посилання меню 2</a></li>
+         <li><a href="#">Посилання меню 3</a></li>
+         <li><a href="#">Посилання меню 4</a></li>
+     </ul>
+     <a href="#">Посилання в тілі документа</a>
+</body>
+</body>
+
+</html>

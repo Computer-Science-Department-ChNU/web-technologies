@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Комбінатори</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style>
+        span {
+            padding: 2px 10px;
+            border-radius: 15px;
+        }
+
+        .blue {
+            color: #fff;
+            border: 1px solid blue;
+            background: blue;
+        }
+
+        .red {
+            color: #fff;
+            border: 1px solid red;
+            background: red;
+        }
+
+        .green {
+            color: #fff;
+            border: 1px solid green;
+            background: green;
+        }
+
+        input {
+            display: none;
+        }
+
+        label {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        #red ~ label[for="red"] {
+            color: red;
+        }
+
+        #red:checked ~ .red {
+            display: none;
+        }
+
+        #red:checked ~ label[for="red"] {
+            color: red;
+            opacity: 0.5;
+        }
+
+        #green ~ label[for="green"] {
+            color: green;
+        }
+
+        #green:checked ~ .green {
+            display: none;
+        }
+
+        #green:checked ~ label[for="green"] {
+            color: green;
+            opacity: 0.5;
+        }
+
+        #blue ~ label[for="blue"] {
+            color: blue;
+        }
+
+        #blue:checked ~ .blue {
+            display: none;
+        }
+
+        #blue:checked ~ label[for="blue"] {
+            color: blue;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <input type="checkbox" id="red">
+    <input type="checkbox" id="green">
+    <input type="checkbox" id="blue">
+    <label for="red">червоні</label>
+    <label for="green">зелені</label>
+    <label for="blue">сині</label>
+    <span class="red">червоні</span>
+    <span class="green">зелені</span>
+    <span class="green">зелені</span>
+    <span class="red">червоні</span>
+    <span class="blue">сині</span>
+    <span class="green">зелені</span>
+    <span class="red">червоні</span>
+    <span class="blue">сині</span>
+    <span class="red">червоні</span>
+    <span class="green">зелені</span>
+    <span class="blue">сині</span>
+</div>
+</body>
+</html>

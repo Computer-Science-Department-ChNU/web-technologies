@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nth-child</title>
+    <style>
+        p {
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        /* отримати п'ятий елемент */
+        p:nth-child(5) {
+            background-color: red;
+        }
+
+        /*
+           n – лічильник, який постійно збільшується на 1, починаючи зі значення 0.
+             3 * 0 + 1 = 1
+             3 * 1 + 1 = 4
+             3 * 2 + 1 = 7
+             3 * 3 + 1 = 10
+             правило використовується для елементів із порядковим номером 1, 4, 7, 10
+        */
+        p:nth-child(3n+1) {
+            background-color: yellow;
+        }
+
+        /* 2, 5, 8*/
+        p:nth-child(4n+2) {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        Параграф 1
+    </p>
+    <p>
+        Параграф 2
+    </p>
+    <p>
+        Параграф 3
+    </p>
+    <p>
+        Параграф 4
+    </p>
+    <p>
+        Параграф 5
+    </p>
+    <p>
+        Параграф 6
+    </p>
+    <p>
+        Параграф 7
+    </p>
+    <p>
+        Параграф 8
+    </p>
+    <p>
+        Параграф 9
+    </p>
+    <p>
+        Параграф 10
+    </p>
+</body>
+
+</html>

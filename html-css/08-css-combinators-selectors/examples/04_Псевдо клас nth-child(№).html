@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* https://html-css.co.ua/css/psevdoklas-nth-child/  */
+
+        p {
+            border-radius: 5px;
+            padding: 5px;
+            background: black;
+        }
+
+        /* Псевдоклас :nth-child використовується для додавання стилю елементів на основі нумерації в дереві елементів. CSS3. */
+
+        /* усі непарні параграфи */
+        p:nth-child(odd) {
+            background-color: lightgreen;
+        }
+
+        /* усі парні параграфи */
+        p:nth-child(even) {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Заголовок</h1>
+    <p>0 Параграф</p>
+    <p>1 Параграф</p>
+    <!-- <span>Будь-який інший тег</span> -->
+    <p>2 Параграф</p>
+    <p>3 Параграф</p>
+    <p>4 Параграф</p>
+    <p>5 Параграф</p>
+</body>
+
+</html>

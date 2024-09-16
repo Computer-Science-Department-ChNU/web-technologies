@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пріоритетність</title>
+</head>
+<body>
+    <style>
+
+        /* Пріоритетність 10 */
+        .text{
+            color: red;
+        }
+        /* Пріоритетність 2 */
+        h1 span{
+            color: green;
+        }
+    </style>
+    <h1>
+        <span class="text">
+            Текст
+        </span> 
+        заголовка!
+    </h1>
+    <hr>
+    <style>
+        /* Пріоритетність 10 + 1 = 11 */
+        .description b{
+            color: gold;
+            font-size: 30px;
+        }
+        /* Пріоритетність 10 */
+        .bold{
+            color: blue;
+        }
+    </style>
+    
+    <p class="description">
+        <b class="bold">
+            Текст
+        </b> 
+        параграфа!
+    </p>
+</body>
+</html>

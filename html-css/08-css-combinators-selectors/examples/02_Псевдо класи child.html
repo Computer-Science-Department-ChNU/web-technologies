@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         /* https://html-css.co.ua/css/psevdoklas-first-child/  */
+         /* https://html-css.co.ua/css/psevdoklas-last-child/  */
+        body{
+            border-left: 2px solid green;
+            padding-left: 15px;
+        }
+        /* Псевдоклас: first-child встановлює стильове оформлення до першого дочірнього елемента свого батька.  */
+        p:first-child{
+            background-color: gold;
+        }
+
+        /* Псевдоклас:last-child встановлює стильове оформлення до останнього дочірнього елемента свого батька. CSS3. */
+        p:last-child {
+            background-color: red;
+        }
+        div{
+            border-left: 2px solid black;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p>Перший пункт у тезі body.</p> <!-- first-child -->
+    <p>Другий пункт у тезі body.</p>
+    <div>
+        <!-- <span>Перший SPAN</span> -->
+        <p>Перший параграф вкладений у div.</p> <!-- first-child -->
+        <p>Другий параграф вкладений у div.</p>
+        <p>Третій параграф вкладений у div.</p>
+        <p>Четвертий параграф вкладений у div.</p> <!-- last-child -->
+    </div>
+    <p>Параграф, розміщений у тезі body.</p> <!-- last-child -->
+</body>
+</html>

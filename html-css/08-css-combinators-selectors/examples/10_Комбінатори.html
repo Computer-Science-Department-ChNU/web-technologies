@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    /*обираються всі елементи <p> всередині <div> елементів*/
+    div p {
+        background-color: yellow;
+    }
+
+    /*обираються всі елементи <p>, які є дочірніми для елемента <div>*/
+    div > p {
+        background-color: yellow;
+    }
+
+    /*обирається перший елемент <p>, який розміщується відразу після елемента <div>*/
+    div + p {
+        background-color: yellow;
+    }
+
+    /*В наступному прикладі обираються всі елементи <p>, які є родичами елемента <div>*/
+    div ~ p {
+        background-color: yellow;
+    }
+</style>
+
+
+</body>
+</html>
