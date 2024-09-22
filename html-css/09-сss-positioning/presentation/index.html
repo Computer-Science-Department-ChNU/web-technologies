@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Лекція 10. Позиціювання</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Лекція 10. Позиціювання</h1>
+</header>
+
+<section class="slide">
+    <h2>Лекція 10. Позиціювання</h2>
+    <div class="columns two">
+        <div>
+            <h3>План лекції:</h3>
+            <ol>
+                <li>position</li>
+                <li>z-index</li>
+                <li>overflow</li>
+                <li>visibility</li>
+            </ol>
+        </div>
+        <img src="images/css.gif" width="100%">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>position</h2>
+    <p>Властивість <b>position</b> визначає <b>тип</b> позиціювання відносно вікна браузера або інших елементів
+        (Приклади у директорії examples!): </p>
+    <ul>
+        <li>static</li>
+        <li>relative</li>
+        <li>absolute</li>
+        <li>fixed</li>
+        <li>sticky</li>
+        <li>initial</li>
+        <li>inherit</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>fixed vs sticky</h2>
+    <p>
+        <b>CSS position: sticky </b>ідеально підходить, коли ви хочете, щоб елемент був тимчасово закріплений у
+        контейнері, але
+        при цьому залишався частиною потоку документа. Це корисно, коли ви хочете, щоб хедер, бічна панель або інший
+        елемент із закликом до дії (Call to action - CTA) залишався видимим під час прокрутки, але не обов'язково
+        фіксувався на всьому
+        полі перегляду.
+    </p>
+    <p>
+        <b>CSS position: fixed</b> можна використовувати в таких випадках, коли елемент потрібно зафіксувати відносно
+        області перегляду, незалежно від прокрутки його батьківського контейнера. Він ідеально підходить для таких
+        елементів, як панелі навігації, які ви хочете бачити завжди, незалежно від того, як сильно користувач прокручує
+        сторінку. І коли на елемент не має впливати на прокрутку батьківського контейнера.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>z-index</h2>
+    <p>Властивість z-index визначає порядок стека елемента.
+        Іншими словами, ми можемо розмістити елемент на сторінці вище іншого елементу або перед ним.</p>
+    <p>
+        Будь-які позиційовані елементи на веб-сторінці накладаються один на одного в певному порядку, імітуючи тим самим
+        невидимий третій вимір, котрий перпендикулярний екрану. Кожен елемент може перебувати в цьому стеку, як нижче,
+        так і вище інших об'єктів на веб-сторінці.
+    </p>
+    <p>Ця властивість працює тільки для елементів, у яких значення положення задано як absolute, relative або fixed
+        (position:absolute, position:relative, position:fixed).
+    </p>
+</section>
+
+<section class="slide">
+    <h2>overflow</h2>
+    <p>Властивість <b>overflow</b> вказує, що зробити для переповненого елемента. <br><b>overflow</b>:
+        visible|hidden|scroll|auto|initial|inherit;</p>
+    <ul>
+        <li>Обрізати вміст, що поза межами елемента, без можливості його перегляду.</li>
+        <li>Відобразити вміст, що поза межами елемента.</li>
+        <li>Обрізати вміст, що поза межами елемента та для можливості перегляду обрізаного тексту, відобразити смуги
+            прокрутки.
+        </li>
+    </ul>
+    <p></p>
+    <p style="font-size: 15px;">
+        <b>hidden</b> - Контент обрізається, без надання прокрутки.
+        <br>
+        <b>scroll</b> - вміст обрізається і браузер використовує елементи прокрутки, не має значення чи було обрізано
+        вміст чи
+        ні.
+        Це уникає
+        багатьох проблем щодо появи прокручувань і їх зникнення в динамічному середовищі. Принтери можуть друкувати
+        переповнене вміст.
+        <br>
+        <b>auto</b> - смуги прокручування з'являються, тільки при необхідності
+    </p>
+</section>
+
+<section class="slide">
+    <h2>visibility (гра в хованки)</h2>
+    <p>Властивість <b>visibility</b> визначає, чи буде елемент приховано. Властивість призначена для відображення або
+        приховування елемента, включаючи рамку навколо нього і фон. Під час приховування елементу, хоча він і стає
+        прихованим, місце, яке він займає, залишається за ним. Якщо передбачається вивід різних елементів в одне і те ж
+        місце екрану, для обходу цієї особливості слід використовувати абсолютне позиціювання або скористатися
+        властивістю display.</p>
+    <p>visibility: visible|hidden|collapse|initial|inherit;</p>
+</section>
+
+<section class="slide">
+    <h2>Нагадування!</h2>
+    <img src="images/dont.png" alt="" width="500" style="display: block; margin: 0 auto">
+</section>
+
+<section class="slide">
+    <h2>Практика (sub menu, price card) absolute + relative</h2>
+    <img src="images/task-3.png" alt="" width="800">
+    <br>
+    <img src="images/task-4.png" alt="" width="300">
+</section>
+
+<section class="slide">
+    <h2>Практика tooltips (absolute + relative)</h2>
+    <img src="images/task-5.png" alt="" width="300">
+</section>
+
+<section class="slide">
+    <h2>Практика (sticky header) sticky</h2>
+    <img src="images/task-1.png" alt="" width="800">
+</section>
+
+<section class="slide">
+    <h2>Практика (sticky sidebar) sticky</h2>
+    <div class="columns two">
+        <img src="images/task-2.1.png" alt="" width="100%">
+        <img src="images/task-2.2.png" alt="" width="100%">
+    </div>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+

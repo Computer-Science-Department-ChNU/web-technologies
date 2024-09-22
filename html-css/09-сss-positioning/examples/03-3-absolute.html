@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-size: 24px;
+        }
+
+        .holder {
+            position: relative;
+            height: 150px;
+            padding: 20px;
+            background: #eec;
+            border: 10px solid #009;
+        }
+
+        .position {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: red;
+            /*
+                тепер магія:
+                додамо до цього auto відступи
+            */
+            -margin: auto 0;
+
+            right: 0;
+            bottom: 0;
+            left: 0;
+            top: 0;
+            -top: 0;
+            /* спробувати забрати width та height */
+        }
+    </style>
+</head>
+<body>
+<div class="holder">
+    <div class="position">ABS</div>
+</div>
+</body>
+</html>

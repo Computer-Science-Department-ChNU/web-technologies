@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Палітра кольорів</title>
+    </head>
+    <body>
+        <style>
+            div{
+                width: 250px;
+                height: 250px;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 40px;
+                text-align: center;
+            }
+            .hex {
+                background-color: #091101;
+                color: #ffffff;
+            }
+
+            .rgb {
+                background-color: rgb(125, 125, 125);
+                color: #fff;
+            }
+
+            .rgba {
+                background-color: rgba(125, 125, 125, 0.25);
+                color: #000;
+            }
+
+            .hsl {
+                background-color: hsl(288, 57%, 80%);
+            }
+
+            .hsla {
+                background-color: hsl(360, 70%, 33%);
+            }
+        </style>
+
+        <div class="hex">hex</div>
+
+        <div class="rgb">rgb <br> (Red, Green, Blue)</div>
+
+        <div class="rgba">rgba</div>
+
+        <div class="hsl">hsl <br> (Hue, Saturation, Lightness)</div>
+
+        <div class="hsla">hsla</div>
+    </body>
+</html>

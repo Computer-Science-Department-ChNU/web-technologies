@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .parent {
+            font-size: 34px;
+            border: 1px solid #000;
+            background: #eef;
+            height: 400px;
+            width: 500px;
+            margin: 20px
+        }
+
+        .child {
+            border: 1px dotted #a00;
+        }
+
+        .rel {
+            position: relative;
+
+            left: 20px;
+            /* блок зміщується і якщо був 100% починає випирати*/
+            -right: 20px;
+            /* відносно місця в потоці */
+            -top: 20px;
+            /* відносної висоти батьківського елементу */
+            -top: 50%;
+            /* низ не працює */
+            -bottom: 0;
+            /* відступи при цьому теж чудово працюють */
+            -margin: 20px;
+
+            background: #ee5;
+            border: 1px dashed #a00;
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="child">Some div1 child</div>
+    <div class="rel">Some div2 child and relative</div>
+    <div class="child">Some div3 child</div>
+</div>
+</body>
+</html>

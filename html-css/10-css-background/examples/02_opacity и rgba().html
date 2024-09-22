@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Різниця між opacity и rgba()</title>
+</head>
+<body>
+    <style>
+		.blocks .block1,
+		.blocks .block2{
+			width: 200px;
+			height: 200px;
+			display: inline-block;
+			margin-right: 10px;
+			padding: 20px;
+			color: #000;
+		}
+        .mini-block{
+			width: 50px;
+			height: 50px;
+			background-color: red;
+		}
+		.block1{
+			/* Написано просто background! */
+			background: rgb(35, 180, 35);
+			opacity: .5;
+			/*opacity: 1;*/
+		}
+		.block2{
+			/* Написано background-color! */
+			background-color: rgba(35, 180, 35, .5);
+			/*background-color: rgba(35, 180, 35, 1);*/
+		}
+	</style>
+	<div class="container blocks">
+		<div class="block1">Opacity
+			<div class="mini-block"></div>
+		</div>
+		<div class="block2">RGBA
+			<div class="mini-block"></div>
+		</div>
+	</div>
+</body>
+</html>

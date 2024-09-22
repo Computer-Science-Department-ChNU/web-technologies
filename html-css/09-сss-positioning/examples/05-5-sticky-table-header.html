@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .table-header-sticky {
+            position: sticky;
+            top: 0;
+        }
+
+        select,
+        button {
+            display: block;
+            width: 100%;
+            font-family: inherit;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            padding: 2rem;
+            display: grid;
+            place-content: center;
+            background-color: #c9c9c9;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: clamp(32px, 3vw, 52px);
+            margin: 0 0 2rem 0;
+        }
+
+        .table {
+            width: 100%;
+            max-width: 1200px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-weight: 400;
+            background-color: #fdfdfd;
+        }
+
+        th,
+        tr {
+            font-weight: inherit;
+        }
+
+        .table-header .table-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            width: 100%;
+        }
+
+        .table-header button {
+            background-color: #bd4c00;
+            border: none;
+            outline: none;
+            color: #f2f2f2;
+            cursor: pointer;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        .table-header a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .table-header a:visited,
+        .table-header a:active {
+            color: #f2f2f2;
+        }
+
+        .table-header button:focus {
+            outline: 2px solid #1d1d1d;
+        }
+
+        .table-header .table-row .table-cell {
+            padding: 1rem;
+            border: 1px solid #dddddd;
+            display: grid;
+            grid-template-rows: repeat(5, minmax(50px, auto));
+            gap: 5px;
+            background-color: #f2f2f2;
+        }
+
+        .table-body .table-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .table-body .table-row .table-cell {
+            border: 1px solid #dddddd;
+            padding: 1.2rem;
+            font-size: 14px;
+        }
+
+        .fa-check {
+            color: #0ab40a;
+            font-size: 1.3rem;
+        }
+
+        select {
+            padding: 5px;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Sticky Table Header Example</h1>
+<table class="table">
+    <thead class="table-header table-header-sticky">
+    <tr class="table-row">
+        <th class="table-cell" scope="col">
+            <p class="title">Compare All Features</p>
+        </th>
+
+        <th class="table-cell" scope="col">
+            <p class="title">Live</p>
+            <h2 class="pricing">₹499</h2>
+            <p class="info">Per month billed annually</p>
+            <select title="concurrency dropdown" class="custom-select">
+                <option>1 Parallel Test</option>
+                <option>2 Parallel Test</option>
+                <option>3 Parallel Test</option>
+                <option>4 Parallel Test</option>
+                <option>5 Parallel Test</option>
+                <option>6 Parallel Test</option>
+                <option>7 Parallel Test</option>
+                <option>8 Parallel Test</option>
+                <option>9 Parallel Test</option>
+                <option>10 Parallel Test</option>
+                <option>15 Parallel Test</option>
+                <option>20 Parallel Test</option>
+                <option>25 Parallel Test</option>
+                <option>> 25 Parallel Test</option>
+            </select>
+            <button>
+                <a href="https://billing.lambdatest.com/billing/plans">Buy Now</a>
+            </button>
+        </th>
+
+        <th class="table-cell" scope="col">
+            <p class="title">Real Device</p>
+            <h2 class="pricing">₹2,000</h2>
+            <p class="info">Per month billed annually</p>
+            <select title="concurrency dropdown" class="custom-select">
+                <option>1 Parallel Test</option>
+                <option>2 Parallel Test</option>
+                <option>3 Parallel Test</option>
+                <option>4 Parallel Test</option>
+                <option>5 Parallel Test</option>
+                <option>6 Parallel Test</option>
+                <option>7 Parallel Test</option>
+                <option>8 Parallel Test</option>
+                <option>9 Parallel Test</option>
+                <option>10 Parallel Test</option>
+                <option>15 Parallel Test</option>
+                <option>20 Parallel Test</option>
+                <option>25 Parallel Test</option>
+                <option>> 25 Parallel Test</option>
+            </select>
+            <button>
+                <a href="https://billing.lambdatest.com/billing/plans">Buy Now</a>
+            </button>
+        </th>
+
+        <th class="table-cell" scope="col">
+            <p class="title">Enterprise</p>
+            <span class="special-info">With LambdaTest Enterprise, your organization has access to
+          solutions built on Enterprise Grade Security, Privacy, and
+          Compliances</span>
+            <p>ㅤ</p>
+            <span>25+ Parallel Tests</span>
+            <button>
+                <a href="https://billing.lambdatest.com/billing/plans">Contact Sales</a>
+            </button>
+        </th>
+    </tr>
+    </thead>
+
+    <tbody class="table-body">
+    <tr class="table-row">
+        <td class="table-cell">Live Interactive testing time</td>
+        <td class="table-cell">Unlimited</td>
+        <td class="table-cell">Unlimited</td>
+        <td class="table-cell">Unlimited</td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Screenshot testing time</td>
+        <td class="table-cell">Unlimited</td>
+        <td class="table-cell">Unlimited</td>
+        <td class="table-cell">Unlimited</td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Responsive testing time</td>
+        <td class="table-cell">Unlimited</td>
+        <td class="table-cell">Unlimited</td>
+        <td class="table-cell">Unlimited</td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Emulators and Simulators</td>
+        <td class="table-cell">Unlimited</td>
+        <td class="table-cell">Unlimited</td>
+        <td class="table-cell">Unlimited</td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Access to 3000+ browsers & OS</td>
+        <td class="table-cell">Unlimited</td>
+        <td class="table-cell">Unlimited</td>
+        <td class="table-cell">Unlimited</td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Real mobile devices</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">Unlimited</td>
+        <td class="table-cell">Unlimited</td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">WCAG Compliant Accessibility Testing</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">
+            Network Throttling For Real World Test Scenarios
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">IP-based Geolocation Testing</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">GPS-based Geolocation Testing</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Automated Screenshot Testing</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">24x7 Support</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Premium support options</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Dedicated Solutions Engineer</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Dedicated Customer Success Manager</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Private Slack Channel</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Dedicated Training and Onboarding</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">
+            Localhost, Staging, and Private website testing
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Advanced Local Testing</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">✖️</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Browser’s Native Developer Tools</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+
+    <tr class="table-row">
+        <td class="table-cell">Proprietary Mobile DevTools</td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+        <td class="table-cell">
+            <i class="fa fa-check" aria-hidden="true"></i>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>

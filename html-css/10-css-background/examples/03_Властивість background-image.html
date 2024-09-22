@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Властивість background-image</title>
+    <style>
+        div {
+            width: 40px;
+            border: 2px solid gray;
+            /* Якщо висоти немає, зображення не видно! */
+            height: 40px;
+            /* Зображення відображається також із наявністю внутрішніх
+             відступів елемента!  */
+            padding: 30px;
+            /* Властивість background-image дозволяє задати
+             фонове зображення для елемента. */
+            background-image: url(img/mini.png);
+            background-image: url('img/mini.png');
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- Вміст елемента DIV -->
+    </div>
+</body>
+</html>

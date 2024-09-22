@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            min-height: 300vh;
+            font-family: Inter, Arial, sans-serif;
+            background-color: #eef5ff;
+            color: #4a4a4a;
+            font-size: 16px;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+
+
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            padding: 0 20px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navigation-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 0 40px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navigation,
+        .navigation-list {
+            display: flex;
+        }
+
+        .navigation {
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .navigation-list li {
+            list-style: none;
+        }
+
+        .navigation-list > li > a {
+            padding: 10px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .navigation-buttons {
+            justify-self: end;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 26px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            border-radius: 0.25rem;
+            color: inherit;
+            outline: none;
+        }
+
+        .btn.border {
+            border: 2px solid #111;
+        }
+
+        .btn.solid {
+            background-color: #111;
+            border: 2px solid #111;
+            color: #ffffff;
+        }
+
+        .btn.border:hover {
+            background-color: #e2e2e2;
+        }
+
+        .btn.solid:hover {
+            background-color: transparent;
+            color: #111;
+        }
+
+        .burger-menu {
+            display: none;
+        }
+
+        .hero {
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .info {
+            max-width: 900px;
+            margin: 2rem auto;
+        }
+
+        .info h1 {
+            font-size: clamp(28px, 6vw, 52px);
+            color: #333333;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .info p {
+            font-size: 1rem;
+            max-width: 600px;
+            margin: auto auto 2rem;
+            line-height: 1.6;
+        }
+
+        .info .cta-buttons .btn {
+            padding: 14px 26px;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <nav class="navigation-container">
+        <div class="navigation">
+            <div class="logo">
+                <a href="/">
+                    <img
+                        src="/"
+                        alt="logo"
+                    />
+                </a>
+            </div>
+
+            <ul class="navigation-list">
+                <li><a href="/">Platform</a></li>
+                <li>
+                    <a
+                        href="/"
+                    >Enterprise</a
+                    >
+                </li>
+                <li><a href="/">Resources</a></li>
+                <li>
+                    <a
+                        href="/"
+                    >Developers</a
+                    >
+                </li>
+                <li><a href="/">Pricing</a></li>
+            </ul>
+        </div>
+
+        <div class="navigation-buttons">
+            <a class="btn login">Login</a>
+            <a class="btn demo border">Book a Demo</a>
+            <a class="btn signup solid">Sign Up</a>
+        </div>
+    </nav>
+</header>
+
+<main class="hero">
+    <div class="info">
+        <h1>Accelerate Delivery With Mobile App Testing Cloud</h1>
+        <p>
+            Test your native mobile applications using LambdaTest’s online real
+            device cloud and virtual testing platform of emulators and simulators.
+            Reduce costs by completely eliminating your in-house device lab.
+        </p>
+        <div class="cta-buttons">
+            <a href="/" class="btn solid"
+            >Start Free Testing</a>
+            <a class="btn border">Book a Demo</a>
+        </div>
+    </div>
+</main>
+</body>

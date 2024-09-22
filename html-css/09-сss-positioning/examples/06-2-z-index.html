@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .green,
+        .gray,
+        .red,
+        .blue {
+            position: relative;
+            z-index: 1;
+            width: 200px;
+            height: 200px;
+
+            background: #ccc;
+        }
+
+        .blue {
+            left: 40px;
+            top: -40px;
+            background: blue;
+        }
+
+        /* навіть зі 100 я не можу перекрити блок blue поза батька з 1 */
+        .green {
+            z-index: 100;
+            left: 50px;
+            top: 50px;
+            background: green;
+        }
+
+        .red {
+            z-index: 101;
+            left: 90px;
+            top: 90px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div class="gray">
+    <div class="green"></div>
+    <div class="red"></div>
+</div>
+<div class="blue"></div>
+</body>
+</html>

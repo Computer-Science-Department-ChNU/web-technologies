@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            color: #fff;
+            font-family: Arial, serif;
+            font-weight: bold;
+            font-size: 40px;
+        }
+
+        .main-container {
+            max-width: 600px;
+            margin: 40px auto 0;
+            border: solid 10px green;
+            padding: 10px;
+
+            /* не працює, будьте уважні! */
+            -overflow: hidden;
+        }
+
+        .main-container * {
+            padding: 10px;
+            background: #aaa;
+            border: dashed 5px #000;
+        }
+
+        .main-container * + * {
+            margin-top: 20px;
+        }
+
+        .main-header {
+            height: 50px;
+            background: #aaa;
+            border-color: red;
+        }
+
+        .main-content {
+            min-height: 1000px;
+        }
+
+        .main-header {
+            position: sticky;
+            top: 0;
+        }
+
+        /*
+        .main-footer {
+            position: sticky;
+            bottom: 0;
+        }
+         */
+    </style>
+</head>
+<body>
+<main class="main-container">
+    <header class="main-header">App header</header>
+    <div class="main-content">App content</div>
+    <footer class="main-footer">App footer</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .parent {
+            font-size: 34px;
+            border: 1px solid #000;
+            background: #eef;
+            height: 400px;
+            width: 500px;
+            margin: 20px;
+            /* спробувати додати */
+            -position: relative;
+        }
+
+        .child {
+            position: static;
+            top: 30px;
+            border: 1px dotted #a00;
+        }
+
+        .abs {
+            position: absolute;
+            /* випадає з потоку */
+            left: 10px;
+            -right: 20px;
+            -top: 20px;
+            -top: 10%;
+            -bottom: 0;
+
+            /* відступи при цьому теж чудово працюють */
+            -margin: 20px 0 0 0;
+
+            background: #ee5;
+            border: 1px dashed #a00;
+        }
+    </style>
+</head>
+<body>
+<h1>
+    Видаляє елемент з загального потоку (місце, що звільнив елемент заповнюється іншими елементами) і вставляється
+    відносно свого батьківського, не статично позиційованого елемента, якщо такого елемента немає, то їм вважається
+    вікно браузера (При цьому ширина елемента, без задання, встановлюється за його вмістом). Нове місце розраховується
+    за допомогою властивостей left, top, right та bottom.
+    <br>
+    На положення впливає значення властивості position батьківського елемента. Так, якщо у батька значення position
+    встановлено як static або батька немає, то відлік координат ведеться від краю вікна браузера.
+</h1>
+<div class="parent">
+    <div class="child">Some div1 child</div>
+    <div class="child ">Some div2 child</div>
+    <!--    <div class="child abs">Some div2 child</div>-->
+    <div class="child">Some div3 child</div>
+</div>
+</body>
+</html>

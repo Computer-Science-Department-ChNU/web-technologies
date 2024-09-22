@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div {
+            width: 200px;
+            height: 200px;
+
+            background: #ccc;
+        }
+
+        div img {
+            /*
+                задається для елементів з у яких задано position
+            */
+            position: relative;
+            left: 80px;
+            /* спробувати змінити */
+            z-index: -4;
+        }
+    </style>
+</head>
+<body>
+<div class="div"><img src="../presentation/images/task-1.png" alt="" width="300"></div>
+</body>
+</html>

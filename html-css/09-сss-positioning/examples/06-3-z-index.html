@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .page,
+        .page:after {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            padding: 10px 10px 40px 10px;
+            margin: 40px;
+            background: #eee;
+            border: 1px solid #8f8f8f;
+        }
+
+        .page:after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            z-index: -1;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<h1>
+    Псевдоелементи — це селектори CSS, які використовуються для вставок, що містяться,
+    <br>
+    яких немає у вихідному коді, їх використовують для стилізації визначеної частини
+    обраного елемента.
+    <br>
+    ::before, ::after, ::placeholder, ::first-letter.
+</h1>
+<div class="page">
+    сторінка
+</div>
+</body>
+</html>

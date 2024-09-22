@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background-clip</title>
+</head>
+
+<body>
+    <style>
+        .box {
+            width: 400px;
+            height: 200px;
+            border: 20px dashed blue;
+            padding: 40px;
+            background: grey;
+            /* Визначає виведення фону в межах елемента*/
+            background-clip: content-box;
+            /*
+                 border-box - під межами,
+                 padding-box - усередині кордонів,
+                 content-box - усередині контенту
+             */
+            background-image: url(img/HTML5.png);
+        }
+    </style>
+
+    <div class="box">
+
+    </div>
+</body>
+
+</html>

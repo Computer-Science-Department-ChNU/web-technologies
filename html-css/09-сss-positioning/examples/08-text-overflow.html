@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .overflow {
+            /*overflow: hidden;*/
+
+            /*width: 50%;*/
+            /*height: 100px;*/
+            -overflow: scroll;
+            -white-space: nowrap;
+
+            margin-bottom: 50px;
+
+            background: #ccc;
+        }
+
+        img {
+            display: inline-block;
+            margin: 20px;
+        }
+
+        .overflow-text {
+            font-size: 25px;
+            position: relative;
+            width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="overflow">
+    <img src="images/1.png" alt="" width="200">
+    <img src="images/1.png" alt="" width="200">
+    <img src="images/1.png" alt="" width="200">
+    <img src="images/1.png" alt="" width="200">
+    <img src="images/1.png" alt="" width="200">
+    <img src="images/1.png" alt="" width="200">
+    <img src="images/1.png" alt="" width="200">
+    <img src="images/1.png" alt="" width="200">
+</div>
+<div class="overflow-text">
+    ЯкийсьЮзерВибравНікнеймБезПробілів odio quia quis repellat! Ad enim incidunt ipsam iure iusto neque officiis
+    possimus repudiandae.
+</div>
+</body>
+</html>

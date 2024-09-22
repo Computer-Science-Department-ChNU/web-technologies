@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        /*
+            Загалом, overflow працює очікувано :P
+
+            visible
+              значення по-замовчуванню,
+              контент переповнює контейнер
+
+            hidden
+              контент обрізається контейнером
+
+            auto
+              у разі переповнення з'являється скролл
+
+            scroll
+              скролбари видно завжди
+
+            проблеми починаються коли
+            ми хочемо поєднати різні -x і -y
+
+            some combinations with ‘visible’
+            are not possible:
+            if one is specified as
+            ‘visible’ and the other is
+            ‘scroll’ or ‘auto’,
+            then ‘visible’ is set to ‘auto’
+
+            http://www.brunildo.org/test/Overflowxy2.html
+        */
+        .overflow {
+            border: 2px solid red;
+
+            width: 60px;
+            height: 60px;
+
+            padding: 10px;
+            margin: 40px;
+        }
+    </style>
+</head>
+<body>
+<h2>visible</h2>
+<div class="overflow" style="overflow: visible">
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+</div>
+
+<h2>hidden</h2>
+<div class="overflow" style="overflow: hidden">
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+</div>
+
+<h2>overflow-x</h2>
+<div class="overflow" style="overflow-x: hidden;">
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+</div>
+
+<h2>auto</h2>
+<div class="overflow" style="overflow: auto;">
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+</div>
+
+<h2>scroll</h2>
+<div class="overflow" style="overflow: scroll;">
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+    трололололо<br>
+</div>
+
+</body>
+</html>

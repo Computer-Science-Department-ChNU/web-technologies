@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-size: 24px;
+            margin: 0;
+            padding: 20px;
+
+            background: #efe;
+        }
+
+        /*
+         повсякденне завдання - попап (popup or modal)
+         необхідно показати юзеру попап і backdrop + зменшити висоту екрана
+         */
+
+        .backdrop {
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+
+            background: #000;
+            opacity: 0.5;
+        }
+
+        .popup {
+            position: fixed;
+            left: 50%;
+            top: 30%;
+
+            width: 400px;
+            padding: 20px;
+            margin-left: -210px;
+
+            background: #f2efdf;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.6)
+        }
+
+        .close {
+            font-size: 20px;
+            text-align: center;
+            line-height: 18px;
+            width: 20px;
+            height: 20px;
+
+            -background: red;
+
+            position: absolute;
+            right: 5px;
+            top: 5px;
+
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<div class="page-content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint repellendus unde atque, libero alias consequatur
+        quae! Dolorem dolor autem reiciendis repellendus, repellat, numquam explicabo corporis tempore repudiandae sint
+        illum quaerat.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint repellendus unde atque, libero alias consequatur
+        quae! Dolorem dolor autem reiciendis repellendus, repellat, numquam explicabo corporis tempore repudiandae sint
+        illum quaerat.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint repellendus unde atque, libero alias consequatur
+        quae! Dolorem dolor autem reiciendis repellendus, repellat, numquam explicabo corporis tempore repudiandae sint
+        illum quaerat.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint repellendus unde atque, libero alias consequatur
+        quae! Dolorem dolor autem reiciendis repellendus, repellat, numquam explicabo corporis tempore repudiandae sint
+        illum quaerat.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint repellendus unde atque, libero alias consequatur
+        quae! Dolorem dolor autem reiciendis repellendus, repellat, numquam explicabo corporis tempore repudiandae sint
+        illum quaerat.</p>
+</div>
+
+<div class="backdrop"></div>
+<!--Спробувати перемістити backdrop за popup у розмітці-->
+<div class="popup">
+    <span class="close">×</span>
+    <div class="content">
+        Some dummy content!
+    </div>
+</div>
+<!--<div class="backdrop"></div>-->
+</body>
+</html>

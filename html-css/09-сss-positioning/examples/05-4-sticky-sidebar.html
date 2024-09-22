@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        :root {
+            --color-text-primary: #2c3e50;
+            --color-text-secondary: #808080;
+            --color-gray-light: #f4f4f4;
+            --color-background: #ecf0f1;
+            --color-container: #fdfdfd;
+            --color-primary: #0ebac5;
+            --font-family: 'Inter', sans-serif;
+            --font-size: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        :is(a, button, input, textarea, summary) {
+            --outline-size: max(2px, 0.08em);
+            --outline-style: solid;
+            --outline-color: var(--color-text-primary);
+        }
+
+        body {
+            background-color: var(--color-background);
+            font-family: var(--font-family), serif;
+            font-size: var(--font-size);
+            line-height: 1.5;
+            display: grid;
+            place-content: center;
+            min-height: 100vh;
+            padding: 3rem 2rem;
+        }
+
+        main {
+            background-color: var(--color-container);
+            max-width: 1000px;
+            padding: 2rem;
+            border-radius: 20px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .blog-head {
+            margin-bottom: 3rem;
+        }
+
+        .blog-head .info {
+            width: 100%;
+            max-width: 650px;
+            text-align: center;
+            margin: 0 auto 1rem;
+        }
+
+        .blog-head h1 {
+            text-align: center;
+            font-size: clamp(28px, 3vw, 52px);
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+            color: var(--color-text-primary);
+        }
+
+        .blog-head p {
+            color: var(--color-text-secondary);
+        }
+
+        .navigation {
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.4rem;
+        }
+
+        .nav-link {
+            padding: 0.4rem 0.6rem;
+            border-radius: 50px;
+            color: var(--color-text-primary);
+        }
+
+        .nav-link:focus {
+            outline: 2px solid var(--color-text-primary);
+        }
+
+        .search-box {
+            background-color: #f4f4f4;
+            padding: 0.8rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            transition: outline 0.3s ease;
+        }
+
+        .search-box:focus-within {
+            outline: 2px solid var(--color-text-secondary);
+        }
+
+        .search-box > input {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border: none;
+            background: none;
+            outline: none;
+        }
+
+        .blog-sec {
+            display: grid;
+            grid-template-columns: 1fr 0.3fr;
+            justify-content: space-between;
+            align-items: start;
+            gap: 4rem;
+        }
+
+        .content > *:not(:last-child) {
+            margin-bottom: 3rem;
+        }
+
+        .post {
+            display: grid;
+            grid-template-columns: 0.5fr 1fr;
+            gap: 1rem;
+        }
+
+        .post-title > a {
+            color: inherit;
+        }
+
+        .post-category {
+            color: var(--color-primary);
+        }
+
+        .post-category,
+        .post-description {
+            font-size: 14px;
+        }
+
+        .post-title {
+            font-size: clamp(18px, 1.4vw, 28px);
+            margin-bottom: 0.4rem;
+            color: var(--color-text-primary);
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .sidebar > h3 {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+        }
+
+        .sidebar > .category-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            font-size: 0.98rem;
+        }
+
+        .sidebar a {
+            display: block;
+            padding-left: 1rem;
+            padding-block: 0.2rem;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .sidebar a:hover,
+        .sidebar a:focus {
+            border-left: 4px solid var(--color-primary);
+            background: var(--color-gray-light);
+        }
+
+        .sidebar a {
+            color: var(--color-text-primary);
+        }
+    </style>
+</head>
+<body>
+<main>
+    <section class="blog-head">
+        <div class="info">
+            <h1>Some Dummy Blog</h1>
+            <p>
+                Our blog on Selenium automation testing, browser compatibility testing,
+                web development, and updates
+            </p>
+        </div>
+        <nav class="navigation">
+            <div class="nav-links">
+                <a href="/" class="nav-link"
+                >Recent Posts</a
+                >
+                <a href="/" class="nav-link"
+                >Infographics</a
+                >
+                <a
+                    href="/"
+                    class="nav-link"
+                >Product Updates</a
+                >
+                <a href="/" class="nav-link"
+                >Webinars</a
+                >
+                <a href="/" class="nav-link"
+                >Community</a
+                >
+            </div>
+            <div class="search-box">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <label for="search"></label><input
+                type="search"
+                name="search"
+                id="search"
+                placeholder="Search ..."
+            />
+            </div>
+        </nav>
+    </section>
+
+    <section class="blog-sec">
+        <div class="content" id="post-container"></div>
+        <div class="sidebar">
+            <h3>Categories</h3>
+            <ul class="category-menu">
+                <li>
+                    <a href="/"
+                    >Automation</a
+                    >
+                </li>
+                <li>
+                    <a href="/"
+                    >HyperExecute</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="/"
+                    >Cross Browser Testing</a
+                    >
+                </li>
+                <li>
+                    <a href="/"
+                    >Selenium Python</a
+                    >
+                </li>
+                <li>
+                    <a href="/"
+                    >Selenium Java</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="/"
+                    >Selenium JavaScript</a
+                    >
+                </li>
+                <li>
+                    <a href="/"
+                    >Cypress Testing</a
+                    >
+                </li>
+                <li>
+                    <a href="/"
+                    >Playwright Testing</a
+                    >
+                </li>
+                <li>
+                    <a href="/"
+                    >Mobile App Testing</a
+                    >
+                </li>
+                <li>
+                    <a href="/"
+                    >Web Development</a
+                    >
+                </li>
+            </ul>
+        </div>
+    </section>
+</main>
+<script>
+    const postData = {
+        "post-1": {
+            category: "Web Development",
+            image:
+                "https://www.lambdatest.com/blog/wp-content/uploads/2022/06/Software-Testing-Life-Cycle-Feature-Image.png",
+            url: "https://www.lambdatest.com/blog/software-testing-life-cycle/",
+            title: "What is the Software Testing Life Cycle (STLC)?",
+            description:
+                "Just likе a lifе cyclе involvеs a sеquеncе of stagеs, thе samе concеpt appliеs to softwarе tеsting. Throughout thе tеsting procеss, software applications undеrgo testing right from thе beginning to thе end …",
+        },
+        "post-2": {
+            category: "Web Development",
+            image:
+                "https://www.lambdatest.com/blog/wp-content/uploads/2023/12/static-site-generator-feature-image.png",
+            url: "https://www.lambdatest.com/blog/static-site-generator/",
+            title: "A Beginner’s Guide to Static Site Generator",
+            description:
+                "When someone creates a website, they have two paths to choose from – dynamic or static. For people who are clear about the architecture of their application, this choice is easy to make.",
+        },
+        "post-3": {
+            category: "Web Development",
+            image:
+                "https://www.lambdatest.com/blog/wp-content/uploads/2023/11/Chrome-Developer-Tools-Feature-Image.png",
+            url: "https://www.lambdatest.com/blog/chrome-developer-tools/",
+            title: "Guide To Chrome Developer Tools",
+            description:
+                "For front-end developers and testers, finding and fixing bugs in the web app can be tough sometimes because of unexpected data from the API call and uncertain user interactions.",
+        },
+        "post-4": {
+            category: "Web Development",
+            image:
+                "https://www.lambdatest.com/blog/wp-content/uploads/2023/11/Libraries-for-Developers-1.png",
+            url: "https://www.lambdatest.com/blog/css-libraries/",
+            title: "Best 20 CSS Libraries for Developers and Designers [2024]",
+            description:
+                "In software development, there’s a famous saying: Don’t reinvent the wheel. This means that it is often smarter to use existing solutions, such as frameworks and libraries, rather than starting from scratch.",
+        },
+        "post-5": {
+            category: "Web Development",
+            image:
+                "https://www.lambdatest.com/blog/wp-content/uploads/2023/03/unnamed-2023-11-30T144923.532-1.png",
+            url: "https://www.lambdatest.com/blog/mobile-first-design/",
+            title: "A Complete Guide To Mobile First Design",
+            description:
+                "The number of people using smartphones to access the internet is growing exponentially. Having a mobile first design isn’t a luxury, rather a necessity for any online business.",
+        },
+        "post-6": {
+            category: "Web Development",
+            image:
+                "https://www.lambdatest.com/blog/wp-content/uploads/2023/11/CSS-Animations-480px.png",
+            url: "https://www.lambdatest.com/blog/css-animations-tutorial/",
+            title: "The Complete CSS Animations Tutorial [With Examples]",
+            description:
+                "Animation can bring creativity, enthusiasm, grab the user’s attention, convey things quickly, and improve usability. Recently, there has been a rise in the use of animation on websites and web apps.",
+        },
+        "post-7": {
+            category: "Selenium Java",
+            image:
+                "https://www.lambdatest.com/blog/wp-content/uploads/2023/12/assertTrue.png",
+            url: "https://www.lambdatest.com/blog/asserttrue-in-java/",
+            title: "assertTrue() in Java: A Complete Tutorial",
+            description:
+                "Assertions are an important part of the automation testing process, ensuring the software functions as anticipated. If it is not working as desired, the tests have to be marked as failure and need to be halted to make the necessary investigation for the failure.",
+        },
+    }
+
+    function createPost(postData) {
+        const postElement = document.createElement("div")
+        postElement.className = "post"
+
+        postElement.innerHTML = `
+      <div class="img-container">
+        <a href="${postData.url}">
+          <img src="${postData.image}" alt="${postData.title} Image" />
+        </a>
+      </div>
+      <div class="info-container">
+        <a href="${postData.url}" class="post-category">${postData.category}</a>
+        <h2 class="post-title">
+          <a href="${postData.url}">${postData.title}</a>
+        </h2>
+        <p class="post-preview">${postData.description}</p>
+      </div>
+    `
+
+        return postElement
+    }
+
+    function renderPosts() {
+        const container = document.getElementById("post-container")
+
+        for (const postId in postData) {
+            const post = createPost(postData[postId])
+            container.appendChild(post)
+        }
+    }
+
+    renderPosts()
+</script>
+</body>
