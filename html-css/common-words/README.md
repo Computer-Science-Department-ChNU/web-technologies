@@ -374,3 +374,61 @@
     </div>
 </article>
 ```
+
+### Розмітка сторінки
+
+```html
+<!-- Шапка сайту -->
+<header class="site-header">
+    <h1 class="site-header__title">Назва сайту</h1>
+
+    <nav class="site-header__nav site-nav">
+        <a href="#" class="site-nav__link">Головна</a>
+        <a href="#" class="site-nav__link">Про нас</a>
+        <a href="#" class="site-nav__link">Контакти</a>
+    </nav>
+</header>
+
+<!-- Головний вміст сторінки -->
+<main class="site-main">
+    <!-- Розділи головного вмісту -->
+    <section class="features">
+        <h2 class="features__title">Переваги</h2>
+
+        <ul class="features__list">
+            <li class="features__item">Високі стелі</li>
+            [...]
+        </ul>
+    </section>
+
+    <section class="prices">
+        <h2 class="prices__title">Тарифи</h2>
+
+        <ul class="prices__list">
+            <li class="prices__item">30 парасольок на хвилину</li>
+            [...]
+        </ul>
+    </section>
+</main>
+
+<!-- Бічна колонка -->
+<aside class="site-aside">
+    <div class="widget">
+        <h3 class="widget__title">Як ми відпочиваємо?</h3>
+        <div class="widget__text">Читайте в нашій новій книзі «Ніяк»</div>
+    </div>
+</aside>
+
+<!-- Підвал сайту -->
+<footer class="site-footer">
+    <div class="site-footer__socials socials">
+        <a href="#" class="socials__link socials__link--tw">Twitter</a>
+        <a href="#" class="socials__link socials__link--fb">Facebook</a>
+        <a href="#" class="socials__link socials__link--inst">Instagram</a>
+    </div>
+
+    <div class="site-footer__copyright copyright ">
+        Made in <a href="#" class="copyright__link">чну ім. Ю. Федьковича</a>
+    </div>
+</footer>
+```
