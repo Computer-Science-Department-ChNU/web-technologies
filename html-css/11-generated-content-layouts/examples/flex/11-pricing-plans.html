@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Simple pricing plans</title>
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            height: 100vh;
+        }
+
+        a {
+            color: black;
+            font-weight: 100;
+            letter-spacing: 2px;
+            text-decoration: none;
+            padding: 20px 5px;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            transition: background 0.5s;
+        }
+
+        a:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 50px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .plans {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .plan {
+            flex: 0 0 200px;
+            display: flex;
+            flex-direction: column;
+            margin: 15px;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            text-align: center;
+
+            @media all and (max-width: 500px) {
+                flex: 1 1 200px;
+            }
+
+            h2 {
+                text-transform: uppercase;
+                color: black;
+                font-weight: bold;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+
+                flex: 1 0 auto;
+
+                li {
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                    padding: 10px;
+
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+                }
+            }
+
+            .price {
+                font-size: 50px;
+                font-family: serif;
+                margin: 10px 0;
+            }
+
+            .btn {
+                margin-top: 20px;
+                align-self: flex-end;
+                text-decoration: none;
+                background: #ff7300;
+                padding: 10px;
+                color: white;
+                border-radius: 4px;
+                cursor: pointer;
+
+                &:hover {
+                    background: #ff0000;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Simple pricing plans</h1>
+    <div class="plans">
+        <div class="plan">
+            <h2>Plan title</h2>
+            <p>Plan subtitle</p>
+            <p class="price">5$</p>
+            <ul>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+            </ul>
+
+            <a class="btn">Buy!</a>
+        </div>
+        <div class="plan">
+            <h2>Plan title</h2>
+            <p>Plan subtitle</p>
+            <p class="price">15$</p>
+            <ul>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+            </ul>
+
+            <a class="btn">Buy!</a>
+        </div>
+        <div class="plan">
+            <h2>Plan title</h2>
+            <p>Plan subtitle</p>
+            <p class="price">25$</p>
+            <ul>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Lorem ipsum dolor</li>
+            </ul>
+            <a class="btn">Buy!</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

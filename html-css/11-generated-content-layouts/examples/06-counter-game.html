@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Droid+Sans:700);
+
+        /* counters */
+
+        body {
+            counter-reset: sum;
+
+            /*-counter-reset: sum 41;*/
+        }
+
+        #a:checked {
+            counter-increment: sum 64;
+        }
+
+        #b:checked {
+            counter-increment: sum 16;
+        }
+
+        #c:checked {
+            counter-increment: sum -32;
+        }
+
+        #d:checked {
+            counter-increment: sum 128;
+        }
+
+        #e:checked {
+            counter-increment: sum 4;
+        }
+
+        #f:checked {
+            counter-increment: sum -8;
+        }
+
+        .sum::before {
+            content: '= ' counter(sum);
+        }
+
+        /* the rest is just to make things pretty */
+
+        body {
+            margin: 32px;
+            font: 700 32px/1 'Droid Sans', sans-serif;
+            color: #fff;
+            background-color: #583f3f;
+        }
+
+        h1 {
+            margin: 0 0 32px;
+            font-size: 48px;
+        }
+
+        h2 {
+            margin: 0 0 8px 8px;
+            font-size: inherit;
+        }
+
+        section {
+            margin-bottom: 16px;
+            padding: 16px;
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, .1);
+        }
+
+        input {
+            position: absolute;
+            left: -9999px;
+        }
+
+        label {
+            float: left;
+            margin: 8px;
+            padding: 16px;
+            border-radius: 4px;
+            border: solid 2px rgba(255, 255, 255, .4);
+            background-color: rgba(255, 255, 255, .2);
+            cursor: pointer;
+            transition: all .1s;
+        }
+
+        label::before {
+            display: inline;
+        }
+
+        input:checked + label {
+            border: solid 2px #fff;
+            background-color: rgba(255, 255, 255, .4);
+            box-shadow: 0 0 10px #fff;
+        }
+
+        span {
+            float: left;
+            margin: 8px;
+            padding: 18px;
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .1);
+        }
+
+        #a:checked ~ #b:checked ~ #c:not(:checked) ~ #d:not(:checked) ~ #e:not(:checked) ~ #f:checked ~ .sum::after {
+            content: ' (hooray!)';
+        }
+    </style>
+</head>
+<body>
+<h1>CSS Counter Game</h1>
+<section>
+    <h2>Pick the numbers that add up to 72:</h2>
+    <input id="a" type="checkbox"><label for="a">64</label>
+    <input id="b" type="checkbox"><label for="b">16</label>
+    <input id="c" type="checkbox"><label for="c">-32</label>
+    <input id="d" type="checkbox"><label for="d">128</label>
+    <input id="e" type="checkbox"><label for="e">4</label>
+    <input id="f" type="checkbox"><label for="f">-8</label>
+    <span class="sum"></span>
+</section>
+</body>
+</html>

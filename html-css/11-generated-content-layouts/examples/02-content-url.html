@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-size: 25px;
+        }
+
+        .content {
+            margin: 40px;
+            padding: 20px;
+            background: #eef;
+        }
+
+        .content:before {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            content: 'S';
+            margin: -20px 0 0 -20px;
+            background: #ef0;
+            text-align: center;
+        }
+
+        .content:after {
+            position: absolute;
+            content: url(img/cloud_rain.png);
+            margin: 10px 0 0 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="content">content</div>
+</body>
+</html>

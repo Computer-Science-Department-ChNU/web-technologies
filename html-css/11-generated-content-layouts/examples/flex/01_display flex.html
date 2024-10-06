@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background: lightgreen;
+            padding: 10px;
+            /* властивість display при значенні flex вибудовує дочірні елементи за умовчанням по горизонталі */
+            display: flex;
+            /* display: inline-flex; */
+        }
+
+        .item {
+            border: 1px solid black;
+            padding: 15px;
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="item">item</div>
+    <div class="item">element</div>
+    <div class="item">element item</div>
+    <div class="item">div element item</div>
+</div>
+</body>
+</html>

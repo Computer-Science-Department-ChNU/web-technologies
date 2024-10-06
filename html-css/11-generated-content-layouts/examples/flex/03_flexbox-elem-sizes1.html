@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- Приклад роботи рядкових та блокових елементів -->
+<style>
+    .example1 {
+        margin-bottom: 50px;
+        background: lightgreen;
+        padding: 20px;
+    }
+
+    .item1 {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        background: orange;
+    }
+</style>
+<div class="example1">
+    <span class="item1">span</span>
+    <b class="item1">bold inline element</b>
+    <div class="item1">block element</div>
+</div>
+<!-- Приклад флексбокс елементів -->
+<style>
+    .container {
+        background: lightgreen;
+        padding: 10px;
+        display: flex;
+        height: 400px;
+    }
+
+    .item {
+        border: 1px solid black;
+        padding: 5px;
+        width: 100px;
+        height: 100px;
+        background: orange;
+    }
+</style>
+<div class="container">
+    <span class="item">item</span>
+    <b class="item">element</b>
+    <!-- some text -->
+    <div class="item">element item</div>
+    <div class="item">div element item</div>
+</div>
+</body>
+</html>

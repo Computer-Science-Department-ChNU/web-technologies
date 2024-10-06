@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Droid+Sans:700);
+
+        /* counters */
+
+        body {
+            /*
+            Встановлює змінну, в якій зберігатиметься лічильник
+            відображень певного елемента,
+            а також початкове значення лічильника.
+            Такий лічильник може виводитися за
+            допомогою властивості content та псевдоелементів :after і ::before.
+            */
+            counter-reset: pages;
+        }
+
+        a {
+            /*
+            Стильова властивість counter-increment
+            призначена для збільшення значення лічильника,
+            який задається властивістю counter-reset.
+            Такий лічильник підраховує кількість відображень
+            елементів на сторінці та може виводитися за
+            допомогою властивості content та псевдоелементів ::after і ::before.
+            Це дає змогу створювати списки (зокрема багаторівневі),
+            у яких нумерація та вигляд задаються через стилі.
+             */
+            counter-increment: pages;
+        }
+
+        a::before {
+            content: counter(pages);
+        }
+
+        /* the rest is just to make things pretty */
+
+        body {
+            margin: 32px;
+            font: 700 32px/1 'Droid Sans', sans-serif;
+            color: #fff;
+            background-color: #3f4b58;
+        }
+
+        h1 {
+            margin: 0 0 32px;
+            font-size: 48px;
+        }
+
+        h2 {
+            margin: 0 0 8px 8px;
+            font-size: inherit;
+        }
+
+        section {
+            margin-bottom: 16px;
+            padding: 16px;
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, .1);
+        }
+
+        a {
+            float: left;
+            width: 32px;
+            margin: 8px;
+            padding: 8px;
+            border-radius: 4px;
+            border: solid 2px rgba(255, 255, 255, .4);
+            text-decoration: none;
+            text-align: center;
+            color: #fff;
+            background-color: rgba(255, 255, 255, .2);
+            transition: all .1s;
+        }
+
+        a:hover {
+            border: solid 2px #fff;
+            background-color: rgba(255, 255, 255, .4);
+            box-shadow: 0 0 10px #fff;
+        }
+    </style>
+</head>
+<body>
+<h1>Pagination CSS Counter</h1>
+<section>
+    <h2>Jump to page:</h2>
+    <a href="#"></a>
+    <a href="#"></a>
+    <a href="#"></a>
+    <a href="#"></a>
+    <a href="#"></a>
+    <a href="#"></a>
+    <a href="#"></a>
+    <a href="#"></a>
+</section>
+</body>
+</html>

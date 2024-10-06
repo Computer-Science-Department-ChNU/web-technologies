@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flexboxs & margin</title>
+</head>
+<body>
+<style>
+    .container {
+        background: lightgreen;
+        max-width: 1000px;
+        height: 400px;
+        margin: 50px auto;
+        font-size: 20px;
+
+        display: flex;
+        /* flex-wrap: wrap; */
+        /* align-items: center; */
+        /* justify-content: center; */
+    }
+
+    .item {
+        border: 1px solid black;
+        padding: 10px;
+        width: 250px;
+        background: orange;
+        margin: 50px;
+        /* display: inline-block; */
+    }
+
+    .item {
+        /* .two{ */
+        margin: auto;
+        /* margin-left: auto; */
+        /* margin-top: auto; */
+        /* margin-bottom: auto; */
+        /* margin-right: auto; */
+    }
+</style>
+<div class="container">
+    <div class="item">1</div>
+    <!-- <div class="item two">2</div> -->
+    <!-- <div class="item">3</div> -->
+</div>
+</body>
+</html>

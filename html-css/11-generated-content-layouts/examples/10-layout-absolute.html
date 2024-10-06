@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-size: 29px;
+        }
+
+        .container {
+            position: relative;
+            min-width: 900px;
+            -background: red;
+        }
+
+        .left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 16%;
+            margin-left: 2%;
+        }
+
+        .center {
+            /*
+              Недолік: якщо контенту колонках буде більше
+              то він вилазить (спробувати додати більше контенту)
+            */
+            min-height: 5em;
+            padding: 0 26% 0 18%;
+        }
+
+        .right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 24%;
+            margin-right: 2%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="left">Left column lorem</div>
+    <div class="center">
+        Center column
+        <br/> higher than left and right
+        <br/> and takes up three lines
+    </div>
+    <div class="right">Right column</div>
+</div>
+
+====
+<br> Content after layout
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+    .example1 {
+        background: lightgreen;
+        width: 500px;
+        height: 50px;
+        margin-bottom: 50px;
+    }
+
+    .item1 {
+        background: orange;
+        width: 300px;
+        /* width: 600px; */
+    }
+</style>
+<div class="example1">
+    <div class="item1">div element</div>
+</div>
+<!-- Flexbox приклад -->
+<style>
+    .container {
+        background: lightgreen;
+        padding: 10px;
+        width: 500px;
+        display: flex;
+    }
+
+    .item {
+        border: 1px solid black;
+        padding: 5px;
+        background: orange;
+        width: 100px;
+    }
+</style>
+<!-- за замовчуванням, якщо флекс елементи не поміщаються в батьківському контейнері,
+      вони стискаються і не випадають із контентної частини батька як звичайні елементи -->
+<div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <!-- <div class="item">5</div> -->
+    <!-- <div class="item">6</div> -->
+</div>
+</body>
+
+</html>

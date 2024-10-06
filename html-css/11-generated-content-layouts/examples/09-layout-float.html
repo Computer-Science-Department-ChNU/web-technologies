@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-size: 29px;
+        }
+
+        .container {
+            min-width: 900px;
+            -background: red;
+        }
+
+        /*
+        Коли ви використовуєте float для елементів всередині контейнера,
+        батьківський елемент не розширюється, щоб охопити їх,
+        оскільки плаваючі елементи виключаються з потоку документа.
+        Як результат, висота батьківського контейнера стає нульовою,
+        що призводить до неправильного відображення сторінки.
+         */
+
+        .left,
+        .center,
+        .right {
+            float: left;
+        }
+
+        /*
+        clearfix дозволяє батьківському елементу правильно розширитися,
+        враховуючи всі плаваючі дочірні елементи.
+        Найпопулярніший метод використовує псевдоелемент :after для очищення:
+         */
+        .container:after {
+            content: '';
+            clear: both;
+            display: table;
+        }
+
+        .left {
+            width: 16%;
+            margin-left: 2%;
+        }
+
+        .center {
+            width: 56%;
+        }
+
+        .right {
+            width: 24%;
+            margin-right: 2%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="left">Left column</div>
+    <div class="center">
+        Center column
+        <br/> higher than left and right
+        <br/> and takes up three lines
+    </div>
+    <div class="right">Right column</div>
+</div>
+</body>
+</html>

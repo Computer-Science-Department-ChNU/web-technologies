@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Droid+Sans:700);
+
+        /* counters */
+
+        body {
+            counter-reset: sections boxes;
+        }
+
+        section {
+            counter-increment: sections;
+        }
+
+        section::before {
+            content: 'Section ' counter(sections);
+        }
+
+        .box {
+            counter-increment: boxes;
+        }
+
+        .box::before {
+            content: counter(boxes, upper-roman);
+        }
+
+        /* the rest is just to make things pretty */
+
+        body {
+            margin: 32px;
+            font: 700 32px/1 'Droid Sans', sans-serif;
+            color: #fff;
+            background-color: #473f58;
+        }
+
+        h1 {
+            margin: 0 0 32px;
+            font-size: 48px;
+        }
+
+        section {
+            margin-bottom: 16px;
+            padding: 16px;
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, .1);
+        }
+
+        section::before {
+            display: block;
+            margin: 0 0 8px 8px;
+        }
+
+        .box {
+            float: left;
+            width: 96px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 4px;
+            line-height: 64px;
+            text-align: center;
+            font-size: 28px;
+            background-color: rgba(255, 255, 255, .2);
+        }
+    </style>
+</head>
+<body>
+<h1>Overlapping CSS Counters</h1>
+<section>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</section>
+<section>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</section>
+<section>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</section>
+<section>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</section>
+</body>
+</html>

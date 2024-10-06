@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Simple navigation with flexbox</title>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+        html {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            -webkit-box-sizing: inherit;
+            box-sizing: inherit;
+        }
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            height: 100vh;
+        }
+
+        a {
+            color: black;
+            font-weight: 100;
+            letter-spacing: 2px;
+            text-decoration: none;
+            padding: 20px 5px;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            -webkit-transition: background 0.5s;
+            transition: background 0.5s;
+        }
+
+        a:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .nav ul {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            border: 1px solid black;
+            -webkit-box-shadow: 0 0 2px 0 #818181;
+            box-shadow: 0 0 2px 0 #818181;
+            border-radius: 5px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav li {
+            -webkit-box-flex: 3;
+            -ms-flex: 3;
+            flex: 3;
+        }
+
+        @media all and (max-width: 960px) {
+            .nav li {
+                -webkit-box-flex: 1;
+                -ms-flex: 1 1 50%;
+                flex: 1 1 50%;
+            }
+        }
+
+        @media all and (max-width: 500px) {
+            .nav li {
+                -ms-flex-preferred-size: 100%;
+                flex-basis: 100%;
+            }
+        }
+
+        .nav li.social {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Simple navigation with flexbox</h1>
+    <nav class="nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Checkout</a></li>
+            <li><a href="#">Catalog</a></li>
+            <li class="social">
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="social">
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            </li>
+            <li class="social">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+            </li>
+            <li class="social">
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>

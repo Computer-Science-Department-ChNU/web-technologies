@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+        1px (піксель) = 1/96 дюйма, але не в CSS. 1 px у CSS - це точка на екрані користувача, фізична величина якої залежить від роздільної здатності пристрою і від того, з якої відстані людина дивиться на його поверхню (мобільний телефон або телевізор). У яких би одиницях виміру ми б не писали код, він приводиться саме до px.
+         */
+
+        /*
+            відсоткові значення беруть, як правило, від батька
+        */
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        .main {
+            height: 100%;
+            background: black;
+        }
+
+        .wrapper,
+        .inner {
+            width: 50%;
+            height: 40%;
+            background: red;
+        }
+
+        .inner {
+            background: yellow;
+        }
+
+        /*
+             що дає змогу робити хитрощі
+        */
+
+        .inner {
+            position: relative;
+            left: -25%;
+            margin-left: 50%;
+        }
+
+        /*
+           при цьому це можуть бути й координати
+        */
+
+        .main {
+            background: #000 url(img/bg.webp) 50% 50% /* ^^^ рахунок від центру картинки  */ no-repeat;
+        }
+
+        /*
+             або розмір шрифту, він успадковується від батька
+            наприклад,
+
+            body
+            {
+                font-size: 16px;
+            }
+
+            p
+            {
+                font-size: 200% = 16*2
+            }
+        */
+    </style>
+</head>
+<body>
+<div class="main">
+    <div class="wrapper">
+        <div class="inner"></div>
+    </div>
+</div>
+</body>
+</html>

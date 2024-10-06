@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+            1vw = 1% від ширини вікна. При зменшенні ширини вікна, зменшується ширина, висота, шрифт елемента. Шрифт не буде масштабований при натисканні Ctrl+ або Ctrl-.
+
+            1vh = 1% від висоти вікна. При зменшенні висоти вікна, зменшується ширина, висота, шрифт елемента. Шрифт не буде масштабований при натисканні Ctrl+ або Ctrl-.
+
+            1vmin = Визначається як менше значення з vw і vh. Приміром, 10vmin порівнює між собою розмір 10vh (10% від висоти області перегляду) і 10vw (10% від ширини області перегляду), після чого вибирає менше значення.
+
+            1vmax = Визначається як більше значення з vw і vh. Приміром, 10vmax порівнює між собою розмір 10vh (10% від висоти області перегляду) і 10vw (10% від ширини області перегляду), після чого вибирає більше значення.
+         */
+
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        body {
+            margin: 0; /* Remove padding */
+        }
+
+        section {
+            height: 100vh; /* Total height */
+            padding: 20px; /* Margin around text */
+            box-sizing: border-box; /* Height doesn't include padding */
+        }
+
+        h2 {
+            color: #fff; /* Text color */
+        }
+
+        #page1 {
+            background: #FFDB8A;
+        }
+
+        #page2 {
+            background: #5085B6;
+        }
+
+        #page3 {
+            background: #85AB8F;
+        }
+
+        #page4 {
+            background: #C898AE;
+        }
+
+        .upscale {
+            font-size: calc(14px + 1vw); /* Increase the font size */
+        }
+
+        .downscale {
+            font-size: calc(32px - 1vw); /* Decrease font size */
+        }
+    </style>
+</head>
+<body>
+<section id="page1">
+    <a href="#page2" class="upscale">Our Applications</a>
+    <a href="#page3" class="downscale">Features</a>
+    <a href="#page4">Contact Us</a>
+</section>
+<section id="page2"><h2>Our applications</h2></section>
+<section id="page3"><h2>Features</h2></section>
+<section id="page4"><h2>Contacts</h2></section>
+</body>
+</html>

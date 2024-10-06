@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-size: 29px;
+        }
+
+        /* Стилі для екранів з мінімальною шириною 601px (більші екрани) */
+        @media (min-width: 601px) {
+            body {
+                font-size: 18px;
+            }
+        }
+
+        .container {
+            background: red;
+        }
+
+        .container:after {
+            clear: both;
+            display: table;
+            content: "";
+        }
+
+        .left,
+        .center,
+        .right {
+            float: left;
+            background: yellow;
+        }
+
+        .left {
+            width: 16%;
+            margin-left: 2%;
+        }
+
+        .center {
+            width: 56%;
+        }
+
+        .right {
+            width: 24%;
+        }
+
+        /* Специфічні стилі для екранів із шириною не більше 800px (мобільні пристрої) */
+        @media (max-width: 800px) {
+            .right {
+                float: none;
+                clear: both;
+                width: auto;
+                color: #fff;
+                background: green;
+            }
+
+            .left,
+            .center {
+                color: #fff;
+                background: #000;
+                width: 46%;
+            }
+        }
+
+        /* Специфічні стилі для екранів із шириною не більше 500px (мобільні пристрої) */
+        @media (max-width: 500px) {
+            .container {
+                margin: 0 2%;
+            }
+
+            .left,
+            .center,
+            .right {
+                float: none;
+                width: auto;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="left">Left column lorem</div>
+    <div class="center">
+        Center column
+        <br/> higher than left and right
+        <br/> and takes up three lines
+    </div>
+    <div class="right">Right column</div>
+</div>
+</body>
+</html>

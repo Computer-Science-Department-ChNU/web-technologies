@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li {
+            list-style-type: none;
+        }
+
+        /* Remove the original numbering from the list */
+        ol {
+            counter-reset: list;
+        }
+
+        /* Initiate counter */
+        ol li:before {
+            counter-increment: list; /* Increment counter */
+            content: counter(list) ". "; /* Output number */
+        }
+
+        ol ol {
+            counter-reset: sublist;
+        }
+
+        /* Initiate nested list counter */
+        ol ol li:before {
+            counter-increment: sublist; /* Increment nested list counter */
+            content: counter(list) "." counter(sublist) ". "; /* Output number */
+        }
+    </style>
+</head>
+<body>
+<ol>
+    <li>Item
+        <ol>
+            <li>Subitem</li>
+            <li>Subitem</li>
+            <li>Subitem</li>
+        </ol>
+    </li>
+    <li>Item
+        <ol>
+            <li>Subitem</li>
+            <li>Subitem</li>
+        </ol>
+    </li>
+</ol>
+</body>
+</html>

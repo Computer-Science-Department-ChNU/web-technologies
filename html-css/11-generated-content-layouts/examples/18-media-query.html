@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-size: 45px;
+        }
+
+        div {
+            color: red;
+        }
+
+        /*
+            Медіавирази складаються з
+            визначення медіа-типу:
+            print | screen | all (default) |
+            screen, print
+
+            і власне виразу
+            у виразі використовуються
+            логічні оператори
+            and, only, not і ',' (or)
+        */
+
+        /* all and – по-замовчуванню, можна прибрати */
+        @media all and (max-width: 900px) {
+            div {
+                color: green;
+            }
+        }
+
+
+        /*
+            Хитро поводиться не
+            він змінює результат усього
+            виразу, поки не зустріне ',' -- or
+
+            @media not screen and (color),
+              print and (color)
+
+            еквівалент
+            @media (not (screen and (color))),
+              print and (color)
+        */
+
+        @media not all and (max-width: 900px) {
+            div {
+                text-decoration: underline;
+            }
+        }
+    </style>
+</head>
+<body>
+<div>string</div>
+</body>
+</html>

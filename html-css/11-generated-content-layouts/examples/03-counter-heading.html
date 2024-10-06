@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            counter-reset: heading; /* Initiate counter */
+        }
+
+        h2:before {
+            counter-increment: heading; /* Specify counter ID */
+            content: "Head " counter(heading) ". "; /* Display the text before the content of the <h2> tag */
+        }
+    </style>
+</head>
+<body>
+<h2>Theory of catching a lion in the desert</h2>
+<h2>Inverse kinematics methods</h2>
+<h2>Catching a lion with numerical methods</h2>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Лекція 11. Генерований вміст, лейаути</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Лекція 11. Генерований вміст, лейаути</h1>
+</header>
+
+<section class="slide">
+    <h2>Лекція 11. Генерований вміст, лейаути</h2>
+    <div class="columns two">
+        <div>
+            <h3>План лекції:</h3>
+            <ol>
+                <li>Генерований вміст</li>
+                <li>Лейаути (CSS layout)</li>
+                <li>Значення та одиниці вимірювання в CSS</li>
+                <li>Flexbox</li>
+                <li>Стилі для різних середовищ</li>
+            </ol>
+        </div>
+        <img src="images/css.png" width="100%" alt="">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Генерований вміст</h2>
+    <p><b>Генерований вміст (або generated content) в CSS</b> — це контент, який додається до веб-сторінки динамічно
+        через CSS
+        без змін в HTML-коді. Він дозволяє вставляти текстові або графічні елементи на основі стилів, використовуючи
+        псевдоелементи ::before та ::after.</p>
+    <p>
+        Основне використання генерованого вмісту полягає у вставці декоративних елементів, іконок або додаткового тексту
+        без необхідності змінювати структуру HTML. Це дає більше контролю над зовнішнім виглядом елементів через стилі.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Генерований вміст</h2>
+    <ul>
+        <li><a href="../examples/01-content.html" target="_blank">content</a></li>
+        <li><a href="../examples/02-content-url.html" target="_blank">content url()</a></li>
+        <li><a href="../examples/07-content-attr.html" target="_blank">attr()</a></li>
+        <li><a href="../examples/03-counter.html" target="_blank">counter</a></li>
+        <li><a href="../examples/03-counter-list-sublist.html" target="_blank">counter list + sublist</a></li>
+        <li><a href="../examples/03-counter-heading.html" target="_blank">counter heading</a></li>
+        <li><a href="../examples/04-multi-counter.html" target="_blank">multi-counter</a></li>
+        <li><a href="../examples/05-total-selected.html" target="_blank">Total selected</a></li>
+        <li><a href="../examples/06-counter-game.html" target="_blank">Counter game</a></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Лейаути (CSS layout)</h2>
+    <p>
+        <b>Лейаути (CSS layout) </b>— це спосіб розміщення елементів на веб-сторінці за допомогою CSS. Вони дозволяють
+        визначати, як блоки контенту, такі як тексти, зображення, кнопки, та інші HTML-елементи, відображаються на
+        екрані.
+    </p>
+    <p>Лейаути допомагають створювати зручні та привабливі інтерфейси для користувачів, забезпечуючи
+        адаптивність та гнучкість дизайну на різних пристроях.</p>
+</section>
+
+<section class="slide">
+    <h2>Лейаути (CSS layout)</h2>
+    <p>
+        Перед вивченням CSS layout ви повинні:
+    </p>
+    <ul>
+        <li>Мати загальне уявлення про HTML, семантична розмітка</li>
+        <li>Орієнтуватися в основах CSS</li>
+        <li>Розуміти, як стилізувати блокові елементи</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Основні техніки лейаутів у CSS</h2>
+    <p>У побудові лейаута є кілька завдань:</p>
+    <ul>
+        <li>
+            <b>Розташувати контент горизонтально:</b>
+            display: inline-block,
+            display: grid,
+            display: flex,
+            float: left,
+            position: absolute
+            таблиця
+        </li>
+        <li><b>Зробити так, щоб контент не переповнював колонку:</b>
+            min-width,
+            overflow,
+            таблиця
+        </li>
+        <li><b>Зробити так, щоб колонки
+            ніколи не провалювалися одна
+            під іншу</b>:
+            white-space: nowrap;
+            сума ширин float-блоків
+            завжди дорівнює або менше
+            ширини батька
+        </li>
+        <li><b>Відступи, бордери та фон зазвичай вкладений елемент,
+            щоб не допустити ширини > 100%</b>
+            (50% + 10px || + 10px 50%)
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Основні техніки лейаутів у CSS</h2>
+    <ul>
+        <li><a href="../examples/08-layout-inline-block.html" target="_blank">Блочна модель (Block and Inline
+            Layouts)</a></li>
+        <li>Позиціонування (Positioning): <a href="../examples/10-layout-absolute.html" target="_blank">absolute</a>, <a
+            href="../examples/11-layout-absolute.html" target="_blank">one more absolute</a></li>
+        <li><a href="../examples/09-layout-float.html" target="_blank">Float</a></li>
+        <li><a href="../examples/12-layout-multi-column.html" target="_blank">Multi-column Layouts</a></li>
+        <li><a href="../examples/13-layout-flex.html" target="_blank">Flexbox</a></li>
+        <li>Grid Layout</li>
+        <li>CSS Media Queries</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Значення та одиниці вимірювання в CSS</h2>
+    <ul>
+        <li>Пікселі (px) - Одиниця px визначає розмір у пікселях. Зазвичай один піксель відповідає одній точці екрана,
+            але для принтерів і дисплеїв з високою роздільною здатністю (таких як Apple Retina або екрани смартфонів)
+            один піксель може містити кілька точок.
+        </li>
+        <li><a href="../examples/14-units.html" target="_blank">Відсоткові значення %</a></li>
+        <li><a href="../examples/15-units-em-rem-ex.html" target="_blank">em/rem/ex</a></li>
+        <li><a href="../examples/16-units-vw-vh.html">vh, vw, vmin, vmax</a></li>
+        <li><a href="../examples/17-calc.html" target="_blank">calc()</a></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>CSS Flexible Box Layout Module</h2>
+    <div class="columns two">
+        <div>
+            <b>Flexbox</b> - дозволяє контролювати розмір та
+            вирівнювання елементів по двох осях,
+            виконуючи розподіл місця між ними.
+            <br>
+            Дочірні елементи всередині Flexbox можуть
+            розміщуватися в одному напрямку та можуть
+            змінювати розмір, щоб адаптуватися до різних
+            розмірів пристрою.
+        </div>
+        <div>
+            <img src="images/1.png" alt="" width="100%">
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Робота з осями flexbox</h2>
+    <p>Можливість впливати на основну вісь за допомогою <b>justify-content</b>, вибудовуючи як
+        необхідно:
+    </p>
+    <div class="columns two">
+        <div>
+            <ul>
+                <li>flex-start</li>
+                <li>flex-end</li>
+                <li>center</li>
+                <li>space-around</li>
+                <li>space-between</li>
+            </ul>
+        </div>
+        <div>
+            <img src="images/1.png" alt="" width="100%">
+        </div>
+    </div>
+    <p>
+        Властивість <b>align-items</b>. Дозволяє задати поведінку елементам контейнера, у якого ця
+        властивість має одне із значень: <b>flex-start, flex-end, center, stretch, baseline</b>.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>CSS Flexible Box Layout Module</h2>
+    <p>Властивість <b>flex-wrap</b> дозволяє задати поведінку дочірніх елементів. Дозволяє визначити, чи можуть
+        переноситися на новий рядок, якщо ширини контейнера не вистачає для того, щоб розмістити всі
+        елементи в ряд.
+    </p>
+    <div class="columns two">
+        <div>
+            <ul>
+                <li>nowrap</li>
+                <li>wrap</li>
+                <li>wrap-reverse</li>
+            </ul>
+        </div>
+        <div>
+            <img src="images/2.png" alt="" width="100%">
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>flex-direction</h2>
+    <div class="columns two">
+        <div>
+            <ul>
+                <li>row</li>
+                <li>row-reverse</li>
+                <li>column</li>
+                <li>column-reverse</li>
+            </ul>
+        </div>
+        <div>
+            <img src="images/3.png" alt="" width="120%">
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Робота властивості margin у flexbox</h2>
+    <p>
+        У flex-item елементів margin по вертикалі (top, bottom) починають працювати не так, як у
+        звичайному стані, без технології Flexbox.
+    </p>
+    <img src="images/4.png" alt="" width="800">
+</section>
+
+<section class="slide">
+    <h2>CSS Flexible Box Layout Module</h2>
+    <ul>
+        <li><b>Flex container (флекс контейнер) </b>- батьківський елемент, який, використовуючи css
+            правила, визначає поведінку дочірніх елементів.
+        </li>
+        <li><b>Flex item (флекс айтем)</b> – дочірні елементи флекс контейнера, набувають гнучкості у
+            контентній частині флекс контейнера.
+        </li>
+        <li><b>flex-direction (флекс напрямок)</b> – установка напряму основної осі для вибудовування
+            елементів у потрібному порядку.
+        </li>
+        <li><b>justify-content </b>– визначає розміщення флекс айтемів по основній заданій осі флекс
+            контейнера.
+        </li>
+        <li><b>align-items</b> – визначає розміщення флекс айтемів по другорядної осі у кожному ряду.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Обов'язкові завдання для виконання:</h2>
+    <ol>
+        <li>
+            <a href="https://flexbox.io/" target="_blank">What The FlexBox?!</a>
+        </li>
+        <li>
+            <a href="https://flexboxfroggy.com/#uk">Flexbox Froggy Game</a>
+        </li>
+        <li>
+            <a href="https://david-gilbertson.medium.com/11-things-i-learned-reading-the-flexbox-spec-5f0c799c776b">11
+                things I learned reading the flexbox spec</a>
+        </li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Стилі для різних середовищ:</h2>
+    <p>
+        Стилі для різних середовищ у контексті веб-технологій, зокрема в розробці інтерфейсів, полягає у застосування
+        різних CSS стилів або тем оформлення для різних типів середовищ або режимів, таких як:
+    </p>
+    <ul>
+        <li>Адаптивний дизайн (Responsive Design) - @media screen</li>
+        <li>Темна і світла теми (Dark and Light Modes) - @media prefers-color-scheme</li>
+        <li>Стилі для специфічних браузерів</li>
+        <li>Стилі для друку (Print styles) - @media print</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>media-query</h2>
+    <ul>
+        <li>
+            CSS media query on a link element:
+            <br>
+            <code>
+                &lt;link rel="stylesheet" media="(max-width: 800px)" href="example.css" &gt;
+            </code>
+        </li>
+        <li>
+            CSS media query within a stylesheet:
+            <br>
+            <code>
+                &lt;style&gt;
+                <br>
+                @media (max-width: 600px) { .sidebar { display: none; } }
+                <br>
+                &lt;/style&gt;
+            </code>
+        </li>
+    </ul>
+    <ul>
+        <li><a href="../examples/18-media-query.html" target="_blank">media-query</a></li>
+        <li><a href="../examples/19-media-query.html" target="_blank">media-query layout</a></li>
+        <li><a href="https://web.dev/articles/responsive-web-design-basics" target="_blank">Responsive web design
+            basics</a></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+

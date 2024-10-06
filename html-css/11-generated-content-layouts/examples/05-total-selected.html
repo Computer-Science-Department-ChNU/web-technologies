@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Droid+Sans:700);
+
+        /* counters */
+
+        body {
+            counter-reset: characters;
+        }
+
+        input:checked {
+            counter-increment: characters;
+        }
+
+        .total::after {
+            content: counter(characters);
+        }
+
+        /* the rest is just to make things pretty */
+
+        body {
+            margin: 32px;
+            font: 700 32px/1 'Droid Sans', sans-serif;
+            color: #fff;
+            background-color: #3f584e;
+        }
+
+        h1 {
+            margin: 0 0 32px;
+            font-size: 48px;
+        }
+
+        h2 {
+            margin: 0 0 8px 8px;
+            font-size: inherit;
+        }
+
+        section {
+            margin-bottom: 16px;
+            padding: 16px;
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, .1);
+        }
+
+        input {
+            position: absolute;
+            left: -9999px;
+        }
+
+        label {
+            float: left;
+            margin: 8px;
+            padding: 16px;
+            border-radius: 4px;
+            border: solid 2px rgba(255, 255, 255, .4);
+            background-color: rgba(255, 255, 255, .2);
+            cursor: pointer;
+            transition: all .1s;
+        }
+
+        label::before {
+            display: inline;
+        }
+
+        input:checked + label {
+            border: solid 2px #fff;
+            background-color: rgba(255, 255, 255, .4);
+            box-shadow: 0 0 10px #fff;
+        }
+
+        .total {
+            padding: 16px 24px;
+        }
+    </style>
+</head>
+<body>
+<h1>Selection CSS Counter</h1>
+<section class="characters">
+    <h2>Select characters:</h2>
+    <input id="b" type="checkbox"><label for="b">Relm</label>
+    <input id="c" type="checkbox"><label for="c">Mog</label>
+    <input id="e" type="checkbox"><label for="e">Celes</label>
+    <input id="g" type="checkbox"><label for="g">Edgar</label>
+    <input id="i" type="checkbox"><label for="i">Gau</label>
+    <input id="k" type="checkbox"><label for="k">Terra</label>
+    <input id="l" type="checkbox"><label for="l">Locke</label>
+    <input id="o" type="checkbox"><label for="o">Cyan</label>
+</section>
+<section class="total">
+    Total selected:
+</section>
+</body>
+</html>
