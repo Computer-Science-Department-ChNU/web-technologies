@@ -286,8 +286,21 @@
 </section>
 
 <section class="slide">
-    <h2>media-query</h2>
-    <ul>
+    <h2>Синтаксис media-query</h2>
+    <p>Загальний синтаксис media-query CSS виглядає наступним чином:</p>
+    <code>
+        @media &lt;type&gt; &lt;operator&gt; (feature) &lt;operator&gt; (feature) {
+        <br>
+        &nbsp&nbsp /* CSS rules */
+        <br>
+        }
+        <br>
+    </code>
+</section>
+
+<section class="slide">
+    <h2>Використання media-query</h2>
+    <ul style="font-size: 16px;">
         <li>
             CSS media query on a link element:
             <br>
@@ -301,18 +314,43 @@
             <code>
                 &lt;style&gt;
                 <br>
-                @media (max-width: 600px) { .sidebar { display: none; } }
+                @media (max-width: 600px) {
+                <br>
+                &nbsp&nbsp .sidebar { display: none; }
+                <br>
+                }
                 <br>
                 &lt;/style&gt;
             </code>
         </li>
     </ul>
-    <ul>
-        <li><a href="../examples/18-media-query.html" target="_blank">media-query</a></li>
-        <li><a href="../examples/19-media-query.html" target="_blank">media-query layout</a></li>
+    <ul style="font-size: 16px;">
+        <li><a href="../examples/18-media-query.html" target="_blank">Example media-query</a></li>
+        <li><a href="../examples/19-media-query.html" target="_blank">Example media-query layout</a></li>
+        <li><a href="../examples/20-media-query.html" target="_blank">Example media-query flexbox</a></li>
         <li><a href="https://web.dev/articles/responsive-web-design-basics" target="_blank">Responsive web design
             basics</a></li>
     </ul>
+</section>
+
+<section class="slide">
+    <h2>Як вибрати breakpoints?</h2>
+    <p> Найпоширеніший спосіб - групувати пристрої за форм-фактором (наприклад, mobile devices, tablets, laptops,
+        etc.):</p>
+    <img src="images/5.png" alt="" width="620" style="display: block; margin: 0 auto">
+    <a href="https://gs.statcounter.com/screen-resolution-stats" target="_blank">Screen Resolution Stats Worldwide</a>
+</section>
+
+<section class="slide">
+    <h2>Best practices for creating CSS breakpoints</h2>
+    <ul>
+        <li>For Mobile Devices – 320px—480px</li>
+        <li>iPads and Tablets – 481px—768px</li>
+        <li>Laptops and small screen – 769px—1024px</li>
+        <li>Large screens and Desktops – 1025px—1200px</li>
+        <li>TV and Extra Large Screens – 1201px and more</li>
+    </ul>
+    <a href="../examples/21-media-query.html" target="_blank">Example media-query breakpoints</a>
 </section>
 
 <section class="slide">
