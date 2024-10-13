@@ -8,3 +8,4 @@
 6. [Flexbox froggy](https://flexboxfroggy.com/) [обов'язково]
 7. [What The FlexBox?](https://flexbox.io/) [обов'язково]
 8. [Css Grid Garden](https://cssgridgarden.com/) [обов'язково]
+9. [Make a website](https://www.codecademy.com/learn/make-a-website) [за бажанням]
