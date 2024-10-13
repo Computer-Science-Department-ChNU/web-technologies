@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="base.css">
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(2, 260px);
+            grid-auto-rows: minmax(100px, auto);
+
+            /*column-gap: 30px;*/
+            /*row-gap: 40px;*/
+            gap: 40px 30px;
+
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .box1 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        .box2 {
+            grid-column-start: 1;
+        }
+
+        .wrapper > div {
+            padding: 1em;
+            font-size: 12px;
+            color: #d9480f;
+            border: 2px solid #ffa94d;
+            border-radius: 5px;
+            background-color: #ffd8a8;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+        <div class="box1">One</div>
+        <div class="box2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, eaque facere ipsum iusto
+            numquam reiciendis repellendus. Asperiores, cumque deserunt enim illum impedit, non provident quam quasi qui
+            quos sunt vel!
+        </div>
+        <div class="box3">Three</div>
+        <div class="box4">Four</div>
+        <div class="box5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem corporis, molestias
+            praesentium quibusdam ratione voluptatem! Architecto consequatur, consequuntur cum cupiditate doloremque
+            dolores earum eos est explicabo fugiat in labore mollitia nam nesciunt odio perspiciatis praesentium quasi
+            repellendus sapiente sequi similique tempora totam vitae! Explicabo impedit officiis possimus. A aspernatur
+            eligendi facere neque numquam omnis tenetur voluptate! Enim explicabo iure maiores provident quibusdam rem,
+            ut. Accusamus asperiores, consectetur distinctio impedit laudantium quasi qui. Ab aperiam dignissimos enim
+            mollitia nisi numquam pariatur, rerum soluta tempore voluptates! Cupiditate eos eveniet libero nesciunt non
+            porro praesentium quisquam repudiandae temporibus totam? Saepe totam vel voluptates!
+        </div>
+        <div class="box6">Six</div>
+        <div class="box7">Seven</div>
+        <div class="box8">Eight</div>
+        <div class="box9">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet at blanditiis,
+            consequuntur culpa dolorem dolores ducimus earum eius error est excepturi illum ipsa molestias nihil saepe
+            similique vero. Aliquam architecto corporis culpa deserunt dolor eos eum eveniet excepturi laboriosam
+            molestias neque nostrum, omnis ratione, rerum sapiente ullam velit, voluptates?
+        </div>
+        <div class="box10">Ten</div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="base.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            display: grid;
+            gap: 10px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .wrapper > div {
+            padding: 1em;
+            font-size: 12px;
+            color: #d9480f;
+            border: 2px solid #ffa94d;
+            border-radius: 5px;
+            background-color: #ffd8a8;
+        }
+
+        .header {
+            grid-area: hd;
+        }
+
+        .footer {
+            grid-area: ft;
+        }
+
+        .content {
+            grid-area: main;
+        }
+
+        .sidebar {
+            grid-area: sd;
+        }
+
+        .wrapper {
+            grid: "hd hd hd hd   hd   hd   hd   hd   hd" minmax(100px, auto)
+    "sd sd sd main main main main main main" minmax(100px, auto)
+    "ft ft ft ft   ft   ft   ft   ft   ft" minmax(100px, auto)
+    / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        }
+
+        .media {
+            border: 2px solid #f76707;
+            border-radius: 5px;
+            background-color: #fff4e6;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .media {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-areas: "img content";
+            margin-bottom: 1em;
+        }
+
+        .media.flipped {
+            grid-template-columns: 3fr 1fr;
+            grid-template-areas: "content img";
+        }
+
+        .media .image {
+            grid-area: img;
+            background-color: #ffd8a8;
+        }
+
+        .media .text {
+            grid-area: content;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="wrapper">
+        <div class="header">Header</div>
+        <div class="sidebar">Sidebar</div>
+        <div class="content">Content</div>
+        <div class="footer">Footer</div>
+    </div>
+
+    <div class="media">
+        <div class="image"></div>
+        <div class="text">
+            This is a media object example.
+            We can use grid-template-areas to switch
+            around the image and text part
+            of the media object.
+        </div>
+    </div>
+
+    <div class="media flipped">
+        <div class="image"></div>
+        <div class="text">
+            This is a media object example.
+            We can use grid-template-areas to switch
+            around the image and text part
+            of the media object.
+        </div>
+    </div>
+</div>
+</body>
+</html>
