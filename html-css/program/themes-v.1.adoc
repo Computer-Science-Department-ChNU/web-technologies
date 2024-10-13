@@ -74,13 +74,24 @@
 . z-index
 . visibility
 
-== Генерований вміст, лейаути
+== Генерований вміст, CSS layout, Flexbox
 
 . Генерований вміст
 . Лейаути (CSS layout)
 . Значення та одиниці вимірювання в CSS
 . Flexbox
-. Стилі для різних середовищ
+. Стилі для різних середовищ ()
+
+== CSS Grid Layout
+
+. Основні поняття Grid Layout
+. Grid-треки (Grid-смуги)
+. Явний і неявний Grid, gap, minmax, grid-column/row
+. Позиціонування за направляючими лініями Grid, grid-area, grid span
+. Шаблони Grid-областей
+. Визначення назв ліній в Grid
+. Grid-auto-flow, анонімні елементи Grid
+. Вирівнювання блоків у CSS-розмітці Grid
 
 == Процесори Pug/Jade, SCSS/SASS.
 
