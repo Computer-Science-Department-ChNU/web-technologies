@@ -9,3 +9,4 @@
 7. [What The FlexBox?](https://flexbox.io/) [обов'язково]
 8. [Css Grid Garden](https://cssgridgarden.com/) [обов'язково]
 9. [Make a website](https://www.codecademy.com/learn/make-a-website) [за бажанням]
+10. [Learn Sass](https://www.codecademy.com/learn/learn-sass) [за бажанням]
