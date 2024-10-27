@@ -1,0 +1,13 @@
+.middle-block-outer
+    .middle-block-inner
+        h2#favourite
+            span МОЇ УЛЮБЛЕНІ
+            |  СОЛОДОЩІ
+        .cards-wrapper
+            ul.list-cards
+                each card, id in cards
+                    li(class="card card-" + (id+1))
+                        img(src=card.image)
+                        .card-text-part
+                            h3= card.title
+                            p= card.description

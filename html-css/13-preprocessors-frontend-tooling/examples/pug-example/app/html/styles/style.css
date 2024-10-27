@@ -1,0 +1,271 @@
+@import "reset.css";
+
+:root {
+    --bg: #FFF7E9;
+    --favourite-bg: #FFF9EA;
+    --white: #FFFFFF;
+    --brown: #774E2E;
+    --dark-brown: #673B19;
+    --orange: #F37F34;
+}
+
+*, html, body {
+    font-family: "Montserrat", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Custom CSS */
+
+h1 {
+    color: var(--brown, #774E2E);
+    font-size: 110px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 100%;
+    letter-spacing: 5.5px;
+}
+
+h2 {
+    color: var(--brown, #774E2E);
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: 0.72px;
+    text-transform: uppercase;
+}
+
+h3 {
+    color: var(--dark-brown, #673B19);
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.24px;
+}
+
+h4 {
+    color: var(--white, #FFFFFF);
+    text-align: right;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: 0.36px;
+}
+
+p, li.sweet {
+    color: var(--brown, #774E2E);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    letter-spacing: 0.16px;
+}
+
+nav a {
+    color: var(--brown, #774E2E);
+    text-align: right;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: 0.16px;
+}
+
+span {
+    color: var(--orange, #F37F34);
+}
+
+ul.sweet-list {
+    padding-left: 20px;
+    list-style: disc;
+}
+
+a.button {
+    padding: 22px 40px;
+    background-color: var(--brown, #774E2E);
+    color: var(--white, #FFFFFF);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: 0.2px;
+}
+
+a.button:hover {
+    transition: .5s;
+    position: relative;
+    text-decoration: none;
+    -webkit-box-shadow: 1px 1px 5px 0 rgba(119,78,46,1);
+    -moz-box-shadow: 1px 1px 5px 0 rgba(119,78,46,1);
+    box-shadow: 1px 1px 5px 0 rgba(119,78,46,1);
+}
+
+.header-outer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: var(--white, #FFFFFF);
+}
+
+.header-outer:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    transform: scaleX(2);
+    width: 100vw;
+    background: var(--white, #FFFFFF);
+    box-shadow: 0 8px 16px #eaebef80;
+}
+
+.footer-outer {
+    background-color: var(--brown, #774E2E);
+}
+
+.middle-block-outer {
+    background-color: var(--favourite-bg, #FFF9EA);
+}
+
+.header-inner, .content-wrapper, .footer-inner,
+.top-block-inner, .middle-block-inner, .bottom-block-inner {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.header-inner {
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.logo.logo-header {
+    width: 79px;
+    height: 79px;
+}
+
+nav.custom-nav {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    gap: 50px;
+}
+
+.top-block-inner {
+    margin-top: 160px;
+    margin-bottom: 110px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.pug1-img {
+    max-width: 575px;
+    width: 100%;
+}
+
+.pug2-img {
+    max-width: 575px;
+    width: 100%;
+}
+
+.card img {
+    max-width: 370px;
+    width: 100%;
+}
+
+.top-desc {
+    margin: 50px 0;
+}
+
+.tip-desc {
+    padding: 30px 0 60px;
+}
+
+h1.main-title {
+    max-width: 470px;
+    width: 100%;
+    margin-top: 60px;
+}
+
+a.top-block-button {
+    display: inline-block;
+    margin-bottom: 60px;
+}
+
+ul.list-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.middle-block-inner, .bottom-block-inner {
+    padding: 150px 0;
+}
+
+h2#favourite {
+    padding-bottom: 70px;
+}
+
+h2#tip {
+    max-width: 455px;
+    width: 100%;
+}
+
+.card {
+    background: var(--white, #FFFFFF);
+}
+
+.card-text-part {
+    padding: 36px 20px;
+}
+
+.card-text-part p {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.bottom-block-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+h3.text-tip {
+    padding-bottom: 20px;
+}
+
+.footer-inner {
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    justify-content: space-between;
+}
+
+#favourite, #tip {
+    scroll-margin-top: 160px;
+}

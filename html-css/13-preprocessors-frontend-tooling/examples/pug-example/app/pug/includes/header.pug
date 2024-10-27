@@ -1,0 +1,8 @@
+header
+    .header-outer
+        .header-inner
+            .logo-wrapper
+                img(src="assets/images/logo.png" alt="logo" class="logo logo-header")
+            nav(class="custom-nav")
+                each link in navLinks
+                    a(href=link.href)= link.text

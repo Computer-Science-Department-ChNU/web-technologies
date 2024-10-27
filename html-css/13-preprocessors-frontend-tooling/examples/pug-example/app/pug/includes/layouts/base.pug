@@ -1,0 +1,23 @@
+//- Main site Layout
+
+doctype html
+html(lang="en")
+    head
+        block meta
+            meta(charset="UTF-8")
+        block title
+            title Pug Project
+        block fonts
+        block main-scripts
+            script(src='scripts/main.js')
+        block styles
+            link(rel='stylesheet', href='styles/style.css')
+    body
+        block data
+        block header
+            header: .header header
+        block content
+            main: .content content
+        block footer
+            footer: .footer footer
+        block add-scripts
