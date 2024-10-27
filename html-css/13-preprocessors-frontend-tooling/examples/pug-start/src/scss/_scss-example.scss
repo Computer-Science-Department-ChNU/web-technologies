@@ -1,0 +1,77 @@
+//  Змінні у SASS. Змінні – корисні для зберігання кольорів, розмірів, шрифтів.
+$primary-color: #3498db;
+$font-size: 16px;
+
+body {
+    color: $primary-color;
+    font-size: $font-size;
+}
+
+// Вкладеність у SASS. Вкладеність дозволяє структурувати стилі так, як HTML.
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style: none;
+        }
+    }
+}
+
+// Міксини (Mixins). Міксини дозволяють створювати повторювані стилі з параметрами.
+@mixin rounded($radius) {
+    border-radius: $radius;
+}
+
+button {
+    @include rounded(10px);
+}
+
+// Успадкування (Inheritance). Успадкування стилів від одного класу до іншого.
+.button {
+    padding: 10px;
+    border: none;
+}
+
+.primary-button {
+    @extend .button;
+    background-color: blue;
+}
+
+// Основні змінні
+$primary-color: #3498db;
+$padding-small: 8px;
+$padding-large: 16px;
+
+// Функція для зміни яскравості кольору
+@function adjust-color($color, $percentage) {
+    @return lighten($color, $percentage);
+}
+
+// Приклад використання обчислень
+@mixin responsive-padding($size) {
+    padding: if($size == small, $padding-small, $padding-large);
+
+    // Зміна відступів залежно від розміру екрану
+    @media (min-width: 768px) {
+        padding: if($size == small, $padding-large, $padding-small * 2);
+    }
+}
+
+// Використання функцій і міксинів
+.button {
+    background-color: $primary-color;
+    color: white;
+    @include responsive-padding(small);
+
+    &:hover {
+        background-color: adjust-color($primary-color, 10%); // Збільшує яскравість на 10%
+    }
+}
+
+.large-button {
+    @include responsive-padding(large);
+}
+
+s
