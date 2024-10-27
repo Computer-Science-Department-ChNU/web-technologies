@@ -1,0 +1,194 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        title Gulp Pug Example
+        link(rel="stylesheet" href="css/style.css")
+    body
+        .container
+            // Basic Pug syntax
+            div(class="wrapper")
+                p(class="hello-text") hello
+
+            div#wrapper.wrapper
+                p.hello-text hello
+
+            p.one.two.three One
+            h1#title.main-heading How are you?
+
+            .link-wrapper
+                ul.list-a
+                    li
+                        a(href="#") Link 1
+
+            .link-wrapper
+                ul.list-a
+                    li
+                        a(href="#") Link 1
+                    li
+                        a(href="#") Link 2
+                    li
+                        a(href="#") Link 3
+
+            .link-wrapper
+                ul.list-a
+                    li : a(href="#") Link 1
+                    li : a(href="#") Link 2
+                    li : a(href="#") Link 3
+
+            .link-wrapper
+                ul.list-a
+                    li: a(href="#") Link 1
+                    li: a(href="#") Link 2
+                    li: a(href="#") Link 3
+
+            div.box
+                p.
+                    Блоковий текст у Pug дозволяє
+                    розміщувати великі об'єми тексту
+                    всередині тегів без потреби
+                    постійно використовувати
+                    конвеєрний символ ` | ` на
+                    початку кожного рядка.
+                    Це зокрема корисно при роботі з
+                    довгими абзацами тексту чи
+                    монологами.
+
+            div.box
+                p.box-text
+                    | Piped Text (конвеєрний текст) - Цей підхід може бути зокрема корисний
+                    | для створення багаторядкового тексту або
+                    | для поліпшення читабельності коду.
+                    br
+                    | Як бачите, кожен рядок в Pug починається з символу ` | ` , що
+                    | підказує Pug вставляти текст безпосередньо під попереднім рядком.
+                    | lorem bla bla bla
+                    br
+                    | Lorem ipsum dolor sit amet,
+                    | consectetur adipisicing elit. At, ipsa?
+
+            - let userName = "Artem"
+            p
+                | Проте, що якщо вам потрібно вставити змінну або використовувати інші функції Pug всередині
+                | цього тексту? Тут може бути використана інтерполяція.
+                | Інтерполяція дозволяє вам динамічно вставляти змінні або вирази безпосередньо в текст.
+                br
+                | Hi my friend #{userName}
+
+            - let riskyBusiness = "<em>Some of the girls are wearing my mother's clothing.</em>";
+            .quote
+                p Інтерполяція рядків, Unescaped: !{riskyBusiness}
+
+            p
+                - let btnType = 'info'
+                - let btnSize = 'lg'
+                button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize) Button-1
+                button(type='button' class=`btn btn-${btnType} btn-${btnSize}`) Button-2
+
+            p
+                - let classes = ['aaa', 'bbb', 'ccc']
+                a(class=classes) Link with classes
+
+            p
+                a(style={color: 'red', background: 'black', padding: '5px 10px;'}) Style Attributes
+                br
+                a(style="color: red; font-size: 19px;") Style Attributes
+
+            div
+                input(
+                    type='checkbox'
+                    name='agreement'
+                    checked=false
+                )
+                // checked equal to checked=true
+
+            div
+                input(
+                    type='text'
+                    name='nickname'
+                    placeholder='Enter your name'
+                    required
+                    disabled
+                )
+            hr
+            div.pug-logic
+                - let books = ['book 1', 'book 2', 'book 3']
+                - let selectedBook = 'book 4'
+
+                if books.includes(selectedBook)
+                    p #{selectedBook} is in list in your library
+                else
+                    p #{selectedBook} is NOT in list in your library
+
+                p
+                    | Оператор unless в шаблонізаторі Pug є дещо
+                    | незвичайним, але дуже корисним інструментом, що
+                    | дозволяє оптимізувати та спростити код шаблону.
+                    | Детальніше розглянемо цей аспект.
+                    br
+                    | Основна концепція ”unless" — це умовний оператор,
+                    | який є протилежністю оператору "if" (negated if)
+                    | Іншими словами, "unless" виконує блок коду,
+                    | якщо умова є «хибною» або "false"
+
+                - let user = false
+
+                unless user
+                    p You are not logged in
+
+                - let day = "Tuesday"
+
+                case day
+                    when "Monday"
+                        p Today is Monday
+                    when "Tuesday"
+                        p Today is Tuesday
+                    default
+                        p Today is another day
+
+                - let friend1 = 2
+
+                case friend1
+                    when 0
+                    when 1
+                        p You have not many friends
+                    default
+                        p You have a lot of friends
+
+                - let friend2 = 1
+
+                case friend2
+                    when 0
+                    when 1: p You have not many friends
+                    default: p You have a lot of friends
+            hr
+            div.pug-iteration
+                - let products = [{name: 'Laptop1', price: 1200}, {name: 'Laptop2', price: 1600}, {name: 'Laptop3', price: 2600}, {name: 'Laptop4', price: 6700}]
+
+                ul
+                    each product, index in products
+                        li= index + 1 + ': ' + product.name + ' - $' + product.price
+
+                - let gallery = [{src: 'https://i.imgur.com/ZANVnHE.jpeg', alt: 'Image 1'}, {src: 'https://i.imgur.com/ZANVnHE.jpeg', alt: 'Image 2'}, {src: 'https://i.imgur.com/ZANVnHE.jpeg', alt: 'Image 3'}, {src: 'https://i.imgur.com/ZANVnHE.jpeg', alt: 'Image 4'}]
+
+                div.gallery
+                    each image, index in gallery
+                        figure
+                            img(src=image.src, alt=image.alt, width=350, height=350)
+                            figcaption= 'Image ' + (index + 1)
+            hr
+            div.pug-mixins
+                mixin items1(...items)
+                    ul
+                        each item in items
+                            li= item
+
+                +items1('Apple1', 'Apple2', 'Apple3', 'Apple1', 'Apple2', 'Apple3', 'Apple1', 'Apple2', 'Apple3')
+            hr
+            include includes/addme
+            hr
+            ul
+                li
+                    a(href="index.html") Basic
+                li
+                    a(href="layout.html") Layout

@@ -1,0 +1,13 @@
+extends includes/layouts/base.pug
+
+block content
+    include includes/blocks/header
+    h1 Hello my friend!!!
+    - let pets = ['cat', 'dog']
+    each pet in pets
+        include includes/blocks/pet.pug
+
+block foot
+    .footer
+        p Copyright 2024
+    include includes/blocks/footer
