@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Лекція 13. Препроцесор (шаблонізатор) Pug, препроцесори SCSS/SASS. Автоматизація процесів верстки</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Лекція 13. Препроцесор (шаблонізатор) Pug, препроцесори SCSS/SASS. Автоматизація процесів верстки</h1>
+</header>
+
+<section class="slide">
+    <h2>Лекція 13. Препроцесор (шаблонізатор) Pug, препроцесори SCSS/SASS. Автоматизація процесів верстки</h2>
+    <div class="columns two">
+        <div>
+            <h3>План лекції:</h3>
+            <ol>
+                <li>Препроцесор (шаблонізатор) Pug</li>
+                <li>Препроцесори SCSS/SASS)</li>
+                <li>Автоматизація процесів верстки (Gulp, Webpack, Vite)</li>
+            </ol>
+        </div>
+        <img src="images/intro.jpg" width="100%" alt="">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Препроцесор (шаблонізатор) Pug: введення в шаблонізацію</h2>
+    <div class="columns two">
+        <div>
+            <p>
+                <b>Шаблонізатор</b> (template engine, template parser) - це інструмент
+                (програмне забезпечення або бібліотека), призначене для
+                змішування (об'єднання) шаблонів з моделлю даних для
+                створення результуючих документів.
+            </p>
+        </div>
+        <img src="images/template-engine.png" alt="" width="100%">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Препроцесор (шаблонізатор) Pug: введення в шаблонізацію</h2>
+    <div class="columns two">
+        <div style="font-size: 17px;">
+            <p>
+                Простими словами, <b>template engine</b> -
+                це механізм, який дозволяє
+                використовувати статичні файлі
+                шаблонів у вашому застосунку. Template engine замінює змінні всередині
+                файлу вебшаблона фактичними
+                значеннями (під час виконання), і
+                перетворює шаблон в HTML-файл,
+                який надсилається клієнту з
+                динамічними даними.
+            </p>
+            <p>
+                Ця техніка полегшує оформлення
+                HTML-сторінки. З наведеної діаграми
+                зрозуміло функціональність
+                шаблонізаторів, тобто як дані з бази
+                даних відображаються на HTML-сторінці динамічно
+            </p>
+        </div>
+        <img src="images/template-page.png" alt="" width="100%">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Препроцесор (шаблонізатор) Pug: введення в шаблонізацію</h2>
+    <div class="columns two">
+        <div>
+            <p>Приклади популярних шаблонізаторів</p>
+            <ul>
+                <li>JavaScript: Handlebars, EJS, Pug</li>
+                <li>Python: Jinja2 (для Flask, Django)</li>
+                <li>PHP: Twig, Blade (Laravel)</li>
+            </ul>
+        </div>
+        <img src="images/template-page.png" alt="" width="100%">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Препроцесор (шаблонізатор) Pug</h2>
+    <p>
+        <b>Pug в Node.js (2016) (раніше відомий як Jade: 2012 - 2016)</b> - це двигун шаблонів, який використовує
+        регістрозалежний
+        синтаксис для створення HTML. Іншими словами, він повертає рядок
+        HTML, відтворений згідно з даними, визначеними у файлі Pug. Можна
+        сказати, що Pug - це посередник, який виконує завдання перетворення
+        введених даних та перекладу їх у синтаксис HTML.
+    </p>
+    <p>
+        Перейменування в Pug (2016):
+        У 2016 році було прийнято рішення про зміну
+        назви з "Jade" на "Pug". Ця зміна назви сталася
+        через конфлікт із зареєстрованою торговою
+        маркою "Jade" і викликану патентно-правовою
+        домовленістю. Отже проєкт перейменували на
+        "Pug", причому синтаксис та функціональність
+        залишилися практично незмінними.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Препроцесор (шаблонізатор) Pug</h2>
+    <div class="columns two">
+        <div>
+            <h3>Огляд переваг Pug над звичайним HTML:</h3>
+            <ul>
+                <li>Спрощений синтаксис</li>
+                <li>Прості вкладення</li>
+                <li>Вбудовані цикли та умови</li>
+                <li>Зручне включення змінних</li>
+                <li>Підтримка міксинів</li>
+            </ul>
+        </div>
+        <img src="images/pug.png" alt="">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Препроцесор (шаблонізатор) Pug</h2>
+    <p>
+        Перед тим як приступити до роботи з
+        шаблонізатором Pug, нам потрібно
+        зрозуміти, як відбувається компіляція
+        шаблонів Pug у звичний для нас HTML.
+        Браузер не розуміє формату Pug, а
+        отже, вся обробка коду повинна
+        відбуватись або в нас на localhost, або
+        на сервері.
+    </p>
+    <p>
+        На офіційному сайті документації Pug
+        ми можемо побачити використання
+        команди менеджера пакетів та
+        залежностей npm, що автоматично
+        встановлюється разом з Node.js.
+    </p>
+    <p><a href="https://pugjs.org/api/getting-started.html" target="_blank">Pug Getting Started</a></p>
+</section>
+
+<section class="slide">
+    <h2>Node Package Manager</h2>
+    <p>
+        NPM (Node Package Manager) - це платформа
+        та менеджер пакетів, які використовуються
+        для розробки програм на мові
+        програмування JavaScript і середовищі
+        виконання Node.js. NPM дозволяє
+        розробникам легко управляти залежностями
+        (бібліотеками та модулями), які
+        використовуються в їхніх проєктах.
+    </p>
+    <p>
+        Щоб установити пакет глобально,
+        скористайтеся цією командою:
+        br
+        <code>npm install -g [package-name]</code>
+    </p>
+    <p><a href="https://kinsta.com/knowledgebase/what-is-npm/" target="_blank">What Is npm? An Introduction to Node’s
+        Package Manager</a></p>
+</section>
+
+<section class="slide">
+    <h2>Як встановити Node.js і NPM</h2>
+    <ol>
+        <li>Завантажте інсталятор
+            (<a href="https://nodejs.org/uk/download/prebuilt-installer">Завантажити Node.js</a>)
+        </li>
+        <li>
+            Встановіть Node.js і NPM зі скачаного інсталятора
+        </li>
+        <li>
+            Перевірте версію Node.js і NPM: <code>node -v</code>, <code>npm -v</code>
+        </li>
+    </ol>
+    <img src="images/2.jpg" alt="" width="350" style="display: block; margin: 0 auto">
+</section>
+
+<section class="slide">
+    <h2>Встановлення Gulp</h2>
+    <div style="font-size: 19px;">
+        <p>
+            <b>Gulp</b> (<a
+            href="https://gulpjs.com/docs/en/getting-started/quick-start/">Gulpjs Quick Start
+        </a>) - це інструмент для автоматизації рутинних задач у веброзробці. Він допомагає спростити процес
+            роботи з
+            вебпроєктами, забезпечуючи автоматичне виконання завдань,
+            таких як компіляція із препроцесорів (наприклад, Sass чи LESS),
+            оптимізація зображень, об'єднання та мініфікація файлів
+            JavaScript і CSS, попереднє відстеження змін в файлах тощо.
+        </p>
+        <p>
+            Основна ідея Gulp полягає у використанні концепції «завдань»
+            (tasks) і «плагінів» (plugins).
+            <br>
+            <b>Завдання</b> - це прості функції, які
+            виконують певні операції.
+            <br>
+            <b>Плагіни</b> - це зовнішні розширення, які
+            використовуються для конкретних завдань.
+            <br>
+            Gulp дозволяє вам
+            створювати ланцюжки завдань, які будуть виконуватися
+            послідовно при запуску команди.
+        </p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Основні переваги Gulp</h2>
+    <ul>
+        <li><b>Автоматизація задач:</b> Gulp дозволяє автоматизувати багато рутинних задач,
+            що допомагає зекономити час розробників і знизити ризик виникнення помилок.
+        </li>
+        <li><b>Легкість використання:</b> Створення та налаштування завдань у Gulp
+            відбувається за допомогою коду на JavaScript. Це дозволяє розробникам більш
+            гнучко налаштовувати свої процеси автоматизації.
+        </li>
+        <li><b>Багатофункціональність:</b> Завдяки великій кількості плагінів, Gulp може
+            виконувати різноманітні завдання: від оптимізації зображень до обробки CSS і
+            HTML.
+        </li>
+        <li><b>Чистий код:</b> Gulp дозволяє створювати покращені робочі потоки, які
+            полегшують обслуговування коду і покращують загальну якість проєкту.
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Основи Pug: синтаксис, теги, текст</h2>
+    <div style="font-size: 19px;">
+        <p>
+            Коли мова йде про базовий синтаксис
+            Pug, центральна роль відведена
+            індентації (відступам) та ефективності.
+            На відміну від HTML, де вкладеність
+            реалізується за допомогою
+            відкриваючих та закриваючих тегів, в
+            Pug це здійснюється за допомогою
+            індентації — це коли вкладені
+            елементи розташовані праворуч від
+            батьківських, створюючи зрозумілу
+            структуру на подобі дерева. Цей
+            принцип часто порівнюють із мовою
+            Python, де відступи та індентація також
+            відіграють ключову роль в блоках коду.
+        </p>
+        <p>
+            Завдяки цьому вам не потрібно
+            турбуватися про закриваючі теги,
+            які можуть «розгубитися» в купі
+            коду, особливо в великих проєктах.
+        </p>
+        <p>Крім того, виразність індентації
+            дозволяє швидко ідентифікувати
+            глибину вкладеності елементів, що
+            може бути край корисним при
+            швидкому ревью коду або його
+            рефакторингу.</p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Основи Pug: робота з атрибутами. Класи та ідентифікатори</h2>
+    <ul>
+        <li><a href="https://pugjs.org/language/attributes.html" target="_blank">Attributes</a></li>
+        <li><a href="https://pugjs.org/language/attributes.html#class-attributes" target="_blank">Class Attributes</a>
+        <li><a href="https://pugjs.org/language/attributes.html#id-literal" target="_blank">ID Literal</a>
+        </li>
+    </ul>
+    <h2>Робота зі змінними. Вбудований код JavaScript</h2>
+    <ul>
+        <li>
+            <a href="https://pugjs.org/language/code.html" target="_blank">Code</a>
+        </li>
+        <li>
+            <a href="https://pugjs.org/language/comments.html" target="_blank">Comments</a>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Основи Pug: Умовний синтаксис / Оператор case (when)</h2>
+    <ul>
+        <li><a href="https://pugjs.org/language/case.html" target="_blank">Case</a></li>
+        <li><a href="https://pugjs.org/language/conditionals.html" target="_blank">Conditionals</a></li>
+    </ul>
+    <h2>Цикли та міксини</h2>
+    <ul>
+        <li><a href="https://pugjs.org/language/iteration.html" target="_blank">Iteration</a></li>
+        <li><a href="https://pugjs.org/language/mixins.html" target="_blank">Mixins</a></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Основи Pug: Використання макетів та включень</h2>
+    <p>
+        Один із ключових аспектів роботи з
+        шаблонізатором Pug — це можливість
+        використовувати оператор <b>include</b>, який дозволяє
+        вам інтегрувати вміст одного файлу Pug в інший.
+        Це сприяє створенню чистих, організованих та
+        легко підтримуваних кодових баз.
+    </p>
+    <p><a href="https://pugjs.org/language/includes.html" target="_blank">Includes</a></p>
+</section>
+
+<section class="slide">
+    <h2>Основи Pug: Спадкування шаблонів</h2>
+    <p>
+        Спадкування шаблонів є фундаментальною частиною
+        роботи з Pug, що дозволяє створювати консистентні та
+        легко керовані вебсайти і додатки. Відмінність Pug від
+        інших шаблонізаторів полягає в його здатності
+        створювати відокремлені шаблони, які можна
+        наслідувати та розширювати в інших файлах. Це
+        ефективно зменшує кількість повтореного коду та
+        полегшує управління та обновлення шаблонів
+    </p>
+    <p>
+        Основними елементами спадкування шаблонів
+        в Pug є директиви <b>extends</b> та <b>block</b>.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Основи Pug: Спадкування шаблонів</h2>
+    <p>
+        Директива <b>block</b> використовується для визначення
+        області в шаблоні, яка може бути перевизначена в
+        дочірньому шаблоні. Ці «блоки» можуть містити
+        контент за замовчуванням, який буде відображатися,
+        якщо дочірній шаблон не надасть свій варіант
+        контенту.
+    </p>
+    <p>
+        Директива <b>extends</b> використовується для вказівки
+        шаблону, від якого ведеться наслідування
+    </p>
+    <p><a href="https://pugjs.org/language/inheritance.html" target="_blank">Template Inheritance
+    </a></p>
+</section>
+
+<section class="slide">
+    <h2>Основи Pug: Спадкування шаблонів</h2>
+    <p>
+        Pug надає можливість додавати або вставляти контент до
+        існуючого блоку, не перезаписуючи його повністю, за
+        допомогою block append та block prepend. Це особливо
+        корисно, коли вам потрібно додати деякі елементи до
+        блоку, не втрачаючи базовий контент
+    </p>
+    <p>Якщо використовується block
+        append або block prepend, слово
+        «block» є необов’язковим</p>
+</section>
+<section class="slide">
+    <h2>Pug is good tool!</h2>
+    <img src="images/1.jpg" alt="" width="450" style="display: block; margin: 0 auto">
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+
