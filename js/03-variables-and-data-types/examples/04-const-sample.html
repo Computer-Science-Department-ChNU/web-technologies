@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приклад використання змінних</title>
+</head>
+
+<body>
+<script>
+    console.log("Обчислення об'єму циліндра.")
+    //  V=π * r в квадраті * h
+    let V // змінна для зберігання об'єму
+    const Pi = 3.1415926535 // константа Пі, зміна значення призведе до помилки
+    let r = 10
+    let h = 20
+
+    Pi = 123 // помилка на етапі виконання, константу не можна змінювати
+
+    V = Pi * r * r * h
+    console.log(V)
+</script>
+</body>
+
+</html>

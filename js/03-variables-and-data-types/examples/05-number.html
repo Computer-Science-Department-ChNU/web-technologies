@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+</head>
+
+<body>
+    <script>
+        // number - тип даних для зберігання значень цілих чисел  та чисел з плаваючою комою. 
+        // діапазон number от -9,007,199,254,740,992‬ до 9,007,199,254,740,992
+        let x = 123;
+        let y = 1.23;
+
+        // над значеннями змінної number можна виконувати різні арифметичні операції
+        let result;
+        result = x + y;      // додавання
+        console.log(result);
+
+        console.log(x - y);  // віднімання
+        console.log(x * y);  // множення
+        console.log(x / y);  // ділення
+
+        // Спеціальне значення типу  number
+        // Infinity - спеціальне значення типу number, що представляє математичну нескінченність.
+        console.log(x / 0)
+
+        // NaN - Not a Number - значення, яке описує помилку обчислення.
+        let value; // значення змінної не визначено
+        console.log(value + x); // немає можливості виконати складання невизначеного значення та числового значення. Результат NaN
+
+        // Будь-яка операція, у якій використовується NaN, повертає результат NaN
+    </script>
+</body>
+
+</html>

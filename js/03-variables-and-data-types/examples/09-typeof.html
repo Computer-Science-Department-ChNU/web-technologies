@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>typeof</title>
+</head>
+
+<body>
+    <script>
+        // JavaScript - мова з динамічною типізацією. Після створення, змінна може змінювати тип даних при отриманні нового значення.
+        let x;      // тип undefined
+        x = 10;     // тип number
+        x = "test"; // тип string
+        x = 20;     // тип number
+
+        // typeof - оператор, повертаючий тип аргумента
+        let y;
+        console.log(typeof y);
+
+        y = 10;
+        console.log(typeof y);
+
+        y = "test";
+        console.log(typeof y);
+
+        y = 20;
+        console.log(typeof y);
+
+        console.log(typeof console); // console - складний об'єкт з різними властивостями (значеннями) та методами (діями)
+        console.log(typeof null); // результатом також є object. Це помилка, яка залишена для зворотної сумісності коду.
+        console.log(typeof alert); // результат function. Function не стосується окремого типу даних і буде вивчена в наступних уроках.
+    </script>
+</body>
+
+</html>
