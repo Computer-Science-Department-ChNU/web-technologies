@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Тема 1. Вступ до javaScript</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Тема 1. Вступ до javaScript</h1>
+</header>
+
+<section class="slide">
+    <h2>Тема 1. Вступ до javaScript</h2>
+    <ol>
+        <li>Що таке JavaScript</li>
+        <li>Що може/не може JavaScript</li>
+        <li>Мови "над" JavaScript</li>
+        <li>Рекомендована література та ресурси з вивчення JavaScript</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Що таке JavaScript?</h2>
+    <p><b>JavaScript</b> — мультипарадигмальна мова програмування, яка використовується для
+        створення сценаріїв, що виконуються у веббраузерах.</p>
+    <p><b>JavaScript</b> - це реалізація специфікації <a href="https://uk.wikipedia.org/wiki/ECMAScript"
+                                                         target="_blank">ECMAScript</a> (стандарт ECMA-262).</p>
+    <p>
+        У 1995 році Брендан Ейх почав працювати
+        над новою скриптовою мовою для браузера
+        Netscape Navigator. Також у розробці брали
+        участь співзасновник Netscape
+        Communications Марк Андрессен та
+        співзасновник Sun Microsystems Білл Джой.
+    </p>
+    <img src="images/1.png" alt="" width="300">
+</section>
+
+<section class="slide">
+    <h2>Що таке JavaScript?</h2>
+    <p><b>JavaScript</b> - це мова, яка дозволяє реалізувати складну функціональність на вебсторінці.</p>
+    <ul>
+        <li>HTML – мова розмітки, що визначає
+            структуру та вміст сторінки.
+        </li>
+        <li>CSS – мова для визначення правил
+            стилізації елементів документа.
+        </li>
+        <li>JavaScript – скриптова мова для
+            визначення динамічного
+            оновлення вмісту сторінки.
+        </li>
+    </ul>
+    <p><b>JavaScript</b> було створено для того, щоб “оживити вебсторінки”.</p>
+    <p>
+        Програми цією мовою (JavaScript) називаються <b>скриптами</b>. Їх можна писати прямо в коді HTML-сторінок і вони
+        автоматично
+        виконуватимуться при їх завантаженні.
+        <br>
+        Скрипти записуються та виконуються як простий текст. Для запуску їм не потрібна спеціальна підготовка чи
+        компілятор.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Що може JavaScript</h2>
+    <h4>Працювати з HTML вмістом сторінки (DOM):</h4>
+    <ul>
+        <li>Додавати/вилучати елементи</li>
+        <li>Міняти стилі елементів</li>
+    </ul>
+    <h4>Реагувати на дії користувачів:</h4>
+    <ul>
+        <li>Кліки курсору</li>
+        <li>Переміщення курсору</li>
+        <li>Натискання клавіш на клавіатурі</li>
+        <li>Перевіряти правильність заповнення форми</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Що може JavaScript</h2>
+    <h4>Зберігати дані на стороні клієнта:</h4>
+    <ul>
+        <li>
+            Отримувати та встановлювати cookie
+        </li>
+        <li>
+            Запитувати дані у користувача, виводити повідомлення
+        </li>
+    </ul>
+    <h4>Працювати зі стороною сервера:</h4>
+    <ul>
+        <li>Надсилати запити на сервер та завантажувати
+            дані без перезавантаження сторінки (AJAX)
+        </li>
+        <li>Завантажувати файли</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Що НЕ може JavaScript</h2>
+    <ul>
+        <li>
+            Повноцінно працювати з файловою
+            системою та обладнанням
+            користувача (камера, мікрофон) без
+            попередньої згоди від користувача.
+        </li>
+        <li>
+            JavaScript на вебсторінці не може читати/записувати довільні файли на жорсткому диску, копіювати їх чи
+            виконувати програми. Скрипт не має прямого доступу до функцій ОС.
+        </li>
+        <li>
+            Отримувати дані інших сторінок,
+            відкритих у браузері. JavaScript з однієї сторінки не має доступу до іншої, якщо вони з різних сайтів (мають
+            різні домени, протоколи чи порти). Це називається <a
+            href="https://uk.wikipedia.org/wiki/%D0%9F%D0%BE%D0%BB%D1%96%D1%82%D0%B8%D0%BA%D0%B0_%D1%82%D0%BE%D0%B3%D0%BE_%D0%B6_%D0%BF%D0%BE%D1%85%D0%BE%D0%B4%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F"
+            target="_blank">“Політикою того ж походження (Same Origin Policy)”</a>.
+        </li>
+        <li>
+            Взаємодіяти з іншими серверами,
+            адреси яких відрізняються від адреси
+            сервера, з якого отримано JS код.
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Що може JavaScript</h2>
+    <ul>
+        <li>CoffeeScript
+            – це “синтаксичний цукор” для JavaScript. Вона вводить коротший синтаксис, дозволяючи нам писати
+            прозорий та точний код. Зазвичай це до вподоби програмістам, які пишуть на Ruby.
+        </li>
+        <li>TypeScript
+            зосереджена на додаванні “строгої типізації даних” для спрощення розробки та підтримки складних
+            систем. Розробляється Microsoft.
+        </li>
+        <li>Flow
+            також додає типізацію даних, але іншим способом. Розробляється Facebook.
+        </li>
+        <li>Dart
+            – це автономна мова, яка має власний рушій, що працює в не браузерних середовищах (як-от мобільні
+            застосунки), але також може транспілюватися в JavaScript. Розробляється Google.
+        </li>
+        <li>Brython
+            – це транспілятор коду Python у JavaScript, що дозволяє писати застосунки на чистому Python без
+            використання JavaScript.
+        </li>
+        <li>Kotlin
+            – це сучасна, лаконічна та безпечна мова програмування, яку можна компілювати для браузера або NodeJS.
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Рекомендована література та ресурси з вивчення JavaScript</h2>
+    <ul>
+        <li><a href="https://developer.mozilla.org/index.html" target="_blank">Resources for Developers, by
+            Developers</a></li>
+        <li><a href="https://uk.javascript.info/" target="_blank">Сучасний підручник з JavaScript</a></li>
+        <li><a href="https://github.com/getify/You-Dont-Know-JS" target="_blank">You Don't Know JS Yet (book
+            series) </a></li>
+        <li><a href="https://understandinges6.denysdovhan.com/" target="_blank">Розуміння ECMAScript 6</a></li>
+        <li><a href="https://dou.ua/lenta/articles/interview-questions-javascript-developer/" target="_blank">Співбесіда
+            з JavaScript. 300+ запитань для Junior, Middle, Senior</a></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+
