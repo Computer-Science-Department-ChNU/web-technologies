@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+</head>
+<body>
+<pre>
+    Завдання:
+    Допрацюйте сценарій. Якщо користувач замовляє товарів більше, ніж є на складі - повідомте йому про це. Якщо користувач замовляє
+    кількість товарів, що неперевищує наявну на складі - розрахуйте загальну вартість замовлення.
+</pre>
+<script>
+    let productPrice = 101.5 // ціна товару
+    let productQuantity = 50  // кількість одиниць товару на складі
+
+    let count = prompt("Яку кількість одиниць товару ви бажаєте придбати?", 1)
+    let totalSum = count * productPrice
+    let leftInStorage = productQuantity - count
+
+    alert("Загальна вартість " + totalSum)
+    alert("Кількість товару залишиться на складі після покупки." + leftInStorage)
+</script>
+</body>
+</html>

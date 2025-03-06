@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+<body>
+<pre>
+    Завдання:
+    Допрацюйте сценарій. Перед тим як вивести загальну суму замовлення дізнайтесь у користувача, чи буде він замовляти доставку.
+    Якщо так, додайте до вартості замовлення 40.
+</pre>
+<script>
+    let product1 = "Папір офісний А4, 80 г/м2, 500 л"
+    let product2 = "Біндері для паперу 51 мм"
+    let product3 = "Ручка кулькова синя"
+
+    let productPrice1 = 280.25
+    let productPrice2 = 56
+    let productPrice3 = 12.50
+
+    let productQuantity1 = prompt(`Вкажіть кількість продуктів '${product1}', ціна ${productPrice1}`, 0)
+    let productQuantity2 = prompt(`Вкажіть кількість продуктів '${product2}', ціна ${productPrice2}`, 0)
+    let productQuantity3 = prompt(`Вкажіть кількість продуктів '${product3}', ціна ${productPrice3}`, 0)
+
+    // Покажіть на екран скільки користувачу потрібно заплатити за кожен продукт окремо та всього за всі продукти
+    // використовуйте форматований вивід
+    let totalPriceProduct1 = productPrice1 * productQuantity1
+    let totalPriceProduct2 = productPrice2 * productQuantity2
+    let totalPriceProduct3 = productPrice3 * productQuantity3
+
+    let total = totalPriceProduct1 + totalPriceProduct2 + totalPriceProduct3
+    console.log(`Загальна сума за продукт '${product1}' становить ${totalPriceProduct1}`)
+    console.log(`Загальна сума за продукт '${product2}' становить ${totalPriceProduct2}`)
+    console.log(`Загальна сума за продукт '${product3}' становить ${totalPriceProduct3}`)
+    console.log("Всього " + total)
+</script>
+</body>
+</html>
