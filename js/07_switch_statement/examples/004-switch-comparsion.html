@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевірка типів</title>
+</head>
+<body>
+<script>
+    //let dayNumber = 1;
+    let dayNumber = "1"
+
+    // У switch використовується суворе порівняння (значення у виразах switch і case повинні бути одного і того ж типу)
+
+    switch (dayNumber) {
+        case "1": // dayNumber === "1" (порівняння з рядковим значенням)
+            alert("Понеділок ('1' як рядок)")
+            break
+        case 1: // dayNumber === 1 (порівняння з числовим значенням)
+            alert("Понеділок (1 як число)")
+            break
+        default: // else
+            alert("Введено неправильне значення")
+            break
+    }
+</script>
+</body>
+</html>

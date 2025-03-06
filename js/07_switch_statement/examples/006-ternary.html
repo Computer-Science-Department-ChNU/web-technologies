@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тернарний оператор</title>
+</head>
+<body>
+<script>
+    // використання умовної конструкції
+    let accessMessage
+    let age = +prompt("Скільки вам років? (використання if)")
+
+    if (age > 18) {
+        accessMessage = "доступ дозволено"
+    } else {
+        accessMessage = "немає доступу"
+    }
+
+    alert(accessMessage)
+
+    // використання тернарного оператора
+    age = +prompt("Скільки вам років? (використання тернарного оператора)")
+
+    // змінна = умова? значення_якщо_умова_істина : значення_якщо_умова_брехня
+    accessMessage = age > 18 ? "доступ дозволено" : "немає доступу"
+    alert(accessMessage)
+</script>
+</body>
+</html>

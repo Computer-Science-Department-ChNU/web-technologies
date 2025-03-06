@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тернарний оператор</title>
+</head>
+<body>
+<script>
+    // Нижче використовуються конструктори та методи. Теми, які докладніше будуть розглянуті у наступних темах.
+    let currentDate = new Date() // створення змінної, в якій перебуватиме об'єкт, що містить поточну дату
+    let day = currentDate.getDay() // виклик на об'єкті методу getDay, який повертає номер дня тижня. 0 – неділя, 1 – понеділок і т.д.
+    let year = currentDate.getFullYear() // виклик на об'єкті методу getFullYear, який повертає поточний рік.
+
+    console.log("Значення змінної day - " + day)
+    console.log("Значення змінної year - " + year)
+
+    let dayMessage = day == 0 || day == 6 ? "сьогодні вихідний" : "сьогодні робочий день" // якщо номер дня 0 або 1 – вихідний день, інакше – робочий
+    let yearMessage = year % 4 == 0 ? "цей рік високосний" : "цей рік не високосний" // якщо поточний рік ділиться на 4 без залишку - високосний, інакше - ні
+
+    alert(dayMessage + "\r\n" + yearMessage)
+</script>
+</body>
+</html>
