@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Властивість length</title>
+</head>
+<body>
+<script>
+    let cities = ["London", "Paris", "Berlin", "Rome"]
+    console.log(cities.length) // length - властивість масиву, в якому знаходиться кількість елементів масиву
+
+    cities[4] = "Lisbon" // при зміні елемента масиву, що знаходиться за межами поточної довжини масиву, відбувається автоматичне оновлення властивості length
+    console.log(cities.length) // довжина масиву збільшилась на 1
+
+    cities[10] = "Madrid"
+    console.log(cities.length) // тепер довжина масиву 11, оскільки індекс останнього елемента масиву 10
+
+    cities.length = 2 // встановивши length менше розміру масиву, ми видалили елементи, що виходять за межі нового розміру масиву
+    console.log(cities)
+</script>
+</body>
+
+</html>

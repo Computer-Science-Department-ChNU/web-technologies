@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Масиви</title>
+</head>
+<body>
+<script>
+    // масив - впорядкована колекція значень.
+    // Елемент масиву - окреме значення масиву.
+
+    let array1 = []          // створення масиву з використанням літералу (частіше використовується цей варіант)
+    let array2 = new Array()   // створення масиву з використанням конструктора
+
+    const array3 = new Array(3)
+    const array4 = [3] // [3]
+    console.log('array3', array3) // Масив з довжиною 3, але без значень: [empty × 3]. Якщо передати один аргумент, можна отримати пустий масив із фіксованою довжиною.
+
+    const array5 = new Array(3, 5, 7) // [3, 5, 7]
+    const array6 = [3, 5, 7] // [3, 5, 7]
+
+    let cities = ["London", "Paris", "Berlin", "Rome"] // створення масиву та заповнення масиву рядковими значеннями
+    let values = ["London", 123, true] // масив може зберігати різні типи даних
+
+    // під час використання console.log будуть відображатися всі елементи масиву
+    console.log(cities)
+    console.log(values)
+    console.log(typeof values) // object - масив, особливий вид об'єктів
+</script>
+</body>
+</html>

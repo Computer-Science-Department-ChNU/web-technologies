@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Використання індексу</title>
+</head>
+
+<body>
+    <script>
+        // масив - впорядкована колекція значень
+        // Елемент масиву - окреме значення масиву
+        // Індекс - числова позиція елемента масиву
+
+        let cities = []; // создание пустого массива
+
+        // створення порожнього масиву
+        cities[0] = "London"; // присвоєння значення за індексом 0
+        cities[1] = "Paris"; // присвоєння значення за індексом 1
+        cities[2] = "Berlin"; // присвоєння значення за індексом 2
+        cities[3] = "Rome"; // присвоєння значення за індексом 3
+
+        // читання елемента масиву за індексом 0
+        let cityName = cities[0];
+        console.log("First array element - " + cityName);
+
+        cities[0] = "LONDON"; // зміна значення елемента масиву
+
+        console.log(cities[0]);
+        console.log(cities[1]);
+        console.log(cities[2]);
+        console.log(cities[3]);
+    </script>
+</body>
+
+</html>
