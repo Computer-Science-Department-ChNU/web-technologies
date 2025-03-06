@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break and continue</title>
+</head>
+<body>
+<script>
+    let sum = 0
+    while (true) {
+        let value = prompt("Введіть числові значення. Для виходу введіть exit.")
+        if (value == "exit") {
+            break // зупинити роботу циклу
+        }
+
+        let convertedValue = Number(value) // перетворення value на число
+
+        // isNaN(convertedValue) - повертає true, якщо в змінній converted знаходиться значення NaN, інакше повертає false
+        if (isNaN(convertedValue)) {
+            continue // перейти на наступну ітерацію циклу
+        }
+
+        sum += convertedValue
+    }
+
+    alert("Сума всіх введених числових значень - " + sum)
+</script>
+</body>
+</html>

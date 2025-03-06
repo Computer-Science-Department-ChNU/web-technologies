@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мітки для continue та break</title>
+</head>
+<body>
+<script>
+    // first: мітка для циклу, на яку можна перейти за допомогою оператора break або continue
+    first:
+        for (let x = 1; x < 10; x++) {
+            console.log("Таблиця множення на " + x)
+            for (let y = 1; y < 10; y++) {
+                if (x == 5) {
+                    break first // коли x дорівнює 5 - закінчити роботу циклу з міткою first:
+                }
+                console.log(`${y}*${x} = ${x * y}`)
+            }
+            console.log("")
+        }
+</script>
+</body>
+
+</html>

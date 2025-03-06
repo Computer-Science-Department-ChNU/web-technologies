@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for</title>
+</head>
+<body>
+<script>
+    // цикл for може використовувати змінну що вже існує, як, наприклад, змінну x у прикладі нижче
+    let x = 0
+    for (x = 0; x < 10; x++) {
+        console.log("(cycle 1) iteration #" + x)
+    }
+
+    // у циклі for можна пропускати окремі параметри, у прикладі нижче немає першого параметра
+    let y = 0
+    for (; y < 10; y++) {
+        console.log("(cycle 2) iteration #" + y)
+    }
+
+    // у прикладі нижче немає першого параметра c установкою початкового значення та параметра, відповідального за операцію в кінці кожної ітерації
+    let z = 0
+    for (; z < 10;) {
+        console.log("(cycle 3) iteration #" + z)
+        z++
+    }
+</script>
+</body>
+</html>

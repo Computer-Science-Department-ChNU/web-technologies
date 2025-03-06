@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вкладені цикли</title>
+</head>
+<body>
+<script>
+    // цикл може бути вкладеним в інший цикл
+    for (let x = 1; x < 10; x++) {
+        console.log("Таблиця множення на " + x)
+        for (let y = 1; y < 10; y++) {
+            console.log(`${y}*${x} = ${x * y}`)
+        }
+        console.log("")
+    }
+</script>
+</body>
+</html>

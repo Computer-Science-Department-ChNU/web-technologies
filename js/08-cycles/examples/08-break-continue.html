@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break and continue</title>
+</head>
+<body>
+<script>
+    for (let i = 0; i < 5; i++) {
+        console.log("cycle 1 - iteration #" + i)
+        break // break - зупинити цю ітерацію та заборонити виконання всіх наступних
+        console.log("цей рядок не відобразиться")
+    }
+
+    for (let i = 0; i < 5; i++) {
+        console.log("cycle 2 - iteration #" + i)
+        continue // continue - зупинити цю ітерацію та перейти до наступної
+        console.log("цей рядок не відобразиться")
+    }
+</script>
+</body>
+</html>
