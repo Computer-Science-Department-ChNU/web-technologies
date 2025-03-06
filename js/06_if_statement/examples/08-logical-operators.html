@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Логічні оператори</title>
+</head>
+<body>
+<script>
+    // Логічна операція - операція над висловлюваннями, що дозволяє отримати складне вираження виходячи з простіших.
+    // У JavaScript використовується три логічні оператори - і (&&) або (||) не (!)
+
+    // Кон'юнкція, І - результат логічної операції true, якщо обидва аргументи true, інакше - false
+    console.log(true && true) // true
+    console.log(true && false) // false
+    console.log(false && true) // false
+    console.log(false && false) // false
+
+    // Диз'юнкція, АБО - результат логічної операції true, якщо хоча б один із аргументів дорівнює true, інакше - false
+    console.log(true || true) // true
+    console.log(true || false) // true
+    console.log(false || true) // true
+    console.log(false || false) // false
+
+    // Заперечення, НЕ – приймає один аргумент, виконує приведення до логічного типу та повертає протилежне значення
+    console.log(!true) // false
+    console.log(!false) // true
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Тема 6. Умовний оператор if</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Тема 6. Умовний оператор if</h1>
+</header>
+
+<section class="slide">
+    <h2>Тема 6. Умовний оператор if</h2>
+    <ol>
+        <li>Використання оператора if else</li>
+        <li>Перетворення на булевий тип</li>
+        <li>Логічні операції: кон'юнкція, диз'юнкція, заперечення</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Вивчивши матеріал даної теми, студент зможе:</h2>
+    <ol>
+        <li>Використовувати оператор if/else</li>
+        <li>Конвертувати різні значення у тип Boolean та розуміти особливості такої конвертації</li>
+        <li>Працювати з логічними операціями – І, АБО, НЕ</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Умовні конструкції</h2>
+    <p>
+        <b>Умовні конструкції</b> чи <b>оператори розгалуження</b> - конструкції мови програмування, які забезпечують
+        виконання певної команди (набору команд) лише за умов істинності деякого логічного висловлювання.
+    </p>
+    <p>
+        Оператор розгалуження if на основі виразу в дужках
+        виконує чи пропускає блок коду.
+    </p>
+    <pre>
+        <code>let x = 10;</code>
+        <code>let y = 20;</code>
+        <code>if (x > y) {</code>
+        <code>  console.log('Значення x більше значення y')</code>
+        <code>}</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>if/else</h2>
+    <p>
+        Оператор if може використовувати необов’язковий блок else, в якому буде
+        знаходитися набір інструкцій, що запускаються, якщо умова хибна
+    </p>
+    <pre>
+        <code>let x = 10;</code>
+        <code>let y = 20;</code>
+        <code>if (x > y) {</code>
+        <code>  console.log('Значення x більше значення y')</code>
+        <code>} else {</code>
+        <code> console.log('Значення x менше значення y')</code>
+        <code>}</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Логічні операції</h2>
+    <p>
+        <b>Логічні операції </b>- операції над виразами, дозволяють отримати складний вираз, виходячи з
+        простіших.
+    </p>
+    <pre>
+        <code>if (inputLogin == login && inputPassword == password) {</code>
+        <code>  console.log('Ви авторизовані!')</code>
+        <code>}</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Логічні операції</h2>
+    <p>
+        В JavaScript використовуються три логічні оператори:
+    </p>
+    <ul>
+        <li><b>Кон’юнкція</b> - та (&&). Результат логічної операції true, якщо обидва аргументи true, інакше – false.
+        </li>
+        <li><b>Диз’юнкція</b> - або (||). Результат логічної операції true, якщо хоча б один із аргументів дорівнює
+            true,
+            інакше – false.
+        </li>
+        <li>
+            <b>Заперечення</b> - не (!). Приймає один аргумент та повертає протилежне значення.
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Контрольні питання</h2>
+    <ol>
+        <li>Що таке умовна конструкція?</li>
+        <li>Що потрібно зробити, щоб виконалося кілька інструкцій, якщо умова для if – істина</li>
+        <li>Що таке диз'юнкція і як вона використовується?</li>
+        <li>Що таке кон'юнкція і як вона використовується?</li>
+        <li>Що таке заперечення, як воно використовується?</li>
+        <li>Якщо передати в умову значення нелогічного типу, як поведеться умовна
+            конструкція?
+        </li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+

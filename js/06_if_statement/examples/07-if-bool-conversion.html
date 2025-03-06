@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перетворення логічних типів</title>
+</head>
+<body>
+<script>
+    // false - Число 0, порожній рядок "", null, undefined та NaN
+    // true - всі інші значення
+
+    let value
+    value = 10 + 10
+    value = 10 - 10
+    value = ""
+    value = "hello world"
+    value = null
+
+    if (value) {
+        console.log(`Блок if виконався зі значенням ${value} у виразі.`)
+    } else {
+        console.log(`Блок else виконався зі значенням ${value} у виразі.`)
+    }
+</script>
+</body>
+</html>

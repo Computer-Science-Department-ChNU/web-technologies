@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if statement</title>
+</head>
+<body>
+<script>
+    let response = prompt("Скільки буде 2 + 3?")
+
+    // Якщо необхідно виконати більше однієї інструкції, блок коду полягає в операторних (фігурних дужках)
+    if (response != 5) {
+        alert("Неправильна відповідь")
+        alert("Сума 2 та 3 дорівнює 5")
+    }
+
+    // Якщо операторні дужки не використовуються, перша інструкція відноситься до умови.
+    // Інші інструкції виконуються незалежно від висловлювання в умові.
+    let x = 10
+    if (x == x)
+        console.log("instruction 1")
+    console.log("instruction 2")
+    console.log("instruction 3")
+</script>
+</body>
+</html>

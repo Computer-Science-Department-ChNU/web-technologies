@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Логічне АБО (||)</title>
+</head>
+<body>
+<script>
+    // Приклад використання логічного оператора АБО (диз'юнкція)
+    let totalSum = 8000 // загальна сума покупок
+    let isClientBirthday = false // true, якщо сьогодні День Народження клієнта
+
+    let toPaySum = totalSum
+    // Якщо сума покупок більше 900 АБО сьогодні у клієнта День Народження, застосувати знижку 10%
+    if (totalSum > 900 || isClientBirthday == true) {
+        let discount = totalSum * 0.1
+        toPaySum -= discount //toPaySum = toPaySum - discount;
+    }
+    alert("Сума до оплати " + toPaySum)
+</script>
+</body>
+</html>
