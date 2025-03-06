@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Javascript for those who have never used it</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/material/styles/screen-16x10.css">
+    <link rel="stylesheet" href="prism/prism.css">
+    <link rel="stylesheet" href="shower/custom.css">
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Javascript for those who have never used it</h1>
+</header>
+
+<section class="slide" id="cover">
+    <h2 style="top: -200px;">Javascript for those who have never used it</h2>
+    <figure>
+        <img class="cover" src="pictures/3.jpeg" alt="go-go-go!" style="object-fit: initial">
+    </figure>
+</section>
+
+<section class="slide">
+    <h2>Javascript</h2>
+    <ol>
+        <li><b>Для браузера</b><br>Пишемо <code>script.js</code>, підключаємо на сторінку і він виконується після
+            завантаження.
+        </li>
+        <li class="next"><b>Для Node.js</b><br>Пишемо <code>script.js</code> і запускаємо поза браузером.</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <pre class="language-html">
+      <code class="comment">&lt;!DOCTYPE html></code>
+      <code class="comment">&lt;html lang="uk"></code>
+      <code class="comment">&lt;head></code>
+      <code class="comment">  &lt;meta charset="UTF-8"></code>
+      <code class="comment">  &lt;title>Документ&lt;/title></code>
+      <code>  &lt;script src="js/script-01.js" defer>&lt;/script></code>
+      <code class="comment">&lt;/head></code>
+      <code class="comment">&lt;body></code>
+      <code class="comment">  &lt;header>...&lt;/header></code>
+      <code class="comment">  &lt;main>...&lt;/main></code>
+      <code class="comment">  &lt;footer>...&lt;/footer></code>
+      <code>  &lt;script src="js/script-02.js">&lt;/script></code>
+      <code>  &lt;script src="js/script-03.js">&lt;/script></code>
+      <code class="comment">&lt;/body></code>
+      <code class="comment">&lt;/html></code>
+    </pre>
+</section>
+
+<section class="slide">
+    <pre class="language-html">
+      <code class="comment">&lt;!DOCTYPE html></code>
+      <code class="comment">&lt;html lang="uk"></code>
+      <code class="comment">&lt;head></code>
+      <code class="comment">  &lt;meta charset="UTF-8"></code>
+      <code class="comment">  &lt;title>Документ&lt;/title></code>
+      <code class="comment">&lt;/head></code>
+      <code class="comment">&lt;body></code>
+      <code class="comment">  &lt;header>...&lt;/header></code>
+      <code class="comment">  &lt;main>...&lt;/main></code>
+      <code class="comment">  &lt;footer>...&lt;/footer></code>
+      <code>  &lt;script></code>
+      <code class="language-js">    alert('hello world');</code>
+      <code>  &lt;/script></code>
+      <code class="comment">&lt;/body></code>
+      <code class="comment">&lt;/html></code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Що таке програмування?</h2>
+    <p class="next">Це написання програм.</p>
+    <h3 class="next">Що таке програма?</h3>
+    <div class="next" style="margin-top: 2em; display: flex; justify-content: center;">
+        <div style="margin-right: 4em;">
+            <span style="font-size: 94px;">1.</span> <img src="pictures/002-interface.svg" alt="" width="200"
+                                                          style="vertical-align: -2.5em;">
+            <br>
+            <div style="margin-top: 1em; padding-left: 5.3em;">Данні</div>
+        </div>
+        <div>
+            <span style="font-size: 94px;">2.</span> <img src="pictures/001-algorithm.svg" alt="" width="200"
+                                                          style="vertical-align: -2.5em;">
+            <br>
+            <div style="margin-top: 1em; padding-left: 5.1em;">Алгоритм</div>
+        </div>
+    </div>
+</section>
+
+<section class="slide" style="background-color: #462813;">
+    <h2 style="color: #fff; text-align: center;">Дані — продукти у рецепті</h2>
+    <img class="cover" src="pictures/coffee-1.jpg" alt="coffee"
+         style="height: 100%; width: auto; transform: translate(-50%,-42%);">
+</section>
+
+<section class="slide" style="background-color: #DED5CB;">
+    <h2 style="text-align: center;">Алгоритм — інструкція як працювати с данными</h2>
+    <img class="cover" src="pictures/coffee-2.jpg" alt="coffee"
+         style="height: 80%; width: auto; transform: translate(-50%,-42%);">
+</section>
+
+
+<section class="slide">
+    <h2 class="shout">Дані</h2>
+</section>
+
+<section class="slide">
+    <h2>Звідки беруться дані</h2>
+    <ul>
+        <li>Прийшли у файл зі скриптом.</li>
+        <li>Прийшли як результат запиту до сервера під час роботи скрипта.</li>
+        <li>Введено користувачем.</li>
+    </ul>
+    <pre class="language-  next">
+      <code>Візьми кофе   (16 г)</code>
+      <code>Візьми воду   (80 мл)</code>
+      <code>Візьми молоко (40 мл)</code>
+      <code> </code>
+      <code>функція зробиКапучино (кофе, вода, молоко) {</code>
+      <code>  Візьми кофе, подрібни...</code>
+      <code>}</code>
+    </pre>
+    <pre class="language-js  next" style="position: absolute; bottom: -1px; left: 70px;">
+      <code>let coffee =   16; // дані оідразу є у програмі</code>
+      <code>let water  =   80; // дані оідразу є у програмі</code>
+      <code>let milk   =   40; // дані оідразу є у програмі</code>
+      <code> </code>
+      <code>function makeCappuccino(coffee, water, milk) {</code>
+      <code>  // Візьми кофе, подрібни...</code>
+      <code>}</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Дані зберігаються у змінних</h2>
+    <p>Змінна - коробка з даними (названа ділянка пам'яті).</p>
+    <pre class="language-js">
+      <code>var dislikesCounter = 768; // старий варіант</code>
+      <code>let likesCounter    = 768; // змінна</code>
+      <code>const likesNumber   = 768; // константа</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Типи простих даних</h2>
+    <div style="position: relative;">
+      <pre class="language-">
+        <code>Пакет кави</code>
+         <code>Пляшка молока</code>
+         <code>Упаковка гречки</code>
+         <code>Закрита банка (порожня)</code>
+         <code>Форма для випікання (порожня)</code>
+      </pre>
+        <pre class="language-js  next" style="position: absolute; top: -1em; left: 0;">
+            <code>let counter = 768; // тип ЧИСЛО (ціле або дробове число без лапок)</code>
+             <code>let message = `Привіт!`; // тип РЯДКУ (щось у лапках ``, '', "")</code>
+             <code>let isAuthorized = true; // тип ЛОГІЧНИЙ (або true або false)</code>
+             <code>let box = undefined; // значення не надано </code>
+             <code>let responsive = null; // значення невідомо</code>
+      </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Прості типи даних - надто прості</h2>
+    <div style="position: relative;">
+      <pre class="language-">
+        <code>Пакет кави 1</code>
+         <code>Назва пакету кави 1: Lavazza</code>
+         <code>Вага пакету кави 1: 1000</code>
+         <code>У пакеті 1 каву в зернах: так</code>
+         <code>Ступінь обсмажування вмісту кави 1: 3</code>
+         <code>Склад кави в пакеті 1: 80% арабіки, 20% робусти</code>
+      </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Об'єкт</h2>
+    <div style="position: relative;">
+      <pre class="language-">
+        <code>Пакет кави</code>
+         <code> Назва: Lavazza</code>
+         <code> Вага: 1000</code>
+         <code> У зернах: так</code>
+         <code> Ступінь обсмажування: 3</code>
+         <code> Склад:</code>
+         <code>  Арабіка: 80</code>
+         <code>  Робуста: 20</code>
+        <code> </code>
+        <code> </code>
+      </pre>
+        <pre class="language-js  next" style="position: absolute; top: -1em; left: 0;">
+        <code>const coffee = {</code>
+        <code>  name: 'Lavazza',</code>
+        <code>  weight: 1000,</code>
+        <code>  beans: true,</code>
+        <code>  fryingDegre: 3,</code>
+        <code>  composition: {</code>
+        <code>    arabica: 80,</code>
+        <code>    robusta: 20</code>
+        <code>  }</code>
+        <code>};</code>
+      </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Об'єкт</h2>
+    <pre class="language-js">
+      <code>const coffee = {</code>
+      <code>  name: 'Lavazza',</code>
+      <code>  composition: {</code>
+      <code>    arabica: 80,</code>
+      <code>    robusta: 20</code>
+      <code>  }</code>
+      <code>};</code>
+      <code> </code>
+      <code>let name = coffee.name;                   // 'Lavazza'</code>
+      <code>let robusta = coffee.composition.robusta; // 20</code>
+      <code> </code>
+      <code>alert( coffee.composition.robusta );</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Список (масив)</h2>
+    <div style="position: relative;">
+      <pre class="language-">
+        <code>Список покупок</code>
+         <code> Кава</code>
+         <code> Молоко</code>
+         <code></code>
+      </pre>
+        <pre class="language-js  next" style="position: absolute; top: -1em; left: 0;">
+        <code>const buyList = [</code>
+        <code>  'coffee', // 0: 'coffee',</code>
+        <code>  'milk',   // 1: 'milk',</code>
+        <code>]</code>
+      </pre>
+    </div>
+    <pre class="language-js  next">
+      <code>alert( buyList[0] ); // 'coffee'</code>
+      <code>alert( buyList[1] ); // 'milk'</code>
+      <code> </code>
+      <code>// У списків є властивість «довжина»</code>
+      <code>alert( buyList.length ); // 2</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Список об'єктів</h2>
+    <pre class="language-js">
+      <code>const buyList = [</code>
+      <code>  {</code>
+      <code>    name: 'coffee',</code>
+      <code>    beans: true,</code>
+      <code>    weight: 1000,</code>
+      <code>  },</code>
+      <code>  {</code>
+      <code>    name: 'milk',</code>
+      <code>    fat: 2,</code>
+      <code>    volume: 500,</code>
+      <code>  },</code>
+      <code>]</code>
+    </pre>
+</section>
+
+<section class="slide" style="background-color: #B3B3B3;">
+    <h2 style="text-align: center; white-space: nowrap;">Які дані знадобляться для картки товару?</h2>
+    <img class="cover" src="pictures/product-01.png" alt=""
+         style="height: 80%; width: auto; transform: translate(-50%,-39%);">
+</section>
+
+
+<section class="slide">
+    <h2 class="shout">Алгоритми</h2>
+</section>
+
+<section class="slide">
+    <h2>Умови</h2>
+    <div style="position: relative;">
+      <pre class="language-">
+        <code>Кількість кави 125 г</code>
+         <code> </code>
+         <code>Кави більше або дорівнює 16 г?</code>
+         <code> Приготувати капучіно</code>
+         <code> </code>
+         <code>Інакше</code>
+         <code> Сходити в магазин і купити каву</code>
+         <code> </code>
+      </pre>
+        <pre class="language-js  next" style="position: absolute; top: -1em; left: 0;">
+        <code>const coffeeWeight = 125;</code>
+        <code> </code>
+        <code>if (coffeeWeight >= 16) {                    </code>
+        <code>  makeCappuccino();</code>
+        <code>}</code>
+        <code>else {</code>
+        <code>  buyCoffee();</code>
+        <code>}</code>
+      </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Умови</h2>
+    <div style="position: relative;">
+      <pre class="language-">
+        <code>Відвідувач авторизувався</code>
+        <code> </code>
+        <code>Відвідувача авторизовано?</code>
+        <code>  Показати аватар відвідувача</code>
+        <code> </code>
+        <code>Інакше</code>
+        <code>  Показати кнопку авторизації</code>
+        <code> </code>
+      </pre>
+        <pre class="language-js  next" style="position: absolute; top: -1em; left: 0;">
+        <code>const userAuthorized = true;                    </code>
+        <code> </code>
+        <code>if (userAuthorized) {</code>
+        <code>  showAvatar();</code>
+        <code>}</code>
+        <code>else {</code>
+        <code>  showLoginButton();</code>
+        <code>}</code>
+      </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Умови</h2>
+    <div style="position: relative;">
+      <pre class="language-">
+        <code>У покупця у кошику товарів на 2400 грн</code>
+        <code> </code>
+        <code>Відвідувач купує на 2500 і більше?</code>
+        <code>  Підрахувати знижку 10%</code>
+        <code> </code>
+        <code>Інакше якщо купує на 2000 і більше, але менш ніж на 2500</code>
+        <code>   Підрахувати знижку 6%</code>
+        <code> </code>
+        <code>Інакше</code>
+        <code>   Підрахувати знижку 2%</code>
+        <code> </code>
+      </pre>
+        <pre class="language-js  next" style="position: absolute; top: -1em; left: 0;">
+        <code>const price = 2400;                    </code>
+        <code> </code>
+        <code>if (price >= 2500) {</code>
+        <code>  getDiscount(10);</code>
+        <code>}</code>
+        <code>else if (price >= 2000 && price < 2500) {                        </code>
+        <code>  getDiscount(6);</code>
+        <code>}</code>
+        <code>else {</code>
+        <code>  getDiscount(2);</code>
+        <code>}</code>
+      </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Циклы</h2>
+    <div style="position: relative;">
+      <pre class="language-">
+        <code>Кількість чашок з-під кави: 15</code>
+        <code> </code>
+        <code>Повторювати (від 0 і поки лічильник менший за кількість чашок, з кроком 1)</code>
+        <code>  Взяти чашку</code>
+         <code>  Мити чашку</code>
+         <code>  Сушити чашку</code>
+        <code> </code>
+      </pre>
+        <pre class="language-js  next" style="position: absolute; top: -1em; left: 0;">
+        <code>const cupsCounter = 15;                    </code>
+        <code> </code>
+        <code>for (let i = 0; i < cupsCounter; i = i + 1) {                       </code>
+        <code>  takeCup();</code>
+        <code>  washCup();</code>
+        <code>  dryCup();</code>
+        <code>}</code>
+      </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Функція</h2>
+    <div style="position: relative;">
+      <pre class="language-">
+        <code>Приготуй капучино</code>
+        <code>  Подрібни зерна кави</code>
+        <code>  Приготуй еспресо</code>
+        <code>  Збий молоко</code>
+        <code>  Змішай еспресо та збий молоко</code>
+        <code> </code>
+      </pre>
+        <pre class="language-js  next" style="position: absolute; top: -1em; left: 0;">
+        <code>function makeCappuccino() {                    </code>
+        <code>  // Подрібни зерна кави</code>
+        <code>  // Приготуй еспресо</code>
+        <code>  // Збий молоко</code>
+        <code>  // Змішай еспресо та збий молоко</code>
+        <code>}</code>
+      </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Функція — іменований алгоритм</h2>
+    <pre class="language-js">
+      <code>// ФФункція є, але поки що не спрацьовувала</code>
+      <code>function makeCappuccino() {</code>
+      <code>  // Набір дій (інструкцій)</code>
+      <code>}</code>
+      <code> </code>
+      <code>// Щоб спрацювала, її потрібно викликати за ім'ям:</code>
+      <code>makeCappuccino();</code>
+      <code> </code>
+      <code>// Викликати можна скільки завгодно разів</code>
+      <code>makeCappuccino();</code>
+      <code>makeCappuccino();</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Функція завжди щось повертає</h2>
+    <pre class="language-js">
+      <code>function makeCappuccino() {</code>
+      <code>  // Набір дій, що створюють cappuccino</code>
+      <code>  return cappuccino;</code>
+      <code>}</code>
+      <code> </code>
+      <code>// Функція поверне капучино, наллємо його у чашку</code>
+      <code>let cupCoffee = makeCappuccino();</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Функції можна вказати ЯК їй спрацювати</h2>
+    <pre class="language-js">
+      <code>function makeCappuccino(volume) {</code>
+      <code>  // Набір дій, що створюють cappuccino вказаного обсягу</code>
+      <code>  return cappuccino;</code>
+      <code>}</code>
+      <code> </code>
+      <code>// Функція поверне 300 мл капучіно, наллємо його в мою чашку</code>
+      <code>let cupCoffeeMe = makeCappuccino(300);</code>
+      <code> </code>
+      <code>// Функція поверне 150 мл капучіно, наллємо його у твою чашку</code>
+      <code>let cupCoffeeYou = makeCappuccino(150);</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Ближче до реальності: підрахунок вартості кошика</h2>
+    <pre class="language-js">
+      <code>const cart = [</code>
+      <code>  { name: 'кофе',   price: 400, },</code>
+      <code>  { name: 'молоко', price: 100, },</code>
+      <code>  { name: 'вершки', price: 300, },</code>
+      <code>];</code>
+      <code> </code>
+      <code>function getCartPrice(array) {</code>
+      <code>  let price = 0; // загальна вартість (поки — 0)</code>
+      <code>  // циклом обійти товари, додавати їхню вартість до price</code>
+      <code>  return price; // повернути підраховану вартість</code>
+      <code>}</code>
+      <code>let cartPrice = getCartPrice(cart);</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <pre class="language-js">
+      <code>const cart = [</code>
+      <code>  { name: 'кофе',   price: 400, },</code>
+      <code>  { name: 'молоко', price: 100, },</code>
+      <code>  { name: 'вершки', price: 300, },</code>
+      <code>];</code>
+      <code> </code>
+      <code>function getCartPrice(array) {</code>
+      <code>  let price = 0; // загальна вартість (поки — 0)</code>
+      <code>  for (let i = 0; i < array.length; i = i + 1) {</code>
+      <code>    price = price + array[i].price;</code>
+      <code>  }</code>
+      <code>  return price; // повернути підраховану вартість</code>
+      <code>}</code>
+      <code> </code>
+      <code>let cartPrice = getCartPrice(cart); // 800</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <pre class="language-js">
+      <code>const cart = [</code>
+      <code>  { name: 'кофе',   price: 400, quantity: 2 },</code>
+      <code>  { name: 'молоко', price: 100, quantity: 1 },</code>
+      <code>  { name: 'вершки', price: 300, quantity: 1 },</code>
+      <code>];</code>
+      <code> </code>
+      <code>function getCartPrice(array) {</code>
+      <code>  let price = 0; // загальна вартість (поки — 0)</code>
+      <code>  for (let i = 0; i < array.length; i = i + 1) {</code>
+      <code>    price = price + ( array[i].price * array[i].quantity );</code>
+      <code>  }</code>
+      <code>  return price; // повернути підраховану вартість</code>
+      <code>}</code>
+      <code> </code>
+      <code>let cartPrice = getCartPrice(cart); // 1200</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Функція - це також тип даних</h2>
+    <pre class="language-js">
+      <code>function makeCoffee(quantity) {</code>
+      <code>  return `Тримай ${quantity} порцій кави!`;</code>
+      <code>}</code>
+      <code> </code>
+      <code>let makeCoffeeForMe = makeCoffee;</code>
+      <code> </code>
+      <code>alert( makeCoffee(5) );      // Тримай 5 порцій кави!</code>
+      <code>alert( makeCoffeeForMe(8) ); // Тримай 8 порцій кави!</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Функція - це також тип даних</h2>
+    <pre class="language-js">
+      <code>const makeCoffee = function(quantity) {</code>
+      <code>  return `Тримай ${quantity} порцій кави!`;</code>
+      <code>}</code>
+      <code> </code>
+      <code>let makeCoffeeForMe = makeCoffee;</code>
+      <code> </code>
+      <code>alert( makeCoffee(5) );      // Тримай 5 порцій кави!</code>
+      <code>alert( makeCoffeeForMe(8) ); // Тримай 8 порцій кави!</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Функція як значення поля об'єкта</h2>
+    <pre class="language-js">
+      <code>const barista = {</code>
+      <code>  name: 'Roman',</code>
+      <code>  age: '21',</code>
+      <code>  makeCappuccino: function() {</code>
+      <code>    return `Це капучино`;</code>
+      <code>  },</code>
+      <code>};</code>
+      <code> </code>
+      <code>let cup = barista.makeCappuccino();</code>
+      <code> </code>
+      <code>alert( barista.name );</code>
+      <code>alert( barista.makeCappuccino() );</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Функція як значення поля об'єкта</h2>
+    <pre class="language-js">
+      <code>const barista = {</code>
+      <code>  name: 'Roman',</code>
+      <code>  age: '21',</code>
+      <code>  makeCappuccino() {</code>
+      <code>    return `Це капучино`;</code>
+      <code>  },</code>
+      <code>};</code>
+      <code> </code>
+      <code>let cup = barista.makeCappuccino();</code>
+      <code> </code>
+      <code>alert( barista.name );</code>
+      <code>alert( barista.makeCappuccino() );</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <pre class="language-js">
+      <code>const cart = {</code>
+      <code>  products: [</code>
+      <code>    { name: 'кофе',   price: 400, quantity: 2 },</code>
+      <code>    { name: 'молоко', price: 100, quantity: 1 },</code>
+      <code>    { name: 'вершки', price: 300, quantity: 1 },</code>
+      <code>  ],</code>
+      <code>  getPrice() {</code>
+      <code>    let price = 0;</code>
+      <code>    for (let i = 0; i < this.products.length; i = i + 1) {</code>
+      <code>      price = price + this.products[i].price * this.products[i].quantity;</code>
+      <code>    }</code>
+      <code>    return price;</code>
+      <code>  }</code>
+      <code>}</code>
+      <code>alert( cart.getPrice() ); // 1200</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Не весь код спрацьовує одразу</h2>
+    <pre class="language-js">
+      <code>// У контексті виконання є глобальний об'єкт caffe</code>
+      <code>const autoBarista = { /* об'єкт із властивостями та методами */ };</code>
+      <code>const button = cafe.getElementById('coffee-button');</code>
+      <code> </code>
+      <code>button.addEventListener('click', makeCoffee);</code>
+      <code> </code>
+      <code>function makeCoffee() {</code>
+      <code>  const cup = autoBarista.makeCoffee();</code>
+      <code>  return cup;</code>
+      <code>}</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Не весь код спрацьовує одразу</h2>
+    <pre class="language-js">
+      <code>const button = document.getElementById('btn');</code>
+      <code>const log = document.getElementById('log');</code>
+      <code>button.addEventListener('click', showLogMessage);</code>
+      <code> </code>
+      <code>function showLogMessage() {</code>
+      <code>  log.innerHTML = 'Був клік по кнопці';</code>
+      <code>}</code>
+    </pre>
+    <p>Дійсно працює???:
+        <button id="btn"
+                style="background: #28a745; font-size: 1em; border: 0; border-radius: 0.2em; padding: 0.3em 0.8em; color: #fff;">
+            Кнопка
+        </button>
+    </p>
+    <p id="log">Після натискання текст заміниться</p>
+    <script>
+        const button = document.getElementById('btn')
+        const log = document.getElementById('log')
+        button.addEventListener('click', showLogMessage)
+
+        function showLogMessage() {
+            log.innerHTML = 'Був клік по кнопці'
+        }
+    </script>
+</section>
+
+<section class="slide">
+    <h2>Javascript</h2>
+    <p>Javascript — прототипно-орієнтована однопоточна асинхронна скриптова мова програмування.</p>
+    <ul>
+        <li>Прототипно-орієнтований — майже всі мають прототип.</li>
+        <li class="next">Однопотоковий — одна інструкція в одиницю часу.</li>
+        <li class="next">Асинхронний код може виконатися не відразу.</li>
+        <li class="next">Скриптовий — потребує інтерпретатора (браузер, node.js).</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="shower/shower.min.js"></script>
+<script src="prism/prism.js"></script>
+
+</body>
+</html>

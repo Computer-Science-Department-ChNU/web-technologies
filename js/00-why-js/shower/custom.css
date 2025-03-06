@@ -1,0 +1,229 @@
+#cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 50px;
+}
+#cover h2 {
+  margin: 30px 0 0;
+  color: #000;
+  text-align: center;
+  font-size: 56px;
+  position: relative;
+  z-index: 2;
+  line-height: 0.8;
+}
+#cover p {
+  margin: 10px 0 0;
+  text-align: right;
+  color: #000;
+  font-size: 20px;
+  position: relative;
+  z-index: 2;
+}
+#cover a {
+  color: #000;
+}
+#cover:before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255,255,255,0.7);
+}
+
+.comment {
+  color: #BDBDBD;
+}
+
+.date {
+  position: absolute;
+  z-index: 200;
+  top: 20px;
+  right: 20px;
+  color: #000;
+  font-size: 16px;
+  opacity: .2;
+}
+
+.slide {
+  padding: 50px 50px 0 70px;
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.slide h2 {
+  font-size: 36px;
+  margin-bottom: 46px;
+}
+
+.slide h2.shout small {
+  font-size: 71px;
+}
+
+.slide li {
+  margin-bottom: 1em;
+}
+
+.slide ul,
+.slide ol {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.slide hr {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.slide td,
+.slide th {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+h2 + table {
+  margin-top: -1em;
+}
+
+.slide pre {
+  width: auto;
+  margin: 1em -50px 1em -70px !important;
+  padding-left: 70px;
+  line-height: 1;
+  white-space: normal;
+  overflow: hidden;
+}
+
+.slide > pre:first-child {
+  margin-top: -50px !important;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.slide pre[data-line-num-15] {
+  counter-reset: code 15;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h3 {
+  margin-top: 2em;
+  font-weight: 700;
+}
+
+.slide pre code {
+  line-height: 1.6;
+}
+
+.slide::after {
+  bottom: 20px;
+  right: 20px;
+  left: auto;
+  color: #000;
+  font-size: 16px;
+  opacity: .2;
+}
+
+.slide code,
+.slide kbd,
+.slide mark,
+.slide samp {
+  background-color: #EDEDED;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  background: transparent;
+}
+
+.start {
+  position: absolute;
+  z-index: 10;
+  top: 50px;
+  right: 20px;
+  padding: 20px 20px 20px 30px;
+  font-size: 20px;
+  color: #fff;
+  background-color: rgba(0,0,0,0.3);
+}
+.start ul {
+  margin: 10px 0 0;
+  list-style: none;
+}
+.start li {
+  margin-bottom: 0;
+}
+.start h3 {
+  font-size: 24px;
+  margin: 0;
+}
+.start a {
+  color: inherit !important;
+}
+.start code {
+  padding: 0;
+  background-color: transparent;
+}
+
+input[type="number"] {
+  font-size: inherit;
+  width: 50px;
+  border: 1px solid #ccc;
+}
+
+.slide pre .comment * {
+  color: #9e9e9e !important;
+}
+
+.slide pre.no-nums code:not(:only-child)::before {
+  display: none;
+}
+
+.on-pict {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  padding: 1em;
+  background: rgba(255,255,255,0.7);
+}
+
+.resume {
+  position: absolute;
+  z-index: 1;
+  bottom: 1em;
+  left: 96px;
+  padding: 1em;
+  background: rgba(255,255,255,0.7);
+}
+
+.resume > *:last-child {
+  margin-bottom: 0;
+}
+
+.slide .list-compact li {
+  margin-bottom: 0;
+}
+
+.container-demo {
+  padding: 0 15px;
+}
+
+.demo {
+  padding: 15px;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid rgba(86,61,124,.2);
+  color: rgba(86,61,124,.2);
+  text-align: center;
+}
