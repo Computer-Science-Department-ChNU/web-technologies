@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конкатенація</title>
+</head>
+<body>
+<script>
+    // конкатенація - операція склеювання рядків
+    let msg1 = "hello "
+    let msg2 = "world"
+    let joined = msg1 + msg2
+    console.log(joined)
+
+    // числа и рядки
+    //при додаванні значення типу number і string, значення типу number перетворюється на рядок,
+    // після чого виконується конкатенація
+    console.log("hello" + 1)
+
+    let x = "10"
+    let y = "20"
+    let sum = x + y // оскільки оператор + використовується для двох змінних типу string, виконується конкатенація замість додавання
+    console.log(sum) // результат 1020 замість очікуваного результату 30
+
+    // Приклад використання конкатенації
+    // уявіть, що користувачеві на сторінці інтернет магазину потрібно сформувати повідомлення на основі кількості товарів у кошику та загальної вартості товарів
+    let items = 3
+    let totalPrice = 230
+    let message = "Товарів в корзині - " + items + ". Загальна вартість " + totalPrice + " $."
+
+    console.log(message)
+</script>
+</body>
+</html>

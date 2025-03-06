@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перетворення до числового типу</title>
+</head>
+<body>
+<script>
+    // перетворення типів - перетворення значення одного типу на значення іншого типу
+    // перетворення може виконуватися через виклик спеціальних фуркцій або автоматично
+
+    console.log("10" / "2") // автоматичне перетворення
+    console.log("10" + "2") // виняток, при складанні рядків перетворення на number не відбувається
+
+    let value = "100" // тип даних string
+    console.log(typeof value)
+
+    let newValue = Number(value) // перетворення в тип number
+    console.log(typeof newValue)
+
+    // при спробі перетворити до числа значення, яке не може бути числом, функція Number поверне NaN
+    let someText = "hello"
+    let converted = Number(someText)
+    console.log(converted)
+
+    // при спробі перетворити null, функція поверне 0
+    console.log(Number(null))
+
+    // при спробі перетворити логічне значення, функція Number для false поверне 0, для true - 1
+    console.log(Number(true))
+    console.log(Number(false))
+
+    // при перетворенні рядка, пробіли на початку та в кінці рядка видаляються
+    console.log(Number("   5   ") + 1)
+</script>
+</body>
+</html>

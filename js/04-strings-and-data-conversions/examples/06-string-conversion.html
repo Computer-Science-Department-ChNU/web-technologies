@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перетворення до рядкового типу</title>
+</head>
+<body>
+<script>
+    alert(123) // alert автоматично перетворює будь-яке значення до рядка
+
+    // Перетворення до рядкового типу
+    let value = true // тип даних boolean
+    console.log(typeof value)
+
+    // String - глобальний метод для створення рядків
+    let newValue = String(value) // змінна типу boolean у тип string
+    console.log(typeof newValue)
+    console.log(newValue)
+
+    // альтернативний спосіб перетворення до рядкового типу
+    newValue = value.toString()
+    console.log(typeof newValue)
+</script>
+</body>
+</html>

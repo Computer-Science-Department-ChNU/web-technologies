@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інкремент</title>
+</head>
+<body>
+<script>
+    let value = 10
+
+    // інкремент, унарний оператор, який дозволяє збільшити значення змінної на 1
+    console.log("інкремент")
+    value++ // value = value + 1;
+    console.log(value) // 11
+
+    console.log(++value) // (12) префіксна форма, оператор виконує збільшення значення на 1 і повертає нове значення
+    console.log(value++) // (12) постфіксна форма оператор виконує збільшення значення на 1 і повертає старе значення
+    console.log(value)   // (13)
+
+    // декремент, унарний оператор, який дозволяє зменшити значення змінної на 1
+    console.log("декремент")
+    value = 10
+    value-- // value = value - 1;
+    console.log(value) // 9
+
+    console.log(--value) // (8) префіксна форма оператор виконує зменшення значення на 1 і повертає нове значення
+    console.log(value--) // (8) постфіксна форма оператор виконує зменшення значення на 1 і повертає старе значення
+    console.log(value)   // (7)
+</script>
+</body>
+</html>

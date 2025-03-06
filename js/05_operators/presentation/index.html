@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Тема 5. Оператори</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Тема 5. Оператори</h1>
+</header>
+
+<section class="slide">
+    <h2>Тема 5. Оператори</h2>
+    <ol>
+        <li>Поняття оператора та операнда</li>
+        <li>Бінарні та унарні оператори</li>
+        <li>Арифметичні оператори</li>
+        <li>Оператори порівняння</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Вивчивши матеріал даної теми, студент зможе:</h2>
+    <ol>
+        <li>Розуміти, що таке оператор та операнд</li>
+        <li>Працювати з бінарними та унарними операторами у JavaScript</li>
+        <li>Використовувати арифметичні оператори</li>
+        <li>Використовувати оператори порівняння</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Оператори та операнди</h2>
+    <p>
+        <b>Оператор</b> – найменша автономна частина мови програмування, визначальна команда чи набір
+        команд, наприклад: присвоєння, додавання, множення тощо.
+    </p>
+    <p>
+        <b>Операнд</b> – аргумент операції (дані, що обробляються операцією).
+    </p>
+    <pre>
+        <code>let result = operand1 + operand2 - operand3;</code>
+        <code><b>=, -, +</b> - оператори</code>
+        <code><b>operand1, operand2, operand3</b> - операнди</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Оператори та операнди</h2>
+    <p>
+        <b>Бінарні оператори</b>
+        – оператори, які приймають два аргументи та повертають один результат.
+    </p>
+    <pre>
+        <code>let result = x + y;</code>
+    </pre>
+    <p>
+        <b>Унарні оператори</b> – оператори, які використовують один аргумент та повертають один результат.
+    </p>
+    <pre>
+        <code>x++;</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Пріоритет операторів</h2>
+    <table style="font-size: 13px;">
+        <tbody>
+        <tr>
+            <td style="background: darkgrey;"> Тип оператора</td>
+            <td style="background: darkgrey;"> Оператори (від найвищого до нижчого)</td>
+        </tr>
+        <tr>
+            <td>властивість об’єкта</td>
+            <td>. []</td>
+        </tr>
+        <tr>
+            <td>виклик, створення екземпляру об’єкта</td>
+            <td>() new</td>
+        </tr>
+        <tr>
+            <td>заперечення, інкремент</td>
+            <td>! ~ - + ++ -- typeof void delete</td>
+        </tr>
+        <tr>
+            <td>множення, ділення</td>
+            <td>* / %</td>
+        </tr>
+        <tr>
+            <td>додавання, віднімання</td>
+            <td> + -</td>
+        </tr>
+        <tr>
+            <td>побітове зрушення</td>
+            <td><< >> >>></td>
+        </tr>
+        <tr>
+            <td>порівняння, входження</td>
+            <td>< <= > >= in instanceof</td>
+        </tr>
+        <tr>
+            <td>рівність</td>
+            <td>== != === !==</td>
+        </tr>
+        <tr>
+            <td>бітове-і</td>
+            <td>&</td>
+        </tr>
+        <tr>
+            <td>бітове-виключне-або</td>
+            <td>^</td>
+        </tr>
+        <tr>
+            <td>бітове-або</td>
+            <td>|</td>
+        </tr>
+        <tr>
+            <td>логічне-і</td>
+            <td>&&</td>
+        </tr>
+        <tr>
+            <td>логічне-або</td>
+            <td> ||</td>
+        </tr>
+        <tr>
+            <td>умовний (тернарний) оператор</td>
+            <td>?:</td>
+        </tr>
+        <tr>
+            <td>присвоєння</td>
+            <td>= += -= *= /= %= <<= >>= >>>= &= ^= |=</td>
+        </tr>
+        <tr>
+            <td>кома</td>
+            <td>,</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="slide">
+    <h2>Контрольні питання</h2>
+    <ol>
+        <li>Чим відрізняється оператор від операнда?</li>
+        <li>Що таке унарні та бінарні оператори?</li>
+        <li>Розставте наступні оператори за пріоритетом, за спаданням - +, =, *, -</li>
+        <li>Який тип може повернути оператор +?</li>
+        <li>Який тип може повернути оператор <?</li>
+        <li>Чим відрізняється вираз result++ від ++result?</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+

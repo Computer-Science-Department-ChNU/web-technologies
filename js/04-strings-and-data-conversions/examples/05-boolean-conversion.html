@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перетворення до логічного типу</title>
+</head>
+<body>
+<script>
+    // При перетворенні null, undefined, 0, порожнього рядка або значення NaN - результат false
+    // Всі інші значення – результат true
+    let value = "test"
+    console.log(typeof value) // string
+
+    let result = Boolean(value)
+    console.log(typeof result) // boolean
+    console.log(result)
+
+    console.log(Boolean(null)) // false
+    console.log(Boolean("")) // false
+    console.log(Boolean(1)) // true
+</script>
+</body>
+</html>

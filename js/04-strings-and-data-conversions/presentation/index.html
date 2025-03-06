@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Тема 4. Рядки та перетворення типів</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Тема 4. Рядки та перетворення типів</h1>
+</header>
+
+<section class="slide">
+    <h2>Тема 4. Рядки та перетворення типів</h2>
+    <ol>
+        <li>Що таке літерал, рядкові літерали</li>
+        <li>Конкатенація</li>
+        <li>Шаблонні рядки</li>
+        <li>Перетворення типів</li>
+        <li>Взаємодія: alert, prompt, confirm</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Вивчивши матеріал даної теми, студент зможе:</h2>
+    <ol>
+        <li>Створювати рядкові значення за допомогою різних підходів</li>
+        <li>Працювати із конкатенацією</li>
+        <li>Працювати із шаблонними рядками</li>
+        <li>Перетворювати рядкові значення на числові</li>
+        <li>Розуміти принципи перетворення типу Boolean і String</li>
+        <li>Використовувати вбудовані функції alert, prompt, confirm</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Що таке літерал, рядкові літерали</h2>
+    <p><b>Літерал</b> – явно вказане в коді значення. Їх особливість полягає в тому, що вони мають фіксовані значення і
+        не можуть змінюватися під час виконання програми. Тобто, літерали використовуються для представлення значень
+        у JavaScript.</p>
+    <pre>
+        <code>let x = 10;</code>
+        <code><b>let</b> - ключове слово</code>
+        <code><b>x</b> - ідентифікатор</code>
+        <code><b>10</b> - літерал</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Визначення рядкової змінної</h2>
+    <p>
+        Створити змінну типу <b>string</b> можна за допомогою рядкового літералу.
+        <br>
+        <b>Рядковий літерал</b> – послідовність символів, укладених в одинарні лапки ('') або подвійні лапки ("").
+    </p>
+    <pre>
+        <code>let firstName = "Ivan";</code>
+        <code>let lastName = 'Romanov';</code>
+    </pre>
+    <p>
+        <b>Конкатенація</b> – операція я з'єднання (зчеплення) рядків.
+    </p>
+    <pre>
+       <code>let fullName = firstName + " " + lastName; // fullName = "Ivan Romanov"</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Template literal</h2>
+    <p>
+        <b>Template literal (шаблонні рядки)</b> – використовуються для створення рядка на основі шаблону та
+        значень, визначених у змінних, або є результатом виразів. Шаблонні рядки створюються з використанням зворотних
+        лапок (``)
+    </p>
+    <p>
+        <b>Шаблонний рядок</b><br>
+    </p>
+    <pre>
+        <code>let fullName = `${firstName} ${lastName}`;</code>
+        <code>// fullName = "Ivan Romanov"</code>
+        <code>let greeting = `Привіт, мене звати ${firstName}!`</code>
+        <code>// greeting = "Привіт, мене звати Ivan!"</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Перетворення типів</h2>
+    <p>
+        <b>Перетворення типів </b> – перетворення значення одного типу на значення іншого типу. Може відбуватись
+        автоматично або за допомогою спеціальних функцій.
+    </p>
+    <pre>
+        <code>let message = 123;</code> - як нам перевірити тип даних?
+        <code>let value = 1;</code>
+        <code>let result;</code>
+        <code>result = String(value);</code>
+        <code>result = Number(value);</code>
+        <code>result = Boolean(value);</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Взаємодія: alert, prompt, confirm</h2>
+    <p>
+        <b>alert</b> - показує модальне вікно та чекає, доки користувач не натисне кнопку “ОК”.
+    </p>
+    <p>
+        <b>prompt</b> - Вона показує модальне вікно з текстовим повідомленням, полем, куди відвідувач може ввести текст,
+        та
+        кнопками ОК/Скасувати.
+    </p>
+    <p>
+        <b>confirm</b> - показує модальне вікно та двома кнопками: ОК та Скасувати.
+        Результат: true, якщо натиснути кнопку OK, інакше — false.
+    </p>
+    <pre>
+        <code>let age = prompt('Скільки вам років?', 100);</code>
+        <code>alert(`Вам ${age} років!`); // Вам 100 років!</code>
+        <code>let isBoss = confirm("Ви бос?");</code>
+        <code>alert(isBoss)</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Контрольні питання</h2>
+    <ol>
+        <li>Що таке літерал?</li>
+        <li>Що таке конкатенація?</li>
+        <li>Що таке шаблонні рядки, в чому їхня перевага перед конкатенацією?</li>
+        <li>Що робить функція prompt?</li>
+        <li>Яке призначення другого параметра функції prompt?</li>
+        <li>Що робить функція alert?</li>
+        <li>Що робить функція confirm?</li>
+        <li>Що таке перетворення типів? Наведіть приклад, коли перетворення типів може стати в нагоді.</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+

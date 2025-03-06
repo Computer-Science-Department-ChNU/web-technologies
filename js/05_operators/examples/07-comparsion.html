@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оператори порівняння</title>
+</head>
+<body>
+<script>
+    let x = 10
+    let y = 15
+
+    let result
+
+    // результат порівняння має логічний тип - boolean
+
+    result = x > y // x більше ніж y - ні, брехня/false
+    result = x < y // x менше ніж y - да, істина/true
+    result = x == y // x дорівнює y - ні, брехня/false
+    result = x != y // x не дорівнює y - да, істина/true
+    result = x <= y // x менше чи дорівнює y - да, істина/true
+    result = x >= y // x більше чи дорівнює y - ні, брехня/false
+
+    let value1 = 10 // тип number
+    let value2 = "10" // тип string
+
+    result = value1 == value2 // true, якщо значення різних типів, відбувається їх конвертація до одного типу, після чого виконується перевірка
+    result = value1 === value2 // оператор ідентичності, якщо значення різних типів, то вони не рівні, якщо значення одного типу – відбувається перевірка рівності
+</script>
+</body>
+</html>

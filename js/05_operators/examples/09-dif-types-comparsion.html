@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Порівняння різних типів</title>
+</head>
+<body>
+<script>
+    // При порівнянні значень різних типів, для порівняння значення наводяться до числа
+    console.log('1' < 2) // true - значення '1' буде наведено до числа
+
+    console.log(false == 0) // true - значення false буде приведене до 0
+    console.log(true == 1) // true - значення true буде приведене до 1
+    console.log(null == undefined) // true - значення null буде приведене до 0, значення undefined буде приведене до 0
+    console.log('' == 0) // true - значення '' буде приведено до 0
+
+    // === - оператор суворого порівняння
+    // при строгому порівнянні приведення до числа не відбувається, якщо операнди оператора === різних типів - результат порівняння буде false
+    console.log(false === 0)
+    console.log(true === 1)
+    console.log(null === undefined)
+    console.log('' === 0)
+</script>
+</body>
+
+</html>

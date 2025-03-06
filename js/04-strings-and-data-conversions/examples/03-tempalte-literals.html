@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шаблонні рядки</title>
+</head>
+<body>
+<script>
+    let items = 3
+    let totalPrice = 230
+
+    // конкатенація
+    let message1 = "Товарів в корзині - " + items + ". Загальна вартість " + totalPrice + " $."
+    console.log(message1)
+
+    // використання шаблонних рядків (template literal)
+    // для створення шаблонного рядка використовуються зворотні лапки (`) замість одинарних (') або подвійних (")
+    // у шаблонний рядок можна вставити значення за допомогою ${значення}
+    let message2 = `Товарів в корзині - ${items}. Загальна вартість ${totalPrice}$.`
+    let message3 = `Товарів в корзині - ${items}. Загальна вартість ${totalPrice}$.`
+
+    let x = 10
+    let y = 20
+    let sum = x + y
+    console.log(`Сума двох чисел ${x} та ${y} дорівнює ${sum}`)
+</script>
+</body>
+</html>
