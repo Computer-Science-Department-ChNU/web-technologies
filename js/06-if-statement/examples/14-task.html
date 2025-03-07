@@ -17,7 +17,20 @@
     </pre>
 
 <script>
-    //  V = π * r у квадраті * h
+    const PIE=3.14;
+    let h=+prompt("Enter height","0");
+
+
+    let r=+prompt("Enter radius","0");
+    if(h==0||isNaN(r)){
+        alert("Wrong radius");
+    }else if(h==0||isNaN(h)){
+        alert("Wrong height");
+    }else{
+        console.log(PIE*r*r*h);
+    }
+
+
 </script>
 </body>
 </html>

@@ -12,7 +12,6 @@
     Щоразу, коли гравець намагається вгадати число, сценарій виводить підказку - менше чи більше було загадано сценарієм.
     Сценарій загадує число лише один раз на початку гри, і це число не змінюється до завершення гри.
     Для вирішення задачі використовуйте циклічні та умовні конструкції.
-
     для генерації випадкового числа використовуйте наступний код:
     let randomValue = Math.floor(Math.random() * 101); // випадкове значення від 0 до 100 буде записано в змінну randomValue
 
@@ -28,7 +27,29 @@
     Сценарій: Правильно! Загадане значення 56. Ви вгадали з 4-ї спроби.
 </pre>
 <script>
+    let count = 0;
+    const guessNumber = (num, max) => {
+        let randNum = Math.floor(Math.random() * max);
+        if (randNum > num) {
+            alert('My num is bigger than yours!\nMy number is:' + randNum);
+            return false;
+        }
+        else if (randNum < num) {
+            alert('My num is smaller than yours!\nMy number  is:' + randNum);
+            return false;
+        }
+        return true;
+    };
 
+    while(true) {
+        const num = prompt("Enter number: ");
+        const guessed = guessNumber(num, 10);
+        count++;
+        if (guessed) {
+            alert('Congrats!\nYou\'ve done it!\nTries: ' + count);
+            break;
+        }
+    }
 </script>
 </body>
 </html>

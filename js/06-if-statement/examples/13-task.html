@@ -23,7 +23,25 @@
 </pre>
 
 <script>
-
+    let login = prompt("Enter login name", "");
+    if(login === "Admin") {
+        let password = prompt("Enter password", "");
+        if(password === "Господар") {
+            alert("Ласкаво просимо!");
+        }
+        else if(!password) {
+            alert("Скасовано");
+        }
+        else {
+            alert("Неправильний пароль");
+        }
+    }
+    else if(!login) {
+        alert("Скасовано");
+    }
+    else {
+        alert("Я вас не знаю");
+    }
 </script>
 
 </body>
