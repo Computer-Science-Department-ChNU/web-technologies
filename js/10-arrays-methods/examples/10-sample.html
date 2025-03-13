@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample</title>
+</head>
+<body>
+<script>
+    let emailString = prompt("Введіть e-mail адреса через кому")
+    let emails = emailString.split(", ")
+
+    // видаляємо пошту "no-reply@itvdn.com", якщо така є у списку
+    let noReplyIndex = emails.indexOf("no-reply@itvdn.com")
+    if (noReplyIndex != -1) {
+        emails.splice(noReplyIndex, 1)
+    }
+
+    // якщо пошти "admin@itvdn.com" немає у масиві - додаємо її
+    if (emails.indexOf("admin@itvdn.com") == -1) {
+        emails.push("admin@itvdn.com")
+    }
+
+    for (let email of emails) {
+        console.log(`Надсилання листа на адресу ${email}`)
+    }
+
+    alert(`Надіслано ${emails.length} листів`)
+
+</script>
+</body>
+</html>

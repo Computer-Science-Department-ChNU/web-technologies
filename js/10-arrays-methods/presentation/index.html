@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Тема 10. Методи масивів</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Тема 10. Методи масивів</h1>
+</header>
+
+<section class="slide">
+    <h2>Тема 10. Методи масивів</h2>
+    <ol>
+        <li>push/pop</li>
+        <li>shift/unshift</li>
+        <li>splice/slice</li>
+        <li>concat</li>
+        <li>indexOf/lastIndexOf/includes</li>
+        <li>split</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Вивчивши матеріал даної теми, студент зможе:</h2>
+    <ol>
+        <li>Розширювати масив, додаючи елементи на початок або в кінець масиву</li>
+        <li>Видалити елементи з масиву</li>
+        <li>Здійснювати пошук елементів у масиві за індексом</li>
+        <li>Створювати масив на основі рядкового значення, використовуючи роздільник</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Методи масивів</h2>
+    <p><b>Метод</b> – функція, визначена в об'єкті.</p>
+    <p><b>Функція</b> – блок коду, який виконує певну дію, цей
+        блок коду можна використовувати неодноразово. У багатьох об'єктів, таких як масиви, є
+        багато вбудованих методів, які спрощують роботу розробника.</p>
+    <p>Використання методів має наступний загальний принцип: <code>змінна.ім'я_методу(список_параметрів);</code></p>
+
+    <p>Для отримання доступу до методів об'єкта необхідно скористатися оператором "<span style="color: #cc0000">.</span>",
+        після
+        якого вказати <b style="color: #cc0000">ім'я методу</b>. Після імені методу <b style="color: #cc0000">обов'язково
+            потрібно вказати круглі дужки</b>,
+        у яких, залежно від методу, використовуватимуться різні значення</p>
+</section>
+
+<section class="slide">
+    <h2>Основні методи масивів</h2>
+    <ul>
+        <li>Методи додавання та видалення елементів:
+            <br>
+            <code>push(), pop(), shift(), unshift()</code>
+        </li>
+        <li>Методи ітерації та перетворення:
+            <br>
+            <code>forEach(), map(), filter(), reduce(), some(), every()</code>
+        </li>
+        <li>Методи пошуку та перевірки:
+            <br>
+            <code>indexOf(), lastIndexOf(), find(), findIndex(), includes()</code>
+        </li>
+        <li>Методи сортування та перетворення:
+            <br>
+            <code>sort(), reverse(), concat(), slice(), splice(), join(), flat()</code>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Методи масивів push/pop</h2>
+    <p>
+        Для додавання та видалення елементів масиву можна використовувати два методи – push
+        та pop.
+    </p>
+    <p>
+        <b>pop()</b> - метод масивів, який видаляє останній елемент масиву та повертає його.
+    </p>
+    <p>
+        <b>push(...items)</b> – метод масивів, який додає до кінця масиву елемент(и) item(s)
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Методи масивів shift/unshift</h2>
+    <p>
+        Також є два методи – shift і unshift, які працюють з початком масиву.
+    </p>
+    <p>
+        Метод <b>shift()</b> - видаляє перший елемент масиву.
+    </p>
+    <p>
+        Метод <b>unshift(...items)</b> – додає на початок масиву елемент(и) item(s) із
+        зазначеним значенням.
+    </p>
+    <p>
+        Працюючи з методами, велику продуктивність показуватиме метод push, оскільки
+        додавання елементів у кінець масиву потребує мінімальної кількості часу. Додавання
+        елементів на початок масиву працює повільніше, тому що необхідно зрушити всі
+        елементи масиву на одну позицію вправо. За допомогою даних методів на основі масивів можна організувати чергу
+        (FIFO) або стек (LIFO).
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Методи масивів splice/slice</h2>
+    <p>
+        Для видалення елементів з масиву або для видалення з наступною заміною на інші
+        значення використовується метод splice.
+    </p>
+    <pre>
+        <code>splice(start, deleteCount, items...)</code>
+        <code>start – індекс, з якого треба почати видаляти елементи</code>
+        <code>deleteCount - кількість елементів видалення</code>
+        <code>items - значення для додавання в масив замість видалених</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Методи масивів concat</h2>
+    <p>
+        Для об'єднання двох масивів можна скористатися методом concat. Він створює новий
+        масив, копіюючи в нього дані із двох зазначених масивів.
+    </p>
+    <p>масив1.concat(масив2) –
+        результатом такого виклику буде третій масив з даними першого і другого масиву.</p>
+</section>
+
+<section class="slide">
+    <h2>Методи масивів indexOf/lastIndexOf/includes</h2>
+    <p>
+        indexOf - шукає елемент із зазначеним значенням у масиві та повертає його індекс або –
+        1, якщо елемент не знайдений.
+    </p>
+    <p>includes(item, from) – шукає item, починаючи з індексу from, і повертає true, якщо пошук успішний.</p>
+    <p>Метод lastIndexOf такий самий, як indexOf, але шукає справа наліво.</p>
+</section>
+
+<section class="slide">
+    <h2>Методи масивів find/findIndex/findLastIndex</h2>
+    <p>
+        Уявіть, що у нас є масив обʼєктів. Як нам знайти обʼєкт за певною умовою? Тут стане в нагоді метод arr.find(fn).
+    </p>
+    <pre>
+       <code>let result = arr.find(function(item, index, array) {</code>
+       <code>  // якщо true - повертається поточний елемент і перебір закінчується</code>
+       <code>  // якщо всі ітерації виявилися помилковими, повертається undefined</code>
+       <code>});</code>
+   </pre>
+    <p>Функція викликається по черзі для кожного елемента масиву:
+        <br>
+        item – черговий елемент масиву.
+        index – його індекс.
+        array – сам масив.
+        <br>
+        Якщо функція повертає true, пошук припиняється, повертається item. Якщо нічого не знайдено, повертається
+        undefined</p>
+</section>
+
+<section class="slide">
+    <h2>Методи масивів split</h2>
+    <p>
+        split – метод, який на основі рядкового значення створює масив, розбиваючи рядок на
+        елементи, використовуючи вказаний роздільник.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Приклади</h2>
+    <img src="images/1.png" alt="" width="500">
+</section>
+
+<section class="slide">
+    <h2>Приклади</h2>
+    <img src="images/2.png" alt="" width="450">
+</section>
+
+<section class="slide">
+    <h2>Приклади</h2>
+    <img src="images/3.png" alt="" width="460">
+</section>
+
+<section class="slide">
+    <h2>Приклади</h2>
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+               target="_blank">Array (https://developer.mozilla.org/)</a>
+        </li>
+        <li>
+            <a href="https://medium.com/@mandeepkaur1/a-list-of-javascript-array-methods-145d09dd19a0"
+               target="_blank">A List of JavaScript Array Methods
+            </a>
+        </li>
+        <li>
+            <a href="https://oxygen-agency.com/exploring-the-versatility-of-array-methods-in-javascript/"
+               target="_blank">Exploring the Versatility of Array Methods in JavaScript</a>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Контрольні питання</h2>
+    <ol>
+        <li>Що таке метод?</li>
+        <li>Як можна видалити певне значення з масиву?</li>
+        <li>Як додати нове значення в кінець масиву?</li>
+        <li>Як додати нове значення на початок масиву?</li>
+        <li>Як можна об'єднати два масиви?</li>
+        <li>Як можна дізнатися, за яким індексом у масиві розташоване потрібне нам значення?</li>
+        <li>Як розбити рядок на масив значень, використовуючи як роздільник певний символ?</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+

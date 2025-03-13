@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample</title>
+</head>
+<body>
+<script>
+    let values = []
+
+    while (true) {
+        let input = prompt("Введіть число або exit для завершення")
+
+        if (input === "exit") break
+
+        let value = Number(input)
+
+        if (isNaN(value)) {
+            alert("Введене значення не число.")
+        } else {
+            values.push(value)
+        }
+    }
+
+    let sum = 0
+    for (let index = 0; index < values.length; index++) {
+        sum += values[index]
+    }
+
+    alert("Сума введених значень " + sum)
+</script>
+</body>
+</html>

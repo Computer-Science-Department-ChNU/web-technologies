@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<pre>
+    Дано одномірний масив. Його елементами можуть бути значення різних типів, включаючи: undefined, null, boolean, string, number. Копіювати посилання "Даний одновимірний масив. Його елементами можуть бути значення різних типів, включаючи: undefined, null, boolean, string, number."
+    <br>
+    Наприклад:
+<br>
+const array = [5, undefined, 0, false, '', null, true, 1]
+<br>
+Масив може бути розрідженим (sparse array), тобто містити незаповнені елементи (empty slots).
+<br>
+Наприклад, додамо до масиву array елемент з індексом 15:
+<br>
+array[15] = 'новий елемент'
+console.log(array)
+// [ 5, undefined, 0, false, '', null, true, 1, <7 empty items>, 'новий елемент']
+<br>
+Напишіть функцію підрахунку незаповнених елементів масиву.
+</pre>
+<script>
+    const array = [5, undefined, 0, false, '', null, true, 1]
+    array[15] = 'новий елемент'
+    console.log(array)
+
+    // [ 5, undefined, 0, false, '', null, true, 1, <7 empty items>, 'новий елемент']
+
+    function countEmptyElements(arr) {
+        let count = 0
+
+        return count
+    }
+
+    console.log(countEmptyElements(array))
+</script>
+</body>
+</html>

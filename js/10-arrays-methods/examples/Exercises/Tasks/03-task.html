@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+<body>
+<pre>
+    Завдання:
+    Перепишіть сценарій та скористуйся одним з методів, які були розглянуті на лекції. Змініть код так, щоб зберегти його поведінку.
+</pre>
+<script>
+    let values = [10, 20, 5, 7, 11, 8, 125, 4, 8, 3, 23]
+    let oddValues = []
+    let evenValues = []
+    let oddValuesPosition = 0
+    let evenValuesPosition = 0
+
+    for (let value of values) {
+        if (value % 2 === 0) {
+            evenValues[evenValuesPosition] = value
+            evenValuesPosition++
+        } else {
+            oddValues[oddValuesPosition] = value
+            oddValuesPosition++
+        }
+    }
+
+    console.log("Непарні значення")
+    for (let oddVal of oddValues) {
+        console.log(oddVal)
+    }
+
+    console.log("Парні значення")
+    for (let evenVal of evenValues) {
+        console.log(evenVal)
+    }
+</script>
+</body>
+</html>

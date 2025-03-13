@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find/findIndex/findLastIndex</title>
+</head>
+<body>
+<pre>
+    Наприклад, у нас є масив користувачів, кожен з яких має поля id та name. Давайте знайдемо той де id == 1:
+</pre>
+<script>
+    let users = [
+        {id: 1, name: "John"},
+        {id: 2, name: "Pete"},
+        {id: 3, name: "Mary"},
+    ]
+
+    let user = users.find(item => item.id == 1)
+
+    alert(user.name) // John
+
+    alert(users.findIndex(user => user.name == 'John')) // 0
+
+    // Знайдемо індекс останнього John
+    alert(users.findLastIndex(user => user.name == 'John')) // 3
+</script>
+</body>
+</html>

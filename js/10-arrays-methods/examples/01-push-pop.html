@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Методи роботи з кінцем масиву</title>
+</head>
+<body>
+<script>
+    let cities = ["London", "Paris", "Berlin", "Rome"]
+
+    // pop() - метод масиву, який видаляє останній елемент масиву та повертає його
+    let last = cities.pop() // видаляємо останній елемент масиву та записуємо його в змінну last
+
+    console.log("pop result " + last)
+    for (let index = 0; index < cities.length; index++) {
+        console.log(cities[index])
+    }
+
+    console.log("---------------------")
+
+    // push(<value>) - метод, який додає вказане значення в кінець масиву
+    cities.push("> Lisbon <")
+    for (let index = 0; index < cities.length; index++) {
+        console.log(cities[index])
+    }
+</script>
+</body>
+</html>

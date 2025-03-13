@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Методи роботи з початком масиву</title>
+</head>
+<body>
+<script>
+    let cities = ["London", "Paris", "Berlin", "Rome"]
+
+    // shift() - метод масиву, який видаляє перший елемент масиву та повертає його
+    let first = cities.shift() // видаляємо перший елемент масиву і записуємо його в змінну last
+
+    console.log("shift result " + first)
+    for (let index = 0; index < cities.length; index++) {
+        console.log(cities[index])
+    }
+
+    console.log("---------------------")
+
+    // unshift(<value>) - метод, який додає зазначене значення на початок масиву
+    cities.unshift("> Lisbon <")
+    for (let index = 0; index < cities.length; index++) {
+        console.log(cities[index])
+    }
+</script>
+</body>
+</html>

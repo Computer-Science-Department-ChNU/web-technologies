@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>concat</title>
+</head>
+<body>
+<script>
+    let characters = ["A", "B", "C"]
+    let numbers = [1, 2, 3]
+
+    // concat - створює новий масив, копіюючи в нього дані із зазначених масивів
+    let values = characters.concat(numbers)
+    console.log(values) // A, B, C, 1, 2, 3
+
+    let valuesExtended = characters.concat(numbers, "!", "?", "@")
+    console.log(valuesExtended) // A, B, C, 1, 2, 3, !, ?, @
+</script>
+</body>
+</html>
