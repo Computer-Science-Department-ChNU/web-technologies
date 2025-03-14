@@ -74,6 +74,8 @@
 . concat
 . indexOf
 . split
+. find/findIndex/findLastIndex
+. forEach/map/filter/reduce/some/every
 
 === Функції
 
