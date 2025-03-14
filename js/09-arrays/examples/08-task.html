@@ -12,6 +12,23 @@
     </pre>
     <script>
         let values = [10, 20, 4, 6, 11, 9, 125, 1, 8, 0, 3];
+
+        let min = values[0];
+        let max = values[0];
+        let sum = 0;
+        for (let i = 0; i < values.length; i++) {
+            if (values[i] < min)
+                min = values[i];
+
+            if (values[i] > max)
+                max = values[i];
+
+            sum += values[i];
+        }
+
+        console.log(sum);
+        console.log(min);
+        console.log(max);
     </script>
 </body>
 </html>

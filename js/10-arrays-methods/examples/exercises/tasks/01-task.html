@@ -14,6 +14,28 @@
 </pre>
 <script>
     let cities = ["London", "Paris", "Berlin", "Rome", "Budapest", "Lisbon", "Madrid", "Amsterdam"]
+
+    let city = prompt("Input city name:", "");
+
+    if (cities.includes(city)) {
+        let result = cities.filter(c => c !== city);
+        alert(result).toString();
+    } else {
+        alert("City name not found");
+    }
+
+    // let noInCity=cities.find(city=>city!==cities)
+    // if (noInCity) alert("Citywas not found")
+    // let result =cities.filter(item=>item!==city)
+    // console.log(result);
+    // let newCity = cities.find(c => c === city);
+    // if (newCity === undefined) {
+    //     alert("Not found");
+    // }
+    // else{
+    //     ;
+    // }
+    console.log(cities);
 </script>
 </body>
 </html>

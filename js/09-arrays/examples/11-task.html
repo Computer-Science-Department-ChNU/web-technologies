@@ -14,6 +14,22 @@
 </pre>
 <script>
     let values = [10, 20, 5, 7, 11, 8, 125, 4, 8, 3, 23]
+    let even_nums = [];
+    let odd_nums = [];
+    let even_index = 0;
+    let odd_index = 0;
+    for (let index = 0; index < values.length; index++) {
+        if (values[index] % 2 === 0){
+            even_nums[even_index] = values[index];
+            even_index++;
+        }
+        else{
+            odd_nums[odd_index] = values[index];
+            odd_index++;
+        }
+    }
+    console.log(even_nums, odd_nums);
+
 </script>
 </body>
 </html>
