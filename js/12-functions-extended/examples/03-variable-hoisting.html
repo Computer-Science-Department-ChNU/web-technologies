@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Підняття змінних</title>
+</head>
+<body>
+<script>
+    // Підняття або hoisting - це механізм, який змушує змінні та оголошення функцій пересуватися на початок своєї області видимості
+    // перед тим, як код буде виконано.
+    function hoistingTest() {
+        console.log(message) // змінна зі значенням undefined буде доступна до того, як здійсниться ініціалізація цієї змінної.
+        var message = "hello"
+        console.log(message + " world")
+    }
+
+    hoistingTest()
+</script>
+</body>
+</html>

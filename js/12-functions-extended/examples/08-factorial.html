@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рекурсія</title>
+</head>
+<body>
+<script>
+    // Факторіал - функція, визначена на безлічі невід'ємних цілих чисел.
+    // позначається n!, Вимовляється "ен факторіал". Факторіал натурального числа n визначається як добуток усіх натуральних чисел від 1 до n включно:
+    
+    let input = +prompt("Введіть число: ")
+
+    function factorial(x) {
+
+        if (x <= 1)
+            return 1
+
+        return x * factorial(x - 1)
+    }
+
+    let f = factorial(input)
+    console.log(input + "! = " + f)
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Declaration</title>
+</head>
+<body>
+<script>
+    let result
+
+    // функція-оголошення
+    function add(a, b) {
+        let temp = a + b
+        return temp
+    }
+
+    result = add(1, 2)
+
+    // іменована функція-вираз
+    let add1 = function add(a, b) {
+        return a + b
+    }
+    result = add1(10, 20)
+
+    // функція-вираз або анонімна функція
+    let add2 = function (a, b) {
+        return a + b
+    }
+    result = add2(100, 200)
+
+    // стрілочна функція (arrow function)
+    let add3 = (a, b) => {
+        return a + b
+    }
+    result = add3(1000, 2000)
+
+    // Якщо функція має лише один аргумент, тоді дужки навколо параметрів можна опускати, що дозволить записати її ще коротше.
+    let double = n => n * 2
+
+    console.log(double(3))
+</script>
+</body>
+</html>

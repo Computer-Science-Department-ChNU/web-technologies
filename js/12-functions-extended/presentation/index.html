@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Тема 12. Розширена робота з функціями</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Тема 12. Розширена робота з функціями</h1>
+</header>
+
+<section class="slide">
+    <h2>Тема 12. Розширена робота з функціями</h2>
+    <ol>
+        <li>Застаріле ключове слово var</li>
+        <li>Variable & Function hoisting</li>
+        <li>Стрілкові функції та анонімні функції</li>
+        <li>Рекурсія</li>
+        <li>Функції зворотного виклику</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Вивчивши матеріал даної теми, студент зможе:</h2>
+    <ol>
+        <li>Розуміти, що таке область видимості</li>
+        <li>Розуміти різницю між ключовими словами let та var</li>
+        <li>Працювати зі стрілковими функціями</li>
+        <li>Працювати із рекурсією</li>
+        <li>Використовувати функції зворотного виклику</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Область видимості</h2>
+    <p>
+        <b>Область видимості (scope)</b> - частина програмного коду, у межах якого створений ідентифікатор
+        дозволяє звернутися до прив’язаної до нього сутності.
+    </p>
+    <p>
+        <img src="images/1.png" alt="" width="100%">
+    </p>
+    <b>Приклади 1-4</b>
+</section>
+
+<section class="slide">
+    <h2>Суворий режим</h2>
+    <p><b>Суворий режим (strict mode)</b> – режим виконання сценарію, який змушує розробника
+        використовувати більш обмежений синтаксис мови, що сприяє написанню якіснішого коду через
+        заборону проблемних конструкцій мови.</p>
+    <div class="columns two">
+        <div>
+            <pre>
+                <code>'use strict'</code>
+                <code>let x = 1 </code>
+                <code>function test1() {</code>
+                <code>  y = 2;</code>
+                <code>}</code>
+            </pre>
+        </div>
+        <div>
+            <img src="images/2.png" alt="" width="100%">
+        </div>
+    </div>
+    <b>Приклад 5</b>
+</section>
+
+<section class="slide">
+    <h2>Функціональні вирази, стрілкові функції та анонімні функції</h2>
+    <div class="columns two">
+        <div>
+            <b>Function Declaration</b>
+            <pre>
+                <code>function sayHi() {</code>
+                <code>  alert( "Привіт" );</code>
+                <code>}</code>
+            </pre>
+            <p style="font-size: 18px;">Синтаксис Оголошення Функції дозволяє викликати функцію раніше, ніж вона були
+                визначена в коді</p>
+        </div>
+        <div>
+            <b>Function Expression</b>
+            <pre>
+                <code>let sayHi = function() {</code>
+                <code>  alert( "Привіт" );</code>
+                <code>}</code>
+            </pre>
+            <p style="font-size: 18px;">Синтаксис дозволяє створювати функцію всередині будь-якого виразу.</p>
+            <p style="font-size: 18px;">Функціональний Вираз буде створено тільки тоді, коли до нього дійде виконання і
+                тільки після цього він
+                може бути використаний.</p>
+        </div>
+    </div>
+    <b>Приклад 6</b>
+</section>
+
+<section class="slide">
+    <h2>Функціональні вирази, стрілкові функції та анонімні функції</h2>
+    <p>Існує ще один простий та короткий синтаксис для створення функцій, який часто доцільніше використовувати замість
+        Функціонального Виразу</p>
+    <pre>
+        <code>let func = (arg1, arg2, ..., argN) => expression;</code>
+    </pre>
+    <p>Цей код створить функцію func з аргументами arg1..argN, що обчислює expression з правого боку (використовуючи ці
+        аргументи) та повертає його результат.
+    </p>
+    <pre>
+        <code>let func = function(arg1, arg2, ..., argN) {</code>
+        <code>  return expression;</code>
+        <code>};</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Рекурсія</h2>
+    <p>Рекурсія – виклик функції з цієї функції.</p>
+    <img src="images/3.png" alt="" width="100%">
+</section>
+
+<section class="slide">
+    <h2>Функції зворотного виклику (Callbacks)</h2>
+    <pre style="font-size: 15px;">
+        <code>function ask(question, yes, no) {</code>
+        <code>  if (confirm(question)) yes()</code>
+        <code>  else no();</code>
+        <code>}</code>
+        <code>  </code>
+        <code>function showOk() {</code>
+        <code>  alert( "Ви погодились." );</code>
+        <code>}</code>
+        <code>  </code>
+         <code>function showCancel() {</code>
+        <code>  alert( "Ви скасували виконання." );</code>
+        <code>}</code>
+        <code> </code>
+        <code>ask("Ви згодні?", showOk, showCancel);</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Функції зворотного виклику (Callbacks)</h2>
+    <p>
+        Аргументи <b>showOk</b> та <b>showCancel</b> функції ask називаються функціями зворотного виклику або просто
+        колбеками.
+    </p>
+    <p>Суть полягає в тому, що ми передаємо функцію та очікуємо, що вона буде викликана (англ. “called back”) пізніше,
+        якщо це буде потрібно. У нашому випадку, showOk стає колбеком, якщо відповідь — “yes”, а showCancel, якщо
+        відповідь — “no”.</p>
+</section>
+
+<section class="slide">
+    <h2>Функції зворотного виклику (Callbacks)</h2>
+    <pre style="font-size: 15px;">
+        <code>function ask(question, yes, no) {</code>
+        <code>  if (confirm(question)) yes()</code>
+        <code>  else no();</code>
+        <code>}</code>
+        <code>  </code>
+        <code>ask(</code>
+        <code>  "Ви згодні?",</code>
+        <code>  function() { alert("Ви погодились."); },</code>
+        <code>  function() { alert("Ви скасували виконання."); }</code>
+        <code>);</code>
+    </pre>
+    <p>
+        У цьому прикладі функції оголошені всередині виклику ask(...). Вони не мають власного ім’я, тому називаються
+        <b style="color: #cc0000">анонімними</b>. До таких функцій не можна доступитись поза ask (бо вони не присвоєні
+        змінним).
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Приклади</h2>
+</section>
+
+<section class="slide">
+    <h2>Контрольні питання</h2>
+    <ol>
+        <li>Що таке функція?</li>
+        <li>Як відбувається визначення функції?</li>
+        <li>Що таке виклик функції?</li>
+        <li>Як визначити параметри функції, що буде викликати функцію та не передаватиме
+            параметри?
+        </li>
+        <li>Назвіть рекомендації щодо назви функцій. Чому важливо правильно називати функції?</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+

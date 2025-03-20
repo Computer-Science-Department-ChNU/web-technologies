@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рекурсія</title>
+</head>
+<body>
+<script>
+    // Рекурсія - виклик функції з цієї функції.
+    function test(counter) {
+        counter--// 2, 1, 0, 0
+        console.log("part 1 - ", counter)
+
+        if (counter !== 0) {
+            test(counter)
+        }
+
+        console.log("part 2 - ", counter)
+    }
+
+    test(3)
+</script>
+</body>
+</html>
