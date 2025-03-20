@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+<body>
+<pre>
+    Завдання:
+    Створіть функцію, яка приймає масив значень та повертає масив з дублючими значеннями або null якщо значень, що повторюються, в маcиві немає.
+</pre>
+<script>
+    let values1 = [10, 20, 4, 6, 11, 9, 125, 10, 8, 0, 3, 5, 89, 12, 46, 77, 3]
+    let values2 = [1, 2, 3, 4, 5, 6, 7, 8]
+    let values3 = [1, 2, 3, 8, 5, 6, 8, 7, 8]
+
+    function findDuplicatesInArray(array) {
+        let result = []
+
+        for (let i = 0; i < array.length - 1; i++) {
+
+            const current = array[i]
+
+            for (let k = i + 1; k < array.length; k++) {
+                const element = array[k]
+
+                if (current === element) {
+                    if (result.indexOf(current) === -1)
+                        result.push(current)
+                    break
+                }
+            }
+        }
+
+        return result.length !== 0 ? result : null
+    }
+
+    console.log(findDuplicatesInArray(values1))
+    console.log(findDuplicatesInArray(values2))
+    console.log(findDuplicatesInArray(values3))
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приклад після рефакторингу</title>
+</head>
+<body>
+<script>
+    // масив із іменами продуктів
+    let names = []
+    names[0] = "Папір офісний А4, 80 г/м2, 500 л"
+    names[1] = "Біндери для паперу 51 мм"
+    names[2] = "Ручка кулькова синя"
+
+    // масив із цінами продуктів
+    let prices = []
+    prices[0] = 280.25
+    prices[1] = 56
+    prices[2] = 12.50
+
+    let orderedProducts = promptOrderedProducts()
+    let totalPrice = calculateTotalPrice(orderedProducts)
+    showOrderDetails(totalPrice)
+
+    function promptOrderedProducts() {
+        let products = []
+        for (let index = 0; index < names.length; index++) {
+            const name = names[index]
+            const price = prices[index]
+
+            products[index] = +prompt(`Вкажіть кількість продуктів '${name}', ціна ${price}`, 0)
+        }
+
+        return products
+    }
+
+    function calculateTotalPrice(products) {
+        let sum = 0
+        for (let index = 0; index < products.length; index++) {
+            sum += prices[index] * products[index]
+        }
+        return sum
+    }
+
+    function showOrderDetails(orderTotalPrice) {
+        alert(`Сума Вашого замовлення ${orderTotalPrice}.`)
+
+        let isFreeShipping = orderTotalPrice > 1000
+        if (isFreeShipping) {
+            alert("Доставка буде безкоштовною.")
+        }
+    }
+</script>
+</body>
+</html>

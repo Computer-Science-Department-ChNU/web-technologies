@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let firstName
+    let lastName
+    let age
+
+    function ask() {
+        firstName = prompt("Введіть своє ім'я:")
+        lastName = prompt("Введіть своє прізвище:")
+        age = prompt("Введіть свій вік:")
+    }
+
+    function say() {
+        console.log("Ім'я: " + firstName)
+        console.log("Прізвище: " + lastName)
+        console.log("Вік: " + age)
+    }
+
+    let needRepeat
+    do {
+        ask()
+        say()
+        needRepeat = confirm("Пройти заповнення ще раз?")
+    } while (needRepeat)
+</script>
+</body>
+
+</html>

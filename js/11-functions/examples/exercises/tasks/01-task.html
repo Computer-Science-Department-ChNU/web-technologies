@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+<body>
+<pre>
+    Завдання:
+    Виконайте рефакторинг коду. Винесіть блок коду ініціалізуючий масив count та блок коду, що розраховує та виводить, суму покупок  в дві окремі функції.
+    Поведінка сценарію не повинна змінитись.
+</pre>
+<script>
+    // назва товару
+    let names = []
+    names[0] = "Папір офісний А4, 80 г/м2, 500 л"
+    names[1] = "Біндер для паперу 51 мм"
+    names[2] = "Ручка кулькова синя"
+
+    // ціна на товару
+    let prices = []
+    prices[0] = 280.25 // Папір офісний А4, 80 г/м2, 500 л
+    prices[1] = 56     // Біндер для паперу 51 мм
+    prices[2] = 12.50  // Ручка кулькова синя
+
+    let count = []
+    for (let i = 0; i < names.length; i++) {
+        const productName = names[i]
+        let countToBuy = +prompt("Вкажіть кількість для " + productName)
+
+        if (isNaN(countToBuy))
+            countToBuy = 0
+
+        count.push(countToBuy)
+    }
+
+    let totalSum = 0
+    for (let i = 0; i < names.length; i++) {
+        const productName = names[i]
+        const productPrice = prices[i]
+        const boughtCount = count[i]
+
+        let price = productPrice * boughtCount
+        totalSum += price
+        console.log(`Придбано ${productName} на суму ${price}`)
+    }
+    console.log("Всього продуктів придбано на " + totalSum)
+</script>
+</body>
+
+</html>

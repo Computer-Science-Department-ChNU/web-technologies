@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Default parameter</title>
+</head>
+<body>
+<script>
+    // Якщо значення параметра repeatCount не буде надано під час виклику, буде використовуватися значення за замовчування м- 1
+    function showMessage(text, repeatCount = 1) {
+        for (let i = 0; i < repeatCount; i++) {
+            console.log(text)
+        }
+    }
+
+    showMessage("Hello world") // тому що немає другого значення при виклику - використовується значення за замовчування для параметра repeatCount
+    showMessage("Привіт світ", 2)
+    showMessage("ABC")
+</script>
+</body>
+</html>

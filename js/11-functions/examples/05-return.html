@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Повернення результату роботи функції</title>
+</head>
+<body>
+<script>
+    // У функціях можна використовувати ключове слово return для того, щоб повернути значення до частини коду, яка викликала функцію
+    // Інструкція return припиняє виконання функції - будь-які інструкції, що залишилися, у функції не виконуються.
+
+    function sum(x, y) {
+        return x + y
+
+        // return x + y; // Після return може слідувати вираз. Результат виконання виразу буде повертатися.
+
+        console.log("Код после return не выполняется.") // ця інструкція не спрацює, оскільки return завершує роботу функції
+    }
+
+    let result = sum(10, 20) // функція повертає значення, яке буде записано до змінної result
+    console.log(result)
+</script>
+</body>
+</html>
