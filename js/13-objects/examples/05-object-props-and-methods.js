@@ -29,3 +29,5 @@ console.log(person.age)
 console.log(person.interests[1])
 console.log(person.bio())
 console.log(person.greeting())
+
+// https://uk.javascript.info/optional-chaining
