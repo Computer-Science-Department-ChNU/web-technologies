@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let products = [
+        {
+            name: "Папір офісний А4, 80 г/м2, 500 л",
+            price: 280.25,
+            ordered: 0,
+        },
+        {
+            name: "Біндери для паперу 51 мм",
+            price: 56,
+            ordered: 0,
+        },
+        {
+            name: "Ручка кулькова синя",
+            price: 12.5,
+            ordered: 0,
+        },
+    ]
+
+    // цикл для отримання кількості продуктів, що купуються
+    for (let index = 0; index < products.length; index++) {
+        const name = products[index].name
+        const price = products[index].price
+
+        products[index].ordered = +prompt(`Вкажіть кількість продуктів '${name}', ціна ${price}`, 0)
+    }
+
+    // цикл для розрахунку загальної ціни куплених продуктів
+    let totalPrice = 0
+    for (let index = 0; index < products.length; index++) {
+        totalPrice += products[index].price * products[index].ordered
+    }
+
+    alert(`Сума Вашого замовлення ${totalPrice}.`)
+
+    let isFreeShipping = totalPrice > 1000
+    if (isFreeShipping) // іноді в умові використовується лише одна змінна
+    {
+        alert("Доставка буде безкоштовною.")
+    }
+</script>
+</body>
+
+</html>

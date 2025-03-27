@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>in operator</title>
+</head>
+<body>
+<script>
+
+    let user1 = {
+        login: "admin",
+        email: "admin@example.com",
+        unsubscribeDate: undefined,
+    }
+
+    // перевірка наявності якості в об'єкті
+    // При спробі прочитати неіснуючу властивість повертається значення undefined
+
+    if (user1.login) // наявність значення еквівалентна true
+    {
+        console.log("Властивість user1.login існує")
+    } else {
+        console.log("Властивість user1.login не знайдено")
+    }
+
+    if (user1.email !== undefined) // властивість відсутня, якщо значення undefined
+    {
+        console.log("Властивість user1.email існує")
+    } else {
+        console.log("Властивість user1.email не знайдено")
+    }
+
+    // Перевірка значення undefined не підходить в тих ситуаціях, коли властивість в об'єкті є, але його значення було встановлено як undefined
+    // Для таких ситуацій використовується ключове слово in
+    if (user1.unsubscribeDate !== undefined) {
+        console.log("Властивість user1.unsubscribeDate існує")
+    } else {
+        console.log("Властивість user1.unsubscribeDate не знайдено")
+    }
+
+    if ("unsubscribeDate" in user1) {
+        console.log("Властивість user1.unsubscribeDate існує")
+    } else {
+        console.log("Властивість user1.unsubscribeDate не знайдено")
+    }
+</script>
+</body>
+</html>

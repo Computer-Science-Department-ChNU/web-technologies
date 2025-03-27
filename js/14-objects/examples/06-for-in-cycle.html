@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for...in</title>
+</head>
+<body>
+<script>
+    let user1 = {
+        login: "admin",
+        email: "admin@example.com",
+        created: "15.05.2019",
+    }
+
+    // цикл for...in використовується для перебору всіх ключів (властивостей), які є в об'єкті
+    for (const key in user1) {
+        console.log(`Властивість ${key} значення ${user1[key]}`)
+    }
+</script>
+</body>
+</html>

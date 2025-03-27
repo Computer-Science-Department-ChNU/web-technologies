@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shorthand property</title>
+</head>
+<body>
+<script>
+    // якщо ім'я змінної та ім'я властивості, для якого значення зі змінної буде використовуватися, збігаються, то можна використовувати shorthand properties
+    // shorthand property - синтаксичний цукор, який дозволяє записати код коротше - замість login: login вказати просто login
+    // shorthand method - синтаксичний цукор, для короткого запису методів - замість showContactInfo: function() вказуємо showContactInfo()
+    function createUser(login, email) {
+        return {
+            login, // shorthand property
+            email,
+
+            showContactInfo() { // shorthand method
+                console.log("Мой логін " + this.login + ", мой email " + this.email)
+            },
+        }
+    }
+
+    let user1 = createUser("admin", "admin@example.com")
+    let user2 = createUser("user", "user@example.com")
+
+    user1.showContactInfo()
+    user2.showContactInfo()
+</script>
+</body>
+</html>
