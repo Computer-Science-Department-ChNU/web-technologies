@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties</title>
+</head>
+<body>
+<script>
+    // властивість – значення, яке зберігається в об'єкті
+    let user = new Object()           // створення порожнього об'єкта
+
+    // якщо неіснуючій властивості привласнити значення, то ця властивість буде створена в об'єкті
+    user.name = "admin"               // створення властивості name та присвоєння значення admin
+    user.email = "admin@example.com"  // створення якості email та присвоєння значення admin@examle.com
+
+    console.log(user.name)
+    console.log(user.email)
+
+    user.email = "admin@chnu.edu.ua"    // зміна значення властивості email
+
+    console.log(user.email)
+</script>
+</body>
+</html>

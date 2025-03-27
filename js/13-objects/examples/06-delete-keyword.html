@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Keyword</title>
+</head>
+<body>
+<script>
+    let user = {
+        name: "admin",
+        email: "admin@example.com",
+        sayHello: function () {
+            console.log("Hello!")
+        },
+    }
+
+    console.log(user.name)
+    console.log(user.email)
+    console.log(user.foo) // при спробі звернутися до неіснуючої властивості повертається значення undefined
+
+    delete user.email // видалення властивості email з об'єкта з ім'ям user
+
+    console.log(user.name)
+    console.log(user.email) // undefined
+    console.log(user.foo)   // undefined
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods</title>
+</head>
+<body>
+<script>
+    // створення порожнього об'єкта
+    let user = new Object()
+    // властивості
+    user.name = "admin"
+    user.email = "admin@example.com"
+
+    // метод
+    user.sayHello = function () {
+        console.log("Hello!")
+    }
+
+
+    console.log(user.name) // робота з властивістю
+    console.log(user.email)
+
+    user.sayHello() // виклик методу
+</script>
+</body>
+
+</html>

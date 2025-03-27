@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array of Objects</title>
+</head>
+
+<body>
+<script>
+    // варіант 1
+    let orders1 = []
+    orders1.push({product: "product1", price: 10})
+    orders1.push({product: "product2", price: 15})
+    orders1.push({product: "product3", price: 20})
+
+    // варіант 2
+    let orders2 = []
+    orders2[0] = {product: "product1", price: 10}
+    orders2[1] = {product: "product2", price: 15}
+    orders2[2] = {product: "product3", price: 20}
+
+    // варіант 3
+    let orders3 = [
+        {product: "product1", price: 10},
+        {product: "product2", price: 15},
+        {product: "product3", price: 20},
+    ]
+
+    // цикл на кількість елементів у масиві
+    for (let i = 0; i < orders3.length; ++i) {
+        let order = orders3[i] // отримання одного елемента масиву - об'єкта з властивостями product і price
+        console.log(order.product)
+
+        // console.log(orders3[i].product); // 2 варіант
+    }
+</script>
+</body>
+</html>

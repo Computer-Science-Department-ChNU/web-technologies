@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // Масив об'єктів продуктів замість окремих масивів
+    const products = [
+        {name: "Бумага офісна А4, 80 г/м2, 500 л", price: 280.25},
+        {name: "Биндеры для бумаги 51 мм", price: 56},
+        {name: "Ручка синяя", price: 12.50},
+    ]
+
+    // Функція для отримання кількості продуктів
+    function getProductQuantities() {
+        return products.map(product => {
+            const quantity = +prompt(`Вкажіть кількість продуктів '${product.name}', ціна ${product.price}`, 0)
+            return {...product, quantity}
+        })
+    }
+
+    // Функція для розрахунку загальної вартості замовлення
+    function calculateTotalPrice(selectedProducts) {
+        return selectedProducts.reduce((total, product) =>
+            total + (product.price * product.quantity), 0)
+    }
+
+    // Функція для перевірки безкоштовної доставки
+    function checkFreeShipping(totalPrice) {
+        const FREE_SHIPPING_THRESHOLD = 1000 // Magic numbers!!!
+        return totalPrice > FREE_SHIPPING_THRESHOLD
+    }
+
+    // Головна функція виконання замовлення
+    function processOrder() {
+        const selectedProducts = getProductQuantities()
+        const totalPrice = calculateTotalPrice(selectedProducts)
+
+        alert(`Сума Вашого замовлення ${totalPrice.toFixed(2)}.`)
+
+        if (checkFreeShipping(totalPrice)) {
+            alert("Доставка буде безкоштовною.")
+        }
+    }
+
+    // Виклик головної функції
+    processOrder()
+</script>
+</body>
+</html>

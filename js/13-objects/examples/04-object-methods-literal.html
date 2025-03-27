@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods</title>
+</head>
+<body>
+<script>
+    // якщо як значення властивість зберігає функцію, то така властивість називається методом
+    // метод - функція, що належить об'єкту
+    let user = {
+        // властивості
+        name: "admin",
+        email: "admin@example.com",
+        // метод
+        sayHello: function () {
+            console.log("Hello!")
+        },
+    }
+
+    console.log(user.name) // робота з властивістю
+    console.log(user.email)
+
+    user.sayHello() // виклик методу
+</script>
+</body>
+</html>

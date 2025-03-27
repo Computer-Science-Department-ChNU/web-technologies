@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // масив з іменами продуктів
+    let names = []
+    names[0] = "Бумага офісна А4, 80 г/м2, 500 л"
+    names[1] = "Биндеры для бумаги 51 мм"
+    names[2] = "Ручка синяя"
+
+    // масив із цінами продуктів
+    let prices = []
+    prices[0] = 280.25
+    prices[1] = 56
+    prices[2] = 12.50
+
+    // масив з кількістю продуктів, що купуються
+    let products = []
+
+    // цикл для отримання кількості продуктів, що купуються
+    for (let index = 0; index < names.length; index++) {
+        const name = names[index]
+        const price = prices[index]
+
+        products[index] = +prompt(`Вкажіть кількість продуктів '${name}', ціна ${price}`, 0)
+    }
+
+    // цикл для розрахунку загальної ціни куплених продуктів
+    let totalPrice = 0
+    for (let index = 0; index < products.length; index++) {
+        totalPrice += prices[index] * products[index]
+    }
+
+    alert(`Сума Вашого замовлення ${totalPrice}.`)
+
+    let isFreeShipping = totalPrice > 1000
+    if (isFreeShipping) // іноді в умові використовується лише одна змінна
+    {
+        alert("Доставка буде безкоштовною.")
+    }
+
+    // 1 Замість окремих масивів names, prices, products використаємо масив об'єктів products (кожен об'єкт містить name, price та ordered (quantity)
+    // 2. Розділимо на окремі функції з чіткою відповідальністю
+    // 3. Валідація введених даних (можливі помилки - від'ємні значення))
+</script>
+</body>
+</html>
