@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let products = [
+        {
+            name: "Папір офісний А4, 80 г/м2, 500 л",
+            price: 280.25,
+            ordered: 0,
+        },
+        {
+            name: "Біндери для паперу 51 мм",
+            price: 56,
+            ordered: 0,
+        },
+        {
+            name: "Ручка синя",
+            price: 12.5,
+            ordered: 0,
+        },
+    ]
+
+    let totalPrice = 0
+
+    // Запитуємо у користувача кількість кожного продукту і одразу рахуємо загальну суму
+    for (const product of products) {
+        let quantity
+
+        // Переконуємось, що введене значення коректне
+        do {
+            quantity = prompt(`Вкажіть кількість продуктів '${product.name}', ціна ${product.price}`, 0)
+            if (quantity === null) {
+                quantity = 0 // Якщо користувач натисне "Скасувати", вважаємо, що він не купує цей товар
+            } else {
+                quantity = parseInt(quantity)
+            }
+        } while (isNaN(quantity) || quantity < 0)
+
+        product.ordered = quantity
+        totalPrice += product.price * quantity
+    }
+
+    // Виводимо результат
+    alert(`Сума Вашого замовлення: ${totalPrice.toFixed(2)} грн.`)
+
+    if (totalPrice > 1000) {
+        alert("Доставка буде безкоштовною.")
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference vs Value</title>
+</head>
+<body>
+<script>
+    // object - reference type
+    // всі інші типи - value type
+    console.log("-------Типи значень-------")
+    let originalNumber = 10            // у змінній originalNumber зберігається значення 10
+    let copyNumber = originalNumber    // у змінну copyNumber копіюється значення із змінної originalNumber
+
+    console.log("До зміни")
+    console.log("originalNumber = " + originalNumber)
+    console.log("copyNumber = " + copyNumber)
+
+    originalNumber = 15
+    console.log("після зміни")
+    console.log("originalNumber = " + originalNumber)
+    console.log("copyNumber = " + copyNumber)
+
+    console.log("-------Посилальні типи-------")
+
+    let originalUser = {login: "user", pass: "12345"}  // у змінній originalUser зберігається посилання на об'єкт
+    let copyUser = originalUser                          // у змінну copyUser копіюється посилання із змінної originalUser на вже існуючий об'єкт
+
+    console.log("До зміни")
+    console.log("originalUser.login = " + originalUser.login)
+    console.log("copyUser.login = " + copyUser.login)
+
+    originalUser.login = "admin"
+    console.log("після зміни")
+    console.log("!!! originalUser.login = " + originalUser.login)
+    console.log("!!! copyUser.login = " + copyUser.login)
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Objects</title>
+</head>
+<body>
+<script>
+    // В об'єкті може бути вкладений об'єкт.
+
+    // використання літералів
+    let user1 = {
+        name: "admin",
+        email: "admin@example.com",
+
+        // властивість address, в якому знаходиться об'єкт
+        address: {
+            city: "London",
+            street: "Uxbridge Rd",
+            building: "7",
+        },
+    }
+
+    console.log(user1.name)
+    console.log(user1.address.city)
+
+    // використання конструктора Object
+    let user2 = new Object()
+    user2.name = "admin"
+    user2.email = "admin@example.com"
+
+    user2.address = new Object()
+    user2.address.city = "London"
+    user2.address.street = "Uxbridge Rd"
+    user2.address.building = "7"
+
+    console.log(user2.name)
+    console.log(user2.address.city)
+</script>
+</body>
+</html>

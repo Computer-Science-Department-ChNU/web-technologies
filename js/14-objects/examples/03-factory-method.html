@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Створення об'єкта через функцію</title>
+</head>
+<body>
+<script>
+    // функція-фабрика - ця функція, яка після завершення своєї роботи повертає сконфігурований об'єкт.
+    // Подібна функція може бути корисною в тих випадках, коли потрібно створити кілька об'єктів з однаковою структурою, але різними значеннями
+    function createUser(login, email) {
+        return {
+            login: login,
+            email: email,
+
+            showContactInfo: function () {
+                console.log("Мій логін " + this.login + ", мій email " + this.email)
+            },
+        }
+    }
+
+    let user1 = createUser("admin", "admin@example.com")
+    let user2 = createUser("user", "user@example.com")
+
+    user1.showContactInfo()
+    user2.showContactInfo()
+</script>
+</body>
+</html>

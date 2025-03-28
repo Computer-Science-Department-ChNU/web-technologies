@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+<body>
+<pre>
+    Завдання:
+    Реалізуйте метод showMostFavoriteFruit.
+    Метод повинен відображати фрукт, який частіше вказували як улюблений на
+    підставі даних користувачів з масСиву users.
+</pre>
+<script>
+    let users = [
+        {
+            balance: '1250.89',
+            age: 24,
+            name: {
+                first: 'Golden',
+                last: 'Clements',
+            },
+            company: 'EWAVES',
+            email: 'golden.clements@ewaves.io',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Buchanan Austin',
+                },
+                {
+                    id: 1,
+                    name: 'Richmond Garrison',
+                },
+                {
+                    id: 2,
+                    name: 'Burns Cook',
+                },
+                {
+                    id: 3,
+                    name: 'Sally Mcpherson',
+                },
+                {
+                    id: 4,
+                    name: 'Nina Hood',
+                },
+                {
+                    id: 5,
+                    name: 'Rhonda Anderson',
+                },
+                {
+                    id: 6,
+                    name: 'Mathis Bowen',
+                },
+                {
+                    id: 7,
+                    name: 'Janie Carlson',
+                },
+                {
+                    id: 8,
+                    name: 'Brooke Reilly',
+                },
+                {
+                    id: 9,
+                    name: 'Peters Oliver',
+                },
+            ],
+            favoriteFruit: 'strawberry',
+        },
+        {
+            balance: '3637.94',
+            age: 23,
+            name: {
+                first: 'Francis',
+                last: 'Hebert',
+            },
+            company: 'XPLOR',
+            email: 'francis.hebert@xplor.biz',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Clements Glass',
+                },
+                {
+                    id: 1,
+                    name: 'Gutierrez Padilla',
+                },
+                {
+                    id: 2,
+                    name: 'Noelle Wilkinson',
+                },
+                {
+                    id: 3,
+                    name: 'Kim Sampson',
+                },
+                {
+                    id: 4,
+                    name: 'Luz Palmer',
+                },
+            ],
+            favoriteFruit: 'apple',
+        },
+        {
+            balance: '1106.44',
+            age: 31,
+            name: {
+                first: 'Hale',
+                last: 'Cross',
+            },
+            company: 'EARTHPURE',
+            email: 'hale.cross@earthpure.us',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Terri Clark',
+                },
+                {
+                    id: 1,
+                    name: 'Marie Joyce',
+                },
+                {
+                    id: 2,
+                    name: 'Howell Moses',
+                },
+                {
+                    id: 3,
+                    name: 'Juarez Marshall',
+                },
+                {
+                    id: 4,
+                    name: 'Corinne Grant',
+                },
+                {
+                    id: 5,
+                    name: 'Chandra Ferrell',
+                },
+                {
+                    id: 6,
+                    name: 'Emily Kidd',
+                },
+                {
+                    id: 7,
+                    name: 'Claudine Pollard',
+                },
+                {
+                    id: 8,
+                    name: 'Walter Cooper',
+                },
+                {
+                    id: 9,
+                    name: 'Isabella Hays',
+                },
+            ],
+            favoriteFruit: 'strawberry',
+        },
+        {
+            balance: '2502.43',
+            age: 25,
+            name: {
+                first: 'Delores',
+                last: 'Sykes',
+            },
+            company: 'ASSITIA',
+            email: 'delores.sykes@assitia.com',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Amy Fox',
+                },
+                {
+                    id: 1,
+                    name: 'Laurel Gaines',
+                },
+                {
+                    id: 2,
+                    name: 'Mcguire French',
+                },
+                {
+                    id: 3,
+                    name: 'Savage Rocha',
+                },
+                {
+                    id: 4,
+                    name: 'Durham Fowler',
+                },
+                {
+                    id: 5,
+                    name: 'Jacobson Clay',
+                },
+                {
+                    id: 6,
+                    name: 'Hamilton Pierce',
+                },
+                {
+                    id: 7,
+                    name: 'Johns Jefferson',
+                },
+                {
+                    id: 8,
+                    name: 'Avery Campbell',
+                },
+            ],
+            favoriteFruit: 'strawberry',
+        },
+        {
+            balance: '3651.54',
+            age: 21,
+            name: {
+                first: 'Ryan',
+                last: 'Bolton',
+            },
+            company: 'MOLTONIC',
+            email: 'ryan.bolton@moltonic.biz',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Weaver Buchanan',
+                },
+                {
+                    id: 1,
+                    name: 'Francesca Rice',
+                },
+                {
+                    id: 2,
+                    name: 'Sheppard Calhoun',
+                },
+                {
+                    id: 3,
+                    name: 'Schmidt Murray',
+                },
+            ],
+            favoriteFruit: 'apple',
+        },
+        {
+            balance: '1345.79',
+            age: 21,
+            name: {
+                first: 'Carey',
+                last: 'Schwartz',
+            },
+            company: 'UXMOX',
+            email: 'carey.schwartz@uxmox.info',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Lilia Wiggins',
+                },
+                {
+                    id: 1,
+                    name: 'Snider Tanner',
+                },
+                {
+                    id: 2,
+                    name: 'Taylor Perez',
+                },
+                {
+                    id: 3,
+                    name: 'Raquel Castaneda',
+                },
+                {
+                    id: 4,
+                    name: 'Burris Mcmahon',
+                },
+                {
+                    id: 5,
+                    name: 'Henderson Osborn',
+                },
+                {
+                    id: 6,
+                    name: 'Carrillo Ortiz',
+                },
+                {
+                    id: 7,
+                    name: 'Herminia Puckett',
+                },
+                {
+                    id: 8,
+                    name: 'Shelby Ware',
+                },
+            ],
+            favoriteFruit: 'banana',
+        },
+        {
+            balance: '3261.11',
+            age: 30,
+            name: {
+                first: 'Trevino',
+                last: 'Mullins',
+            },
+            company: 'TERRASYS',
+            email: 'trevino.mullins@terrasys.org',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Corine Deleon',
+                },
+                {
+                    id: 1,
+                    name: 'Alta Walker',
+                },
+                {
+                    id: 2,
+                    name: 'Jeannie Santana',
+                },
+                {
+                    id: 3,
+                    name: 'Velazquez Oneill',
+                },
+                {
+                    id: 4,
+                    name: 'Perry Merrill',
+                },
+                {
+                    id: 5,
+                    name: 'Tabitha Mcintosh',
+                },
+                {
+                    id: 6,
+                    name: 'Shields Castillo',
+                },
+            ],
+            favoriteFruit: 'banana',
+        },
+        {
+            balance: '1659.17',
+            age: 20,
+            name: {
+                first: 'Gilliam',
+                last: 'Mendez',
+            },
+            company: 'ZENTHALL',
+            email: 'gilliam.mendez@zenthall.tv',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Nora Ratliff',
+                },
+                {
+                    id: 1,
+                    name: 'Simone Michael',
+                },
+                {
+                    id: 2,
+                    name: 'Lang Rose',
+                },
+                {
+                    id: 3,
+                    name: 'Priscilla Hester',
+                },
+                {
+                    id: 4,
+                    name: 'Stuart Barker',
+                },
+                {
+                    id: 5,
+                    name: 'Florine Mcintyre',
+                },
+                {
+                    id: 6,
+                    name: 'Karin Rosa',
+                },
+                {
+                    id: 7,
+                    name: 'Vinson Rutledge',
+                },
+            ],
+            favoriteFruit: 'strawberry',
+        },
+        {
+            balance: '2340.54',
+            age: 32,
+            name: {
+                first: 'Brewer',
+                last: 'Vargas',
+            },
+            company: 'QIMONK',
+            email: 'brewer.vargas@qimonk.co.uk',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Tamera Sharp',
+                },
+                {
+                    id: 1,
+                    name: 'Jackie Parks',
+                },
+                {
+                    id: 2,
+                    name: 'Wanda Merritt',
+                },
+                {
+                    id: 3,
+                    name: 'Castillo Sloan',
+                },
+            ],
+            favoriteFruit: 'apple',
+        },
+        {
+            balance: '1736.91',
+            age: 24,
+            name: {
+                first: 'Newman',
+                last: 'Wynn',
+            },
+            company: 'VISALIA',
+            email: 'newman.wynn@visalia.name',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Lopez Mccarthy',
+                },
+                {
+                    id: 1,
+                    name: 'Melinda Diaz',
+                },
+                {
+                    id: 2,
+                    name: 'Silva Shepherd',
+                },
+                {
+                    id: 3,
+                    name: 'Claudia Contreras',
+                },
+                {
+                    id: 4,
+                    name: 'Jenna Golden',
+                },
+                {
+                    id: 5,
+                    name: 'Blair Hayden',
+                },
+                {
+                    id: 6,
+                    name: 'Antonia Woods',
+                },
+                {
+                    id: 7,
+                    name: 'Felecia Greer',
+                },
+                {
+                    id: 8,
+                    name: 'Sherry Howard',
+                },
+                {
+                    id: 9,
+                    name: 'Montgomery Cohen',
+                },
+            ],
+            favoriteFruit: 'apple',
+        },
+    ]
+
+    function showAllEmails() {
+        users.forEach(user => console.log(user.email))
+    }
+
+    // метод для відображення користувача з масиву з найбільшою кількістю друзів
+    function showHigestFriendCount() {
+        // на початку пошуку користувача з максимальною кількістю друзів встановлюємо змінну max мінімально можливу
+        // значення для змінної типу number
+        let max = Number.MIN_VALUE
+
+        // для кожного елемента масиву users викликаємо функцію, яка передається як параметр методу forEach
+        // поточний елемент маcсиву передається у функцію як параметр user
+        users.forEach(user => {
+            if (max < user.friends.length) // якщо у поточного користувача друзів більше ніж значення змінної max змінюємо значення змінної
+                max = user.friends.length
+        }) // як наслідок у змінній max буде знаходитись значення максимальної кількості друзів серед користувачів описаних елементами масcиву
+
+        users
+            .filter(user => user.friends.length == max) // вибираємо користувачів у новий масив у яких кількість друзів відповідає значенню змінної max
+            .forEach(user => console.log(user.name.first + " " + user.name.last)) // виводимо всіх користувачів з максимальною кількістю друзів
+    }
+
+    // функція для відображення компанії користувача з максимальним та мінімальним балансом
+    function showMinMaxBalance() {
+        // змінні для зберігання максимального та мінімального значення балансу
+        let minBalance = Number.MAX_VALUE
+        let maxBalance = Number.MIN_VALUE
+
+        // Прохід по всім користувачам для того щоб визначити значення змінних визначених раніше
+        users.forEach(user => {
+            const currentBalance = +user.balance
+            if (currentBalance > maxBalance)
+                maxBalance = currentBalance
+            else if (currentBalance < minBalance) {
+                minBalance = currentBalance
+            }
+        })
+
+        users
+            .filter(user => user.balance == maxBalance) // вибірка з масиву користувачів, значення властивості balance яких відповідає значенню змінної maxBalance
+            .forEach(user => console.log(user.company)) // вивід компанії, в якій працює користувач
+
+        // теж саме для мінімального балансу
+        users
+            .filter(user => user.balance == minBalance)
+            .forEach(user => console.log(user.company))
+    }
+
+    // Відображення найпопулярнішого фрукта (того який зустрічається найчастіше серед користувачів як favoriteFruit)
+    function showMostFavoriteFruit() {
+        let counters = {} // створюємо порожній об'єкт, даний об'єкт використовуватиметься для підрахунку кількості популярних фруктів
+        // ім'я властивості відповідає імені фрукта, значення властивості, кількість разів скільки цей фрукт зустрічався у популярних
+
+        // для кожного елемента масиву виконуємо вказану функцію
+        users.forEach(user => {
+            // якщо властивості з ім'ям, наприклад, counters["apple"] є збільшуємо його значення
+            if (counters[user.favoriteFruit]) {
+                counters[user.favoriteFruit]++
+            } else { // якщо властивості немає створюємо його присвоюючи значення 1
+                counters[user.favoriteFruit] = 1
+            }
+        })
+
+        let maxCount = Number.MIN_VALUE
+        let favoriteFruit = ""
+        for (const key in counters) { // цикл for in дозволяє перебрати всі властивості, які є в об'єкті
+            if (counters[key] > maxCount) {
+                maxCount = counters[key] // запам'ятовуємо максимальне значення
+                favoriteFruit = key // та запам'ятовуємо назву фрукта, який був пов'язаний із цим максимальним значенням
+            }
+        }
+
+        // після завершення циклу в змінній favoriteFruit
+        console.log(favoriteFruit + " частіше всього вказано як улюблений фрукт")
+    }
+
+    // запуск методів визначених раніше
+    showAllEmails()
+    showHigestFriendCount()
+    showMinMaxBalance()
+    showMostFavoriteFruit()
+</script>
+</body>
+
+</html>

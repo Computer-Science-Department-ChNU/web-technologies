@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Property with Square Brackets</title>
+</head>
+<body>
+<script>
+    let user = {
+        name: "admin",
+        email: "admin@example.com",
+        sayHello: function () {
+            console.log("Hello!")
+        },
+    }
+
+    user.name = "test-user"
+    user["name"] = "test-user" // отримання доступу до властивості через ім'я, вказане у квадратних дужках
+
+    console.log(user.name)
+    console.log(user["name"]) // отримання доступу до властивості через ім'я, вказане у квадратних дужках
+</script>
+</body>
+</html>

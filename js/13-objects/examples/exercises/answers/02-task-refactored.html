@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+<body>
+<pre>
+    Завдання:
+    Всі об'єкти в масиві users мають однакову структуру.
+    Виведіть на екран:
+    1) Адреси електронних пошт всіх користувачів (email)
+    2) Ім'я та прізвища користувачів з невеликою кількістю друзів (Властивості name и friends)
+    3) Компанію користувачів з невеликим балансом та Компанію користувачів з найменшим балансом (властивості company и
+    balance)
+</pre>
+<script>
+    //Ключові особливості
+    // Кожна функція приймає users як аргумент
+    // Використання чистих функцій без зміни зовнішнього стану
+    // Застосування методів вищого порядку: map(), filter(), reduce()
+    // Стрілочні функції для лаконічності
+    // Розділення логіки на незалежні функції
+    // Уникнення мутацій та побічних ефектів
+
+    let users = [
+        {
+            balance: '1250.89',
+            age: 24,
+            name: {
+                first: 'Golden',
+                last: 'Clements',
+            },
+            company: 'EWAVES',
+            email: 'golden.clements@ewaves.io',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Buchanan Austin',
+                },
+                {
+                    id: 1,
+                    name: 'Richmond Garrison',
+                },
+                {
+                    id: 2,
+                    name: 'Burns Cook',
+                },
+                {
+                    id: 3,
+                    name: 'Sally Mcpherson',
+                },
+                {
+                    id: 4,
+                    name: 'Nina Hood',
+                },
+                {
+                    id: 5,
+                    name: 'Rhonda Anderson',
+                },
+                {
+                    id: 6,
+                    name: 'Mathis Bowen',
+                },
+                {
+                    id: 7,
+                    name: 'Janie Carlson',
+                },
+                {
+                    id: 8,
+                    name: 'Brooke Reilly',
+                },
+                {
+                    id: 9,
+                    name: 'Peters Oliver',
+                },
+            ],
+            favoriteFruit: 'strawberry',
+        },
+        {
+            balance: '3637.94',
+            age: 23,
+            name: {
+                first: 'Francis',
+                last: 'Hebert',
+            },
+            company: 'XPLOR',
+            email: 'francis.hebert@xplor.biz',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Clements Glass',
+                },
+                {
+                    id: 1,
+                    name: 'Gutierrez Padilla',
+                },
+                {
+                    id: 2,
+                    name: 'Noelle Wilkinson',
+                },
+                {
+                    id: 3,
+                    name: 'Kim Sampson',
+                },
+                {
+                    id: 4,
+                    name: 'Luz Palmer',
+                },
+            ],
+            favoriteFruit: 'apple',
+        },
+        {
+            balance: '1106.44',
+            age: 31,
+            name: {
+                first: 'Hale',
+                last: 'Cross',
+            },
+            company: 'EARTHPURE',
+            email: 'hale.cross@earthpure.us',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Terri Clark',
+                },
+                {
+                    id: 1,
+                    name: 'Marie Joyce',
+                },
+                {
+                    id: 2,
+                    name: 'Howell Moses',
+                },
+                {
+                    id: 3,
+                    name: 'Juarez Marshall',
+                },
+                {
+                    id: 4,
+                    name: 'Corinne Grant',
+                },
+                {
+                    id: 5,
+                    name: 'Chandra Ferrell',
+                },
+                {
+                    id: 6,
+                    name: 'Emily Kidd',
+                },
+                {
+                    id: 7,
+                    name: 'Claudine Pollard',
+                },
+                {
+                    id: 8,
+                    name: 'Walter Cooper',
+                },
+                {
+                    id: 9,
+                    name: 'Isabella Hays',
+                },
+            ],
+            favoriteFruit: 'strawberry',
+        },
+        {
+            balance: '2502.43',
+            age: 25,
+            name: {
+                first: 'Delores',
+                last: 'Sykes',
+            },
+            company: 'ASSITIA',
+            email: 'delores.sykes@assitia.com',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Amy Fox',
+                },
+                {
+                    id: 1,
+                    name: 'Laurel Gaines',
+                },
+                {
+                    id: 2,
+                    name: 'Mcguire French',
+                },
+                {
+                    id: 3,
+                    name: 'Savage Rocha',
+                },
+                {
+                    id: 4,
+                    name: 'Durham Fowler',
+                },
+                {
+                    id: 5,
+                    name: 'Jacobson Clay',
+                },
+                {
+                    id: 6,
+                    name: 'Hamilton Pierce',
+                },
+                {
+                    id: 7,
+                    name: 'Johns Jefferson',
+                },
+                {
+                    id: 8,
+                    name: 'Avery Campbell',
+                },
+            ],
+            favoriteFruit: 'strawberry',
+        },
+        {
+            balance: '3651.54',
+            age: 21,
+            name: {
+                first: 'Ryan',
+                last: 'Bolton',
+            },
+            company: 'MOLTONIC',
+            email: 'ryan.bolton@moltonic.biz',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Weaver Buchanan',
+                },
+                {
+                    id: 1,
+                    name: 'Francesca Rice',
+                },
+                {
+                    id: 2,
+                    name: 'Sheppard Calhoun',
+                },
+                {
+                    id: 3,
+                    name: 'Schmidt Murray',
+                },
+            ],
+            favoriteFruit: 'apple',
+        },
+        {
+            balance: '1345.79',
+            age: 21,
+            name: {
+                first: 'Carey',
+                last: 'Schwartz',
+            },
+            company: 'UXMOX',
+            email: 'carey.schwartz@uxmox.info',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Lilia Wiggins',
+                },
+                {
+                    id: 1,
+                    name: 'Snider Tanner',
+                },
+                {
+                    id: 2,
+                    name: 'Taylor Perez',
+                },
+                {
+                    id: 3,
+                    name: 'Raquel Castaneda',
+                },
+                {
+                    id: 4,
+                    name: 'Burris Mcmahon',
+                },
+                {
+                    id: 5,
+                    name: 'Henderson Osborn',
+                },
+                {
+                    id: 6,
+                    name: 'Carrillo Ortiz',
+                },
+                {
+                    id: 7,
+                    name: 'Herminia Puckett',
+                },
+                {
+                    id: 8,
+                    name: 'Shelby Ware',
+                },
+            ],
+            favoriteFruit: 'banana',
+        },
+        {
+            balance: '3261.11',
+            age: 30,
+            name: {
+                first: 'Trevino',
+                last: 'Mullins',
+            },
+            company: 'TERRASYS',
+            email: 'trevino.mullins@terrasys.org',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Corine Deleon',
+                },
+                {
+                    id: 1,
+                    name: 'Alta Walker',
+                },
+                {
+                    id: 2,
+                    name: 'Jeannie Santana',
+                },
+                {
+                    id: 3,
+                    name: 'Velazquez Oneill',
+                },
+                {
+                    id: 4,
+                    name: 'Perry Merrill',
+                },
+                {
+                    id: 5,
+                    name: 'Tabitha Mcintosh',
+                },
+                {
+                    id: 6,
+                    name: 'Shields Castillo',
+                },
+            ],
+            favoriteFruit: 'banana',
+        },
+        {
+            balance: '1659.17',
+            age: 20,
+            name: {
+                first: 'Gilliam',
+                last: 'Mendez',
+            },
+            company: 'ZENTHALL',
+            email: 'gilliam.mendez@zenthall.tv',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Nora Ratliff',
+                },
+                {
+                    id: 1,
+                    name: 'Simone Michael',
+                },
+                {
+                    id: 2,
+                    name: 'Lang Rose',
+                },
+                {
+                    id: 3,
+                    name: 'Priscilla Hester',
+                },
+                {
+                    id: 4,
+                    name: 'Stuart Barker',
+                },
+                {
+                    id: 5,
+                    name: 'Florine Mcintyre',
+                },
+                {
+                    id: 6,
+                    name: 'Karin Rosa',
+                },
+                {
+                    id: 7,
+                    name: 'Vinson Rutledge',
+                },
+            ],
+            favoriteFruit: 'strawberry',
+        },
+        {
+            balance: '2340.54',
+            age: 32,
+            name: {
+                first: 'Brewer',
+                last: 'Vargas',
+            },
+            company: 'QIMONK',
+            email: 'brewer.vargas@qimonk.co.uk',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Tamera Sharp',
+                },
+                {
+                    id: 1,
+                    name: 'Jackie Parks',
+                },
+                {
+                    id: 2,
+                    name: 'Wanda Merritt',
+                },
+                {
+                    id: 3,
+                    name: 'Castillo Sloan',
+                },
+            ],
+            favoriteFruit: 'apple',
+        },
+        {
+            balance: '1736.91',
+            age: 24,
+            name: {
+                first: 'Newman',
+                last: 'Wynn',
+            },
+            company: 'VISALIA',
+            email: 'newman.wynn@visalia.name',
+            friends: [
+                {
+                    id: 0,
+                    name: 'Lopez Mccarthy',
+                },
+                {
+                    id: 1,
+                    name: 'Melinda Diaz',
+                },
+                {
+                    id: 2,
+                    name: 'Silva Shepherd',
+                },
+                {
+                    id: 3,
+                    name: 'Claudia Contreras',
+                },
+                {
+                    id: 4,
+                    name: 'Jenna Golden',
+                },
+                {
+                    id: 5,
+                    name: 'Blair Hayden',
+                },
+                {
+                    id: 6,
+                    name: 'Antonia Woods',
+                },
+                {
+                    id: 7,
+                    name: 'Felecia Greer',
+                },
+                {
+                    id: 8,
+                    name: 'Sherry Howard',
+                },
+                {
+                    id: 9,
+                    name: 'Montgomery Cohen',
+                },
+            ],
+            favoriteFruit: 'apple',
+        },
+    ]
+
+    // Функція для виведення електронних адрес
+    const showAllEmails = (users) => {
+        console.log("Електронна адреса користувача:")
+        users
+            .map(user => user.email)
+            .forEach(email => console.log(email))
+    }
+
+    // Функція для знаходження користувачів з найбільшою кількістю друзів
+    const showUsersWithMostFriends = (users) => {
+        console.log("Користувачі з найбільшою кількістю друзів:")
+
+        const maxFriendsCount = Math.max(...users.map(user => user.friends.length))
+
+        users
+            .filter(user => user.friends.length === maxFriendsCount)
+            .forEach(user => console.log(`${user.name.first} ${user.name.last}`))
+    }
+
+    // Функція для аналізу балансів
+    const analyzeBalances = (users) => {
+        const balances = users.map(user => parseFloat(user.balance))
+        const minBalance = Math.min(...balances)
+        const maxBalance = Math.max(...balances)
+
+        console.log("Компанії користувачів з найбільшим балансом:")
+        users
+            .filter(user => parseFloat(user.balance) === maxBalance)
+            .forEach(user => console.log(user.company))
+
+        console.log("Компанії користувачів з найменшим балансом:")
+        users
+            .filter(user => parseFloat(user.balance) === minBalance)
+            .forEach(user => console.log(user.company))
+    }
+
+    // Додаткові функції аналізу
+
+    // Розподіл користувачів за улюбленими фруктами
+    // reduce() - метод для агрегації масиву в один результат (Перший аргумент - callback-функція, Другий аргумент {} - initial value (початкове значення акумулятора))
+    const analyzeFavoriteFruits = (users) => {
+        // Якщо фрукт ще не зустрічався, acc[user.favoriteFruit] буде undefined
+        // || 0 забезпечує значення 0 для нового фрукта
+        // Додається 1 до лічильника для кожного входження
+        /* [
+              { favoriteFruit: 'apple' },
+              { favoriteFruit: 'banana' },
+              { favoriteFruit: 'apple' },
+              { favoriteFruit: 'strawberry' },
+              { favoriteFruit: 'apple' }
+            ]
+            result агрегації
+            {
+              apple: 3,
+              banana: 1,
+              strawberry: 1
+            }
+         */
+        const fruitCounts = users.reduce((acc, user) => {
+            acc[user.favoriteFruit] = (acc[user.favoriteFruit] || 0) + 1
+            return acc
+        }, {})
+
+        console.log("Розподіл улюблених фруктів:")
+        // Object.entries(fruitCounts) перетворює об'єкт на масив пар [ключ, значення]
+        // .forEach() виводить кожен фрукт та його кількість
+        Object.entries(fruitCounts).forEach(([fruit, count]) => {
+            console.log(`${fruit}: ${count} користувачів`)
+        })
+    }
+
+    // Середній вік користувачів
+    const calculateAverageAge = (users) => {
+        const averageAge = users.reduce((sum, user) => sum + user.age, 0) / users.length
+        console.log(`Середній вік користувачів: ${averageAge.toFixed(2)}`)
+    }
+
+    // Головна функція для виконання всіх аналізів
+    const performUserAnalysis = (users) => {
+        showAllEmails(users)
+        showUsersWithMostFriends(users)
+        analyzeBalances(users)
+        analyzeFavoriteFruits(users)
+        calculateAverageAge(users)
+    }
+
+    // Виклик аналізу
+    performUserAnalysis(users)
+</script>
+</body>
+</html>
