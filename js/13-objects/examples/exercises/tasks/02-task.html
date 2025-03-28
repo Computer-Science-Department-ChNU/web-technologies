@@ -451,6 +451,43 @@
             favoriteFruit: 'apple',
         },
     ]
+
+    console.log("Emails: ")
+    users.forEach((user) => console.log(user.email));
+
+    console.log("\nFriends: ");
+    users.filter((user) => user.friends.length <= 5)
+        .forEach((user) => console.log(user.name));
+
+
+
+    // balance: '1250.89',
+    //     age: 24,
+    //     name: {
+    //     first: 'Golden',
+    //         last: 'Clements',
+    // },
+    // company: 'EWAVES',
+    //     email: 'golden.clements@ewaves.io',
+    //     friends: [
+    // ],
+    //     favoriteFruit: 'strawberry',
+    // }
+    console.log("\nCompanies with min balance: ");
+    const balances = users
+        .map((user) => parseFloat(user.balance));
+    const minMaxBalances = {min: Math.min(...balances), max: Math.max(...balances)}
+
+    console.log("Min balances:");
+    users.filter(user => parseFloat(user.balance) === minMaxBalances.min)
+        .forEach((user) => console.log(user.name));
+
+    console.log("Max balances:");
+    users.filter(user => parseFloat(user.balance) === minMaxBalances.max)
+        .forEach((user) => console.log(user.name));
+
+
+
 </script>
 </body>
 </html>
