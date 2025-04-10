@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertion methods</title>
+</head>
+<body>
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+<script>
+    let ul = document.querySelector("ul")
+
+    let item = document.createElement("li")
+    item.innerHTML = ">>>Item 0<<<"
+    ul.prepend(item)
+
+    let item2 = document.createElement("li")
+    item2.innerHTML = ">>>Item 4<<<"
+    ul.append(item2)
+
+    ul.before("before") // методи для вставки можуть приймати вузли або строкові значення
+    ul.after("after")
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML</title>
+</head>
+<body>
+Результат: <span id="output"></span>
+<script>
+    let x = +prompt("Введіть перше число")
+    let y = +prompt("Введіть друге число")
+    let result
+    let outputDiv = document.querySelector("#output")
+
+    if (y !== 0) {
+        result = x / y
+        outputDiv.innerHTML = `<b>${result}</b>`
+    } else {
+        outputDiv.innerHTML = `<b style="color:red">Ділення на 0</b>`
+    }
+</script>
+</body>
+</html>

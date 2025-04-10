@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>outerHTML</title>
+    <style>
+        div {
+            background-color: lightblue;
+            padding: 8px;
+            margin: 8px;
+        }
+
+        p {
+            background-color: coral;
+            padding: 8px;
+            margin: 8px;
+        }
+    </style>
+</head>
+<body>
+<p id="test">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, suscipit fugit? Deserunt ducimus maxime
+    cupiditate temporibus, quo reiciendis delectus corrupti beatae, in soluta, eaque accusantium dicta nisi. Ratione,
+    corporis explicabo?</p>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem eius quisquam cupiditate omnis possimus rem
+    dolorum iusto a vero nesciunt illum quos excepturi aperiam officia tenetur ut, iste accusamus itaque!</p>
+<div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus tenetur iste, laborum suscipit id corrupti est,
+    in beatae nemo alias aut voluptas voluptate. Eligendi reiciendis facilis necessitatibus accusantium harum dolores.
+</div>
+<div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor mollitia eos, saepe corporis maxime, deleniti id
+    natus explicabo rerum nisi eaque quaerat odit commodi ipsum perferendis odio. Eius, quibusdam sequi.
+</div>
+
+<script>
+    let node = document.querySelector("#test")
+    
+    // так як елемент, який міститься в змінній node,
+    // буде змінений на div зміниться його оформлення
+    // згідно з селектором CSS на початку цього документа
+    node.outerHTML = "<div>Hello world</div>"
+</script>
+</body>
+</html>

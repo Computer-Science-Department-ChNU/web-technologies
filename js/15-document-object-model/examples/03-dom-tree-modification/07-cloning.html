@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клонування елементів</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        article {
+            border: 1px solid black;
+            border-radius: 8px;
+            margin: 20px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<article title="1">
+    <h1 title="2">Заголовок статті</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eum est voluptatem, necessitatibus repellendus
+        fugit earum debitis deserunt rem dolorem ipsum perspiciatis, saepe, quibusdam vitae. Provident est minima iusto
+        cumque.</p>
+</article>
+
+<script>
+    let articleNode = document.querySelector("article")
+
+    let shallowCopy = articleNode.cloneNode(false) // false - створення поверхневої копії
+    let deepCopy = articleNode.cloneNode(true) // true - створення глибокої копії
+
+    // Глибока копія - створення копії елемента з усіма атрибутами та дочірніми елементами
+    // Поверхнева копія - створення копії без копіювання дочірніх елементів
+
+    document.body.append(shallowCopy)
+    document.body.append(deepCopy)
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelector #2</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p id="first">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, numquam unde. Aut dolorum in, quia
+        numquam
+        error recusandae est odio nesciunt ut illum blanditiis illo minima, officiis mollitia eaque fugit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum corrupti sapiente, qui eius fuga nisi. Sequi
+        quibusdam sapiente deserunt fuga dolorem commodi perspiciatis, cum soluta possimus quaerat. Labore, eveniet
+        iusto.</p>
+    <a href="https://kkn.chnu.edu.ua/">Кафедра комп'ютерних наук</a>
+    <a href="https://kkn.chnu.edu.ua/about-kafedra/history/">Історія кафедри</a>
+</div>
+<ul class="my-list">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+    <li>List Item 4</li>
+    <li>List Item 5</li>
+</ul>
+<article>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est fugit natus sapiente laborum esse. Aperiam eum
+    illum fuga laborum alias consectetur, quibusdam nisi quidem aliquam nulla, quae vero expedita fugiat.
+</article>
+<article>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est fugit natus sapiente laborum esse. Aperiam eum
+    illum fuga laborum alias consectetur, quibusdam nisi quidem aliquam nulla, quae vero expedita fugiat.
+</article>
+<script>
+    let link = document.querySelector("a[href='https://kkn.chnu.edu.ua/']")
+    link.style.border = "2px solid red"
+
+    // .my-list - знаходимо перший елемент с атрибутом class="my-list"
+    let unorderedList = document.querySelector(".my-list")
+    unorderedList.style.border = "2px solid green"
+
+    // article - знаходимо перший елемент article в документі
+    let article = document.querySelector("article")
+    article.style.border = "2px solid blue"
+</script>
+</body>
+</html>

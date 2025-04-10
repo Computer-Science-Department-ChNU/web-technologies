@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Незручності використання className</title>
+
+    <style>
+        .message {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 1px solid gray;
+            border-radius: 8px;
+            background-color: orange;
+            font-weight: bold;
+            margin: 8px;
+            padding: 15px;
+        }
+
+        .read {
+            background-color: white;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+<div class="message">Message 1</div>
+<div class="message read">Message 2</div>
+<div id="third-div" class="message">Message 3</div>
+
+<script>
+    let div = document.querySelector("#third-div")
+    // встановлюючи значення властивості className змінюється значення атрибуту class
+    // (Інші класи, якщо вони є, видаляються)
+    //div.className = "read";
+
+    // className - властивість рядкового типу, щоб додати клас до вже існуючим
+    // Треба додати пробіл і ім'я, класу, як із редагуванні атрибута class в розмітці.
+    div.className += " read"
+</script>
+</body>
+
+</html>

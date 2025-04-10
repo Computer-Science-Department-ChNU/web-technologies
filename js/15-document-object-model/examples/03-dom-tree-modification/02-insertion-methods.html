@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertion methods</title>
+    <style>
+        .inserted-div {
+            background-color: lightblue;
+            border: 1px solid brown;
+            padding: 2px;
+            margin: 2px;
+        }
+
+        #container {
+            border: 3px solid green;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <p>Element 1</p>
+    <p>Element 2</p>
+    <p>Element 3</p>
+    <p>Element 4</p>
+    <p>Element 5</p>
+</div>
+<script>
+    let div1 = document.createElement("div")
+    div1.textContent = "Hello world 1"
+    div1.className = "inserted-div"
+
+    let div2 = document.createElement("div")
+    div2.textContent = "Hello world 2"
+    div2.className = "inserted-div"
+
+    let div3 = document.createElement("div")
+    div3.textContent = "Hello world 3"
+    div3.className = "inserted-div"
+
+    let div4 = document.createElement("div")
+    div4.textContent = "Hello world 4"
+    div4.className = "inserted-div"
+
+    let container = document.querySelector("#container")
+
+    container.before(div1) // вставити перед вказаним елементом (prev sibling)
+    container.prepend(div2) // вставити як перший дочірній елемент
+    container.append(div3) // вставити як останній дочірній елемент
+    container.after(div4) // вставити після вказаного елемента (next sibling)
+</script>
+</body>
+</html>

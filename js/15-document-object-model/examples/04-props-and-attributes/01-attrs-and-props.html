@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Атрибути та властивості</title>
+</head>
+<body>
+<div id="myDiv"
+     title="Hello world"
+     type="message">
+</div>
+
+<script>
+    let divElem = document.querySelector("div")
+
+    console.log(divElem.id)        // myDiv
+    console.log(divElem.title)     // Hello world
+    console.log(divElem.type)      // undefined – атрибут type – не стандартний атрибут для DIV
+</script>
+</body>
+</html>

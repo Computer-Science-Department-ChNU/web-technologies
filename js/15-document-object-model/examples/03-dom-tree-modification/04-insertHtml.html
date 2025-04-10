@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insertAdjacentHTML</title>
+    <style>
+        p {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+<div id="element">Div Element</div>
+<script>
+    let div = document.querySelector("#element")
+
+    div.insertAdjacentHTML("before begin", "<p>Inserted before</p>") // insertAdjacentHTML дозволяє додати текст як HTML розмітку
+    div.after("<p>Insertd after</p>") // методи append/prepend/before/after строкові значення додають як текст, а не як HTML розмітку
+
+    // можливі значення для першого аргументу методу insertAdjacentHTML
+    // beforebegin - перед відкриваючим елементом
+    // afterbegin - після елемента, що відкриває
+    // beforeend - перед закриваючим елементом
+    // afterend - після елемента, що закриває
+</script>
+</body>
+</html>

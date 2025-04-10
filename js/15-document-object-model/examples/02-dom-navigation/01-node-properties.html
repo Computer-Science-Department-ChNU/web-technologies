@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>node properties</title>
+</head>
+<body>
+<p><i>Hello</i> world</p>
+<script>
+    let node = document.querySelector("p")
+
+    console.log("nodeType = " + node.nodeType) // тип вузла
+    console.log("innerHTML = " + node.innerHTML) // вміст вузла як HTML
+    console.log("outerHTML = " + node.outerHTML) // вміст вузла та сам вузол
+    console.log("textContent = " + node.textContent) // вміст вузла як текст
+    console.log("hidden = " + node.hidden) // видимість узла
+</script>
+</body>
+</html>

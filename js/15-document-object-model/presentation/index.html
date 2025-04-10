@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Тема 15. DOM (Document Object Model)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Тема 15. DOM (Document Object Model)</h1>
+</header>
+
+<section class="slide">
+    <h2>Тема 15. DOM (Document Object Model)</h2>
+    <ol>
+        <li>DOM і пошук елементів</li>
+        <li>Навігація по DOM елементам</li>
+        <li>Зміна DOM дерева</li>
+        <li>Властивості та атрибути</li>
+        <li>Стилі</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Браузерне середовище</h2>
+    <p>
+        <b>Середовище</b> - функціональність, яка надається середовищем, що виконує JavaScript код.
+        Наприклад, веббраузер надає функціональність для роботи з вебсторінкою, Node.js дає
+        доступ до ресурсів сервера тощо.
+    </p>
+    <div class="columns two">
+        <div>
+            <img src="images/1.png" alt="" width="100%">
+        </div>
+        <div>
+            <b>window</b>
+            - глобальний об'єкт - представляє
+            змінні та функції, доступні в будь-якій
+            частині сценарію.
+            <code>window.alert(“hello”); alert(“hello”)
+            </code>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>DOM</h2>
+    <p>
+        <b>DOM (Document Object Model)</b> - об'єктна модель документа, яка будується на основі HTML
+        коду. Об'єктна модель має деревоподібну структуру і її можна змінювати за допомогою JavaScript
+        коду. Специфікація DOM <a href="https://dom.spec.whatwg.org/" target="_blank">https://dom.spec.whatwg.org/</a>
+    </p>
+    <div class="columns two">
+        <div>
+            <p><b>document</b> - об'єкт, який дає змогу отримати доступ до DOM</p>
+        </div>
+        <div>
+            <img src="images/2.png" alt="" width="100%">
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>BOM</h2>
+    <p>
+        <b>BOM (Browser Object Model)</b> - об'єктна модель браузера, для роботи з різною функціональністю,
+        за винятком роботи з документом. BOM є частиною специфікації HTML.
+    </p>
+    <div>
+        <img src="images/3.png" alt="" width="540">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Пошук елементів (getElement*, querySelector*)</h2>
+    <ul>
+        <li><b style="color: #cc0000">querySelectorAll(сss_selector)</b> - пошук усіх елементів, що
+            підходять під
+            CSS селектор
+        </li>
+        <li><b style="color: #cc0000">querySelector(css_selector)</b> - пошук першого елемента по CSS
+            селектору
+        </li>
+        <li><b style="color: #cc0000">document.getElementById(id)</b> - пошук по ID
+        </li>
+        <li><b style="color: #cc0000">document.getElementsByName(name)</b> - пошук по атрибуту name</li>
+        <li><b style="color: #cc0000">document.getElementsByTagName(tag)</b> - пошук по імені тегу</li>
+        <li><b style="color: #cc0000">document.getElementsByClassName(cssClass)</b> - пошук по імені класу</li>
+        <li><b style="color: #cc0000">closest</b> - виконує пошук найближчого батьківського елемента, що відповідає
+            CSS селектору. Якщо батьківський елемент не знайдено - повертає null.
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Пошук елементів (getElement*, querySelector*)</h2>
+    <p>Приклади у директорії - 01-dom-and-element-search</p>
+</section>
+
+<section class="slide">
+    <h2>Навігація по елементам DOM</h2>
+    <p>
+        <b>DOM (Document Object Model)</b> – об’єктна модель документа, об’єктна модель документа, яка побудована на
+        основі коду HTML.
+        Кожен HTML-тег, атрибут, текст, коментар є об’єктами в DOM-дереві, якими можна
+        отримати доступ за допомогою коду JavaScript.
+    </p>
+    <p>Існує 12 типів вузлів DOM:</p>
+    <div class="columns two" style="font-size: 16px;">
+        <ul>
+            <li><b style="color: #cc0000">ELEMENT_NODE</b> – елементи, наприклад p, div</li>
+            <li>ATTRIBUTE_NODE – атрибути елементів</li>
+            <li><b style="color: #cc0000">TEXT_NODE</b> – текст всередині елементів</li>
+            <li><b style="color: #cc0000">COMMENT_NODE</b> - коментарі</li>
+            <li><b style="color: #cc0000">DOCUMENT_NODE</b> – веб-сторінка</li>
+            <li>DOCUMENT_TYPE_NODE - !DOCTYPE html</li>
+        </ul>
+        <ul>
+            <li>PROCESSING_INSTRUCTION_NODE – вбудовані
+                інструкції для спеціальної програми
+            </li>
+            <li>CDATA_SECTION_NODE – <!CDATA … ></li>
+            <li>DOCUMENT_FRAGMENT_NODE – вузол без
+                батька для завдань редагування дерева
+            </li>
+            <li>ENTITY_REFERENCE_NODE, ENTITY_NODE, NOTATION_NODE – застарілі</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Вузли DOM дерева</h2>
+    <img src="images/4.png" alt="" width="850">
+</section>
+
+<section class="slide">
+    <h2>Вузли DOM дерева</h2>
+    <img src="images/5.png" alt="" width="650">
+</section>
+
+<section class="slide">
+    <h2>Властивості вузлів</h2>
+    <div class="columns two" style="font-size: 20px;">
+        <div>
+            <p>
+                <b>nodeType</b> - тип DOM вузла
+                <br>
+                Значення:
+                1 - елемент
+                3 - текстовий вузол
+                8 - коментар
+            </p>
+            <p><b>innerHTML</b> - вміст елемента</p>
+            <p><b>outerHTML</b> - вміст елемента і сам елемент</p>
+        </div>
+        <div>
+            <p>
+                <b>data</b> - вміст текстових вузлів і вузлів-коментарів. Працює так само innerHTML для
+                елементів
+            </p>
+            <p>
+                <b>textContent</b> - надає доступ до тексту
+                елемента, виключаючи всю розмітку. Під час виведення
+                на сторінку тексту, введеного користувачем,
+                безпечніше використовувати цю властивість, ніж
+                innerHTML
+            </p>
+            <p>
+                <b>hidden</b> - вказує на те, бачимо елемент чи ні
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Навігація по DOM дереву</h2>
+    <div class="columns two">
+        <div>
+            <ul>
+                <li>children</li>
+                <li>firstElementChild</li>
+                <li>lastElementChild</li>
+                <li>nextElementSibling</li>
+                <li>previousElementSibling</li>
+                <li>parentElement</li>
+            </ul>
+            <p>Усі ці методи виконують навігацію тільки вузлами елементам</p>
+        </div>
+        <div>
+            <img src="images/6.png" alt="" width="100%">
+            <p>Методи childNodes, lastChild, firstChild, previousSibling, nextSibling,
+                parentNode працюють так само, але дають можливість
+                взаємодіяти з будь-яким вузлом DOM дерева</p>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Навігація по DOM дереву</h2>
+    <p>Методи для отримання вузлів (надають до будь-якого вузла дерева):</p>
+    <ul style="font-size: 16px;">
+        <li>childNodes – повертає всі дочірні вузли для вузла, у якому здійснюється виклик.
+            Якщо вузол не має дочірніх вузлів, повертає порожню колекцію.
+        </li>
+        <li>lastChild – повертає останній дочірній вузол для вузла, на якому відбувся виклик
+            методу. Повертає null, якщо немає дочірніх вузлів.
+        </li>
+        <li>firstChild – повертає перший дочірній вузол для вузла, у якому відбувся виклик.
+            Повертає null, якщо немає дочірніх вузлів.
+        </li>
+        <li>previousSibling – повертає попередній вузол, розташований на одному рівні, якщо
+            такий є. Повертає null, якщо вузол є першим у вказаному батьку.
+        </li>
+        <li>nextSibling - повертає наступний вузол, розташований на одному рівні, якщо такий
+            є. Повертає null, якщо вузол є останнім у вказаному батьку
+        </li>
+        <li>parentNode – повертає батьківський вузол. Типи вузлів Document та DocumentFragment
+            можуть мати батьків – у разі повертається значення null.
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Навігація по DOM дереву</h2>
+    <p>Методи отримання вузлів елементів (повертають лише елементи типу ELEMENT_NODE):</p>
+    <ul style="font-size: 16px;">
+        <li>children – повертає всі дочірні елементи для елемента, на якому виготовляється
+            виклик. Якщо елемент не має дочірніх вузлів, повертає порожній масив.
+        </li>
+        <li>lastElementChild – повертає останній дочірній елемент для вузла, на якому
+            стався виклик. Повертає null, якщо немає дочірніх елементів.
+        </li>
+        <li>firstElementChild – повертає перший дочірній елемент для вузла, на якому відбувся
+            виклик. Повертає null, якщо немає дочірніх елементів.
+        </li>
+        <li>previousElementSibling – повертає попередній елемент, розташований на одному
+            рівні, якщо такий є. Повертає null, якщо елемент є першим у вказаному
+            батьки.
+        </li>
+        <li>
+            nextElementSibling – повертає наступний елемент, розташований на одному рівні,
+            якщо такий є. Повертає null, якщо елемент є останнім у вказаному
+            батьки.
+        </li>
+        <li>
+            parentElement – повертає батьківський елемент. Якщо у вузла немає батьківських вузлів
+            або якщо батьківський вузол не є типом NODE_ELEMENT, повертається значення null.
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Навігація по DOM дереву</h2>
+    <p>Приклади у директорії - 02-dom-navigation</p>
+</section>
+
+<section class="slide">
+    <h2>Зміна DOM дерева - створення вузлів</h2>
+    <p>
+        document.createElement(tag) – створення нового елемента, зазначеного в параметрах.
+        <br>
+        document.createTextNode(text) – створення текстового вузла.
+    </p>
+    <div class="columns two">
+        <div style="font-size: 18px;">
+            <p>Для того, щоб створені елементи стали видимими, їх
+                необхідно додати документ.</p>
+            <b>
+                Методи вставки:
+            </b>
+            <ul>
+                <li>node.append(новий_вузол)</li>
+                <li>node.prepend(новий_вузол)</li>
+                <li>node.before(новий_вузол)</li>
+                <li>node.after(новий_вузол)</li>
+                <li>node.replaceWith(новий_вузол)</li>
+            </ul>
+        </div>
+        <div>
+            <img src="images/7.png" alt="" width="100%">
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Зміна DOM дерева - видалення/клонування вузлів</h2>
+    <p>
+        <b>node.remove()</b> – видаляє вузол, на якому викликаний метод із DOM дерева.
+    </p>
+    <p>
+        При переміщенні елемента в інше місце видаляти його зі строго не потрібно.
+        Методи вставки видаляють вузли зі старих місць.
+    </p>
+    <p>
+        <b>node.cloneNode(true/false)</b> – створення поверхневої або глибокої копії вузла, на якому був
+        здійснено виклик.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Зміна DOM дерева</h2>
+    <p>Приклади у директорії - 03-dom-tree-modification</p>
+</section>
+
+<section class="slide">
+    <h2>Властивості та атрибути - DOM властивості</h2>
+    <p>
+        Вузол DOM – звичайний об'єкт JavaScript. Для DOM вузлів можна надавати нові властивості та методи.
+    </p>
+    <p>
+        <img src="images/8.png" alt="">
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Властивості та атрибути - HTML атрибути</h2>
+    <p>
+        При парсингу HTML розмітки, на основі тегів створюються об'єкти, а значення стандартних атрибутів
+        надаються відповідним властивостям створених об'єктів.
+    </p>
+    <p>
+        <img src="images/9.png" alt="">
+    </p>
+    <p>
+        Список стандартних атрибутів елементів описується в специфікації.
+        Якщо атрибут не є стандартним, його не можна отримати за допомогою властивості.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Властивості та атрибути - робота з атрибутами</h2>
+    <ul>
+        <li>element.hasAttribute(ім'я_атрибута); - Перевірка наявності атрибуту</li>
+        <li>element.getAttribute(ім'я_атрибута); - Отримання значення атрибуту</li>
+        <li>element.setAttribute(ім'я_атрибута, значення_атрибута); – встановлення значення атрибуту</li>
+        <li>element.removeAttribute(ім'я_атрибута); - Видалення атрибуту</li>
+    </ul>
+    <p>
+        Дані методи працюють із вмістом HTML розмітки.
+    </p>
+    <p>
+        Атрибути HTML мають дві особливості: їх вміст – строкове значення, імена атрибутів реєстронезалежні
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Властивості та атрибути - атрибути</h2>
+    <p>
+        Між атрибутами та властивостями відбувається автоматична синхронізація.
+        якщо змінити атрибут, зміниться значення якості
+        якщо змінити властивість, зміниться значення атрибуту
+    </p>
+    <p>
+        Винятком є властивість та атрибут value для елемента input. Якщо змінити атрибут, значення
+        зміниться, але з навпаки.
+    </p>
+    <p>Властивості DOM типізовані, наприклад, властивість
+        checked елемента input типу Boolean.</p>
+</section>
+
+<section class="slide">
+    <h2>Властивості та атрибути - нестандартні атрибути</h2>
+    <p>
+        Атрибути, що починаються з префікса data- є користувальницькими і зарезервовані для
+        використання розробником.
+    </p>
+    <p>Атрибути data-* доступні через властивість dataset елемента.</p>
+    <p>Якщо атрибут складається з декількох властивостей у dataset, він потрапляє перейменованим з
+        використанням camelCasing.</p>
+    <p> data-report-month в dataset буде властивістю reportMonth
+        Зазвичай нестандартні атрибути використовуються для передачі даних в JavaScript код.</p>
+</section>
+
+<section class="slide">
+    <h2>Зміна DOM дерева</h2>
+    <p>Приклади у директорії - 04-props-and-attributes</p>
+</section>
+
+<section class="slide">
+    <h2>Стилі в JavaScript</h2>
+    <p>
+        Для оформлення HTML елементів можна використовувати два підходи:
+    </p>
+    <ul>
+        <li>Використовувати inline стилі, задані через атрибут style</li>
+        <li>Визначати стилі за допомогою CSS правил та CSS класів</li>
+    </ul>
+    <p>
+        <img src="images/10.png" alt="">
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Властивість style</h2>
+    <p>
+        <img src="images/11.png" alt="" width="890">
+    </p>
+    <p>Якщо CSS властивість використовує префікс, то JavaScript коді така властивість перейменовується з
+        використанням camelCasing.</p>
+    <p>
+        Якщо ім'я CSS властивості починається з префікса, використовується PascalCasing
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Робота з CSS класами</h2>
+    <p>
+        <img src="images/12.png" alt="" width="800">
+    </p>
+    <b>Методи об'єкта classList:</b>
+    <ul>
+        <li>add - додати клас, до вже наявних</li>
+        <li>remove – видалити клас</li>
+        <li>toggle – додати, якщо класу немає, видалити якщо клас є</li>
+        <li>contains – перевірка наявності вказаного класу у списку класів</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Стилі в JavaScript</h2>
+    <p>Приклади у директорії - 05-styles</p>
+</section>
+
+<section class="slide">
+    <h2>Контрольні питання</h2>
+    <ol style="font-size: 19px;">
+        <li>Що таке середовище?</li>
+        <li>Що таке DOM?</li>
+        <li>Що таке BOM?</li>
+        <li>Як знайти всі елементи p у поточному документі, назвіть усі можливі варіанти?</li>
+        <li>Як знайти елемент у поточному документі з атрибутом href?</li>
+        <li>Як здійснити пошук найближчого батьківського елемента?</li>
+        <li>Скільки є типів вузлів?</li>
+        <li>З якими типами вузлів доводиться найчастіше працювати?</li>
+        <li>У чому різниця між методами першої elementChild і firstChild?</li>
+        <li>У якому разі метод firstChild поверне значення null?</li>
+        <li>Коли parentNode може повернути значення null?</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Контрольні питання</h2>
+    <ol style="font-size: 19px;">
+        <li>Як динамічно додати об'єкт на сторінку?</li>
+        <li>Які методи розміщення створеного вузла в DOM дереві?</li>
+        <li>Як видалити вузол зі сторінки?</li>
+        <li>Що станеться, якщо параграф, розміщений на початку сторінки, знайти та додати до
+            кінець документа?
+        </li>
+        <li>Що таке поверхнева копія, що таке глибока копія</li>
+        <li>Як зіставляються елементи та атрибути HTML з об'єктами?</li>
+        <li>Перерахуйте методи роботи з атрибутами.</li>
+        <li>Який елемент та який його атрибут не синхронізуються, коли відбувається зміна
+            значення якості, відповідний атрибут не змінюється?
+        </li>
+        <li>Для чого використовуються атрибути з префіксом data-*?</li>
+        <li>Яким чином можна отримати доступ до атрибуту data-my-attribute?</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Контрольні питання</h2>
+    <ol style="font-size: 19px;">
+        <li>Чому краще використовувати CSS класи, а не окремі стилі CSS?</li>
+        <li>У чому різниця між властивостями className та classList?</li>
+        <li>Як імена CSS властивостей, у яких є дефіси, використовуються разом із властивістю
+            style?
+        </li>
+        <li>Як написати код, який додасть CSS клас, якщо в елементі такого класу немає, або
+            видалити CSS клас, якщо в елементі такий клас вже є?
+        </li>
+        <li>Що таке обчислені стилі та як їх отримати?</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+

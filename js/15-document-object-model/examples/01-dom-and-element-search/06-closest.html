@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closest</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .block {
+            border: 1px solid gray;
+            background-color: lightgray;
+            margin: 8px;
+            padding: 18px;
+            width: 400px;
+        }
+
+        .buttons-panel {
+            margin: 14px 0 0 0;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+<div class="block">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos a culpa earum cum impedit necessitatibus
+    qui maxime iusto neque vero, beatae quis voluptas illum ut dolore accusantium aperiam eum nostrum!
+    <div class="buttons-panel">
+        <button>Cancel</button>
+        <button>Close</button>
+    </div>
+</div>
+
+<div class="block">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, doloremque? Inventore corrupti quidem
+    perspiciatis sint possimus, itaque maxime officiis odit consequatur! Officia in sed doloremque aspernatur quidem
+    quis porro dolore.
+    <div class="buttons-panel">
+        <button>Cancel</button>
+        <button id="closeBtn">Close</button>
+    </div>
+</div>
+
+<div class="block">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit voluptatum possimus vel numquam eveniet non
+    facilis, cumque soluta saepe obcaecati laudantium facere? Deserunt veniam recusandae earum enim temporibus
+    atque? Expedita?
+    <div class="buttons-panel">
+        <button>Cancel</button>
+        <button>Close</button>
+    </div>
+</div>
+
+<script>
+    // closest - виконує пошук найближчого батьківського елемента, що відповідає CSS селектору
+    // Якщо батьківський елемент не знайдено, повертає null
+    let btn = document.querySelector("#closeBtn")
+    let closestBlock = btn.closest(".block")
+    closestBlock.style.border = "2px solid red"
+
+    // коротший варіант із ланцюжком викликів функцій
+    let block = document.querySelector("#closeBtn").closest(".block")
+    block.style.border = "2px solid red"
+
+    // оскільки для елемента #closeBtn немає батьківського елемента з класом foo - результат виклику closest null
+    let element = document.querySelector("#closeBtn").closest(".foo")
+    console.log(element)
+</script>
+</body>
+
+</html>

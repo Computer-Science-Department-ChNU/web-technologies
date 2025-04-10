@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>style</title>
+    <style>
+        #first-div {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 1px solid gray;
+            border-radius: 8px;
+            background-color: orange;
+            font-weight: bold;
+            margin: 8px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+<div id="first-div">
+    Стилі задаються через CSS правило
+</div>
+
+<div id="second-div">
+    Стилі задаються через JavaScript код
+</div>
+
+<script>
+    let div = document.querySelector("#second-div")
+
+    // завдання inline стилів, так само, що редагування атрибуту style
+    div.style.fontFamily = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+    div.style.border = "1px solid gray"
+    div.style.borderRadius = "8px"
+    div.style.backgroundColor = "orange"
+    div.style.fontWeight = "bold"
+    div.style.margin = "8px"
+    div.style.padding = "15px"
+</script>
+</body>
+
+</html>

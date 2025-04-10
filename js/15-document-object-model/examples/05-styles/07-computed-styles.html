@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getComputedStyles</title>
+    <style>
+        div {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+        }
+
+        div::selection {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div>
+    DIV
+</div>
+
+<script>
+    // getComputedStyles – для отримання стилів, які не задавалися в коді, а обчислювалися браузером
+    
+    let div = document.querySelector("div")
+    // оскільки стилі обчислювалися браузером з урахуванням CSS правил, а чи не задавалися через атрибут style
+    // отримати значення висоти та ширини елемента не вийде через властивість style
+    console.log(`height=${div.style.height} width = ${div.style.width}`)
+
+    // отримання обчислених стилів для елемента div
+    let computedStyles = getComputedStyle(div, null)
+    console.log(`height=${computedStyles.height} width = ${computedStyles.width}`)
+
+    // отримання обчислених стилів для елемента div
+    let computedStylesSelection = getComputedStyle(div, ":selection")
+    console.log(`background-color on hover=${computedStylesSelection.backgroundColor}`)
+</script>
+</body>
+
+</html>

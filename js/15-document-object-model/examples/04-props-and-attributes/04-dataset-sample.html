@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset приклад</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .task {
+            border: 1px solid gray;
+            padding: 3px 8px;
+            margin: 2px 10px;
+        }
+
+        .task p {
+            display: inline-block;
+            min-width: 400px;
+        }
+
+        /* всі елементи з класом task та атрибутом data-status="completed" */
+        .task[data-status="completed"] {
+            background-color: green;
+            color: white;
+        }
+
+        .task[data-status="completed"] p {
+            text-decoration: line-through;
+        }
+
+        /* всі елементи з класом task та атрибутом data-status="expired" */
+        .task[data-status="expired"] {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+<div class="task">
+    <label>
+        <input type="checkbox">
+    </label>
+    <p>Зробити всі лаби по курсу JavaScript</p>
+    <span data-due-date="17.03.2025"></span>
+</div>
+
+<div class="task">
+    <label>
+        <input type="checkbox" checked>
+    </label>
+    <p>Пройти тестування JavaScript</p>
+    <span data-due-date="12.04.2025"></span>
+</div>
+
+<div class="task">
+    <label>
+        <input type="checkbox">
+    </label>
+    <p>Скласти іспит з курсу JavaScript</p>
+    <span data-due-date="12.05.2025"></span>
+</div>
+
+<div class="task">
+    <label>
+        <input type="checkbox">
+    </label>
+    <p>Підготуватися до курсової</p>
+    <span data-due-date="21.06.2025"></span>
+</div>
+
+<script>
+    // виводить значення атрибуту data-due-date елемент, на якому атрибут вказаний
+    function setDates() {
+        let dueDateSpans = document.querySelectorAll("[data-due-date]")
+
+        for (const span of dueDateSpans) {
+            span.textContent = span.dataset.dueDate
+        }
+    }
+
+    function setStatuses() {
+        let tasks = document.querySelectorAll(".task")
+
+        for (const task of tasks) {
+            // якщо checkbox відзначено, то встановлюємо для div атрибут data-status="completed"
+            if (task.querySelector("input").checked) {
+                task.dataset.status = "completed"
+                continue
+            }
+
+            let dueDateAttr = task.querySelector("span").dataset.dueDate // читання значення атрибуту data-due-date
+            let dueDate = getDateFromString(dueDateAttr) // Створення об'єкта Date на основі значення атрибуту data-due-date
+            let today = new Date() // Створення об'єкта, що описує поточну дату
+
+            // якщо сьогоднішня дата більша, ніж дата, вказана в атрибуті, ставимо завдання як прострочену, встановлюючи data-status="expired"
+            if (today > dueDate) {
+                task.dataset.status = "expired"
+            }
+        }
+    }
+
+    function getDateFromString(input) {
+        let parts = input.split(".")
+        return new Date(parts[2], parts[1] - 1, parts[0])
+    }
+
+    setDates()
+    setStatuses()
+</script>
+</body>
+
+</html>

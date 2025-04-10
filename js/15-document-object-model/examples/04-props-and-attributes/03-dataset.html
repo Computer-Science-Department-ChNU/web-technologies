@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нестандартні атрибути</title>
+</head>
+<body>
+    <div data-name="My Div" data-custom-value="123"></div>
+    <script>
+        let divElem = document.querySelector("div");
+
+        console.log(divElem.dataset.name); // Читання значення атрибуту data-name
+        console.log(divElem.dataset.customValue); // Читання значення атрибуту data-custom-value
+
+        divElem.dataset.name = "new"; //Зміна значення атрибуту data-name
+        console.log(divElem.dataset.name);
+    </script>
+    </script>
+</body>
+</html>

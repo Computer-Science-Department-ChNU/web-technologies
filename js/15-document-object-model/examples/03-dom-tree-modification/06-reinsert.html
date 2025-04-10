@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Повторне додавання елемента</title>
+</head>
+<body>
+<ul id="list">
+    <li id="item">item 01</li>
+    <li>item 02</li>
+    <li>item 03</li>
+    <li>item 04</li>
+    <li>item 05</li>
+</ul>
+<script>
+    let listItem = document.querySelector("#item")
+    let unorderedList = document.querySelector("#list")
+
+    // якщо в DOM дерево вставити елемент, який вже знаходиться в іншій частині дерева, цей елемент буде видалено
+    // зі старого місця розташування та доданий до нового
+    unorderedList.append(listItem)
+</script>
+</body>
+</html>

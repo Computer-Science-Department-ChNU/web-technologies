@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Element</title>
+</head>
+<body>
+<ul>
+    <li>Item 01</li>
+    <li>Item 02</li>
+    <li id="marked">Item 03</li>
+</ul>
+<script>
+    let lastListItem = document.querySelector("#marked")
+    lastListItem.remove()
+</script>
+</body>
+</html>

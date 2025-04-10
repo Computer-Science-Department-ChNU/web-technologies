@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>querySelectorAll #4</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p id="first">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, numquam unde. Aut dolorum in, quia
+        numquam
+        error recusandae est odio nesciunt ut illum blanditiis illo minima, officiis mollitia eaque fugit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum corrupti sapiente, qui eius fuga nisi. Sequi
+        quibusdam sapiente deserunt fuga dolorem commodi perspiciatis, cum soluta possimus quaerat. Labore, eveniet
+        iusto.</p>
+    <a href="https://kkn.chnu.edu.ua/">Кафедра комп'ютерних наук</a>
+    <a href="https://kkn.chnu.edu.ua/about-kafedra/history/">Історія кафедри</a>
+</div>
+
+<ul id="my-list-1">
+    <li>List Item 1-1</li>
+    <li class="selected">List Item 2-1</li>
+    <li>List Item 3-1</li>
+    <li class="selected">List Item 4-1</li>
+    <li>List Item 5-1</li>
+</ul>
+
+<article>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est fugit natus sapiente laborum esse. Aperiam eum
+    illum fuga laborum alias consectetur, quibusdam nisi quidem aliquam nulla, quae vero expedita fugiat.
+</article>
+
+<ul id="my-list-2">
+    <li>List Item 1-2</li>
+    <li>List Item 2-2</li>
+    <li>List Item 3-2</li>
+    <li>List Item 4-2</li>
+    <li>List Item 5-2</li>
+</ul>
+
+<script>
+    let listItem = document.querySelector("#my-list-1") // пошук элемента с id my-list-1
+    let selected = listItem.querySelectorAll(".selected") // пошук элементів с класом selected в элементе listItem
+
+    // цей приклад демонструє, що метод querySelector повертає елемент DOM, за яким можна здійснювати повторно
+    // пошук за допомогою методів querySelector або querySelectorAll
+    // у даному випадку, такого ж результату можна було досягти, виконавши один рядок
+    // let selected = document.querySelectorAll("#my-list-1 .selected");
+
+    for (const item of selected) {
+        item.style.border = "1px solid red"
+    }
+</script>
+</body>
+</html>

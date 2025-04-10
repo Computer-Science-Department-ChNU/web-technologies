@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList</title>
+    <style>
+        .message {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 1px solid gray;
+            border-radius: 8px;
+            background-color: orange;
+            font-weight: bold;
+            margin: 8px;
+            padding: 15px;
+        }
+
+        .read {
+            background-color: white;
+            color: gray;
+        }
+
+    </style>
+</head>
+<body>
+<div class="message read">Message 1</div>
+<div class="message read">Message 2</div>
+<div class="message read">Message 3</div>
+<script>
+    let messages = document.querySelectorAll(".read")
+
+    messages.forEach(div => {
+        div.classList.remove("read") // видаляємо клас, якщо він є
+    })
+</script>
+
+</body>
+
+</html>
