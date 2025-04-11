@@ -63,6 +63,11 @@
         <td>125</td>
         <td>100</td>
     </tr>
+    <tr id="total">
+        <td>total</td>
+        <td id="totalOutput1"></td>
+        <td id="totalOutput2"></td>
+    </tr>
 </table>
 
 <div id="result"></div>
@@ -76,6 +81,26 @@
      У div з id result виведіть повідомлення "Department 1 making more sales" або "Department 2 making more sales" на основі раніше обчислених значень у рядку "Total".
      Використовуйте будь-які методи, які були розглянуті на попередніх лекціях.
     */
+    let table = document.querySelector("#statsTable");
+    let secondColumn = Array(table.querySelectorAll("tr:nth-child(2)"));
+    let sum = 0;
+    secondColumn.filter((element)=>element.id!== "totalOutput1").forEach(
+        (element)=>{
+            sum += parseInt(element.innerText);
+        }
+    )
+    let output = table.querySelector("#totalOutput1");
+    output.innerHTML = sum;
+    let thirdColumn = Array(table.querySelectorAll("tr:nth-child(3)"));
+    sum = 0;
+    secondColumn.filter((element)=>element.id!== "totalOutput2").forEach(
+        (element)=>{
+            sum += parseInt(element.innerText);
+        }
+    )
+    let output1 = table.querySelector("#totalOutput2");
+    output1.innerHTML = sum;
+
 </script>
 </body>
 </html>
