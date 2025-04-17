@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приклад обробки подій миші</title>
+    <style>
+        .rect {
+            background-color: green;
+            width: 100px;
+            height: 100px;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="testDiv" class="rect"></div>
+
+    <script>
+        let div = document.querySelector("#testDiv");
+        let move = false;
+        let offsetX, offsetY;
+
+        // при натисканні на div, запам'ятовуємо відступ від курсору до лівого верхнього кута div
+        div.addEventListener("mousedown", function (e) {
+            move = true;
+            offsetX = e.offsetX;
+            offsetY = e.offsetY;
+        });
+
+        // відлежуємо рух миші по поверхні документа та переміщуємо div,
+        // з урахуванням збережених відступів у момент натискання лівої кнопки миші.
+        // div переміщається лише, якщо змінна move == true
+        document.addEventListener("mousemove", function (e) {
+            if (move) {
+                div.style.top = e.clientY - offsetY + "px";
+                div.style.left = e.clientX - offsetX + "px";
+            }
+        });
+
+        // у момент, коли клавіша відпускається, припиняємо переміщення div
+        document.addEventListener("mouseup", function (e) {
+            move = false;
+        });
+    </script>
+</body>
+
+</html>

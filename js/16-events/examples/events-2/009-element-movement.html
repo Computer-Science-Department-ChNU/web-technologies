@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обробка подій клавіатури</title>
+    <style>
+        #element {
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="element"></div>
+
+    <script>
+        let div = document.querySelector("#element");
+        let distance = 10;
+
+        document.addEventListener("keydown", function (e) {
+            switch (e.code) {
+                case "ArrowLeft":
+                    moveLeft(div, distance);
+                    break;
+                case "ArrowRight":
+                    moveRight(div, distance);
+                    break;
+                case "ArrowUp":
+                    moveUp(div, distance);
+                    break;
+                case "ArrowDown":
+                    moveDown(div, distance);
+                    break;
+            }
+        });
+
+        function moveUp(element, distance) {
+            let top = getComputedStyle(element).top; // 10px 
+            element.style.top = parseInt(top) - distance + "px";
+        }
+
+        function moveDown(element, distance) {
+            let top = getComputedStyle(element).top;
+            element.style.top = parseInt(top) + distance + "px";
+        }
+
+        function moveLeft(element, distance) {
+            let left = getComputedStyle(element).left;
+            element.style.left = parseInt(left) - distance + "px";
+        }
+
+        function moveRight(element, distance) {
+            let left = getComputedStyle(element).left;
+            element.style.left = parseInt(left) + distance + "px";
+        }
+    </script>
+</body>
+
+</html>

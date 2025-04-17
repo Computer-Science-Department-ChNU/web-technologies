@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Об'єкт події</title>
+</head>
+<body>
+    <button id="testBtn">Click me</button>
+    <script>
+        document.querySelector("#testBtn").addEventListener("click", handler);
+
+        // Обробник події може приймати параметр, який, у разі виникнення події,
+        // буде записуватись об'єкт події з додатковою інформацією.
+        function handler(e) {
+            console.log(e);
+        }
+    </script>
+</body>
+</html>

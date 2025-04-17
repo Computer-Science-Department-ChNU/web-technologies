@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>load</title>
+    <script>
+        // load - HTML та зовнішні ресурси завантажені.
+        // Ця подія спрацьовує на об'єкті window, DOMContentLoaded - на document.
+        // Для більшості завдань, достатньо події DOMContentLoaded
+        window.addEventListener("load", function () {
+            let div = document.querySelector("#testDiv")
+            let img = document.querySelector("#testImg")
+
+            console.log(div.textContent);
+            console.log(getComputedStyle(img).width);
+        });
+    </script>
+</head>
+
+<body>
+    <div id="testDiv">This is div</div>
+    <img id="testImg" src="https://via.placeholder.com/500" alt="placeholder image 500 * 500">
+</body>
+
+</html>
