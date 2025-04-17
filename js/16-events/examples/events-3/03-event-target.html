@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event.target</title>
+    <style>
+        div {
+            border: 2px solid green;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="div1">
+    div1
+    <div id="div2">
+        div2
+        <div id="div3">
+            div3
+        </div>
+    </div>
+</div>
+
+<script>
+    let divArray = document.querySelectorAll("div")
+    divArray.forEach(div => {
+        div.addEventListener("click", handler)
+    })
+
+    // дана функція встановлена як обробник події click для всіх div на сторінці
+    function handler(event) {
+        // event.target – елемент, який ініціював подію
+        // this - елемент, для якого спрацьовує обробник
+        alert(`this.id = ${this.id} event.target.id = ${event.target.id}`)
+    }
+</script>
+</body>
+
+</html>

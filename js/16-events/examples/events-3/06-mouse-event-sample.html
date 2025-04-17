@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приклад обробки подій миші</title>
+    <style>
+        .rect {
+            width: 100px;
+            height: 100px;
+            color: white;
+            position: absolute;
+            border: 1px solid black;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+<div id="panel">
+    <div class="rect red" style="top:10px; left:10px;"></div>
+    <div class="rect green" style="top:20px; left:20px;"></div>
+    <div class="rect blue" style="top:30px; left:30px;"></div>
+</div>
+
+<script>
+    let panel = document.querySelector("#panel")
+    let move = false
+    let offsetX, offsetY
+    let currentDiv
+
+    // обробник один на всі div, які вкладені в елемент #panel
+    panel.addEventListener("mousedown", function (e) {
+        move = true
+        offsetX = e.offsetX
+        offsetY = e.offsetY
+        currentDiv = e.target // запам'ятовуємо div, який переміщатиметься
+    })
+
+    document.addEventListener("mousemove", function (e) {
+        if (move) {
+            // e.target.style.top = e.clientY - offsetY + "px"; ПОГАНИЙ варіант, тому що при швидкому русі мишки, target може стати document
+            currentDiv.style.top = e.clientY - offsetY + "px"
+            currentDiv.style.left = e.clientX - offsetX + "px"
+        }
+    })
+
+    document.addEventListener("mouseup", function (e) {
+        move = false
+    })
+</script>
+</body>
+
+</html>

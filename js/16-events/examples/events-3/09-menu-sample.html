@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приклад меню</title>
+    <style>
+        #menu li {
+            cursor: pointer;
+            list-style: none;
+        }
+
+        #menu li:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="menu">
+        <li data-action="new">Новий файл</li>
+        <li data-action="save">Зберегти</li>
+        <li data-action="delete">Видалити</li>
+        <li data-action="exit">Вихід</li>
+        <li data-action="test">test</li>
+    </ul>
+
+    <script>
+        let fileManager = {
+            new() {
+                alert("Створення нового файлу");
+            },
+            save() {
+                alert("Збереження файлу");
+            },
+            delete() {
+                alert("Видалення файлу");
+            },
+            exit() {
+                alert("Вихід");
+            },
+            test() {
+                alert("test");
+            }
+        };
+
+        // Обробник встановлюється на елемент #menu і дозволяє обробити всі події, що спливають від li.
+        document.querySelector("#menu").addEventListener("click", function (e) {
+            const action = e.target.dataset.action;
+            if (action) {
+                // знаходимо метод з ім'ям, як в атрибуті data-action і викликаємо його
+                fileManager[action]();
+            }
+        });
+    </script>
+</body>
+
+</html>

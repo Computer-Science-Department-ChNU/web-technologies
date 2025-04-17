@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 04</title>
+</head>
+
+<body>
+    Операнд 1: <input id="input1" type="text"> <br />
+    Операнд 2: <input id="input2" type="text"> <br />
+
+    <button id="add-btn">+</button>
+    <button id="rem-btn">-</button>
+    <button id="mul-btn">*</button>
+    <button id="div-btn">/</button>
+
+    <script>
+        /*
+        Завдання:
+        Перепишіть сценарій таким чином, щоб у коді був лише один обробник на подію click (замість чотирьох обробників).
+        Результат роботи сценарію не повинен змінюватись.
+        */
+        let input1 = document.querySelector("#input1");
+        let input3 = document.querySelector("#input2");
+
+        let addBtn = document.querySelector("#add-btn");
+        let remBtn = document.querySelector("#rem-btn");
+        let mulBtn = document.querySelector("#mul-btn");
+        let divBtn = document.querySelector("#div-btn");
+
+        addBtn.addEventListener("click", function () {
+            alert(Number(input1.value) + Number(input2.value));
+        });
+
+        remBtn.addEventListener("click", function () {
+            alert(input1.value - input2.value);
+        });
+
+        mulBtn.addEventListener("click", function () {
+            alert(input1.value * input2.value);
+        });
+
+        divBtn.addEventListener("click", function () {
+            alert(input1.value / input2.value);
+        });
+    </script>
+</body>
+
+</html>

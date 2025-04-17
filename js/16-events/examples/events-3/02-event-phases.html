@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фази події</title>
+    <style>
+        div {
+            border: 2px solid green;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="div1">
+    div1
+    <div id="div2">
+        div2
+        <div id="div3">
+            div3
+        </div>
+    </div>
+</div>
+
+<script>
+    let divArray = document.querySelectorAll("div")
+    divArray.forEach(div => {
+        div.addEventListener("click", handlerOnCapture, true) // обробка події на фазі занурення
+        div.addEventListener("click", handlerOnBubble) // обробка події на фазі спливання
+    })
+
+    function handlerOnCapture() {
+        alert("Фаза 1 (capture) " + this.id)
+    }
+
+    function handlerOnBubble(e) {
+        alert("Фаза 3 (bubble) " + this.id)
+    }
+</script>
+</body>
+
+</html>

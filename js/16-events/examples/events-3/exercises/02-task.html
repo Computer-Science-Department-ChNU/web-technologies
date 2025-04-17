@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 02</title>
+</head>
+
+<body>
+<button>Кнопка 1</button>
+<button>Кнопка 2</button>
+<button>Кнопка 3</button>
+
+<script>
+    /*
+    Завдання:
+    Перепишіть сценарій таким чином, щоб у коді встановлювався один обробник для всіх трьох кнопок, причому
+    результат роботи сценарію не повинен змінюватись.
+    */
+    let buttons = document.querySelectorAll("button")
+    buttons.forEach(btn => {
+        btn.addEventListener("click", clickHandler)
+    })
+
+    function clickHandler() {
+        alert(this.innerText)
+    }
+</script>
+</body>
+
+</html>

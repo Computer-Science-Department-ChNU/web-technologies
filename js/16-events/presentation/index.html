@@ -30,7 +30,7 @@
         <li>Події клавіатури</li>
         <li>Фази проходу події</li>
         <li>Реєстрація обробника події на різних фазах</li>
-        <li>Скасування поширення події та скасування дії за умовчанням</li>
+        <li>Скасування поширення події та скасування дії за замовчуванням</li>
     </ol>
 </section>
 
@@ -314,9 +314,119 @@
 </section>
 
 <section class="slide">
+    <h2>Фази проходу події</h2>
+    <div class="columns two">
+        <ul>
+            <li><b style="color: blue">Capturing Phase (1)</b> – фаза занурення або фаза
+                перехоплення, подія йде зверху донизу, від кореневого
+                елемента до того, що ініціював подію
+            </li>
+            <li><b style="color: orange">At Target Phase (2)</b> – подія досягла цільового елемента.
+            </li>
+            <li><b style="color: green">Bubbling Phase (3)</b> - фаза спливу, подія рухається від
+                цільового елемента до кореневого.
+            </li>
+        </ul>
+        <img src="images/5.png" alt="" width="100%">
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Фази проходу події</h2>
+    <p>Фаза <b>перехоплення (Capturing Phase)</b> використовується досить рідко. В основному використовується <b>фаза
+        спливання (Bubbling Phase)</b>, <u>оскільки вона дозволяє зробити один обробник події на контейнері, в якому
+        знаходиться кілька елементів, які ініціюють подію</u>.</p>
+    <p>
+        Цей підхід називається <b>делегування подій (Event delegation)</b> – дочірні елементи делегують опрацювання
+        події батьківському елементу.
+        Водночас
+        один обробник на контейнері оброблятиме події від усіх вкладених елементів.
+    </p>
+    <p style="font-size: 16px;">Такий підхід
+        дозволяє заощадити оперативну пам'ять, тому що потрібен лише один обробник замість
+        кількох. Також це спрощує розширення програми, оскільки з додаванням нових елементів
+        немає потреби створювати для них обробники.</p>
+</section>
+
+<section class="slide">
+    <h2>Фази проходу події</h2>
+    <p>Об'єкт події надає властивість event.target, яка містить найглибший елемент, що викликав
+        подію (цільовий елемент).</p>
+    <p><b>Event.target</b> – цільовий елемент, у процесі проходу події його значення не змінюється. </p>
+    <p>У свою чергу, значення this завжди містить поточний елемент, до якого дійшла подія. </p>
+    <p>На етапі перехоплення та на етапі спливання значення this та event.target будуть відрізнятися.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Реєстрація обробника події на різні фази</h2>
+    <p style="font-size: 16px;">За замовчуванням усі обробники події реєструються на фазі спливання. Для реєстрації на
+        фазі перехоплення необхідно додати в addEventListener третій параметр - true. Значення true – фаза capture,
+        значення false чи відсутність параметра – фаза bubble.</p>
+    <img src="images/6.png" alt="" width="100%">
+</section>
+
+<section class="slide">
+    <h2>Скасування поширення події та скасування дії за замовчуванням</h2>
+    <p>
+        Щоб припинити перехід події до наступного елемента, необхідно викликати метод
+        <b>event.stopPropagation()</b>.
+    </p>
+    <p>Для скасування стандартної дії, яка пов'язана з подією, необхідно викликати метод
+        <b>event.stopPropagation()</b>. Наприклад, для події submit форми, відбувається уривок
+        мережного запиту. Якщо в обробнику події буде викликаний метод <b>preventDefault()</b>, то
+        відправка запиту буде скасована</p>
+    <p>Деякі події не спливають, наприклад, подія focus, blur не підтримують цю фазу.</p>
+    <p style="color: #cc0000">Приклади в директорії js/16-events/examples/events-3</p>
+</section>
+
+<section class="slide">
+    <h2>Рекомендовані ресурси</h2>
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Events"
+               target="_blank">Introduction to events</a>
+        </li>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Events/Event_handlers" target="_blank">Event handling
+                (overview)</a>
+        </li>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank">Event reference</a>
+        </li>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event" target="_blank">DOMContentLoaded</a>
+        </li>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event" target="_blank">Window: load
+                event
+            </a>
+        </li>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent" target="_blank">KeyboardEvent
+            </a>
+        </li>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Event_bubbling"
+               target="_blank">Event bubbling
+            </a>
+        </li>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" target="_blank">Event:
+                stopPropagation() method
+            </a>
+        </li>
+        <li>
+            <a href="https://davidwalsh.name/event-delegate" target="_blank">How JavaScript Event Delegation Works
+            </a>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
     <h2>Контрольні питання</h2>
-    <ol style="font-size: 15px;">
-        <li>Що така подія?</li>
+    <ol style="font-size: 12px;">
+        <li>Що таке подія?</li>
         <li>Назвіть події, пов'язані з клавіатурою.</li>
         <li>Назвіть події, пов'язані з рухом курсора.</li>
         <li>Як встановити обробник через розмітку?</li>
@@ -328,6 +438,16 @@
         <li>Як дізнатися, чи кнопка shift затиснута під час обробки події click?</li>
         <li>У чому різниця між властивостями clientY та pageY?</li>
         <li>Як отримати інформацію про те, яка клавіша на клавіатурі була затиснута?</li>
+        <li>Назвіть фази переходів.
+        <li>Чим відрізняється властивість event.target від ключового слова в функції обробника
+            події?
+        </li>
+        <li>Як встановити обробник, який спрацює на фазі перехоплення?</li>
+        <li>Як можна зупинити перехід події вузлами DOM дерева?</li>
+        <li>Як можна скасувати стандартну дію, пов'язану з подією?</li>
+        <li>Наведіть приклади використання перехоплення подій для вирішення прикладного
+            завдання
+        </li>
     </ol>
 </section>
 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event.stopPropagation()</title>
+    <style>
+        div {
+            border: 2px solid green;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="div1">
+    div1
+    <div id="div2">
+        div2
+        <div id="div3">
+            div3
+        </div>
+    </div>
+</div>
+
+<script>
+    let divArray = document.querySelectorAll("div")
+    divArray.forEach(div => {
+        div.addEventListener("click", handler, true)
+    })
+
+    function handler(event) {
+        alert(`this.id = ${this.id} event.target.id = ${event.target.id}`)
+        // stopPropagation - заборонити події продовжувати рухатися елементами.
+        // Після виклику, подія перестане підніматися далі по елементам DOM.
+        // event.stopPropagation();
+
+        // Заборонити підніматися події, якщо відбувається обробка події на елементі div2
+        if (this.id === "div2") {
+            event.stopPropagation()
+        }
+    }
+</script>
+</body>
+
+</html>

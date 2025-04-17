@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>За замовчуванням</title>
+</head>
+
+<body>
+<form id="testForm">
+    Login <input type="text"> <br/>
+    <input type="reset"> <!-- очищує форму, ініціює подію reset -->
+</form>
+
+<script>
+    document.querySelector("#testForm").addEventListener("reset", function (event) {
+        alert("Обробник події reset")
+        let result = confirm("Очистити форму?")
+        if (!result) {
+            // preventDefault - Скасування дії за замовчуванням
+            // для події reset стандартна дія - очищення вмісту форми
+            event.preventDefault() // скасування дії
+            event.stopPropagation() // скасування поширення
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 05</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #generateButton {
+            height: 5vh;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            font-size: 24px;
+
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+        }
+
+        #interactivePanel {
+            position: relative;
+            height: 95vh;
+        }
+
+        .interactiveElement {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="generateButton">Generate</div>
+<div id="interactivePanel"></div>
+<script>
+    /*
+    Завдання:
+    Допишіть сценарій та виправте помилки, при натисканні на кнопку Generate, за допомогою функції generateElement, має створюватися 100 елементів та розміщуватись у
+    елемент interactivePanel. При повторному натисканні на кнопку, вміст interactivePanel повинен видалятися, після чого створювати нові 100 елементів.
+    Всі елементи з класом interactiveElement повинні підтримувати перетягування мишею, при лівому кліку клавіші по елементу він повинен переміщатися
+    за курсором до моменту обтиснення кнопки миші.
+    */
+
+    // Створює та повертає div з класом interactiveElement з випадковою позицією у поточному вікні
+    function generateElement() {
+        let div = document.createElement("div")
+        div.classList.add("interactiveElement")
+        let maxLeft = window.innerWidth - 50 // ширина поточного документа
+        let maxTop = window.innerHeight - 150 // висота поточного документа
+        div.style.top = getRandomValue(maxTop) + "px"
+        div.style.left = getRandomValue(maxLeft) + "px"
+        div.style.backgroundColor = getRandomColor()
+        return div
+    }
+
+    // повертає випадкове значення кольору
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF'
+        var color = '#'
+        for (var i = 0; i < 6; i++) {
+            color += letters[getRandomValue(16)]
+        }
+        return color
+    }
+
+    // повертає випадкове значення від 0 до max
+    function getRandomValue(max) {
+        return Math.floor(Math.random() * max)
+    }
+</script>
+</body>
+
+</html>
