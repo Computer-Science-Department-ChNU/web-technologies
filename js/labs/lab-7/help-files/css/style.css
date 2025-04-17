@@ -1,0 +1,379 @@
+
+body {
+  background: #000;
+  font-family: "PressStart2P";
+}
+
+
+/*                              Game menu style                             */
+.game-menu {
+/*  display: none;*/
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+
+  width: 800px;
+  height: 480px;
+
+  background: url(../img/main-background.png) no-repeat;
+}
+
+.game-menu__title {
+  position: fixed;
+  top: 15%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+
+  font-size: 70px;
+  text-transform: uppercase;
+  text-align: center;
+}
+/*                              End Game menu style                          */
+
+/*                              Buttons style                               */
+.button {
+  position: fixed;
+  left: 50%;
+  top: 70%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+
+  padding: 0;
+  border: 0;
+  outline: 0;
+
+  font-family: "PressStart2P";
+  font-size: 20px;
+  text-transform: uppercase;
+
+  background: transparent;
+  color: #e20f0f;
+  cursor: pointer;
+}
+
+.button-restart {
+  display: none;
+  top: 90%;
+  z-index: 1001;
+}
+
+.button-next-level {
+  display: none;
+  top: 90%;
+  z-index: 1001;
+}
+
+.button:hover {
+  color: #000;
+}
+
+.button:active {
+  color: #000;
+}
+/*                              End Buttons style                           */
+
+/*                              Main game screen style                       */
+
+.wrapper {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 55%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+
+  height: 750px;
+  width: 900px;
+
+  box-sizing: border-box;
+}
+
+.game-screen {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+
+  box-sizing: border-box;
+  width: 800px;
+  height: 480px;
+  overflow: hidden;
+
+  background: url(../img/background-dark.png) no-repeat;
+  background-size: cover;
+}
+/*                              End Main game screen style                   */
+
+/*                              Sreen death style                          */
+.game-screen--death {
+  animation: 4s player-death linear;
+}
+
+@keyframes player-death {
+  0% {
+  box-shadow: inset 0 0 400px rgba(215, 35, 0, 0.5);
+  }
+  20% {
+  box-shadow: inset 0 0 300px rgba(215, 35, 0, 0.5);
+  }
+  40% {
+  box-shadow: inset 0 0 200px rgba(215, 35, 0, 0.5);
+  }
+  100% {
+  box-shadow: inset 0 0 100px rgba(215, 35, 0, 0.5);
+  }
+}
+/*                              End Sreen death style                        */
+
+/*                              Alert messages style                         */
+.message {
+  color: #fff;
+  position: absolute;
+  left: 57%;
+  top: 36%;
+
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+
+  z-index: 1;
+}
+
+.message--fire {
+  width: 116px;
+  height: 68px;
+  background: url(../img/fire-right.png) no-repeat;
+  left: 60%;
+}
+
+.message--dead,
+.message--win {
+  left: 50%;
+  top: 30%;
+
+  font-family: "PressStart2P";
+  font-size: 30px;
+  color: #fff;
+}
+/*                              End Alert messages style                     */
+
+/*                              Game panels for scores style                 */
+.white-line {
+  position: absolute;
+  left: 50px;
+  top: 10%;
+  z-index: 700;
+  width: 800px;
+  border-bottom: 2px solid #fff;
+}
+
+.game-panels {
+  display: none;
+}
+
+.players-panel,
+.time-panel,
+.score-panel {
+  padding: 10px;
+
+  font-family: "PressStart2P";
+  font-size: 25px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #80d010;
+}
+
+.time-panel {
+  position: absolute;
+  left: 70%;
+  top: 2px;
+  z-index: 700;
+}
+
+.time-panel__gunman,
+.time-panel__you {
+  font-family: "Digital-7";
+  font-size: 65px;
+}
+
+.time-panel__you  {
+  margin-bottom: 5px;
+}
+
+.players-panel {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  box-sizing: border-box;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 700;
+}
+
+.players-panel__you,
+.players-panel__gunman {
+  padding: 10px;
+  border: 2px solid #80d010;
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.players-panel__you {
+  margin-bottom: 10px;
+}
+
+.score-panel {
+  text-align: center;
+}
+
+.score-panel__score {
+  position: absolute;
+  left: 25%;
+  top: 85%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 700;
+
+  box-sizing: border-box;
+}
+
+.score-panel__level {
+  position: absolute;
+  left: 70%;
+  top: 85%;
+  z-index: 700;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+
+  box-sizing: border-box;
+}
+/*                              End Game panels for scores style             */
+
+/*                              Game win screen style                       */
+.win-screen {
+  display: none;
+   /* display: block;*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+
+  box-sizing: border-box;
+  width: 800px;
+  height: 480px;
+
+  background: url(../img/main-background.png) no-repeat;
+}
+
+.win-screen__title {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+
+  font-size: 50px;
+  line-height: 70px;
+  text-transform: uppercase;
+  text-align: center;
+}
+/*                              End Game win screen style                    */
+
+/*                              Gunman style                                 */
+.gunman {
+  position: absolute;
+  left: 800px;
+  bottom: 85px;
+  z-index: 900;
+  width: 130px;
+  height: 260px;
+
+}
+
+.gunman-level-1 {
+  background: url(../img/gunman.png) 0 0;
+  animation: gunman-level-1__walk 1s steps(3) infinite;
+}
+
+.gunman-level-1__standing {
+  background-position: -400px 0;
+}
+
+.gunman-level-1__ready {
+  background-position: -808px 0;
+}
+
+.gunman-level-1__shooting {
+  animation: gunman-level-1__duel 0.5s step-start;
+  animation-iteration-count: 1;
+  background-position: -940px 0;
+  width: 135px;
+  left: 340px;
+}
+
+.gunman-level-1__death {
+  animation: gunman-level-1__death 1s steps(4);
+  background-position: -1616px 0;
+  width: 128px;
+  left: 340px;
+}
+
+@keyframes gunman-level-1__walk {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -390px 0;
+  }
+}
+
+@keyframes gunman-level-1__duel {
+  from {
+
+  }
+  to {
+
+  }
+}
+
+@keyframes gunman-level-1__death {
+  from {
+
+  }
+  to {
+
+  }
+}
+
+
+.moving {
+  left: 340px;
+  transition: left 5s linear;
+}
+
+.standing {
+  left: 340px;
+  animation: none;
+}
+/*                              Gunman style                                 */
+
