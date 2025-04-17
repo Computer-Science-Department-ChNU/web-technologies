@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прив'язка кількох обробників до однієї події</title>
+</head>
+
+<body>
+    <button id="btn1">Click me 1</button>
+    <br />
+    <button id="btn2">Click me 2</button>
+
+    <script>
+        let btn1 = document.querySelector("#btn1");
+        let btn2 = document.querySelector("#btn2");
+
+        function handler1() {
+            alert("Hanlder 1");
+        }
+
+        function handler2() {
+            alert("Hanlder 2");
+        }
+
+        btn1.onclick = handler1;
+        btn1.onclick = handler2; // буде затертий обробник, встановлений на попередньому рядку
+
+        // за допомогою addEventListener можна встановити кілька обробників на одну подію
+        btn2.addEventListener("click", handler1);
+        btn2.addEventListener("click", handler2);
+    </script>
+</body>
+
+</html>

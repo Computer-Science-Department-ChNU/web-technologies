@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Використання подій</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .task-list {
+            width: 500px;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            border: 1px solid gray;
+            padding: 3px 8px;
+            margin: 2px 10px;
+        }
+
+        .task p {
+            margin-left: 4px;
+        }
+
+        .task[data-status="completed"] {
+            background-color: green;
+            color: white;
+        }
+
+        .task[data-status="completed"] p {
+            text-decoration: line-through;
+        }
+
+        .input-panel {
+            width: 500px;
+            margin: 8px;
+            padding: 2px;
+        }
+
+        .input-panel button {
+            padding: 4px;
+            width: 25%;
+        }
+
+        .input-panel input {
+            height: 23px;
+            padding-left: 4px;
+            width: 68%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="input-panel">
+    <input type="text" id="task-name-input">
+    <button id="add-task-btn">Додати завдання</button>
+</div>
+
+<div class="task-list">
+    <div class="task">
+        <input type="checkbox">
+        <p>Виконати лабораторну роботу №8</p>
+    </div>
+
+    <div class="task">
+        <input type="checkbox">
+        <p>Пройти тестування</p>
+    </div>
+
+    <div class="task">
+        <input type="checkbox">
+        <p>Скласти іспит з кусу JavaScript</p>
+    </div>
+
+    <div class="task">
+        <input type="checkbox">
+        <p>Підготуватися до курсової роботи</p>
+    </div>
+</div>
+
+<script>
+    let taskNameInput = document.querySelector("#task-name-input")
+    let addTaskButton = document.querySelector("#add-task-btn")
+    let taskList = document.querySelector(".task-list")
+
+    addTaskButton.addEventListener("click", addTaskHandler)
+
+    function createTask(text) {
+        let div = document.createElement("div")
+        div.classList.add("task")
+
+        let input = document.createElement("input")
+        input.type = "checkbox"
+
+        let p = document.createElement("p")
+        p.innerText = text
+
+        div.append(input)
+        div.append(p)
+
+        return div
+    }
+
+    function addTaskHandler() {
+        let newTask = createTask(taskNameInput.value)
+        taskList.append(newTask)
+    }
+</script>
+</body>
+
+</html>

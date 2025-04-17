@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обробка події через властивість</title>
+</head>
+<body>
+    <div id="my-div">
+        Click me
+    </div>
+
+    <script>
+        let div = document.querySelector("#my-div");
+        // Зверніть увагу на те, що встановлення обробника події - це вказівка функції, яку потрібно запустити.
+        // Коли подія виникне, браузер самостійно здійснить виклик вказаної функції.
+        // Якщо після встановлення обробника після імені вказати () - це запустить функцію і як значення,
+        // властивість onclick отримає результат роботи функції, а не саму функцію.
+        // Цієї помилки припускаються багато початківців.
+        div.onclick = showMessage(); // як оброблювач встановлюється значення undefined, тому що функція нічого не повертає.
+
+        function showMessage() {
+            alert('Спрацював обробник події, встановленний через властивість');
+        }
+    </script>
+</body>
+</html>

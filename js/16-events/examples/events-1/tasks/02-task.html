@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 02</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .task-list {
+            width: 500px;
+        }
+
+        #start-message {
+            margin: 10px;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            border: 1px solid gray;
+            padding: 3px 8px;
+            margin: 2px 10px;
+        }
+
+        .task p {
+            margin-left: 4px;
+        }
+
+        .completed {
+            background-color: green;
+            color: white;
+        }
+
+        .completed p {
+            text-decoration: line-through;
+        }
+
+        .input-panel {
+            width: 500px;
+            margin: 8px;
+            padding: 2px;
+        }
+
+        .input-panel button {
+            padding: 4px;
+            width: 25%;
+        }
+
+        .input-panel input {
+            height: 23px;
+            padding-left: 4px;
+            width: 68%;
+        }
+    </style>
+</head>
+<body>
+<div class="input-panel">
+    <input type="text" id="task-name-input">
+    <button id="add-task-btn">Додати задачу</button>
+</div>
+<div class="task-list">
+    <p id="start-message">Немає нових задач</p>
+</div>
+<script>
+    /*
+    Завдання:
+    Зробіть так, щоб у кожному створеному завданні, після тексту завдання, створювалася кнопка "Видалити".
+    При натисканні на яку, все завдання видалялося зі списку завдань.
+    */
+    let taskNameInput = document.querySelector("#task-name-input")
+    let addTaskButton = document.querySelector("#add-task-btn")
+    let startMessage = document.querySelector("#start-message")
+    let taskList = document.querySelector(".task-list")
+
+    addTaskButton.addEventListener("click", addTaskHandler)
+
+    function createTask(text) {
+        let div = document.createElement("div")
+        div.classList.add("task")
+
+        let input = document.createElement("input")
+        input.addEventListener("click", changeTaskState)
+        input.type = "checkbox"
+
+        let p = document.createElement("p")
+        p.innerText = text
+
+        div.append(input)
+        div.append(p)
+
+        return div
+    }
+
+    function changeTaskState() {
+        if (this.checked) {
+            this.parentElement.classList.add("completed")
+        } else {
+            this.parentElement.classList.remove("completed")
+        }
+    }
+
+    function addTaskHandler() {
+        if (taskNameInput.value) {
+            if (!startMessage.hidden) startMessage.hidden = true
+
+            let newTask = createTask(taskNameInput.value)
+            taskList.append(newTask)
+            taskNameInput.value = ""
+        } else {
+            alert("ведіть ім'я задачі")
+        }
+    }
+</script>
+</body>
+</html>

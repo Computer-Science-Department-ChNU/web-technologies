@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Використання подій</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .task-list {
+            width: 500px;
+        }
+
+        #start-message {
+            margin: 10px;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            border: 1px solid gray;
+            padding: 3px 8px;
+            margin: 2px 10px;
+        }
+
+        .task p {
+            margin-left: 4px;
+        }
+
+        .completed {
+            background-color: green;
+            color: white;
+        }
+
+        .completed p {
+            text-decoration: line-through;
+        }
+
+        .input-panel {
+            width: 500px;
+            margin: 8px;
+            padding: 2px;
+        }
+
+        .input-panel button {
+            padding: 4px;
+            width: 25%;
+        }
+
+        .input-panel input {
+            height: 23px;
+            padding-left: 4px;
+            width: 68%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="input-panel">
+        <input type="text" id="task-name-input">
+        <button id="add-task-btn">Додати задачу</button>
+    </div>
+
+    <div class="task-list">
+        <p id="start-message">Немає нових задач</p>
+    </div>
+
+    <script>
+        let taskNameInput = document.querySelector("#task-name-input");
+        let addTaskButton = document.querySelector("#add-task-btn");
+        let startMessage = document.querySelector("#start-message");
+        let taskList = document.querySelector(".task-list");
+
+        addTaskButton.addEventListener("click", addTaskHandler);
+
+        // функція для створення нового завдання у списку, як параметр отримує текст завдання, а повертає DOM елемент
+        function createTask(text) {
+            let div = document.createElement("div");
+            div.classList.add("task");
+
+            let input = document.createElement("input");
+            input.addEventListener("click", changeTaskState); // встановлюємо обробник на натискання по checkbox - один і той же для всіх елементів
+            input.type = "checkbox";
+
+            let p = document.createElement("p");
+            p.innerText = text;
+
+            div.append(input);
+            div.append(p);
+
+            return div;
+        }
+
+        // функція-обробник, яка змінює статус вибраної задачі, використовується як обробник на подію click для checkbox
+        function changeTaskState() {
+            if (this.checked) { // якщо натиснути checkbox із галочкою, то додаємо для батьківського елемента клас completed
+                this.parentElement.classList.add("completed");
+            } else { // інакше прибираємо клас completed
+                this.parentElement.classList.remove("completed");
+            }
+        }
+
+        // функція-обробник на подію click для кнопки додавання нового завдання до списку
+        function addTaskHandler() {
+            if (taskNameInput.value) { // якщо введено текст у полі для введення 
+                if (!startMessage.hidden) startMessage.hidden = true;
+
+                let newTask = createTask(taskNameInput.value);
+                taskList.append(newTask);
+                taskNameInput.value = "";
+            } else { // якщо поле введення для імені завдання порожнє
+                alert("введіть ім'я завдання");
+            }
+        }
+    </script>
+</body>
+
+</html>

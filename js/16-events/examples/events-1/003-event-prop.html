@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обробка події через властивість</title>
+</head>
+<body>
+    <div id="my-div">
+        Click me
+    </div>
+
+    <script>
+        let div = document.querySelector("#my-div");
+        // Уникайте використання атрибутів для обробки подій.
+        // Ненав'язливий JavaScript-код, який встановлює обробники через властивості або метод addEventListener
+        // простіше супроводжувати.
+        div.onclick = showMessage;
+
+        function showMessage() {
+            alert('Спрацював обробник події, встановленний через властивість');
+        }
+    </script>
+</body>
+</html>

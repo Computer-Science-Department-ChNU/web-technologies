@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видалення обробника на подію</title>
+</head>
+
+<body>
+    <button id="testBtn">Click me</button>
+    <button id="removeHandlerBtn">Видалити обробник події</button>
+
+    <script>
+        let testBtn = document.querySelector("#testBtn");
+        let removeHandlerBtn = document.querySelector("#removeHandlerBtn");
+
+        function handler() {
+            alert("Обробник події");
+        }
+
+        testBtn.addEventListener("click", handler); // встановлюємо обробник на подію click
+
+        removeHandlerBtn.addEventListener("click", function () {
+            testBtn.removeEventListener("click", handler); // видаляємо обробник на подію click
+        });
+    </script>
+</body>
+
+</html>
