@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проста форма</title>
+    <style>
+        .form-group {
+            margin: 4px;
+        }
+
+        .form-group label {
+            width: 75px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<!--
+         Тег form застосовується для створення форми з елементами керування, яка використовуватиметься для обміну даними
+         між користувачем та сервером.
+         Елементи управління формою представляються декількома тегами, основною з яких є вхід.
+         Атрибут action елемента form вказує на те, яка адреса на сервері оброблятиме дані форми.
+         Після натискання на кнопку submit вміст форми буде надсилатися на адресу вказану в action.
+
+         Цей приклад ілюструє структуру HTML коду, але не включає серверну сторону, тому при натисканні на кнопку
+         "Вхід" буде перехід на неіснуючу сторінку login.php
+      -->
+
+<form name="loginForm" action="login.php" method="POST">
+    <div class="form-group">
+        <label for="loginInput">Логін</label>
+        <input id="loginInput" type="text" name="loginInput">
+    </div>
+    <div class="form-group">
+        <label for="passwordInput">Пароль</label>
+        <input id="passwordInput" type="password" name="passwordInput">
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Увійти">
+    </div>
+</form>
+</body>
+
+</html>

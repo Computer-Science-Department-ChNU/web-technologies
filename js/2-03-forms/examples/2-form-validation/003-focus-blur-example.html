@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Події focus и blur</title>
+    <style>
+        .form-group {
+            margin: 4px;
+        }
+
+        .form-group label {
+            width: 75px;
+            display: inline-block;
+        }
+
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<form action="https://github.com/search" method="GET">
+    <div class="form-group">
+        <label>Запит</label>
+        <input type="text" name="q">
+        <p class="error" id="searchError">Поле обов'язкове для заповнення</p>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Пошук">
+    </div>
+</form>
+
+<script>
+    let form = document.forms[0]
+    let search = form.q
+    let searchError = document.querySelector("#searchError")
+
+    function showError() {
+        searchError.style.display = "block"
+    }
+
+    function hideError() {
+        searchError.style.display = "none"
+    }
+
+    search.addEventListener("focus", function () {
+        hideError()
+    })
+
+    search.addEventListener("blur", function (event) {
+        if (event.target.value.length === 0) {
+            showError()
+        }
+    })
+
+    form.addEventListener("submit", function (event) {
+        if (form.q.value.length === 0) {
+            event.preventDefault()
+            //showError()
+        }
+    })
+</script>
+</body>
+</html>

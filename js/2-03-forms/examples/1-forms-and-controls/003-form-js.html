@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проста форма</title>
+
+    <style>
+        .form-group {
+            margin: 4px;
+        }
+
+        .form-group label {
+            width: 75px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<form name="loginForm">
+    <div class="form-group">
+        <label>Логін</label>
+        <input type="text" name="loginInput">
+    </div>
+    <div class="form-group">
+        <label>Пароль</label>
+        <input type="password" name="passwordInput">
+    </div>
+    <div class="form-group-grop">
+        <input type="submit" value="Вхід"> <!-- Надсилає запит на сервер, сторінка перезавантажується -->
+    </div>
+</form>
+
+<hr>
+<button type="button" id="checkFormButton">Перевірити форму</button>
+<br/>
+<br/>
+<button type="button" id="checkValuesButton">Перевірити значення елементів</button>
+<script>
+    // Способи отримання форм поточного документа
+    let form1 = document.forms.loginForm // отримання форми з атрибутом name=loginForm
+    let form2 = document.forms[0] // отримання першої форми у документі
+    let form3 = document.querySelector("[name=loginForm]") // через CSS селектор
+
+    const checkFormButton = document.getElementById("checkFormButton")
+
+    checkFormButton.addEventListener("click", function () {
+        // всі елементи, що містяться у формі, доступні через колекцію елементів на об'єкті форми
+        for (let i = 0; i < form1.elements.length; i++) {
+            const element = form1.elements[i]
+            console.log(element.name + " = " + element.value)
+        }
+    })
+
+    const checkValuesButton = document.getElementById("checkValuesButton")
+
+    checkValuesButton.addEventListener("click", function () {
+        // отримати доступ до елемента управління можна по імені на колекції elements об'єкта form
+        // form.elements.<element-name>
+        console.log('form.elements.<element-name>', form1.elements.loginInput.value)
+        console.log('form.elements.<element-name>', form1.elements.passwordInput.value)
+
+        // альтернативна, більш коротка форма запису, але може спричинити помилки, якщо значення name під час виконання буде змінено
+        // атрибут name елементів під час виконання змінюється вкрай рідко
+        // form.<element-name>
+        console.log('form.<element-name>', form1.loginInput.value)
+        console.log('form.<element-name>', form1.passwordInput.value)
+    })
+</script>
+</body>
+</html>

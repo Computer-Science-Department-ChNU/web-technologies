@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Елементи форми</title>
+</head>
+<body>
+<form>
+    Текстове поле <input> <br>
+    Текстове поле введення <input type="text"> <br>
+    Поле для пароля <input type="password"> <br>
+    <!-- Для полів tel, email, number, на телефоні відображатимуться додаткові символи під час відображення віртуальної клавіатури -->
+    Поле для телефону <input type="tel"> <br>
+    Поле для email адреси <input type="email"> <br>
+    Поле для числового значення <input type="number"> <br>
+</form>
+<button id="check">Перевірити значення</button>
+<script>
+    document.querySelector("#check").addEventListener("click", function () {
+        const form = document.forms[0]
+        for (let i = 0; i < form.elements.length; i++) {
+            const element = form.elements[i]
+            console.log(element.type + " " + element.value)
+
+        }
+    })
+</script>
+</body>
+</html>

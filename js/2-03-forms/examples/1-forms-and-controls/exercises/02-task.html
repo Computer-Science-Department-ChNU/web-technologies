@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 02</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-group {
+            margin: 4px 10px;
+            display: inline-block;
+        }
+
+        .form-group label {
+            display: block;
+        }
+
+        [type=button] {
+            margin: 10px;
+        }
+
+        table {
+            margin: 10px
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        td,
+        th {
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <form name="productForm">
+        <div class="form-group">
+            <label for="name">Назва</label>
+            <input type="text" id="name" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="price">Ціна</label>
+            <input type="text" id="price" name="price">
+        </div>
+
+        <div class="form-group">
+            <label for="price">Валюта</label>
+            <input type="radio" id="currency" name="currency" value="USD" checked> USD
+            <input type="radio" id="currency" name="currency" value="EUR"> EUR
+        </div>
+        <br>
+        <input id="saveButton" type="button" value="Сохранить">
+    </form>
+
+    <table id="productsTable">
+
+    </table>
+
+    <script>
+        /*
+         Завдання:
+         Додайте у форму поле введення "кількість на складі". Зробіть так, щоб при натисканні на кнопку "Зберегти" значення
+         з поля " кількість на складі " додавалася як четверта колонка в таблиці.
+         */
+        let productForm = document.forms.productForm;
+        let productsTable = document.querySelector("#productsTable");
+        let saveButton = document.querySelector("#saveButton");
+
+        saveButton.addEventListener("click", function () {
+            addRow(productForm.name.value,
+                productForm.price.value,
+                productForm.currency.value);
+
+            for (let i = 0; i < productForm.elements.length; i++) {
+                const element = productForm.elements[i];
+                if (element.type == "text") element.value = "";
+            }
+        });
+
+        function addRow(name, price, currency) {
+            let tr = document.createElement("tr");
+            tr.insertAdjacentHTML("beforeend", `<td>${name}</td>`);
+            tr.insertAdjacentHTML("beforeend", `<td>${price}</td>`);
+            tr.insertAdjacentHTML("beforeend", `<td>${currency}</td>`);
+            productsTable.append(tr);
+        }
+
+    </script>
+</body>
+
+</html>

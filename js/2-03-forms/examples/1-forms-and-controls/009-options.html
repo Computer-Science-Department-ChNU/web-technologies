@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options</title>
+</head>
+<body>
+Виберіть валюту:
+<form>
+    <select name="currency">
+        <option value="USD">U.S. Dollar</option>
+        <option value="UAH">Ukrainian Hryvnia</option>
+        <option value="EUR" selected>Euro</option> <!-- цей елемент буде обраний через атрибут select  -->
+        <option value="PLN">Polish Zloty</option>
+        <option value="CHF">Swiss Franc</option>
+    </select>
+</form>
+<br>
+<button id="checkButton">Перевірити значення</button>
+<button id="selectButton">Змінити вибраний елемент</button>
+<script>
+    const form = document.forms[0]
+
+    document.querySelector("#checkButton").addEventListener("click", function () {
+        console.log("Вибране значення " + form.currency.value)
+        console.log("Вибраний індекс " + form.currency.selectedIndex)
+    })
+
+    document.querySelector("#selectButton").addEventListener("click", function () {
+        form.currency.value = "CHF"
+        // form.currency.selectedIndex = 0;
+        // document.querySelector("[value='USD']").selected = "true";
+    })
+</script>
+</body>
+</html>

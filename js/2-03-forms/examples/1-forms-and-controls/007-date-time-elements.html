@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Елементи керування для роботи з датою</title>
+</head>
+<body>
+<form>
+    тип date <input type="date" name="input1"><br>
+    тип time <input type="time" name="input2"><br>
+    тип week <input type="week" name="input3"><br>
+</form>
+<button id="check">Перевірити значення</button>
+<script>
+    document.querySelector("#check").addEventListener("click", function () {
+        const form = document.forms[0]
+        console.log(form.input1.value)
+        console.log(form.input2.value)
+        console.log(form.input3.value)
+    })
+</script>
+</body>
+</html>

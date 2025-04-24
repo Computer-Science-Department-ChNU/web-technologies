@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зв'язок між формою та елементом</title>
+</head>
+<body>
+<form name="testForm">
+    <input type="text" name="testElement">
+</form>
+<script>
+    let form1 = document.forms.testForm
+    let element = form1.elements.testElement
+    let form2 = element.form // кожен елемент містить посилання на форму, в якій знаходиться
+    console.log(form1 === form2)
+</script>
+</body>
+</html>

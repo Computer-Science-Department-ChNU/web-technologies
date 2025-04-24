@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подія change, input, copy, paste, cut</title>
+
+    <style>
+        .form-group {
+            margin: 4px;
+        }
+
+        .form-group label {
+            width: 115px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="form-group">
+            <label>Поле 1 (input)</label>
+            <input type="text" name="field1">
+        </div>
+        <div class="form-group">
+            <label>Поле 2 (change)</label>
+            <input type="text" name="field2">
+        </div>
+
+        <div class="form-group">
+            <label>Поле 3 (cut)</label>
+            <input type="text" name="field3" value="lorem ipsum">
+        </div>
+        <div class="form-group">
+            <label>Поле 4 (copy)</label>
+            <input type="text" name="field4" value="lorem ipsum">
+        </div>
+        <div class="form-group">
+            <label>Поле 5 (paste)</label>
+            <input type="text" name="field5">
+        </div>
+    </form>
+
+    <script>
+        const form = document.forms[0];
+
+        form.field1.addEventListener("input", function () {
+            console.log("Подія input - " + form.field1.value);
+        });
+
+        form.field2.addEventListener("change", function () {
+            console.log("Подія change - " + form.field2.value);
+        });
+
+        form.field3.addEventListener("cut", function (e) {
+            const selection = document.getSelection();
+            console.log(`Подія cut - ${form.field3.value} (in buffer ${selection})`);
+        });
+
+        form.field4.addEventListener("copy", function () {
+            const selection = document.getSelection();
+            console.log(`Подія copy - ${form.field4.value} (in buffer ${selection})`);
+        });
+
+        form.field5.addEventListener("paste", function (e) {
+            console.log(`Подія paste - ${form.field5.value} (in buffer ${e.clipboardData.getData("text")})`);
+        });
+    </script>
+</body>
+
+</html>

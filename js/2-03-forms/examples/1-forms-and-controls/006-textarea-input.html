@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Використання тексту</title>
+</head>
+<body>
+<form>
+    <input name="titleInput" type="text"> <br>
+    <textarea name="commentTextArea" cols="30" rows="10">Поле для коментарів</textarea><br>
+</form>
+<button id="check">Перевірити значення</button>
+<script>
+    document.querySelector("#check").addEventListener("click", function () {
+        const form = document.forms[0]
+        console.log(form.titleInput.value)
+        console.log(form.commentTextArea.value) // містить дефолтне значення або значення, яке вводив користувач
+        console.log(form.commentTextArea.innerHTML) // містить значення, що знаходиться в розмітці
+    })
+</script>
+</body>
+</html>
