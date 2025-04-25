@@ -50,7 +50,7 @@
             <input type="password" name="passwordConfirm" id="passwordConfirm" data-val="true"
                 data-required="Введіть підтвердження пароля" data-confirm="password"
                 data-error-label="passwordConfirmErrorLabel">
-            <span class="error" id="passwordConfirmErrorLabel">Ошибка</span>
+            <span class="error" id="passwordConfirmErrorLabel">Помилка</span>
         </div>
         <div class="form-group">
             <input type="submit" value="Вхід">
@@ -70,7 +70,7 @@
 
         function onChangeHandler(e) {
             const element = e.target;
-            if (element.tagName == "INPUT") {
+            if (element.tagName === "INPUT") {
                 validateElement(element);
             }
         }
@@ -138,7 +138,7 @@
             isValid: function (element) {
                 let message = "Значення не співпадають";
                 let confirmInput = document.querySelector("#" + element.dataset.confirm);
-                return validators.validate(element, message, () => element.value == confirmInput.value);
+                return validators.validate(element, message, () => element.value === confirmInput.value);
             }
         };
     </script>
