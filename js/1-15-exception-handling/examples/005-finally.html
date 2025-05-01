@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finally</title>
+</head>
+<body>
+<script>
+    // finally - блок коду, який гарантовано виконується, незалежно від того, чи була помилка в блоці try
+    // чи ні.
+    let jsonWithError = '{"name" : "Ivan", "age"= 20}'
+    console.time("parsing") // console.time - початок виміру часу
+    try {
+        let obj = JSON.parse(jsonWithError)
+    } catch (error) {
+        console.log(error.name)
+        console.log(error.message)
+    } finally {
+        console.timeEnd("parsing") // console.time - завершення виміру часу та виведення результатів
+    }
+</script>
+</body>
+</html>

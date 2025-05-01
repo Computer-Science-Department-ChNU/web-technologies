@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 04</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Завдання:
+        Створіть власний клас виключення DivideByZeroError
+        Зробіть так, щоб функція divide при спробі поділу на 0 викидала цю помилку.
+        Додайте код, який обробляє виняток.
+        */
+
+        class DivideByZeroError extends Error {
+            constructor() {
+                super("Спроба поділу на 0");
+                this.name = "DivideByZeroError";
+            }
+        }
+
+        function divide(operand1, operand2) {
+            if (operand2 == 0) throw new DivideByZeroError();
+            return operand1 / operand2;
+        }
+
+        console.log(divide(10, 5));
+        console.log(divide(100, 0));
+        console.log(divide(1000, 50));
+    </script>
+</body>
+
+</html>

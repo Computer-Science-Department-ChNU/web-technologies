@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 03</title>
+</head>
+
+<body>
+    <script>
+        /*
+        Завдання:
+        Додайте в даний сценарій обробку винятків для частини коду, де виняток може виникнути.
+        */
+
+        class Rect {
+            constructor(width, height) {
+                this.width = width;
+                this.height = height;
+            }
+
+            get width() {
+                if (this._width === undefined) {
+                    this._width = 0;
+                }
+
+                return this._width;
+            }
+
+            set width(value) {
+                if (value < 0) {
+                    throw new Error("Значення для height не може бути менше 0");
+                } else {
+                    this._width = value;
+                }
+            }
+
+            get height() {
+                if (this._height === undefined) {
+                    this._height = 0;
+                }
+
+                return this._height;
+            }
+
+            set height(value) {
+                if (value < 0) {
+                    throw new Error("Значення для height не може бути менше 0");
+                } else {
+                    this._height = value;
+                }
+            }
+
+            get area() {
+                return this.height * this.width;
+            }
+        }
+
+        let r1 = new Rect(10, 20);
+
+        try {
+            r1.height = -10; // помилка
+            r1.width = 30;
+        } catch (error) {
+            console.log(error.message)
+        }
+
+        console.log("width " + r1.width);
+        console.log("height " + r1.height);
+        console.log("area " + r1.area);
+    </script>
+</body>
+
+</html>

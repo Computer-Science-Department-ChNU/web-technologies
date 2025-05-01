@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try catch</title>
+</head>
+<body>
+<script>
+    let jsonWithError = '{"name" : "Ivan", "age" = 20}' // key: value
+    let jsonOk = '{"name" : "Ivan", "age" : 20}'
+
+    // try - блок коду, у якому може виникнути помилка(виключення) на етапі виконання
+    // catch - блок коду, в який перейде виконання, якщо в блоці try виникне помилка
+    // якщо блок try відпрацював без помилок, код у блоці catch не спрацьовує
+    // якщо виконати цей код без блоку try...catch, у разі помилки сценарій припинить виконання
+    // і всі інструкції, що залишилися, будуть пропущені
+
+    let obj = JSON.parse(jsonWithError)
+    console.log(obj)
+
+    /*
+    try {
+        console.log("Початок блоку try")
+        let obj = JSON.parse(jsonWithError)
+        //let obj = JSON.parse(jsonOk)
+        console.log("Кінець блоку try")
+    } catch (error) {
+        console.log("Блок catch")
+        console.log(error.name)
+        console.log(error.message)
+    }
+     */
+
+    console.log("Кінець сценарію")
+</script>
+</body>
+</html>

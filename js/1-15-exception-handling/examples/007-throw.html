@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>throw</title>
+</head>
+<body>
+<script>
+    try {
+        let ex = new Error("Відбулася помилка")
+        throw ex // Оператор throw генерує помилку. Як об'єкт помилки може бути будь-який об'єкт з будь-якими властивостями.
+        // Оскільки ми згенерували помилку в блоці try то він попаде в catch
+    } catch (error) {
+        console.log(error.name)
+        console.log(error.message)
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приклад використання throw</title>
+</head>
+<body>
+<script>
+    class Rect {
+        #width
+        #height
+
+        constructor(width, height) {
+            this.#width = width
+            this.#height = height
+        }
+
+        get width() {
+            if (this.#width === undefined) {
+                this.#width = 0
+            }
+
+            return this.#width
+        }
+
+        set width(value) {
+            if (value < 0) {
+                throw new Error("Значення для width не може бути менше 0")
+            } else {
+                this.#width = value
+            }
+        }
+
+        get height() {
+            if (this.#height === undefined) {
+                this.#height = 0
+            }
+
+            return this.#height
+        }
+
+        set height(value) {
+            if (value < 0) {
+                throw new Error("Значення для height не може бути менше 0")
+            } else {
+                this.#height = value
+            }
+        }
+
+        get area() {
+            return this.height * this.width
+        }
+    }
+
+    let r1 = new Rect(10, 20)
+
+    r1.height = -10 // помилка
+    r1.width = 30
+
+    console.log("width" + r1.width)
+    console.log("height" + r1.height)
+    console.log("area" + r1.area)
+</script>
+</body>
+</html>

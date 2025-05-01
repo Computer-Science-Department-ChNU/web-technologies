@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finally</title>
+</head>
+<body>
+<script>
+    let jsonStr = '{"name" : "Ivan", "age" : 20}'
+    parse(jsonStr)
+
+    function parse(str) {
+        console.time("parsing")
+        try {
+            let obj = JSON.parse(str)
+            return obj // по ідеї мав би бути вихід з функції і зупинити роботу функції
+        } catch (error) {
+            console.log(error.name)
+            console.log(error.message)
+        } finally {
+            // блок finally спрацьовує навіть за наявності return на рядку 20
+            console.timeEnd("parsing")
+        }
+    }
+</script>
+</body>
+</html>

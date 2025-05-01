@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try catch</title>
+</head>
+<body>
+<script>
+    let json = '{"name" : "Ivan", "age" = 20}'
+
+    try {
+        let obj = JSON.parse(json)
+    } catch {
+        // Блок catch, що не приймає об'єкта помилки
+        console.log("Помилка під час відновлення об'єкта з рядка JSON")
+    }
+</script>
+</body>
+</html>

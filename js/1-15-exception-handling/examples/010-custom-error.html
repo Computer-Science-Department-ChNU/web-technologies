@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom error</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .car-info {
+            display: inline-block;
+            margin: 10px 0 10px 10px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="car-info" id="placeholder1"></div>
+<div class="car-info" id="placeholder2"></div>
+<div class="car-info" id="placeholder3"></div>
+
+<script>
+    // Створюємо клас помилки користувача, який розширює клас Error
+    class ArgumentError extends Error {
+        constructor(argumentName) {
+            super(`Аргумент з ім'ям ${argumentName} містить неприпустиме значення.`) // Виклик конструктора батьківського класу
+            this.name = "ArgumentError"
+        }
+    }
+
+    class Car {
+        #image
+        #manufacturer
+        #html
+
+        constructor(image, manufacturer) {
+            if (!image) throw new ArgumentError("image")
+            if (!manufacturer) throw new ArgumentError("manufacturer")
+
+            this.#image = image
+            this.#manufacturer = manufacturer
+        }
+
+        get image() {
+            return this.#image
+        }
+
+        set image(value) {
+            if (!value) throw new ArgumentError("value")
+            this.#image = value
+        }
+
+        get manufacturer() {
+            return this.#manufacturer
+        }
+
+        set manufacturer(value) {
+            if (!value) throw new ArgumentError("value")
+            this.#manufacturer = value
+        }
+
+        get html() {
+            return `<img src="images/${this.image}" /><br />Виробник: ${this.manufacturer}<br />`
+        }
+    }
+
+    let car1 = new Car("audi-a6-250.jpg", "Audi")
+    //let car1 = new Car("audi-a6-250.jpg") // помилка, немає значення для параметра manufacturer
+    let car2 = new Car("jaguar-x-type-250.jpg", "Jaguar")
+    let car3 = new Car("porsche-carrera-911-250.jpg", "Porsche")
+
+    let placeholder1 = document.querySelector("#placeholder1")
+    let placeholder2 = document.querySelector("#placeholder2")
+    let placeholder3 = document.querySelector("#placeholder3")
+
+    placeholder1.innerHTML = car1.html
+    placeholder2.innerHTML = car2.html
+    placeholder3.innerHTML = car3.html
+</script>
+</body>
+
+</html>
