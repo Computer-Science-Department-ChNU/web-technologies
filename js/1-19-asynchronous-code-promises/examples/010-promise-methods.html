@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Методи promise</title>
+</head>
+<body>
+<button id="start">Запустити асинхронну операцію</button>
+<script>
+    function asyncOperation() {
+        return new Promise(function (resolve, reject) {
+            let randomValue = Math.floor(Math.random() * 2001) // випадкове значення від 0 до 5000
+
+            if (randomValue > 1000) {
+                // Переводимо promise в стан resolved після затримки
+                setTimeout(() => resolve(randomValue), randomValue)
+            } else {
+                // якщо випадкове значення менше 1000 – викидаємо помилку
+                setTimeout(() => reject(new Error(`Помилка. Значення ${randomValue} менше 1000.`)),
+                    randomValue)
+            }
+        })
+    }
+
+    let button = document.querySelector("#start")
+
+    button.addEventListener("click", function () {
+        // варіант 1
+        // asyncOperation()
+        // .then(result => console.log(result), error => console.log(error.message));
+
+        // варіант 2
+        asyncOperation()
+            .then(result => console.log(result))
+            .catch(error => console.error(error.message))
+    })
+</script>
+</body>
+
+</html>

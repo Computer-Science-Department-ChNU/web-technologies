@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 04</title>
+</head>
+
+<body>
+    <button>Завантажити</button>
+    <script>
+        /*
+        Завдання:
+        Функція download імітує асинхронну операцію, яка завантажує дані із сервера. На виконання асинхронної
+        операції витрачається до 5 секунд.
+        При натисканні на кнопку "Завантажити" запустіть метод download 5 разів і зробіть так, щоб у момент, коли всі проміси перейдуть
+        у стан fulfilled, виведіть повідомлення "Всі файли завантажені"
+        */
+        function download() {
+            return new Promise(function (resolve, reject) {
+                let random = Math.floor(Math.random() * 5001);
+                setTimeout(() => resolve("downloaded data"), random);
+            });
+        }
+    </script>
+</body>
+
+</html>

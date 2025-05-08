@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Callback</title>
+</head>
+<body>
+<script>
+    /*
+        Callback - функція зворотного виклику, яка передається в іншу функцію
+        і викликалися пізніше в деякий момент часу.
+
+        Найпростіший шаблон використання коллбеків:
+     */
+
+    function asyncFunction(callback) {
+        console.log("Перед викликом коллбека")
+        callback()
+        console.log("Після виклику коллбека")
+    }
+
+    function callbackFunc() {
+        console.log("Виклик коллбека")
+    }
+
+    asyncFunction(callbackFunc)
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+</head>
+
+<body>
+    <button id="download">Завантажити</button>
+    <div id="output"></div>
+
+    <script>
+        /*
+        Завдання:
+        Використовуючи функцію downloadImage та створивши необхідні функції зворотного виклику, реалізуйте скачування зображення
+        по дорозі https://images-assets.nasa.gov/image/PIA16239/PIA16239~orig.jpg
+        при натисканні на кнопку Завантажити та вивести завантажене зображення в елемент #output
+        */
+
+        function downloadImage(url, success, error) {
+            let image = new Image(500);
+            image.src = url;
+
+            image.onload = function () {
+                // Запускаємо callback функцію success у разі успішного завантаження зображення
+                if (success && typeof success == "function")
+                    success(image);
+            };
+
+            image.onerror = function (e) {
+                // Запускаємо callback функцію error у разі успішного завантаження зображення
+                if (error && typeof error == "function")
+                    error(new Error("Не вдалося завантажити зображення" + this.src));
+            }
+        }
+
+        let button = document.querySelector("#download");
+        let output = document.querySelector("#output");
+        let url = "https://images-assets.nasa.gov/image/PIA16239/PIA16239~orig.jpg";
+
+        button.addEventListener("click", function () {
+            downloadImage(url, onSuccess, onError);
+            // або
+            //downloadImage(url, image => output.append(image), error => alert(error.message));
+        });
+
+        function onSuccess(image) {
+            output.append(image);
+        }
+
+        function onError(error) {
+            alert(error.message)
+        }
+    </script>
+</body>
+
+</html>

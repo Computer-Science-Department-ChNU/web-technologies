@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Callback</title>
+</head>
+<body>
+<script>
+    const makePizza = function (title, cb) {
+        console.log(`Замовлення на приготування піци "${title}" отримано. Починаємо готувати...`)
+        setTimeout(cb, 3000)
+    }
+
+    const readBook = function () {
+        console.log(`Читаю книгу автора Нік Морґан - "JavaScript для дітей"`)
+    }
+
+    const eatPizza = function (drink) {
+        return function () { // Функція eatPizza перестає бути функцією зворотного виклику, замість неї цю роль виконуватиме функція, яку повертає eatPizza.
+            console.log(`Ура! Піца готова, час підкріпитися і запити ${drink}.`)
+        }
+    }
+
+    makePizza(`Пепероні`, eatPizza(`Coca-Cola`))
+    readBook()
+</script>
+</body>
+</html>

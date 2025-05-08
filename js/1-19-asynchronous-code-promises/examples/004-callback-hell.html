@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Callback Hell</title>
+</head>
+<body>
+<script>
+    /*
+        Припустімо, у нас є низка асинхронних завдань,
+        які залежать одне від одного: тобто перше завдання
+        запускає після завершення друге, друге - третє і т. д.
+     */
+    function request(url, onSuccess) {
+        /*...*/
+    }
+
+    request('/api/users/1', function (user) {
+        request(`/api/photos/${user.id}/`, function (photo) {
+            request(`/api/crop/${photo.id}/`, function (response) {
+                console.log(response)
+            })
+        })
+    })
+</script>
+</body>
+</html>

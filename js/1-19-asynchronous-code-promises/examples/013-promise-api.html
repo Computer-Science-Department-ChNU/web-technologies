@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise API</title>
+</head>
+<body>
+<button id="all">all</button>
+<button id="race">race</button>
+<button id="allSettled">allSettled</button>
+
+<script>
+    function asyncOperation() {
+        return new Promise(function (resolve, reject) {
+            let randomValue = Math.floor(Math.random() * 2001)
+
+            setTimeout(() => resolve(randomValue), randomValue)
+        })
+    }
+
+    let buttonAll = document.querySelector("#all")
+    let buttonRace = document.querySelector("#race")
+    let buttonAllSettled = document.querySelector("#allSettled")
+
+    buttonAll.addEventListener("click", function () {
+        let promises = [
+            asyncOperation(),
+            asyncOperation(),
+            asyncOperation(),
+        ]
+
+        // Чекаємо на завершення всіх промісів
+        Promise.all(promises)
+            .then(resultArray => console.log(resultArray))
+    })
+
+    buttonRace.addEventListener("click", function () {
+        let promises = [
+            asyncOperation(),
+            asyncOperation(),
+            asyncOperation(),
+        ]
+
+        // Очікуємо завершення першого промісу. Після завершення одного з промісів решта ігнорується
+        Promise.race(promises)
+            .then(result => console.log(result))
+    })
+
+    buttonAllSettled.addEventListener("click", function () {
+        let promises = [
+            asyncOperation(),
+            asyncOperation(),
+            asyncOperation(),
+        ]
+
+        // чекає на завершення всіх промісів і повертає масив з інформацією, які проміси з яким результатом завершили роботи
+        // а також значення кожного промісу
+        Promise.allSettled(promises)
+            .then(result => console.log(result))
+    })
+</script>
+</body>
+</html>

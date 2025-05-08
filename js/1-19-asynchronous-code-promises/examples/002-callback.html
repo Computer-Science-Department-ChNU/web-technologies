@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Callback</title>
+</head>
+<body>
+<script>
+    /* Це класична схема використання коллбеків для обробки результату асинхронної функції.
+        Однак вона має щонайменше один великий недолік: надмірне використання функцій
+        зворотного виклику може призвести до створення структури коду, відомої серед розробників
+        JavaScript як callback hell (пекло коллбеків)
+        Така структура коду виникає, коли колбек в одній
+        асинхронній функції викликає іншу асинхронну функцію,
+        колбек якої, своєю чергою, може викликати третю асинхронну функцію і так далі.
+
+        Приклад подібної структури
+    */
+
+    function handleResult(error, result) {
+        if (error) { // якщо передано помилку
+            console.error(error)
+        } else { // якщо асинхронна функція завершилася успішно
+            console.log("Result:", result)
+        }
+    }
+
+    function asyncFunction(callback) {
+        setTimeout(() => {
+            let result = Math.floor(Math.random() * 100) + 1
+            if (result < 50) {
+                // якщо менше 50, встановлюємо помилку
+                callback(new Error("Некоректне значення: " + result), null)
+            } else {
+                // в інших випадках встановлюємо результат
+                callback(null, result)
+            }
+        }, 1000)
+    }
+
+    asyncFunction(handleResult)
+</script>
+</body>
+</html>

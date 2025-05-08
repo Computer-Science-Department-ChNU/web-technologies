@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback функції</title>
+</head>
+<body>
+<button>Завантажити</button>
+<br>
+<br>
+<script>
+    document.querySelector("button").addEventListener("click", function () {
+        let url1 = "https://images-assets.nasa.gov/image/PIA16239/PIA16239~orig.jpg"
+        let url2 = "https://images-assets.nasa.gov/image/PIA22312/PIA22312~orig.jpg"
+
+        downloadImage(url1,
+            image => document.body.append(image),
+            e => console.log(e.message))
+
+        downloadImage(url2,
+            image => document.body.append(image),
+            e => console.log(e.message))
+    })
+
+    // завантажує зображення за вказаною адресою
+    function downloadImage(url, success, error) {
+        let image = new Image(500)
+        image.src = url
+
+        image.onload = function () {
+            // Запускаємо callback функцію success у разі успішного завантаження зображення
+            if (success && typeof success == "function")
+                success(image)
+        }
+
+        image.onerror = function (e) {
+            // Запускаємо callback функцію error у разі успішного завантаження зображення
+            if (error && typeof error == "function")
+                error(new Error("Не вдалося завантажити зображення" + this.src))
+        }
+    }
+</script>
+</body>
+</html>

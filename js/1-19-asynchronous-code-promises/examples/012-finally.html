@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>finally</title>
+</head>
+<body>
+<button id="downloadButton">Завантажити</button>
+<span id="loadingIndicator" style="display: none;">Завантаження</span>
+<div id="output"></div>
+
+<script>
+    // імітує функцію, що виконує скачування даних із сервера
+    function download() {
+        return new Promise(function (resolve, reject) {
+            setTimeout(() => resolve("downloaded data"), 2000)
+        })
+    }
+
+    let downloadButton = document.querySelector("#downloadButton")
+    let loadingIndicator = document.querySelector("#loadingIndicator")
+    let output = document.querySelector("#output")
+
+    downloadButton.addEventListener("click", function () {
+        if (loadingIndicator.style.display === "inline") return
+        loadingIndicator.style.display = "inline"
+
+        download()
+            .then(result => output.innerHTML = result)
+            .catch(error => console.error(error.message))
+            .finally(() => loadingIndicator.style.display = "none")
+    })
+</script>
+</body>
+</html>
