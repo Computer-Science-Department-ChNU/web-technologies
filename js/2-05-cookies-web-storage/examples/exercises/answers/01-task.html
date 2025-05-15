@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+</head>
+<body>
+<form>
+    <input type="radio" name="color" value="#ffd800"/> Orange
+    <input type="radio" name="color" value="#5ade54"/> Green
+    <input id="saveButton" type="button" value="Зберігти"/>
+</form>
+<script>
+    /*
+        Завдання:
+        Додайте можливість зберегти вибраний колір сторінки в cookies протягом 1 тижня.
+        Додайте відновлення вибраного кольору з файлів cookie, якщо такі є, після завантаження документа.
+    */
+
+    let color = getCookie("color")
+    if (color) {
+        document.body.style.backgroundColor = color
+    }
+
+    document.querySelector("#saveButton").addEventListener("click", function () {
+        const form = document.forms[0]
+        let selectedColor = form.color.value
+        setCookie("color", selectedColor, 7 * 24 * 60 * 60)
+        document.body.style.backgroundColor = selectedColor
+    })
+
+    function setCookie(name, value, maxAge) {
+        let encodedValue = encodeURIComponent(value)
+        document.cookie = `${name}=${encodedValue};max-age=${maxAge}`
+    }
+
+    function getCookie(name) {
+        let cookie = document.cookie
+        let pos = cookie.indexOf(name + "=")
+
+        // Якщо cookie з вказаною назвою знайдено, витягти її значення.
+        if (pos != -1) {
+            let start = pos + name.length + 1
+            let end = cookie.indexOf(";", start)
+
+            if (end == -1) {
+                end = cookie.length
+            }
+
+            // substring - вирізати значення з рядка за індексами, зазначеними в параметрах
+            let value = cookie.substring(start, end)
+
+            return decodeURIComponent(value)
+        }
+    }
+</script>
+</body>
+
+</html>

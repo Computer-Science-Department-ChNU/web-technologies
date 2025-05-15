@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <script>
+        // JSON - JavaScript Object Notation
+        // це формат обміну даними, що базується на JavaScript. Формат не залежить від мови і може використовуватися
+        // З різними мовами програмування.
+
+        let user = {
+            name: "Ivan",
+            age: 25,
+            email: "ivan@example.com"
+        };
+
+        let jsonString = JSON.stringify(user); // збереження об'єкта в JSON (також цей процес називається серіалізацією)
+        console.log(jsonString);
+        let objectFromJson = JSON.parse(jsonString); // відновлення об'єкта з JSON рядка (десеріалізація)
+        console.log(objectFromJson);
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 03</title>
+    <style>
+        .form-group {
+            margin: 4px;
+        }
+
+        .form-group label {
+            width: 75px;
+            display: inline-block;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        td,
+        th {
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+<form name="writeForm">
+    <div class="form-group">
+        <label>Ключ</label>
+        <input type="text" name="keyInput" required>
+    </div>
+    <div class="form-group">
+        <label>Значеня</label>
+        <input type="text" name="valueInput" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Запис">
+    </div>
+</form>
+<br>
+<form name="readForm">
+    <div class="form-group">
+        <label>Ключ</label>
+        <input type="text" name="keyInput" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Читаня">
+    </div>
+</form>
+<br>
+<button id="showAllButton">Показати все</button>
+<button id="deleteAllButton">Очистіть localStorage</button>
+<table id="localStorageContent"></table>
+<script>
+    /*
+    Завдання:
+    Додайте кнопку «Показати все» на сторінку. При натисканні на цю кнопку на сторінці має
+    з'явиться або оновиться таблиця з вмістом localStorage. Перший стовпчик таблиці - ключ, другий - значення.
+
+    Додайте кнопку «Очистити localStorage» на сторінку.localStorage". При натисканні на кнопку localStorage мае бути очищиний.
+    */
+    document.forms.writeForm.addEventListener("submit", function (e) {
+        e.preventDefault()
+        const form = document.forms.writeForm
+
+        let key = form.keyInput.value
+        let value = form.valueInput.value
+
+        localStorage.setItem(key, value)
+        form.reset()
+    })
+
+    document.forms.readForm.addEventListener("submit", function (e) {
+        e.preventDefault()
+
+        const form = document.forms.readForm
+        let key = form.keyInput.value
+
+        let value = localStorage.getItem(key)
+        alert(value)
+    })
+
+    const table = document.querySelector("#localStorageContent")
+    const showAllButton = document.querySelector("#showAllButton")
+    const deleteAllButton = document.querySelector("#deleteAllButton")
+
+    function showLocalStorageContent() {
+        table.innerHTML = ""
+
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i)
+            let value = localStorage.getItem(key)
+            table.insertAdjacentHTML("afterbegin", `<tr><td>${key}</td><td>${value}</td></tr>`)
+        }
+    }
+
+    showAllButton.addEventListener("click", function () {
+        showLocalStorageContent()
+    })
+
+    deleteAllButton.addEventListener("click", function () {
+        localStorage.clear()
+        showLocalStorageContent()
+    })
+</script>
+</body>
+
+</html>

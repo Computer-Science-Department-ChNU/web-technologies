@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie</title>
+</head>
+<body>
+<script>
+    document.cookie = "hello=world" // додавання файлів cookie з ім'ям hello и значенням world
+    document.cookie = "test=123" // додавання файлів cookie з ім'ям test  и значенням 123
+    console.log(document.cookie) // читання файлів cookie, пов'язані з цим доменом
+
+    document.cookie = "test=000" // змінити значення файлів cookie з назвою test
+    console.log(document.cookie)
+
+    // Chrome ігнорує встановлення файлів cookie з локальних файлів, але цей код буде працювати правильно, коли
+    // буде розміщено на сервері.
+    // На момент написання цих прикладів локально роботу цього коду можна перевірити в інших браузерах, які
+    // не використовують рушій Chromium, наприклад Firefox
+    // Або запустити цю сторінку використовуючи розширення Live Server для Visual Studio Code
+</script>
+</body>
+
+</html>

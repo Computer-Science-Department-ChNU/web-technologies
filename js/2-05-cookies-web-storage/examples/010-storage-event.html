@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подія storage</title>
+</head>
+<body>
+<script>
+    // Подія storage виникає в момент оновлення localStorage
+    // Подія не спрацьовує на тій самій сторінці, на якій були внесені зміни до Storage
+
+    // Для перевірки роботи цього прикладу запустіть цю сторінку разом із прикладом 005-local-storage.html
+    // (або будь-яким іншим, де відбувається зміна localStorage)
+    window.addEventListener("storage", function (e) {
+        console.log(`key:${e.key}, oldValue:${e.oldValue}, newValue:${e.newValue}, url:${e.url}, storageArea:${e.storageArea}`)
+    })
+</script>
+</body>
+</html>

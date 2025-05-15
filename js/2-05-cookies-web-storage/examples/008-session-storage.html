@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sessionStorage</title>
+    <style>
+        .form-group {
+            margin: 4px;
+        }
+
+        .form-group label {
+            width: 75px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<form name="writeForm">
+    <div class="form-group">
+        <label>Ключ</label>
+        <input type="text" name="keyInput" required>
+    </div>
+    <div class="form-group">
+        <label>Значення</label>
+        <input type="text" name="valueInput" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Запис">
+    </div>
+</form>
+<br>
+<form name="readForm">
+    <div class="form-group">
+        <label>Ключ</label>
+        <input type="text" name="keyInput" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Читаня">
+    </div>
+</form>
+<script>
+    document.forms.writeForm.addEventListener("submit", function (e) {
+        e.preventDefault()
+        const form = document.forms.writeForm
+
+        let key = form.keyInput.value
+        let value = form.valueInput.value
+
+        sessionStorage.setItem(key, value) // збереження значення за ключем
+
+        // sessionStorage - об'єкт, який дозволяє зберігати інформацію у пам'яті браузера.
+        // Час життя даних обмежується сесією та поточною вкладкою, але значення зберігаються у пам'яті
+        // навіть якщо сторінку буде перезавантажено
+
+        form.reset()
+    })
+
+    document.forms.readForm.addEventListener("submit", function (e) {
+        e.preventDefault()
+
+        const form = document.forms.readForm
+        let key = form.keyInput.value
+
+        let value = sessionStorage.getItem(key) // читання значення за ключем, якщо ключ не знайдено, повертається null
+        alert(value)
+    })
+</script>
+</body>
+</html>

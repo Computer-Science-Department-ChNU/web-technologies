@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Параметри файлів cookie</title>
+</head>
+<body>
+<button id="add">Додати cookie</button>
+<button id="read">Перевірити файли cookie</button>
+<script>
+    document.querySelector("#add").addEventListener("click", function () {
+        document.cookie = "color=green; max-age=10;"
+    })
+
+    // path - вказує на сторінки, на яких буде працювати файл cookie
+    // /catalog на сторінках /catalog/folder и т.д. але на сторінці /home працювати не буде
+    // / - для всіх сторінок
+
+    // max-age - час життя, значення в секундах
+    // expires - дата, коли значення мусить бути видаленим, приклад - значення 20 May 2022 05:15:05 GMT
+
+    // samesite - значення strict, lax або none. Налаштування необхідне для захисту від вразливості CSRF
+    // не підтримується старими браузерами (до 2017 року)
+    // CSRF - https://ru.wikipedia.org/wiki/ Міжсайтова_підробка_запиту
+    // Документація по samesite https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite
+
+    // secure - cookie можна відправляти тільки по HTTPS
+    // httpOnly - cookie використовують тільки для HTTP запитів і не можуть бути отримані з допомогою JS кода
+
+    document.querySelector("#read").addEventListener("click", function () {
+        alert(document.cookie)
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+    <style>
+        .form-group {
+            margin: 4px;
+        }
+
+        .form-group label {
+            width: 75px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<form name="writeForm">
+    <div class="form-group">
+        <label>Ключ</label>
+        <input type="text" name="keyInput" required>
+    </div>
+    <div class="form-group">
+        <label>Значення</label>
+        <input type="text" name="valueInput" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Запис">
+    </div>
+</form>
+<br>
+<form name="readForm">
+    <div class="form-group">
+        <label>Ключ</label>
+        <input type="text" name="keyInput" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Читання">
+    </div>
+</form>
+<script>
+    document.forms.writeForm.addEventListener("submit", function (e) {
+        e.preventDefault()
+        const form = document.forms.writeForm
+
+        let key = form.keyInput.value
+        let value = form.valueInput.value
+
+        localStorage.setItem(key, value) // збереження значення по ключу
+
+        // localStorage - об'єкт, що дозволяє зберігати інформацію в пам'яті браузера.
+        // Зберігання інформації в localStorage не має обмежень за часом і може бути видалена
+        // з допомогою JavaScript код.
+
+        // ключ і значення, які записані в localstorage, має бути строковими
+
+        // Джерело - протокол, домен і порт,
+        // наприклад, https://some-fake-site.com - джерело
+
+        // http://example.com та http:/example.com:8080 різні джерела, тому що різні значення портів
+
+        // Для кожного джерела створюється екземпляр сховища. Залежно від браузера існує ліміт на сховище 5 Мб.
+
+        form.reset()
+    })
+
+    document.forms.readForm.addEventListener("submit", function (e) {
+        e.preventDefault()
+
+        const form = document.forms.readForm
+        let key = form.keyInput.value
+
+        let value = localStorage.getItem(key) // читання значення по ключу, якщо ключ не знайдено, повертається null
+        alert(value)
+    })
+</script>
+</body>
+</html>

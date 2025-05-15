@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приклад використання</title>
+</head>
+<body>
+<form>
+    <input type="radio" name="color" value="#ffd800"/> Orange
+    <input type="radio" name="color" value="#5ade54"/> Green
+    <input id="saveButton" type="button" value="Зберегти"/>
+</form>
+<script>
+    let pageColor = localStorage.getItem("color")
+
+    if (pageColor) {
+        document.body.style.backgroundColor = pageColor
+        document.querySelector(`input[value='${pageColor}']`).checked = true
+    }
+
+    document.querySelector("#saveButton").addEventListener("click", function () {
+        const form = document.forms[0]
+        let selectedColor = form.color.value
+
+        localStorage.setItem("color", selectedColor)
+        document.body.style.backgroundColor = selectedColor
+    })
+</script>
+</body>
+</html>

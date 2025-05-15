@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+</head>
+<body>
+<form>
+    <input type="radio" name="color" value="#ffd800"/> Orange
+    <input type="radio" name="color" value="#5ade54"/> Green
+    <input id="saveButton" type="button" value="Зберегти"/>
+</form>
+<script>
+    /*
+        Завдання:
+        Додайте можливість зберегти вибраний колір сторінки у cookies терміном на 1 тиждень.
+        Додайте відновлення вибраного кольору з cookies, якщо вони є, після завантаження документа.
+    */
+
+    document.querySelector("#saveButton").addEventListener("click", function () {
+        const form = document.forms[0]
+        document.body.style.backgroundColor = form.color.value
+    })
+</script>
+</body>
+</html>

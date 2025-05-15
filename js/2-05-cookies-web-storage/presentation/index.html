@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Тема 5. Cookies і Web Storage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Тема 5. Cookies і Web Storage</h1>
+</header>
+
+<section class="slide">
+    <h2>Тема 5. Cookies і Web Storage</h2>
+    <ol>
+        <li>Що таке cookie</li>
+        <li>Робота з cookies через JavaScript код</li>
+        <li>Огляд Web Storage API</li>
+        <li>sessionStorage та localStorage</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Cookies</h2>
+    <p>
+        <b>Cookies</b> – невеликий фрагмент даних, який зберігається у браузері. Веббраузер відправляє ці дані
+        щоразу, коли виконує запит на сайт, з якого було отримано cookie. Обмеження обсягом даних – 4Кб.
+    </p>
+    <img src="images/1.png" alt="" width="100%">
+</section>
+
+<section class="slide">
+    <h2>Cookies</h2>
+    <p>
+        Найчастіше cookie використовуються для авторизації користувача. Коли він заходить на
+        закриту частину сайту, сервер перевіряє наявність спеціального значення, яке зберігається
+        в cookie. Якщо цього значення немає, користувача перенаправляють на сторінку входу на
+        сайт, якщо значення є – показують вміст закритої частини сайту.
+    </p>
+    <p>
+        Якщо користувач, потрапивши на сторінку входу, вводить правильний логін та пароль
+        (користувач з таким логіном та паролем знаходиться в базі), тоді сервер повертає
+        користувачеві cookie авторизації, що зберігається в пам'яті браузера. При кожному
+        наступному запиті на сервер цей cookie буде частиною запиту і сервер розумітиме, що
+        користувач виконав вхід на сайт, і що йому можна відображати закриті сторінки.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Cookies</h2>
+    <p>
+        Cookie передається на сервері як HTTP-заголовок.
+    </p>
+    <p>
+        Значення одного cookie не повинно перевищувати 4Кб і на один домен більшість
+        браузерів дозволяють створювати близько 20 cookie.
+    </p>
+    <p>
+        Cookie не призначені для зберігання великих даних і більше підходять для відстеження
+        ідентифікатора користувача під час переходів на різні сторінки сайту або збереження
+        незначних блоків даних
+    </p>
+    <p>
+        Cookie є рядком, що складається з ключів і значень, розділених крапкою з комою
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Атрибути Cookies</h2>
+    <table>
+        <tbody>
+        <tr>
+            <td><b>Атрибут</b></td>
+            <td><b>Опис</b></td>
+        </tr>
+        <tr>
+            <td style="padding-right: 20px;">path</td>
+            <td>вказує сторінки, на яких буде працювати цей cookie
+                Наприклад, '/', '/home', '/admin/user’
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-right: 20px;">max-age</td>
+            <td>Час життя у секундах</td>
+        </tr>
+        <tr>
+            <td style="padding-right: 20px;">expires</td>
+            <td>Дата, коли cookie має бути видалено.
+                Наприклад, 216 May 2025 5:15:05 GMT
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-right: 20px;">samesite</td>
+            <td>Налаштування необхідне для захисту від уразливості CSRF. Не підтримується старими
+                браузерами (до 2017 року). Можливі значення strict, lax чи none
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-right: 20px;">secure</td>
+            <td>Cookie буде надсилатись на сервер лише по HTTPS.</td>
+        </tr>
+        <tr>
+            <td style="padding-right: 20px;">httpOnly</td>
+            <td>Cookie використовуються лише для запитів HTTP. Отримати доступ через JS неможливо.</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="slide">
+    <h2>Приклад створення cookie з параметрами:</h2>
+    <p>document.cookie = "color=green; path=/; max-age=30;"</p>
+    <p>
+        назва color, значення – green,
+        <br>
+        відправлятиметься на сервер при запитах до будь-якої сторінки та видаляється з пам'яті
+        через 30 секунд після створення.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Cookies</h2>
+    <p>
+        Cookie можуть містити лише текстові значення і для правильного подальшого читання
+        вони повинні бути закодовані за допомогою методу <b>encodeURIComponent</b>. При читанні
+        раніше закодованого значення використовується метод <b>decodeURIComponent</b>.
+    </p>
+    <p>
+        <b>encodeURIComponent</b> — метод кодування рядка в компонент, який буде
+        використовуватися в URI. Цей метод замінює всі символи, крім символів латинського
+        алфавіту, цифр і символів _ . ! ~ * ' ( )
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Cookies</h2>
+    <p>
+        Метод використовується для запобігання некоректним запитам, наприклад:
+    </p>
+    <ul>
+        <li>Рядок без використання URI кодування –
+            https://some-fake-site.com/search?term=position=absolute
+        </li>
+        <li>Рядок без використання URI кодування –
+            https://some-fake-site.com/search?term=position%3Dabsolute
+        </li>
+    </ul>
+    <p>
+        У другому рядку символ = був замінений на %3D, оскільки цей символ використовується
+        для визначення значення для ключа, у певних ситуаціях це може вплинути на правильне
+        розпізнавання ключа та його значень.
+
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Web Storage API</h2>
+    <p>
+        <b>Web Storage API</b> – надає доступ до інструментів збереження ключ/значення у
+        пам'яті браузера. Є два варіанти сховища – localStorage та sessionStorage. Ліміт
+        зберігання даних 5+ Мб (відрізняється у різних браузерах).
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Web Storage API</h2>
+    <b>Існує два механізми зберігання даних на клієнті.</b>
+    <ol style="font-size: 16px;">
+        <li><b>sessionStorage</b> -
+            Створює окреме сховище для кожного джерела, яке існує, поки існує сторінка (при
+            перевантаженні сторінки інформація не видаляється). Дані sessionStorage видаляються під
+            час закриття браузера. Дані sessionStorage не передаються на сервер. Обмеження
+            сховища до 5 Мб, але може відрізнятися, залежно від браузера</p></li>
+        <li>
+            <b>localStorage</b> -
+            Те ж саме, що і sessionStorage, але інформація зберігається в сховищі безстроково і
+            залишається доступною після перезапуску браузера. Дані видаляються зі сховища за
+            допомогою JavaScript або під час чищення кеша браузера.
+        </li>
+    </ol>
+    <p style="font-size: 16px;">
+        Origin (джерело) – джерело, з якого здійснюється завантаження вмісту. Включає
+        протокол, ім'я хоста, порт.
+        Наприклад, http://localhost:88, https://itvdn.com, http://example.com, https://example.com.
+        Усі ці значення належать до різних джерел. Браузер створює сховище окремо для
+        кожного джерела за умови, що з джерела було отримано код, який звернувся до
+        вебсховища.
+
+    </p>
+</section>
+
+<section class="slide">
+    <h2>Web Storage API</h2>
+    <table>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>sessionStorage</td>
+            <td>localStorage</td>
+        </tr>
+        <tr>
+            <td>Час життя</td>
+            <td>Поки відкрита сторінка</td>
+            <td>Без обмеження</td>
+        </tr>
+        <tr>
+            <td>Область видимості</td>
+            <td>Поточна сторінка</td>
+            <td>Усі сторінки джерела</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="slide">
+    <h2>Методи роботи з localStorage та sessionStorage</h2>
+    <ul>
+        <li><b>setItem(key, value)</b> - зберігає значення за ключем;</li>
+        <li><b>getItem(key)</b> - повертає значення за ключем;</li>
+        <li><b>removeItem(key)</b> - видаляє запис за ключем;</li>
+        <li><b>clear()</b> - видаляє всі записи для поточного джерела;</li>
+        <li><b>key(index) </b>- повертає ім'я ключа за вказаним індексом;</li>
+        <li><b>length</b> - повертає кількість ключів у сховище.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>JSON</h2>
+    <div style="font-size: 19px;">
+        <p>
+            JSON (JavaScript Object Notation) — формат зберігання даних, що базується на JavaScript.
+            Застосовується для зберігання та передачі даних між сервером та клієнтом і не залежить
+            від мови програмування
+        </p>
+        <p>
+            JSON.stringify(object) може використовуватися для перетворення об'єкта або масиву в
+            формат JSON. Для перетворення значення з формату JSON на об'єкт використовується
+            метод JSON.parse(json_string).
+        </p>
+        <p>Оскільки вебсховище може працювати лише з рядковими значеннями, при збереженні
+            об'єктів може знадобитися використання цих методів.
+        </p>
+        <p>Отримати доступ до cookies та web storage можна за допомогою інструментів
+            розробника у вкладці Application.</p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Liking data</h2>
+    <img src="images/2.png" alt="" width="700">
+</section>
+
+<section class="slide">
+    <h2>Контрольні питання</h2>
+    <ol style="font-size: 16px;">
+        <li>Що таке cookie, як вони працюють?</li>
+        <li>Наведіть приклад завдання, для якого можуть використовуватися cookies.</li>
+        <li>Як можна видалити cookie за допомогою коду JavaScript?</li>
+        <li>Навіщо потрібен метод encodeURIComponent?</li>
+        <li>Скільки часу зберігаються дані в sessionStorage і скільки в localStorage?</li>
+        <li>Які ліміти на обсяг збереженої інформації існують для вебсховищ?</li>
+        <li>Що таке джерело?</li>
+        <li>Що таке JSON, як зберегти та відновити об'єкт, використовуючи цей формат у JavaScript?</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+

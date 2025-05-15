@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+    <style>
+        .form-group {
+            margin: 4px;
+        }
+
+        .form-group label {
+            width: 75px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="form-group">
+    <label>Ключ</label>
+    <input id="keyInput" type="text">
+</div>
+<div class="form-group">
+    <button id="deleteButton">Видалити</button>
+    <button id="deleteAllButton">Видалити все</button>
+</div>
+<script>
+    let deleteButton = document.querySelector("#deleteButton")
+    let deleteAllButton = document.querySelector("#deleteAllButton")
+    let keyInput = document.querySelector("#keyInput")
+
+    deleteButton.addEventListener("click", function () {
+        localStorage.removeItem(keyInput.value)
+    })
+
+    deleteAllButton.addEventListener("click", function () {
+        localStorage.clear()
+    })
+</script>
+</body>
+</html>

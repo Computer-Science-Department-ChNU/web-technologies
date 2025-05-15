@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 03</title>
+    <style>
+        .form-group {
+            margin: 4px;
+        }
+
+        .form-group label {
+            width: 75px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<form name="writeForm">
+    <div class="form-group">
+        <label>Ключ</label>
+        <input type="text" name="keyInput" required>
+    </div>
+    <div class="form-group">
+        <label>Значення</label>
+        <input type="text" name="valueInput" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Запис">
+    </div>
+</form>
+<br>
+<form name="readForm">
+    <div class="form-group">
+        <label>Ключ</label>
+        <input type="text" name="keyInput" required>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Читання">
+    </div>
+</form>
+<script>
+    /*
+    Завдання:
+    Додайте на сторінку кнопку "Показати все". При натисканні цієї кнопки на сторінці
+    З'явиться або оновлюється таблиця з вмістом localStorage. Перша колонка таблиці – ключ, друга – значення.
+
+    Додайте кнопку "Очистити localStorage" на сторінку. При натисканні на кнопку localStorage має бути очищений.
+    */
+    document.forms.writeForm.addEventListener("submit", function (e) {
+        e.preventDefault()
+        const form = document.forms.writeForm
+
+        let key = form.keyInput.value
+        let value = form.valueInput.value
+
+        localStorage.setItem(key, value)
+        form.reset()
+    })
+
+    document.forms.readForm.addEventListener("submit", function (e) {
+        e.preventDefault()
+
+        const form = document.forms.readForm
+        let key = form.keyInput.value
+
+        let value = localStorage.getItem(key)
+        alert(value)
+    })
+</script>
+</body>
+</html>

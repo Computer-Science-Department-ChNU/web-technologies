@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Читання значення одного cookie</title>
+</head>
+<body>
+<button id="writeButton">Записати</button>
+<button id="readButton">Прочитати</button>
+<button id="deleteButton">Видалити</button>
+
+<script>
+    function setCookie(name, value) {
+        let encodedValue = encodeURIComponent(value)
+        document.cookie = `${name}=${encodedValue}`
+    }
+
+    function getCookie(name) {
+        let cookie = document.cookie // a=10; b=20
+        let pos = cookie.indexOf(name + "=")
+
+        // якщо cookie з вказаною назвою знайдено, витягти його значення.
+        if (pos !== -1) {
+            let start = pos + name.length + 1
+            let end = cookie.indexOf(";", start)
+
+            if (end === -1) {
+                end = cookie.length
+            }
+
+            // substring - вирізати значення з рядка за індексами, зазначеними в параметрах
+            let value = cookie.substring(start, end)
+
+            return decodeURIComponent(value)
+        }
+    }
+
+    function deleteCookie(name) {
+        document.cookie = `${name}=;max-age=0` // для видалення cookie встановлюється max-age рівний 0
+    }
+
+    let readBtn = document.querySelector("#readButton")
+    let writeBtn = document.querySelector("#writeButton")
+    let deleteBtn = document.querySelector("#deleteButton")
+
+    writeBtn.addEventListener("click", function () {
+        setCookie("myCookie", "Тестове значення = 123!")
+    })
+
+    readBtn.addEventListener("click", function () {
+        let value = getCookie("myCookie")
+        if (value)
+            alert(value)
+        else
+            alert("Значення не знайдено")
+    })
+
+    deleteBtn.addEventListener("click", function () {
+        deleteCookie("myCookie")
+    })
+</script>
+</body>
+</html>

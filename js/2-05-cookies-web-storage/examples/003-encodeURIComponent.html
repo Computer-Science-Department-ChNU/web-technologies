@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>encodeURIComponent</title>
+</head>
+<body>
+<script>
+    // encodeURIComponent - метод кодування рядка в компонент, який буде використовуватися в URI
+    // Цей метод замінює всі символи, крім латинського алфавіту, цифр і символів _ . ! ~ * ' ( )
+    // Метод використовується для запобігання некоректним запитам, наприклад,
+    // рядок без використання кодування URI - https://some-fake-site/search?term=position=absolute
+    // рядок з кодуванням URI - https://some-fake-site.com/search?term=position%3Dabsolute
+    // У другому рядку символ = було замінено на %3D
+
+    // Cookie значення є рядком. Щоб забезпечити правильне форматування, використовуйте
+    // метод encodeURIComponent при записі значень і decodeURIComponent при читані
+    //document.cookie = "test=1;2;3;; max-age=100"
+    // кодування
+    console.log("Hello world")
+    console.log(encodeURIComponent("Hello world"))
+
+    console.log("Привіт світ")
+    console.log(encodeURIComponent("Привіт світ"))
+
+    console.log("10=20;value=123?&;test=1;")
+    console.log(encodeURIComponent("10=20;value=123?&;test=1;"))
+
+    // декодування
+    console.log(decodeURIComponent("10%3D20%3Bvalue%3D123%3F%26%3Btest%3D1%3B"))
+
+    // приклад запису значення в cookie
+    document.cookie = "login=" + encodeURIComponent("super user")
+    alert(document.cookie)
+</script>
+</body>
+</html>
