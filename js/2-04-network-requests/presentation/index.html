@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title>Тема 4. Мережеві запити (Network requests)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+<header class="caption">
+    <h1>Тема 4. Мережеві запити (Network requests)</h1>
+</header>
+
+<section class="slide">
+    <h2>Тема 4. Мережеві запити (Network requests)</h2>
+    <ol>
+        <li>HTTP протокол</li>
+        <li>Основи використання методу fetch</li>
+        <li>Налаштування параметрів HTTP запиту під час роботи з fetch</li>
+        <li>Скасування запиту HTTP</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>HTTP протокол</h2>
+    <p>
+        <b>HTTP (HyperText Transfer Protocol</b>) - протокол прикладного рівня передачі даних, спочатку - у вигляді
+        гіпертекстових документів у форматі HTML. Нині використовується для передачі довільних даних.
+    </p>
+    <img src="images/1.png" alt="" width="100%">
+</section>
+
+<section class="slide">
+    <h2>HTTP протокол</h2>
+    <p style="font-size: 16px;">
+        Для аналізу HTTP-запиту та відповіді можна використовувати вбудований інструмент
+        розробки у браузері (вкладка Network) або окремими програмами, наприклад, Telerik
+        Fiddler, Postman, Wireshark.
+    </p>
+    <img src="images/3.png" alt="" width="100%">
+</section>
+
+<section class="slide">
+    <h2>Стартовий рядок</h2>
+    <div class="columns two">
+        <div style="font-size: 16px;">
+            <b>Структура стартового рядка:</b>
+            <ul>
+                <li>Метод</li>
+                <li>URI</li>
+                <li>Версія</li>
+            </ul>
+            <b>HTTP методи (HTTP дієслова):</b>
+            <ul>
+                <li><b>GET</b> отримання сутності</li>
+                <li><b>POST</b> відправлення сутності</li>
+                <li><b>PUT</b> зміна сутності</li>
+                <li><b>DELETE</b> видалення сутності</li>
+                <li><b>CONNECT</b> встановлює з'єднання</li>
+                <li><b>OPTIONS</b> опис параметрів з'єднання</li>
+                <li><b>HEAD</b> запит заголовків без тіла</li>
+                <li><b>PATCH</b> часткова зміна ресурсу</li>
+            </ul>
+        </div>
+        <div>
+            <img src="images/2.png" alt="" width="100%">
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>HTTP відповідь</h2>
+    <div class="columns two">
+        <div style="font-size: 16px;">
+            <ul>
+                <li>Версія</li>
+                <li>Код стану</li>
+                <li>Заголовки</li>
+                <li>Тіло відповіді</li>
+            </ul>
+        </div>
+        <div>
+            <img src="images/4.png" alt="" width="650">
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>HTTP відповідь</h2>
+    <div class="columns two">
+        <div>
+            <b>Коди стану:</b>
+            <ul>
+                <li>1xx інформаційний</li>
+                <li>2хх успіх</li>
+                <li>3хх перенаправлення</li>
+                <li>4хх помилка клієнта</li>
+                <li>5хх помилка сервера</li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>101 – Switching Protocol</li>
+                <li>200 – OK</li>
+                <li>201 – Created</li>
+                <li>301 – Moved Permanently</li>
+                <li>302 – Found</li>
+                <li>400 – Bad Request</li>
+                <li>404 – Not Found</li>
+                <li>500 – Internal Server Error</li>
+                <li>501 – Not Implemented</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>fetch</h2>
+    <p>
+        <b>AJAX (Asynchronous JavaScript and XML)</b> – термін, що визначає мережевий запит, зроблений за
+        допомогою JavaScript коду.
+    </p>
+    <p>
+        <b>fetch()</b> – сучасний варіант створення мережевих запитів. Цей метод повертає promise, що
+        полегшує організацію коду обробки запиту, оскільки всі мережні запити за замовчуванням
+        виконуються <b>асинхронно</b>.
+    </p>
+    <p>
+        let promise = <b>fetch</b> (url, [options]);
+    </p>
+    <p>
+        url – URL для надсилання запиту
+        <br>
+        options – об'єкт, який описує додаткові параметри: HTTP метод, заголовки тощо.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>fetch</h2>
+    <p>
+        Результат, пов'язаний із promise, який повертає функція fetch — вбудований клас Response,
+        який надає кілька методів до роботи з тілом відповіді.
+    </p>
+    <b>Всі методи повертають Promise з результатом, отриманим з HTTP тіла відповіді:</b>
+    <ul>
+        <li>response.text() — отримання відповіді як звичайного тексту</li>
+        <li>response.json() — отримання об'єкта з відповіді у форматі JSON</li>
+        <li>response.formData() — повертає тіло відповіді у вигляді FormData (об'єктне подання полів
+            форми)
+        </li>
+        <li>response.blob() — бінарні дані з типом</li>
+        <li>response.arrayBuffer() — низькорівневе подання бінарних даних ArrayBuffer</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>fetch</h2>
+    <p>Для визначення методу HTTP при використанні методу fetch в об'єкті опцій, який
+        передається другим параметром, потрібно вказати властивість методу з рядковим
+        значенням, що відповідає потрібному методу HTTP:</p>
+    <pre>
+        <code>fetch(url, {</code>
+        <code>  method: 'POST'</code>
+        <code>})</code>
+    </pre>
+    <p>
+        Promise, який повертається fetch, не переходить у стан rejected, якщо сервер повернув
+        статус коду помилки 4хх або 5хх. Для перевірки відповіді сервера слід використовувати
+        властивість об'єкта response.
+    </p>
+</section>
+
+<section class="slide">
+    <h2>fetch</h2>
+    <div style="font-size: 19px;">
+        <p>
+            Метод fetch не передає на сервер cookie, доки не буде змінено значення параметра
+            credentials.
+        </p>
+        <p>
+            Гарною практикою при написанні коду, що працює асинхронно, є відображення
+            індикатора асинхронної операції (користувач буде розуміти, що сторінка виконує якусь
+            дію, а не зависла) та надання можливості скасувати асинхронну операцію (особливо якщо
+            операція може виконуватись тривалий час).
+        </p>
+        <p>
+            Для скасування запиту мережі, запущеного через метод fetch, використовується
+            вбудований конструктор AbortController. Значення властивості signal об'єкта, створеного
+            через цей конструктор, потрібно передати як властивість signal в об'єкт налаштувань
+            функції fetch.
+        </p>
+        <p>При скасуванні асинхронної операції необхідно обробити виняток, який буде викинуто в
+            promise, пов'язаному з асинхронною операції</p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Контрольні питання</h2>
+    <ol style="font-size: 16px;">
+        <li>Що таке AJAX?</li>
+        <li>Опишіть структуру запиту HTTP.</li>
+        <li>Назвіть основні HTTP-дієслова (HTTP-методи).</li>
+        <li>Опишіть структуру відповіді HTTP.</li>
+        <li>Назвіть групи статус кодів, HTTP відповіді.</li>
+        <li>Який спосіб надсилання мережевих запитів, окрім методу fetch, ви знаєте?</li>
+        <li>Як вказати метод HTTP під час надсилання запиту через fetch?</li>
+        <li>Як скасувати запит мережі, запущений за допомогою функції fetch?</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
+</section>
+
+<div class="progress"></div>
+
+<script src="../../../core/shower.js"></script>
+</body>
+</html>
+

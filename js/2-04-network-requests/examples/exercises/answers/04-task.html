@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 05</title>
+    <style>
+        table {
+            margin: 10px
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        td,
+        th {
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="todoTable">
+        <tr>
+            <th>userid</th>
+            <th>id</th>
+            <th>title</th>
+            <th>completed</th>
+        </tr>
+    </table>
+    <script>
+        /*
+        Завдання:
+        Напишіть сценарій, який виконує запит GET за адресою https://jsonplaceholder.typicode.com/todos
+        та виводить вміст відповіді у вигляді таблиці.
+        */
+
+        let url = "https://jsonplaceholder.typicode.com/todos";
+        fetch(url)
+            .then(response => response.json())
+            .then(json => createTable(json));
+
+        let table = document.querySelector("#todoTable");
+
+        function createTable(json) {
+            json.forEach(element => {
+                table.append(createRow(element.userId, element.id, element.title, element.completed));
+            });
+        }
+
+        function createRow(userid, id, title, completed) {
+            let tr = document.createElement("tr");
+            tr.insertAdjacentHTML("beforeend", `<td>${userid}</td>`);
+            tr.insertAdjacentHTML("beforeend", `<td>${id}</td>`);
+            tr.insertAdjacentHTML("beforeend", `<td>${title}</td>`);
+            tr.insertAdjacentHTML("beforeend", `<td>${completed}</td>`);
+            return tr;
+        }
+    </script>
+</body>
+
+</html>

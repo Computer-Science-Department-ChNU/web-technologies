@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заголовки відповіді</title>
+</head>
+<body>
+<script>
+    let request = fetch("https://jsonplaceholder.typicode.com/todos/1")
+
+    request.then(response => {
+        // Читання значення заголовка на ім'я
+        console.log(response.headers.get('Content-Type'))
+
+        // Перебір усіх заголовків
+        for (let header of response.headers) {
+            console.log(`${header[0]} = ${header[1]}`)
+        }
+    })
+</script>
+</body>
+</html>

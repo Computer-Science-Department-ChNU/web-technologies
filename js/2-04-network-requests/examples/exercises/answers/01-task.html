@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+</head>
+
+<body>
+    <button id="button1">Запит</button>
+    <div id="output"></div>
+    <script>
+        /*
+        Завдання:
+        Додайте обробку статус кодів помилок на стороні сервера та на стороні клієнта
+        для мережного запиту, який виконується під час натискання на кнопку "Запит"
+        */
+
+        let button1 = document.querySelector("#button1");
+        let output = document.querySelector("#output");
+        let url = "https://jsonplaceholder.typicode.com/todos/10000";
+
+        button1.addEventListener("click", function () {
+            fetch(url)
+                .then(response => {
+                    if (response.ok)
+                        return response.json();
+                    else
+                        throw new Error("Сервер повернув статус код" + response.status);
+                })
+                .then(json => {
+                    output.style.color = "black";
+
+                    output.innerHTML = "";
+                    output.innerHTML += "<br>id: " + json.id;
+                    output.innerHTML += "<br>user id: " + json.userId;
+                    output.innerHTML += "<br>title: " + json.title;
+                    output.innerHTML += "<br>completed: " + json.completed;
+                })
+                .catch(error => {
+                    output.style.color = "red";
+                    output.innerHTML = error.message;
+                });
+        });
+    </script>
+</body>
+
+</html>

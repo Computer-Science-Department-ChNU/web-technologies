@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скасувати запит</title>
+    <style>
+        .completed {
+            color: green;
+        }
+
+        .incomplete {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+<button id="loadButton">Завантажити список завдань</button>
+<span id="loader" style="display: none;">Завантаження... <a href="#" id="cancelLink">Скасування</a></span>
+
+<div id="todoList">
+</div>
+
+<script>
+    let url = "https://jsonplaceholder.typicode.com/todos"
+    const abortController = new AbortController()
+    // AbortController об'єкт з однією властивістю signal і одним методом abort
+    // При виклику методу abort генерується подія abort на об'єкті AbortController.signal
+    // Метод fetch вміє працювати з AbortController
+
+    let loadButton = document.querySelector("#loadButton")
+    let cancelLink = document.querySelector("#cancelLink")
+    let loader = document.querySelector("#loader")
+    let todoList = document.querySelector("#todoList")
+
+    loadButton.addEventListener("click", function () {
+        showLoader()
+        fetch(url, {signal: abortController.signal}) // встановлення об'єкта, через який можна скасувати асинхронну операцію
+            .then(response => response.json())
+            .then(json => renderList(json))
+            .finally(hideLoader)
+            .catch(error => {
+                if (error.name === 'AbortError') { // якщо catch спрацював через скасування fetch, обробляємо помилку
+                    alert("Запит було скасовано користувачем")
+                } else {
+                    throw error // Інакше кидаємо помилку далі, щоб її обробили в іншому місці (актуально для великого проекту)
+                }
+            })
+    })
+
+    cancelLink.addEventListener("click", function () {
+        abortController.abort()
+    })
+
+    function showLoader() {
+        loader.style.display = "inline"
+    }
+
+    function hideLoader() {
+        loader.style.display = "none"
+    }
+
+    function renderList(list) {
+        list.forEach(element => {
+            let div = document.createElement("div")
+            div.innerHTML = `${element.id} (${element.completed}) - ${element.title}`
+
+            if (element.completed) {
+                div.classList.add("completed")
+            } else {
+                div.classList.add("incomplete")
+            }
+
+            todoList.append(div)
+        })
+    }
+</script>
+</body>
+
+</html>

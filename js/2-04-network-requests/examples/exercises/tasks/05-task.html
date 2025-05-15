@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 04</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .task-list {
+            width: 500px;
+        }
+
+        #start-message {
+            margin: 10px;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            border: 1px solid gray;
+            padding: 3px 8px;
+            margin: 2px 10px;
+        }
+
+        .task p {
+            margin-left: 4px;
+        }
+
+        .completed {
+            background-color: green;
+            color: white;
+        }
+
+        .completed p {
+            text-decoration: line-through;
+        }
+
+        .input-panel {
+            width: 500px;
+            margin: 8px;
+            padding: 2px;
+        }
+
+        .input-panel button {
+            padding: 4px;
+            width: 25%;
+        }
+
+        .input-panel input {
+            height: 23px;
+            padding-left: 4px;
+            width: 68%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="input-panel">
+        <input type="text" id="task-name-input">
+        <button id="add-task-btn">Додати завдання</button>
+    </div>
+    <div class="input-panel">
+        <button id="show-all-btn">Всі</button>
+        <button id="show-not-completed-btn">Не завершено</button>
+    </div>
+    <div class="task-list">
+        <p id="start-message">Немає нових завдань</p>
+    </div>
+
+    <script>
+
+        /*
+        Завдання:
+        Додайте логіку обробки статус кодів помилок клієнта та серверної сторони.
+        Передбачте обробку та виведення винятків пов'язаних з іншими проблемами при мережевих запитах
+        */
+        class Task {
+            constructor(text) {
+                this.text = text;
+                this.isDone = false;
+            }
+        }
+
+        let dataService = {
+            url: "https://jsonplaceholder.typicode.com/todos",
+
+            get allTasks() {
+                return fetch(this.url)
+                    .then(response => response.json())
+                    .then(json => this.mapArray(json));
+            },
+
+            get notCompletedTasks() {
+                return fetch(this.url + "?completed=false")
+                    .then(response => response.json())
+                    .then(json => this.mapArray(json));
+            },
+
+            add(task) {
+                return fetch(this.url, {
+                    method: "POST",
+                    body: JSON.stringify({ title: task.text, completed: task.isDone })
+                })
+                    .then(response => response.json());
+            },
+
+            update(task) {
+                return fetch(this.url + "/" + task.id, {
+                    method: "PUT",
+                    body: JSON.stringify({ title: task.text, completed: task.isDone })
+                })
+                    .then(response => response.json());
+            },
+
+            mapArray(array) {
+                return array.map(element => {
+                    return {
+                        id: element.id,
+                        text: element.title,
+                        isDone: element.completed
+                    }
+                });
+            }
+        }
+
+        class TasksListView {
+            element;
+            dataService;
+
+            constructor(element) {
+                this.element = element;
+                dataService = dataService;
+            }
+
+            #drawList(tasksElements) {
+                this.element.innerHTML = "";
+
+                tasksElements.forEach(taskElement => {
+                    taskElement.createIn(this.element);
+                });
+            }
+
+            drawAll() {
+                let taskElements = [];
+                dataService.allTasks.then(tasks => {
+                    if (tasks.length == 0) return;
+
+                    tasks.forEach(task => {
+                        taskElements.push(new TaskView(task))
+                    });
+                    this.#drawList(taskElements);
+                });
+            }
+
+            drawNotCompleted() {
+                let taskElements = [];
+                dataService.notCompletedTasks.then(tasks => {
+                    if (tasks.length == 0) return;
+
+                    tasks.forEach(task => {
+                        taskElements.push(new TaskView(task))
+                    });
+                    this.#drawList(taskElements);
+                });
+            }
+        }
+
+        class TaskView {
+            constructor(task) {
+                this.task = task;
+                this.div = null;
+            }
+
+            createIn(element) {
+                this.div = document.createElement("div");
+                this.div.classList.add("task");
+
+                let input = document.createElement("input");
+                input.addEventListener("click", this.changeState.bind(this));
+                input.type = "checkbox";
+
+                let p = document.createElement("p");
+                p.innerText = this.task.text;
+
+                this.div.append(input);
+                this.div.append(p);
+
+                if (this.task.isDone) {
+                    this.div.classList.add("completed");
+                    input.checked = true;
+                }
+                element.append(this.div);
+            }
+
+            changeState(element) {
+                this.task.isDone = !this.task.isDone;
+                dataService.update(this.task);
+                this.div.classList.toggle("completed");
+            }
+        }
+
+        let taskNameInput = document.querySelector("#task-name-input");
+        let addTaskButton = document.querySelector("#add-task-btn");
+        let startMessage = document.querySelector("#start-message");
+        let showAllButton = document.querySelector("#show-all-btn");
+        let showNotCompletedButton = document.querySelector("#show-not-completed-btn");
+        let taskList = document.querySelector(".task-list");
+
+        let tasksListView = new TasksListView(taskList);
+
+        addTaskButton.addEventListener("click", addTaskHandler);
+        showAllButton.addEventListener("click", showAllHandler);
+        showNotCompletedButton.addEventListener("click", showNotCompletedHandler);
+
+        window.addEventListener("load", function () {
+            tasksListView.drawAll();
+        });
+
+        taskNameInput.addEventListener("keydown", function (e) {
+            if (e.code == "Enter") addTaskHandler();
+        })
+
+        function addTaskHandler() {
+            if (taskNameInput.value) {
+                if (!startMessage.hidden) startMessage.hidden = true;
+
+                let newTask = new Task(taskNameInput.value);
+                dataService.add(newTask).then(() => tasksListView.drawAll());
+                taskNameInput.value = "";
+            } else {
+                alert("введіть ім'я завдання");
+            }
+        }
+
+        function showAllHandler() {
+            tasksListView.drawAll();
+        }
+
+        function showNotCompletedHandler() {
+            tasksListView.drawNotCompleted();
+        }
+    </script>
+</body>
+
+</html>

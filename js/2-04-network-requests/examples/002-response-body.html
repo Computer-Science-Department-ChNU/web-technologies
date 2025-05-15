@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>response body</title>
+</head>
+<body>
+<button id="button1">Запит (json)</button>
+<button id="button2">Запит (text)</button>
+<div id="output"></div>
+<script>
+
+    let button1 = document.querySelector("#button1")
+    let button2 = document.querySelector("#button2")
+    let output = document.querySelector("#output")
+    let url = "https://jsonplaceholder.typicode.com/todos/1"
+
+    // обробляємо відповідь як JSON
+    button1.addEventListener("click", function () {
+        fetch(url)
+            .then(response => response.json()) // десеріалізує об'єкт із відповіді в JSON форматі
+            .then(json => {
+                output.innerHTML = ""
+                output.innerHTML += "<br>id: " + json.id
+                output.innerHTML += "<br>user id: " + json.userId
+                output.innerHTML += "<br>title: " + json.title
+                output.innerHTML += "<br>completed: " + json.completed
+            })
+    })
+
+    // Обробляємо відповідь як текст
+    button2.addEventListener("click", function () {
+        fetch(url)
+            .then(response => response.text()) // отримання відповіді як звичайного тексту
+            .then(text => output.innerHTML = text)
+    })
+
+    /*
+    Response надає кілька методів для роботи з тілом відповіді
+    Усі методи повертають Promise з результатом, отриманим із тіла відповіді
+    response.text() - отримання відповіді як звичайного тексту
+    response.json() - отримання об'єкта з відповіді у форматі JSON
+    response.formData() - повертає тіло відповіді у вигляді FormData (об'єктне уявлення полів форми)
+    response.blob() - бінарні дані з типом
+    response.arrayBuffer() - низькорівневе подання бінарних даних ArrayBuffer
+    */
+</script>
+</body>
+
+</html>

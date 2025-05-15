@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 02</title>
+    <style>
+        .form-group {
+            margin: 4px;
+        }
+
+        .form-group label {
+            width: 75px;
+            display: inline-block;
+        }
+
+        .hint {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title">
+        </div>
+        <div class="form-group">
+            <label>Body</label>
+            <textarea name="body"></textarea>
+        </div>
+
+        <div class="form-group">
+            <input id="updateButton" type="button" value="Оновити">
+        </div>
+    </form>
+    <script>
+        /*
+        Завдання:
+        Напишіть сценарій, який оновлюватиме сутність post з властивостями
+        id: 1,
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
+
+        Створіть форму з полем введення для значення властивості title та полем введення для значення властивості body
+
+        Значення для властивостей title та body отримаєте від користувача
+        Значення id та userId повинні залишитися рівними 1 і виводити їх у формі не потрібно.
+        При завантаженні сценарію заповніть форму даними отриманими під час обробки GET запиту на https://jsonplaceholder.typicode.com/posts/1
+
+        адреса для надсилання запиту
+        https://jsonplaceholder.typicode.com/posts/1
+
+        для оновлення сутності скористайтесь PUT запитом https://jsonplaceholder.typicode.com/posts/1. Опрацюйте відповідь
+        та виведіть інформацію про помилку або успішно завершену операцію.
+        */
+
+        let url = "https://jsonplaceholder.typicode.com/posts/1";
+        let form = document.forms[0];
+
+        fetch(url)
+            .then(response => response.json())
+            .then(json => {
+                form.title.value = json.title;
+                form.body.value = json.body;
+            });
+
+        let button = document.querySelector("#updateButton");
+        button.addEventListener("click", function () {
+            let bodyObj = {
+                id: 1,
+                userId: 1,
+                title: form.title.value,
+                body: form.body.value
+            };
+
+            fetch(url, {
+                method: "PUT",
+                body: JSON.stringify(bodyObj)
+            }).then(response => {
+                if (response.ok) {
+                    console.log(response.json())
+                    alert("Дані збережені");
+                }
+                else {
+                    console.error("Помилка під час обробки запиту (status code " + response.status + ")");
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
