@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List (Functional styles)</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .task-list {
+            width: 500px;
+        }
+
+        #start-message {
+            margin: 10px;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            border: 1px solid gray;
+            padding: 3px 8px;
+            margin: 2px 10px;
+        }
+
+        .task p {
+            margin-left: 4px;
+        }
+
+        .completed {
+            background-color: green;
+            color: white;
+        }
+
+        .completed p {
+            text-decoration: line-through;
+        }
+
+        .input-panel {
+            width: 500px;
+            margin: 8px;
+            padding: 2px;
+        }
+
+        .input-panel button {
+            padding: 4px;
+            width: 25%;
+        }
+
+        .input-panel input {
+            height: 23px;
+            padding-left: 4px;
+            width: 68%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="input-panel">
+    <input type="text" id="task-name-input">
+    <button id="add-task-btn">Додати завдання</button>
+</div>
+<div class="input-panel">
+    <button id="show-all-btn">Всі</button>
+    <button id="show-not-completed-btn">Не завершено</button>
+</div>
+<div class="task-list">
+    <p id="start-message">Немає нових завдань</p>
+</div>
+
+<script>
+    const createTask = (text) => ({
+        text,
+        isDone: false
+    });
+
+    const dataService = (() => {
+        const url = "https://jsonplaceholder.typicode.com/todos";
+
+        const mapToTask = element => ({
+            id: element.id,
+            text: element.title,
+            isDone: element.completed
+        });
+
+        const mapArray = array => array.map(mapToTask);
+
+        const getAllTasks = () =>
+            fetch(url)
+                .then(response => response.json())
+                .then(mapArray);
+
+        const getNotCompletedTasks = () =>
+            fetch(`${url}?completed=false`)
+                .then(response => response.json())
+                .then(mapArray);
+
+        const addTask = task =>
+            fetch(url, {
+                method: "POST",
+                body: JSON.stringify({
+                    title: task.text,
+                    completed: task.isDone
+                })
+            })
+                .then(response => response.json());
+
+        const updateTask = task =>
+            fetch(`${url}/${task.id}`, {
+                method: "PUT",
+                body: JSON.stringify({
+                    title: task.text,
+                    completed: task.isDone
+                })
+            })
+                .then(response => response.json());
+
+        return {
+            getAllTasks,
+            getNotCompletedTasks,
+            addTask,
+            updateTask
+        };
+    })();
+
+    const renderTaskElement = (task, taskListElement) => {
+        const div = document.createElement("div");
+        div.classList.add("task");
+
+        if (task.isDone) {
+            div.classList.add("completed");
+        }
+
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.checked = task.isDone;
+
+        input.addEventListener("click", () => {
+            const updatedTask = {
+                ...task,
+                isDone: !task.isDone
+            };
+
+            dataService.updateTask(updatedTask);
+            div.classList.toggle("completed");
+            task.isDone = updatedTask.isDone; // Оновлюємо стан
+        });
+
+        const p = document.createElement("p");
+        p.innerText = task.text;
+
+        div.append(input, p);
+        taskListElement.append(div);
+
+        return div;
+    };
+
+    const renderTaskList = (tasks, taskListElement) => {
+        taskListElement.innerHTML = "";
+        tasks.forEach(task => renderTaskElement(task, taskListElement));
+    };
+
+    const initApp = () => {
+        const taskNameInput = document.querySelector("#task-name-input");
+        const addTaskButton = document.querySelector("#add-task-btn");
+        const startMessage = document.querySelector("#start-message");
+        const showAllButton = document.querySelector("#show-all-btn");
+        const showNotCompletedButton = document.querySelector("#show-not-completed-btn");
+        const taskList = document.querySelector(".task-list");
+
+        const showAllTasks = () => {
+            dataService.getAllTasks()
+                .then(tasks => {
+                    if (tasks.length > 0 && !startMessage.hidden) {
+                        startMessage.hidden = true;
+                    }
+                    renderTaskList(tasks, taskList);
+                });
+        };
+
+        const showNotCompletedTasks = () => {
+            dataService.getNotCompletedTasks()
+                .then(tasks => {
+                    if (tasks.length > 0 && !startMessage.hidden) {
+                        startMessage.hidden = true;
+                    }
+                    renderTaskList(tasks, taskList);
+                });
+        };
+
+        const addTask = () => {
+            const taskText = taskNameInput.value.trim();
+
+            if (taskText) {
+                if (!startMessage.hidden) {
+                    startMessage.hidden = true;
+                }
+
+                const newTask = createTask(taskText);
+
+                dataService.addTask(newTask)
+                    .then(() => {
+                        showAllTasks();
+                        taskNameInput.value = "";
+                    });
+            } else {
+                alert("введіть ім'я завдання");
+            }
+        };
+
+        addTaskButton.addEventListener("click", addTask);
+        showAllButton.addEventListener("click", showAllTasks);
+        showNotCompletedButton.addEventListener("click", showNotCompletedTasks);
+
+        taskNameInput.addEventListener("keydown", (e) => {
+            if (e.code === "Enter") addTask();
+        });
+
+        showAllTasks();
+    };
+
+    window.addEventListener("load", initApp);
+</script>
+</body>
+
+</html>
