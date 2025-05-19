@@ -5,7 +5,7 @@
 *Мета:* створити адаптивну сторінку пошуку друзів у соціальних мережах з картками користувачів, пошуком, сортуванням та фільтрацією.
 Набути практичних навичок роботи з Fetch API, URL API, History API.
 
-== Вимоги та самостійна робота:
+== Самостійна робота:
 
 ** https://randomuser.me/[API для отримання даних користувачів]
 ** https://randomuser.me/documentation[Documentation for the Random User Generator API]
@@ -14,15 +14,17 @@
 ** https://developer.mozilla.org/en-US/docs/Web/API/History_API[History API]
 ** https://uk.javascript.info/array-methods[Методи масивів]
 ** https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array[Array]
+** https://uk.javascript.info/task/debounce[Декоратор debounce]
+** https://uk.javascript.info/task/throttle[Дросельний (throttle) декоратор]
+** https://www.freecodecamp.org/news/javascript-debounce-example/[Debounce – How to Delay a Function in JavaScript (JS ES6 Example)]
 
 == Практична частина
 
 Створіть невеличку сторінку пошуку друзів у соціальних мережах з картками користувачів, пошуком, сортуванням та фільтрацією їх за віком, прізвищем, ім'ям, або чим завгодно, за допомогою Random User API.
 
-Це приклад.
+Це приблизний приклад вашого UI.
 Ви повинні стилізувати свою програму так, як хочете.
-Зробіть це особистим.
-Зробіть це красивим.
+Зробіть це особистим, красивим та адаптивним.
 
 image:./1.png[]
 
@@ -41,6 +43,13 @@ Logout очищає дані з LocalStorage і знову показує юзе
 ** Додайте пагінацію;
 ** Додайте довантаження контенту при прокручуванні (скролу), при цьому сторінка пагінації має показувати активні сторінки (Наприклад 1, 3 та 3 і т.д.).
 ** Реалізуйте збереження обраних друзів у LocalStorage.
+** Обов'язково виконайте обробку помилок при запиті, якщо виникне помилка - то повідомте про це юзеру.
+** Використання css фреймворків - заборонено!
+** Використання alert, confirm, prompt - заборонено!
+** Використовуйте функціональний стиль програмування.
+** Використовуйте тільки pure functions.
+** Опублікуйте ваш application на https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages[GitHub Pages]
+** Адаптивність.
 
 == Контрольні запитання:
 
