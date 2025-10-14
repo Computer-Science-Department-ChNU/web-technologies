@@ -1,95 +1,109 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <title>Лекція 6. Визначення розмірів блоків</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <link rel="stylesheet" href="../../../core/styles/styles.css">
-  <style>
-    .shower {
-      --slide-ratio: calc(16 / 9);
-    }
-  </style>
+    <title>Лекція 6. Визначення розмірів блоків</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../../../core/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
 </head>
 <body class="shower list">
 
 <header class="caption">
-  <h1>Лекція 6. Визначення розмірів блоків</h1>
+    <h1>Лекція 6. Визначення розмірів блоків</h1>
 </header>
 
 <section class="slide">
-  <h2>Лекція 6. Визначення розмірів блоків</h2>
-  <h3>План лекції:</h3>
-  <ol>
-    <li>Випадання з контентної частини елемента</li>
-    <li>Розміри блочних елементів</li>
-    <li>Властивості padding та border</li>
-    <li>box-sizing</li>
-  </ol>
+    <h2>Лекція 6. Визначення розмірів блоків</h2>
+    <h3>План лекції:</h3>
+    <ol>
+        <li>Випадання з контентної частини елемента</li>
+        <li>Розміри блочних елементів</li>
+        <li>Властивості padding та border</li>
+        <li>Властивість box-sizing</li>
+    </ol>
 </section>
 
 <section class="slide">
-  <h2>Визначення розміру елемента</h2>
-  <div class="columns two" style="font-size: 18px;">
-    <div>
-      <p>
-        Властивості <b>width</b> і <b>height</b> не працюють
-        правильно з рядковими елементами!
-      </p>
-      <ul>
-        <li><b>width</b> – ширина елемента</li>
-        <li><b>height</b> – висота елемента</li>
-        <li><b>padding</b> – внутрішній відступ</li>
-        <li><b>border</b> – межі (рамка) елемента</li>
-      </ul>
-      <p><b>margin</b> – зовнішній відступ елемента та не
-        впливає на його розміри</p>
+    <h2>Визначення розміру елемента</h2>
+    <div class="columns two" style="font-size: 18px;">
+        <div>
+            <p>
+                Властивості <b>width</b> і <b>height</b> не працюють
+                правильно з рядковими елементами!
+            </p>
+            <ul>
+                <li><b>width</b> – ширина елемента</li>
+                <li><b>height</b> – висота елемента</li>
+                <li><b>padding</b> – внутрішній відступ</li>
+                <li><b>border</b> – межі (рамка) елемента</li>
+            </ul>
+            <p><b>margin</b> – зовнішній відступ елемента та не
+                впливає на його розміри</p>
+        </div>
+        <div>
+            <img src="images/1.png" width="298">
+        </div>
     </div>
-    <div>
-      <img src="images/1.png" width="298">
-    </div>
-  </div>
 </section>
 
 <section class="slide">
-  <h2>Відсотки(%) в CSS</h2>
-  <img src="images/2.png" width="650">
+    <h2>Відсотки(%) в CSS</h2>
+    <img src="images/2.png" width="650">
 </section>
 
 <section class="slide">
-  <h2>Визначення розміру елемента</h2>
-  <img src="images/3.png" width="820">
+    <h2>Визначення розміру елемента</h2>
+    <img src="images/3.png" width="820">
 </section>
 
 <section class="slide">
-  <h2>Властивості видимості елементів на сторінці</h2>
-  <img src="images/2.png" width="811">
+    <h2>Властивість box-sizing</h2>
+    <p>Властивість box-sizing дозволяє змінити алгоритм розрахунку розмірів блоку, щоб властивості width і height
+        задавали розміри не контенту, а саме розміри блоку.
+    </p>
+    <img src="images/4.png" width="715">
 </section>
 
 <section class="slide">
-  <h2>Резюме</h2>
-  <ul>
-    <li>Спадкування в CSS - можливість використовувати стилі від батьківського елемента в
-      нащадку
-    </li>
-    <li>Прихований елемент - елемент, що займає своє місце на сторінці і візуально ховається.
-    </li>
-  </ul>
+    <h2>Властивість box-sizing</h2>
+    <p>Без задання, коли ви вказуєте ширину блоку (width), браузер розраховує її без врахування меж (border) та
+        внутрішніх відступів (padding), вказавши border-box у якості значення властивості box-sizing, браузер почне
+        враховувати кордони та відступи у формуванні ширини та висоти блоку.</p>
+    <p>Типовий алгоритм за замовчуванням використовує content-box, а це означає, що будь-які розміри, які ви надаєте,
+        використовуються лише для визначення розміру вікна вмісту - будь-які поля і межі виводяться за межами вікна
+        вмісту. Тому, застосовуючи ширину 200 пікселів та поле 10 пікселів до елемента, елемент буде займати загальну
+        ширину 220 пікселів (припускаючи, що повзунок додається до всіх чотирьох сторін або принаймні з лівого та
+        правого боку). Це відбувається, тому що підкладка додана до ширини вікна.</p>
 </section>
 
 <section class="slide">
-  <h2>Рекомендовані ресурси</h2>
-  <ul>
-    <li><a href="https://css.in.ua/css/properties" target="_blank">https://css.in.ua/css/properties</a></li>
-    <li><a href="https://html-css.co.ua/" target="_blank">https://html-css.co.ua/</a></li>
-    <li><a href="https://www.w3schools.com/css/default.asp"
-           target="_blank">https://www.w3schools.com/css/default.asp</a></li>
-    <li><a href="https://caniuse.com/" target="_blank">https://caniuse.com/</a></li>
-  </ul>
+    <h2>Властивість box-sizing</h2>
+    <p>Ви можете використовувати значення border-box, щоб змінити це так, що будь-які поля та межі будуть включені в
+        розміри
+        висоти та ширини елемента. У цьому випадку елемент буде займати лише 200 пікселів, тому що заповнення додано до
+        внутрішньої частини елемента.</p>
+    <p>Синтаксис box-sizing: content-box|border-box|initial|inherit;</p>
+    <p>Рекомендація - застосовувати значення border-box для всіх елементів на сторінці.</p>
 </section>
 
 <section class="slide">
-  <h2 class="shout">Дякую за увагу!</h2>
+    <h2>Рекомендовані ресурси</h2>
+    <ul>
+        <li><a href="https://css.in.ua/css/properties" target="_blank">https://css.in.ua/css/properties</a></li>
+        <li><a href="https://html-css.co.ua/" target="_blank">https://html-css.co.ua/</a></li>
+        <li><a href="https://www.w3schools.com/css/default.asp"
+               target="_blank">https://www.w3schools.com/css/default.asp</a></li>
+        <li><a href="https://caniuse.com/" target="_blank">https://caniuse.com/</a></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2 class="shout">Дякую за увагу!</h2>
 </section>
 
 <div class="progress"></div>
