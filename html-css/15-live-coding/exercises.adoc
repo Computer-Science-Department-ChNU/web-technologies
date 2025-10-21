@@ -1,3 +1,125 @@
+== The Site Header
+
+[source, css]
+----
+.site-header {}
+----
+
+[source, html]
+----
+<header class="site-header">
+    <div class="container">
+      <div class="logo">
+        Logo
+      </div>
+      <div class="main-menu">
+        Main menu
+      </div>
+      <div class="contacts">
+        Contacts
+      </div>
+      <div class="cart">
+        Cart
+      </div>
+    </div>
+  </header>
+----
+
+Usually in this block they place the thing like: logo, main menu, search, contacts, authorize blocks, cart, etc. As the matter of fact header is a wrapper for the grid of the page top.
+
+== The Logo
+
+[source, css]
+----
+.logo {}
+----
+
+At the most cases it's a company or product logo. It's placed at the left top corner of the page. At the home page it leads nowhere, and at the child pages leads to the home.
+
+== The Menu
+
+[source, css]
+----
+.menu {}
+.main-menu {}
+.footer-menu {}
+----
+
+Any menu is a link set, therefore the menu should consist of the list.
+
+== The Form
+
+[source, css]
+----
+.form {}
+.form-title {}
+.form-subtitle {}
+.form-content {}
+.form-row {}
+.form-column {}
+.form-control {}
+----
+
+[source, html]
+----
+<div class="form">
+    <form action="#">
+        <div class="form-header">
+            <h2 class="form-title">
+                Feed back
+            </h2>
+            <p class="form-text">
+                Lorem ipsum dolor sit amet, consectetur.
+            </p>
+        </div>
+        <div class="form-content">
+            <div class="form-row">
+                <div class="form-column form-column-left">
+                    <label for="name" class="label">
+                        <span class="label-text">
+                        Name
+                        </span>
+                    </label>
+                </div>
+                <div class="form-column form-column-right">
+                    <input id="name" type="text" class="input">
+                </div>
+            </div>
+            <div class="form-submit">
+                <input type="submit" class="btn">
+            </div>
+        </div>
+    </form>
+</div>
+----
+
+The Form block is needed to create a grid for fields. As a rule forms have such elements as rows, columns, cells and other handy elements.
+
+== The Input + Label
+
+[source, css]
+----
+.label {}
+.label-text {}
+.input {}
+.input-icon {}
+.input-btn {}
+----
+
+[source, html]
+----
+<label class="label">
+    <span class="label-text">
+      I'm input
+    </span>
+    <input type="text" class="input" placeholder="Type here something">
+</label>
+----
+
+The input may have different modifications or be a part of other blocks: search, date-picker, counter.
+
+== Practice - follow the site sections listed below
+
 * https://www.dropbox.com/business - price section
 * https://www.airbnb.com/ - footer section
 * https://www.paypal.com/de/home - navigation section
