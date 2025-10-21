@@ -1,0 +1,11 @@
+{
+    "extends": "stylelint-config-standard",
+    "rules": {
+        "indentation": 2,
+        "number-leading-zero": "always",
+        "color-hex-case": "lower",
+        "selector-class-pattern": "^[a-z0-9\\-]+$",
+        "block-opening-brace-space-before": "always",
+        "declaration-block-trailing-semicolon": "always"
+    }
+}

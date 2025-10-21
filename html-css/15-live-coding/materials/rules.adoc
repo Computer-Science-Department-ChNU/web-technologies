@@ -1,0 +1,112 @@
+= Simple rules for writing goog HTML and CSS
+
+== Пиши класи логічно та семантично
+
+Назва має відображати роль елемента, а не його вигляд.
+
+Добре
+
+[source,html]
+----
+<div class="header"></div>
+<div class="article-list"></div>
+<div class="comment-form"></div>
+----
+
+Погано
+
+[source,html]
+----
+<div class="red-box"></div>
+<div class="big-title"></div>
+----
+
+
+== Використовуй дефіс для розділення слів (kebab-case)
+
+Це найзручніше і найчитабельніше.
+
+CamelCase (MainContainer) або підкреслення (main_container) - краще уникати.
+
+Добре
+
+[source,html]
+----
+<div class="main-container"></div>
+<div class="nav-item"></div>
+----
+
+Погано
+
+[source,html]
+----
+<div class="mainContainer"></div>
+<div class="nav_item"></div>
+<div class="Footer-Links"></div>
+----
+
+
+== Уникай глибокої вкладеності
+
+Не потрібно створювати класи типу header-content-left-button.
+
+Краще структурувати DOM і використовувати короткі, контекстно зрозумілі імена.
+
+Добре
+
+[source,html]
+----
+<header class="header">
+  <div class="container">
+    <a href="/" class="logo">...</a>
+    <div class="menu">...</div>
+  </div>
+</header>
+----
+
+Погано
+
+[source,html]
+----
+<header class="header">
+  <div class="header-container">
+    <a href="/" class="header-container-logo">...</a>
+    <div class="header-container-menu">...</div>
+  </div>
+</header>
+----
+
+
+== Думай "компонентами"
+
+Якщо елемент повторюється або має сенс окремо - зроби з нього самостійний клас.
+
+[source,html]
+----
+<section class="card">
+  <h2 class="card-title"></h2>
+  <p class="card-text"></p>
+</section>
+
+<section class="card">
+  <h2 class="card-title"></h2>
+  <p class="card-text"></p>
+</section>
+----
+
+== Використовуй "namespace" або префікси для груп
+
+Корисно, коли багато секцій або сторінок або для розмежування типів/
+
+[source,html]
+----
+<div class="user-profile"></div>
+<div class="user-avatar"></div>
+<div class="user-name"></div>
+
+<div class="btn-primary"></div>
+<div class="btn-secondary"></div>
+
+<div class="icon-user"></div>
+<div class="icon-search"></div>
+----

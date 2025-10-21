@@ -1,0 +1,4 @@
+* https://www.dropbox.com/business - price section
+* https://www.airbnb.com/ - footer section
+* https://www.paypal.com/de/home - navigation section
+* https://miro.com/signup/ - signup + login

@@ -1,0 +1,239 @@
+= Let's practice naming blocks and elements
+
+== Blocks
+*Here are examples of good named blocks:*
+
+* container
+* news
+* main-menu
+* menu
+* navigation
+* navbar
+* site-header
+* site-footer
+* slider
+* carousel
+* btn, button
+* jumbotron
+* gallery
+* btn-set
+* form
+* field
+* add-event
+* info
+* socials
+* logo
+* search
+* timeline
+* short-event
+* label
+
+*And here is an example of bad names for blocks:*
+
+* news-left
+* footer-menu
+* red-btn
+* center-info
+* big-logo
+* wide-gallery
+* wrapper-jumbotron
+* wrapper-logo
+
+== Elements (Module, Objects)
+
+*Good names for elements:*
+
+* list
+* item
+* container
+* link
+* inner
+* row
+* cell
+* title
+* text
+* subtitle
+* number
+* count
+* author
+* date
+
+*Example of bad elements:*
+
+* active-item
+* menu-first-item
+* red-text
+* author-left
+
+== Layout General
+
+`wrapper`, `wrap` - обгортка, зазвичай зовнішня
+
+`inner` - внутрішня обгортка
+
+`container`, `holder`, `box` - контейнер
+
+`grid` - розкладка (сторінки або елемента) у вигляді сітки (зазвичай містить у собі `row` і `col`)
+
+`row` - контейнер у вигляді рядка
+
+`col`, `column` - контейнер у вигляді стовпця
+
+
+== Layout Blocks
+
+`page` - кореневий елемент сторінки
+
+`header` - шапка (сторінки або елемента)
+
+`footer` - підвал (сторінки або елемента)
+
+`section` - розділ контенту (один із декількох)
+
+`main`, `body` - основна частина (сторінки або елемента)
+
+`content` - вміст елемента
+
+`sidebar` - бічна колонка (сторінки або елемента)
+
+`aside` - блок із додатковою інформацією
+
+`widget` - віджет, наприклад, у бічній колонці
+
+
+== Common Blocks
+
+`search` - пошук
+
+`socials` - блок іконок соцмереж
+
+`advertisement`, `adv`, `commercial`, `promo` - рекламний блок (ріжуться Адблоком, не рекомендується використовувати
+такі
+класи для блоків із внутрішньою рекламою)
+
+`features`, `benefits` - список основних особливостей товару, послуги
+
+`slider`, `carousel` - слайдер, інтерактивний елемент із прокруткою вмісту
+
+`pagination` - посторінкова навігація
+
+`user`, `author` - користувач, автор запису або коментаря
+
+`meta` - блок із додатковою інформацією, наприклад, блок тегів і дати в пості
+
+`cart`, `basket` - кошик
+
+`breadcrumbs` - навігаційний ланцюжок, «хлібні крихти»
+
+`more`, `all` - посилання на повну інформацію
+
+`modal` - модальне (діалогове) вікно
+
+`popup` - спливаюче вікно
+
+`tooltip`, `tip` - спливаюче підказки
+
+`preview` - анонс, уривок, наприклад новини або поста, може складатися із заголовка, опису та картинки. Передбачається
+посилання на повну версію
+
+`overlay`,`backdrop`, `paranja` - шар, що перекриває, наприклад, для затемнення зображень або створення модальних вікон
+
+
+== Text
+
+`title`, `subject`, `heading`, `headline`, `caption` — заголовок
+
+`subtitle` — підзаголовок
+
+`slogan` — слоган
+
+`lead`, `tagline` — лід-абзац в тексті (абзац під заголовком, який має на меті зацікавити та спонукати користувача
+читати далі)
+
+`text` — текстовий контент
+
+`desc`, `description` — опис, варіант текстового контенту
+
+`excerpt` —уривок тексту зазвичай використовується перед посиланням «Читати далі...»
+
+`quote`, `blockquote` — цитата
+
+`snippet` — приклад кода
+
+`link` — посилання
+
+`copyright`, `copy` — копірайт
+
+
+== Lists
+
+`list`, `items` — список
+
+`item` — елемент списку
+
+
+== Image
+
+`image`, `img`, `picture`, `pic` — картинка
+
+`icon` — іконка
+
+`logo` — логотип
+
+`userpic`, `avatar` — юзерпік, маленька картинка користувача
+
+`thumbnail`, `thumb` — мініатюра, зменшене зображення
+
+
+== Controls
+
+`button`, `btn` - кнопка, наприклад, для відправлення форми
+
+`control` - елемент керування, наприклад, стрілки «Вперед/назад» у фотогалереї, кнопки керування слайдером
+
+`dropdown` - список, що випадає
+
+
+== Dimensions
+
+`tiny`, `xs` - маленький, крихітний
+
+`small`, `sm` - невеликий
+
+`medium`, `base` - середній
+
+`big`, `large`, `lg` - великий
+
+`huge`, `xl` - величезний
+
+`narrow` - вузький
+
+`wide` - широкий
+
+
+== State
+
+`active`, `current` - активний елемент, наприклад, поточний пункт меню
+
+`visible` - видимий елемент
+
+`hidden` - прихований елемент
+
+`error` - статус помилки
+
+`warning` - статус попередження
+
+`success` - статус успішного виконання завдання
+
+`pending` - стан очікування, наприклад, перед зміною статусу на error або success
+
+
+== Utilities
+
+`text-center`
+
+`text-shadow`
+
+`float-left`
+
+`float-right`
