@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            /*outline: 1px solid red;*/
+            padding: 10px;
+            /*background: red;*/
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 0 20px;
+            background-color: lime;
+        }
+
+        .box-1 {
+            border: 10px solid black;
+            /*box-shadow: 0 0 0 10px navy;*/
+            /*margin: 0 auto;*/
+        }
+
+        .box-2 {
+            /*border: 10px solid black;*/
+            box-shadow: 0 0 0 10px navy;
+            /*margin: 0 auto;*/
+        }
+
+        .gradient-background {
+            width: 300px;
+            height: 500px;
+        }
+
+        .gradient-background {
+            background: linear-gradient(150deg,
+            #FF6B00 0%,
+            #FF6B00 35%,
+            transparent 35%),
+            linear-gradient(230deg,
+                #A855F7 0%,
+                #A855F7 40%,
+                transparent 40%),
+            linear-gradient(340deg,
+                #3B82F6 0%,
+                #3B82F6 35%,
+                transparent 35%),
+            linear-gradient(45deg,
+                #FFEB00 0%,
+                #FFEB00 45%,
+                transparent 45%),
+            linear-gradient(120deg,
+                #22C55E 0%,
+                #22C55E 40%,
+                transparent 40%),
+            #FFFFFF;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container" id="container" data-action="click">
+    <div class="box box-1">box-1</div>
+    <div class="box box-2">box-2</div>
+    <div class="gradient-background">
+        lorem ipsum dolor sit amet
+    </div>
+</div>
+
+</body>
+</html>

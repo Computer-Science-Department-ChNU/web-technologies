@@ -1,0 +1,58 @@
+:root {
+    --input-border-color: #51565d;
+    --input-text-color: #51565d;
+    --input-border-width: 1px;
+    --button-bg-color: #0b6dd9;
+    --button-bg-hover-color: #3b8bec;
+    --button-text-color: #0b6dd9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.form {
+    padding: 20px;
+    border: 2px solid var(--input-border-color);
+    border-radius: 5px;
+}
+
+.label {
+    display: block;
+}
+
+.label-text {
+
+}
+
+.input {
+    padding: 3px 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    outline: none;
+    font-size: 12px;
+}
+
+.input:focus {
+    outline: 1px solid red;
+}
+
+.error {
+    display: block;
+    margin-top: 5px;
+    color: red;
+    font-size: 12px;
+}
+
+

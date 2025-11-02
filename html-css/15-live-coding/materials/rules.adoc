@@ -1,4 +1,4 @@
-= Simple rules for writing goog HTML and CSS
+= Simple rules for writing good HTML and CSS
 
 == Пиши класи логічно та семантично
 
@@ -96,7 +96,7 @@ CamelCase (MainContainer) або підкреслення (main_container) - к�
 
 == Використовуй "namespace" або префікси для груп
 
-Корисно, коли багато секцій або сторінок або для розмежування типів/
+Корисно, коли багато секцій або сторінок або для розмежування типів
 
 [source,html]
 ----
@@ -104,7 +104,7 @@ CamelCase (MainContainer) або підкреслення (main_container) - к�
 <div class="user-avatar"></div>
 <div class="user-name"></div>
 
-<div class="btn-primary"></div>
+<button type="button" class="btn-primary icon-user"></button>
 <div class="btn-secondary"></div>
 
 <div class="icon-user"></div>
