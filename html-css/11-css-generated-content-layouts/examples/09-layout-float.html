@@ -10,7 +10,7 @@
 
         .container {
             min-width: 900px;
-            -background: red;
+            --background: red;
         }
 
         /*
@@ -25,6 +25,7 @@
         .center,
         .right {
             float: left;
+            outline: 1px solid red;
         }
 
         /*
@@ -33,6 +34,15 @@
         Найпопулярніший метод використовує псевдоелемент :after для очищення:
          */
         .container:after {
+            content: '';
+            clear: both;
+            display: table;
+        }
+
+        /*
+        найчастіше використовують утілітарний клас clearfix
+         */
+        .clearfix:after {
             content: '';
             clear: both;
             display: table;

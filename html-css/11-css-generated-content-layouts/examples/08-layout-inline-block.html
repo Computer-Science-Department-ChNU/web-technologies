@@ -11,6 +11,7 @@
         .container {
             /*запобігаємо налізанню елементів */
             min-width: 700px;
+            font-size: 0;
             white-space: nowrap;
         }
 
@@ -18,9 +19,11 @@
         .center,
         .right {
             display: inline-block;
+            outline: 1px solid red;
             /*  вмикаємо всередині назад, успадковується  */
             white-space: normal;
             vertical-align: top;
+            font-size: 20px;
         }
 
         .left {
