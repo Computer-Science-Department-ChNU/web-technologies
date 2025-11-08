@@ -1,0 +1,32 @@
+= ЛАБОРАТОРНА РОБОТА №9
+
+*Тема: *
+
+*Мета: *
+
+*Вимоги до звіту:*
+
+. Для всіх завдань використовувати скидання стилів (reset або normalize).
+. Використати https://developer.mozilla.org/en-US/docs/Web/CSS/var[CSS variables].
+. Дотримуватись правил написання html, css.
+. Заборонено використання сторонніх UI бібліотек.
+. Результати завдань лабораторної роботи повинні бути завантажені до особистого репозиторію студента.
+
+== Самостійна робота:
+
+** https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout[CSS grid layout]
+** https://css-tricks.com/snippets/css/complete-guide-grid/[CSS Grid Layout Guide]
+** https://web.dev/learn/css/grid[Grid]
+
+== Практична частина
+
+=== Завдання 1
+
+Пройти інтерактивну гру https://cssgridgarden.com/[Css Grid Garden]. Результат виконання додати у вигляді print screen у репозиторії.
+
+=== Завдання 2
+
+Зареєструватися та пройти курс https://cssgrid.io/[Css Grid]. Результат з прогресом виконання додати у вигляді print screen у репозиторії. Повторити код усіх уроків та представити у репозиторії.
+
+=== Завдання 3
+
