@@ -7,13 +7,17 @@
     <style>
         .wrapper {
             display: grid;
+            /*
+                Створюємо сітку з двома колонками та адаптивними рядками:
+                - grid-template-columns: repeat(2, 260px) - дві колонки фіксованої ширини 260px
+                - grid-auto-rows: minmax(100px, auto) - рядки мають мінімальну висоту 100px, але можуть збільшуватися залежно від вмісту
+                - gap: 40px 30px - задає вертикальний відступ 40px між рядками і горизонтальний 30px між колонками
+             */
             grid-template-columns: repeat(2, 260px);
             grid-auto-rows: minmax(100px, auto);
-
             /*column-gap: 30px;*/
             /*row-gap: 40px;*/
             gap: 40px 30px;
-
             margin: 0 auto;
             padding: 20px;
         }

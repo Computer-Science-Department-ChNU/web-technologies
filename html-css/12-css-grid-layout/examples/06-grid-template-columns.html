@@ -8,15 +8,13 @@
         .wrapper {
             display: grid;
             /*
-            this
-            grid-template-columns: 1fr 1fr 1fr;
-            equal to
+                Скорочений запис для grid-template-columns: 1fr 1fr 1fr; - repeat(3, 1fr)
+                Це означає - створи 3 колонки, кожна з яких займає однакову частку доступного простору
+                Використовувати, коли потрібно багато однакових колонок
             */
             grid-template-columns: repeat(3, 1fr);
             gap: 5px;
-
             width: 300px;
-
             margin: 0 auto;
             padding: 20px;
         }

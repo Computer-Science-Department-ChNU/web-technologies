@@ -7,6 +7,11 @@
     <style>
         .wrapper {
             display: grid;
+            /*
+                Створюємо сітку з трьох колонок і трьох рядків:
+                - grid-template-columns: repeat(3, 1fr) — три колонки однакової ширини, які ділять доступний простір порівну
+                - grid-template-rows: repeat(3, 100px) — три рядки з фіксованою висотою 100px
+            */
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 100px);
 
@@ -23,6 +28,25 @@
             border-radius: 5px;
             background-color: #ffd8a8;
         }
+
+        /*
+            Розташовуємо елементи всередині сітки 3×3 за допомогою позиціонування по лініях і span:
+            .box1
+                grid-column: 1 - перша колонка
+                grid-row: 1 / span 3 - займає усі три рядки першої колонки
+
+            .box2
+                grid-column: 3 - третя колонка
+                grid-row: 1 / span 2 - займає перші два рядки третьої колонки
+
+            .box3
+                grid-column: 2 - друга колонка
+                grid-row: 1 - перший рядок
+
+           .box4
+                grid-column: 2 / span 2 - займає другу і третю колонки
+                grid-row: 3 - третій рядок
+        */
 
         .box1 {
             grid-column: 1;

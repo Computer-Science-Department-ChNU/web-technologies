@@ -7,12 +7,15 @@
     <style>
         .wrapper {
             display: grid;
+            /*
+                grid-template-columns - це правило створює три колонки однакової ширини, які автоматично ділять доступний простір контейнера порівну
+                1fr — одиниця fraction, означає частку вільного простору
+                1fr 1fr 1fr — кожна колонка займає по третині доступної ширини (width: 300px)
+             */
             grid-template-columns: 1fr 1fr 1fr;
             gap: 5px;
-
             /* спробувати змінити width */
             width: 300px;
-
             margin: 0 auto;
             padding: 20px;
         }
@@ -32,7 +35,7 @@
         <div>One</div>
         <div>Two</div>
         <div>Three</div>
-        
+
         <div>One</div>
         <div>Two</div>
         <div>Three</div>

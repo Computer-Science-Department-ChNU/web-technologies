@@ -7,9 +7,13 @@
     <style>
         .wrapper {
             display: grid;
+            /*
+                Створюємо статичну сітку 3×3:
+                - grid-template-columns: repeat(3, 1fr) - три колонки однакової ширини, які ділять доступний простір порівну
+                - grid-template-rows: repeat(3, 100px) - три рядки з фіксованою висотою 100px
+            */
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 100px);
-
             gap: 10px;
             margin: 0 auto;
             padding: 20px;

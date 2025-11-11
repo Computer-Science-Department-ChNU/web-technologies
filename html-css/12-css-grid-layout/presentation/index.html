@@ -67,18 +67,118 @@
 <section class="slide">
     <h2>Основні поняття Grid Layout</h2>
     <ul>
-        <li>Grid line</li>
-        <li>Grid track</li>
-        <li>Grid cell</li>
-        <li>Grid area</li>
-        <li>display:grid та inline-grid</li>
-        <li>Задання колонок та рядочків</li>
-        <li>Розташування клітинки за лініями сітки</li>
-        <li>Параметри автоматичних рядочків та колонок</li>
-        <li>Розташування елементів сітки в зонах</li>
+        <li><b>Grid line (лінія сітки)</b> — умовна лінія, яка розділяє колонки або рядки в сітці.
+            Нумерується від 1 і використовується для розміщення елементі (grid-column: 1 / 3 — означає, що елемент
+            займає простір між лініями 1 і 3.)
+        </li>
+        <li><b>Grid track (доріжка сітки)</b> — простір між двома сусідніми лініями сітки — тобто одна колонка або один
+            рядок. Визначається через властивості: grid-template-columns: 200px 1fr 200px; grid-template-rows: auto
+            100px;
+        </li>
+        <li><b>Grid cell (клітинка сітки)</b> — найменша одиниця сітки — перетин одного рядка та однієї колонки.
+            Це "комірка", яку може займати елемент або частина зони.
+        </li>
+        <li><b>Grid area (зона сітки)</b> — прямокутна область, утворена кількома клітинками, що охоплює кілька рядків і
+            колонок. Може задаватись іменем або координатами: grid-area: header; grid-row: 1 / 3; grid-column: 1 / 4.
+        </li>
     </ul>
     <a href="https://www.youtube.com/watch?v=jAtcnYeLQ0I" target="_blank">CSS Grid за 13 хвилин - Сергій Бабіч та
         Дивовижний світ веброзробки</a>
+</section>
+
+<section class="slide">
+    <h2>Основні поняття Grid Layout</h2>
+    <ul>
+        <li><b>display: grid</b> — створює блочну сітку (елемент займає весь рядок).</li>
+        <li><b>display: inline-grid</b> — створює вбудовану сітку (елемент поводиться як inline-block).</li>
+        <li><b>Задання колонок та рядочків.</b> Визначається через властивості: grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: 100px auto. Вони задають кількість, розміри та співвідношення колонок і рядків у сітці.
+        </li>
+        <li><b>Розташування клітинки за лініями сітки.</b> Керування позицією елемента за номерами ліній: grid-column: 2
+            / 4; grid-row: 1 / 3 — так задається, між якими лініями повинен розташовуватись елемент.
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Основні поняття Grid Layout</h2>
+    <ul>
+        <li><b>Параметри автоматичних рядочків та колонок.</b> Використовуються, коли елементи виходять за межі
+            визначеної сітки. Налаштовуються через: grid-auto-rows | grid-auto-columns | grid-auto-flow;
+        </li>
+        <li><b>Розташування елементів сітки в зонах.</b> Можна використовувати іменовані зони для зручного
+            позиціонування: grid-template-areas: "header header" "sidebar main" "footer footer". Це спрощує читання й
+            управління макетом.
+        </li>
+    </ul>
+    <a href="https://www.youtube.com/watch?v=jAtcnYeLQ0I" target="_blank">CSS Grid за 13 хвилин - Сергій Бабіч та
+        Дивовижний світ веброзробки</a>
+</section>
+
+<section class="slide">
+    <h2>Основні поняття Grid Layout</h2>
+    <table style="font-size: 12px;">
+        <thead>
+        <tr>
+            <th>Поняття</th>
+            <th>Визначення</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><strong>Grid line (лінія сітки)</strong></td>
+            <td>Умовна лінія, яка розділяє колонки або рядки в сітці. Нумерується від 1 і використовується для
+                розміщення елементів (наприклад: <code>grid-column: 1 / 3;</code>).
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Grid track (доріжка сітки)</strong></td>
+            <td>Простір між двома сусідніми лініями сітки — одна колонка або один рядок. Задається властивостями <code>grid-template-columns</code>
+                або <code>grid-template-rows</code>.
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Grid cell (клітинка сітки)</strong></td>
+            <td>Найменша одиниця сітки — перетин одного рядка та однієї колонки.</td>
+        </tr>
+        <tr>
+            <td><strong>Grid area (зона сітки)</strong></td>
+            <td>Прямокутна область, що охоплює кілька клітинок. Може задаватися іменем (<code>grid-area: header;</code>)
+                або координатами (<code>grid-row: 1 / 3;</code>).
+            </td>
+        </tr>
+        <tr>
+            <td><strong>display: grid та inline-grid</strong></td>
+            <td><code>display: grid</code> створює блочну сітку (елемент займає весь рядок), а <code>display:
+                inline-grid</code> — вбудовану сітку (поводиться як inline-block).
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Задання колонок та рядочків</strong></td>
+            <td>Визначає кількість і розміри рядків та колонок через властивості <code>grid-template-columns</code> і
+                <code>grid-template-rows</code>.
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Розташування клітинки за лініями сітки</strong></td>
+            <td>Керування позицією елемента за номерами ліній сітки (<code>grid-column: 2 / 4;</code>, <code>grid-row: 1
+                / 3;</code>).
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Параметри автоматичних рядочків та колонок</strong></td>
+            <td>Задають розміри автоматично створюваних рядків або колонок (<code>grid-auto-rows</code>, <code>grid-auto-columns</code>,
+                <code>grid-auto-flow</code>).
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Розташування елементів сітки в зонах</strong></td>
+            <td>Використання іменованих зон для зручного позиціонування (<code>grid-template-areas</code> і <code>grid-area</code>).
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
 </section>
 
 <section class="slide">

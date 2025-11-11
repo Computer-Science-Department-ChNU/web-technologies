@@ -41,11 +41,23 @@
             grid-area: sd;
         }
 
+        /*
+            - hd - шапка (header), займає весь верхній рядок
+            - sd - сайдбар, займає ліву частину другого рядка
+            - main - основний контент, займає праву частину другого рядка
+            - ft - футер, займає весь нижній рядок
+            - minmax(100px, auto) - висота рядків мінімум 100px, але може збільшуватись під контент
+            - / 1fr 1fr 1fr … - дев’ять колонок однакової ширини
+
+            grid-area: hd | ft | main | sd - прив’язують елементи до відповідних зон у сітці .wrapper
+         */
+
         .wrapper {
-            grid: "hd hd hd hd   hd   hd   hd   hd   hd" minmax(100px, auto)
-    "sd sd sd main main main main main main" minmax(100px, auto)
-    "ft ft ft ft   ft   ft   ft   ft   ft" minmax(100px, auto)
-    / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid:
+                "hd hd hd hd   hd   hd   hd   hd   hd" minmax(100px, auto)
+                "sd sd sd main main main main main main" minmax(100px, auto)
+                "ft ft ft ft   ft   ft   ft   ft   ft" minmax(100px, auto)
+                / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         }
 
         .media {

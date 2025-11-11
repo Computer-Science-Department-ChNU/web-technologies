@@ -7,6 +7,11 @@
     <style>
         .wrapper {
             display: grid;
+            /*
+                Створюємо сітку з трьох колонок та керуємо позицією деяких елементів:
+                - grid-template-columns: repeat(3, 1fr) - три колонки однакової ширини
+                - grid-auto-rows: 100px - висота всіх рядків 100px
+             */
             grid-template-columns: repeat(3, 1fr);
             grid-auto-rows: 100px;
             gap: 5px;
@@ -15,6 +20,10 @@
         }
 
         .box1 {
+            /*
+                grid-column: 1 / 4 - займає всі три колонки
+                grid-row: 1 / 3 - займає перші два рядки
+             */
             grid-column-start: 1;
             grid-column-end: 4;
             grid-row-start: 1;
@@ -22,6 +31,10 @@
         }
 
         .box2 {
+            /*
+                grid-column-start: 1 - перша колонка
+                grid-row: 3 / 5 - займає рядки 3 і 4
+             */
             grid-column-start: 1;
             grid-row-start: 3;
             grid-row-end: 5;

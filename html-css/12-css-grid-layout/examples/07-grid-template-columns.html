@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="base.css">
+    <link href="base.css" rel="stylesheet">
     <style>
         .container {
             max-width: 100%;
@@ -11,9 +11,15 @@
 
         .wrapper {
             display: grid;
+            /*
+                grid-template-columns: 20px repeat(6, 1fr) 20px; - створює вісім колонок у сітці:
+                - перша - фіксована ширина 20px
+                - далі - 6 колонок по 1fr (усі однакові, ділять простір порівну)
+                - остання - знову 20px
+                Такий шаблон часто використовують, щоб зробити внутрішні колонки адаптивними, а крайні - як відступи (поля зліва і справа)
+            */
             grid-template-columns: 20px repeat(6, 1fr) 20px;
             gap: 10px;
-
             margin: 0 auto;
             padding: 20px;
         }

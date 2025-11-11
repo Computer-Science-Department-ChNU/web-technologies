@@ -11,9 +11,13 @@
 
         .wrapper {
             display: grid;
+            /*
+                grid-template-columns: repeat(5, 1fr 2fr); - створює 10 колонок, бо вираз repeat(5, 1fr 2fr) повторює шаблон 1fr 2fr п’ять разів
+                Маємо наступну послідовність буде: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr
+                У результаті сітка має чергування вузьких (1 частка) і широких (2 частки) колонок
+             */
             grid-template-columns: repeat(5, 1fr 2fr);
             gap: 5px;
-
             margin: 0 auto;
             padding: 20px;
         }

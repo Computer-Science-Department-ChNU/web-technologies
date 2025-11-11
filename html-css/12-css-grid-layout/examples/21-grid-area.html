@@ -7,9 +7,13 @@
     <style>
         .wrapper {
             display: grid;
+            /*
+               Створюємо сітку з трьох колонок і трьох рядків:
+               - grid-template-columns: repeat(3, 1fr) — три колонки однакової ширини, які ділять доступний простір порівну
+               - grid-template-rows: repeat(3, 100px) — три рядки з фіксованою висотою 100px
+           */
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 100px);
-
             gap: 10px;
             margin: 0 auto;
             padding: 20px;
@@ -23,6 +27,16 @@
             border-radius: 5px;
             background-color: #ffd8a8;
         }
+
+        /*
+            Розташування блоків:
+            .box1 { grid-area: 1 / 1 / 4 / 2; } - перша колонка, займає усі три рядки
+            .box2 { grid-area: 1 / 3 / 3 / 4; } - третя колонка, перші два рядки
+            .box3 { grid-area: 1 / 2 / 2 / 3; } - друга колонка, перший рядок
+            .box4 { grid-area: 3 / 2 / 4 / 4; } - рядок 3, друга і третя колонки
+
+            Використання grid-area дозволяє точно задавати позицію та розмір елементів у сітці, об’єднуючи кілька клітинок
+         */
 
         .box1 {
             grid-area: 1 / 1 / 4 / 2;
