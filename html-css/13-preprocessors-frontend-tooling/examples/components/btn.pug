@@ -1,0 +1,34 @@
+mixin btn(text, mods, isInput)
+
+    //- Приймає:
+    //-   text    {string} - текст кнопки
+    //-   mods    {string} - список модифікаторів
+    //-   isInput {bool}   - флаг «якщо це тег input»
+    //- Виклик:
+          +btn('Кнопка-посилання')(href='/')  - є href, це точно посилання
+          +btn('Кнопка-input', '', true)   - є флаг isInput, це input
+          +btn('Кнопка-button', 'success') - немає href, немає isInput — це button
+
+    -
+        // список модифікаторів
+        let allMods = '';
+        if(typeof(mods) !== 'undefined' && mods) {
+            const modsList = mods.split(',');
+            for (let i = 0; i < modsList.length; i++) {
+                allMods = allMods + ' btn--' + modsList[i].trim();
+            }
+        }
+
+    //- передано href — це посилання
+    if (attributes.href)
+        a.btn(class=allMods)&attributes(attributes)!= text
+            block
+
+    //- інакше, якщо передано isInput і він true, то це input
+    else if (typeof(isInput) !== 'undefined' && isInput)
+        input.btn(class=allMods, value=text, type='button')&attributes(attributes)
+
+    //- інакше це button
+    else
+        button.btn(class=allMods)&attributes(attributes)!= text
+            block
