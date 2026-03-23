@@ -7,16 +7,20 @@
 </head>
 <body>
 <script>
-    let inputX = prompt("Введіть перший доданок", 0)
-    let inputY = prompt("Введіть другий доданок", 0)
+    let inputX = prompt("Введіть перший доданок", 0);
+    let inputY = prompt("Введіть другий доданок", 0);
 
-    let x = Number(inputX)
-    let y = Number(inputY)
+    let x = +inputX;
+    let y = Number(inputY);
 
-    //let sum = x + y;
-    let sum = inputX + inputY
+    console.log(typeof x);
+    console.log(typeof y);
 
-    alert(`${x} + ${y} = ${sum}`)
+    let sum = x + y;
+    // let sum = inputX + inputY;
+    console.log(typeof sum);
+
+    alert(sum);
 </script>
 </body>
 </html>
