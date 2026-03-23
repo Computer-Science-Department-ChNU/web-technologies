@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>reduce</title>
+</head>
+<body>
+
+<script>
+    /*Що таке reduce?
+
+    Ключова ідея reduce - це взяти масив і звести його до одного значення
+
+    Це значення може бути:
+        - число
+        - масив
+        - об'єкт
+        - функція
+
+    array.reduce((acc, current, index, array) => {}, initialValue)
+    - acc (accumulator) - накопичувач (результат)
+    - current - поточний елемент
+    - initialValue - стартове значення acc
+
+👉 На кожній ітерації ти повертаєш нове значення acc
+
+    При використанні reduce задати собі 3 питання:
+    1. Який тип acc? (число/масив/об'єкт)
+    2. Що я роблю на кожному кроці?
+    3. Що я повертаю?
+    */
+
+    // 1. Сума елементів - acc накопичує суму
+    const numbers = [1, 2, 3, 4, 5];
+    const sum = numbers.reduce((acc, num) => acc + num, 0);
+
+    // 2. Підрахунок кількості входжень
+    // Задача: порахувати, скільки разів зустрічається кожен елемент
+    // acc - це об'єкт {}, якщо ключа ще немає, то беремо 0
+    const fruits = ['apple', 'banana', 'apple', 'orange', 'banana'];
+
+    const count = fruits.reduce((acc, fruit) => {
+        acc[fruit] = (acc[fruit] || 0) + 1;
+        return acc;
+    }, {});
+
+
+    //3. Групування об'єктів
+    // Задача: згрупувати користувачів за ролями
+    const users = [
+        { name: 'Ivan', role: 'admin' },
+        { name: 'Olia', role: 'user' },
+        { name: 'Petro', role: 'admin' }
+    ];
+
+    const grouped = users.reduce((acc, user) => {
+        if (!acc[user.role]) acc[user.role] = [];
+        acc[user.role].push(user);
+        return acc;
+    }, {});
+
+
+    //4. Пошук максимального значення
+    // Задача: знайти максимальне число
+    const numbers2 = [10, 5, 8, 20];
+
+    const max = numbers2.reduce((acc, num) => {
+        return num > acc ? num : acc;
+    }, numbers2[0]);
+
+
+    //5. "Плоский" масив (flatten)
+    // Задача: перетворити вкладений масив у плоский
+    const arr = [[1, 2], [3, 4], [5]];
+    const flat = arr.reduce((acc, curr) => acc.concat(curr), []);
+
+
+    //6. Видалення дублікатів
+    // Задача: залишити тільки унікальні значення
+
+    const numbers3 = [1, 2, 2, 3, 4, 4];
+
+    const unique = numbers3.reduce((acc, num) => {
+        if (!acc.includes(num)) acc.push(num);
+        return acc;
+    }, []);
+
+
+    //7. Побудова об'єкта з масиву
+    // Задача: зробити lookup-таблицю
+    const users2 = [
+        { id: 1, name: 'Ivan' },
+        { id: 2, name: 'Olia' }
+    ];
+
+    const map = users2.reduce((acc, user) => {
+        acc[user.id] = user;
+        return acc;
+    }, {});
+
+
+    //8. Обчислення загальної вартості кошика
+    // Задача (реальний кейс): підрахувати суму замовлення
+    const cart = [
+        { name: 'Phone', price: 500 },
+        { name: 'Case', price: 20 }
+    ];
+    const total = cart.reduce((acc, item) => acc + item.price, 0);
+
+
+    //9. Ланцюг обчислень (pipeline)
+    //Задача: послідовно застосувати функції
+    const functions = [
+        x => x + 1,
+        x => x * 2,
+        x => x - 3
+    ];
+
+    const result = functions.reduce((acc, fn) => fn(acc), 5);
+
+
+    //10. Рахунок середнього значення
+    //Задача: знайти середнє
+
+    const numbers4 = [2, 4, 6, 8];
+
+    const avg = numbers4.reduce((acc, num, i, arr) => {
+        acc += num;
+        if (i === arr.length - 1) {
+            return acc / arr.length;
+        }
+        return acc;
+    }, 0);
+
+
+    //11. Підрахунок складних умов
+    //Задача: порахувати тільки "дорогі" товари
+
+    const products = [
+        { name: 'A', price: 50 },
+        { name: 'B', price: 150 },
+        { name: 'C', price: 200 }
+    ];
+
+    const expensiveTotal = products.reduce((acc, product) => {
+        return product.price > 100 ? acc + product.price : acc;
+    }, 0);
+</script>
+
+</body>
+</html>
