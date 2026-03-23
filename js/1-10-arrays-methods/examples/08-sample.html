@@ -16,14 +16,14 @@
         {id: 3, name: "Mary"},
     ]
 
-    let user = users.find(item => item.id == 1)
+    let user = users.find(item => item.id === 1)
 
     alert(user.name) // John
 
-    alert(users.findIndex(user => user.name == 'John')) // 0
+    alert(users.findIndex(user => user.name === 'John')) // 0
 
     // Знайдемо індекс останнього John
-    alert(users.findLastIndex(user => user.name == 'John')) // 3
+    alert(users.findLastIndex(user => user.name === 'John')) // 3
 </script>
 </body>
 </html>
