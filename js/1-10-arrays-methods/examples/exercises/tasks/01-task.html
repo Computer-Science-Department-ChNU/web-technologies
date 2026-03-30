@@ -15,6 +15,16 @@
 </pre>
 <script>
     let cities = ["London", "Paris", "Berlin", "Rome", "Budapest", "Lisbon", "Madrid", "Amsterdam"]
+
+    let input=prompt("Enter your city");
+    let index=cities.indexOf(input);
+
+    if(index==-1){
+        alert("There is no such city!")
+    } else{
+        cities.splice(index,1)
+        alert(cities)
+    }
 </script>
 </body>
 </html>

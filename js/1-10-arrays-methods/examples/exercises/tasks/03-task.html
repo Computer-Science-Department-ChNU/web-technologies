@@ -17,7 +17,7 @@
     let oddValuesPosition = 0
     let evenValuesPosition = 0
 
-    for (let value of values) {
+    /*for (let value of values) {
         if (value % 2 === 0) {
             evenValues[evenValuesPosition] = value
             evenValuesPosition++
@@ -35,7 +35,18 @@
     console.log("Парні значення")
     for (let evenVal of evenValues) {
         console.log(evenVal)
+    }*/
+    oddValues = values.filter(a => !(a % 2 == 0));
+    evenValues = values.filter(a => a % 2 == 0);
+    console.log(evenValues);
+    console.log(oddValues);
+
+    function splitToOddOrEven(arr, cond) {
+        return cond? arr.filter(a => (a % 2 == 0)): arr.filter(a => !(a % 2 == 0));
     }
+    console.log(splitToOddOrEven(values, true));
+    console.log(splitToOddOrEven(oddValues, false));
+
 </script>
 </body>
 </html>
