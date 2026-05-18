@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .input-error {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<form id="register-form">
+
+    <div class="field">
+        <input type="text" name="name" placeholder="Name">
+        <div class="error" data-errorå="name"></div>
+    </div>
+
+    <div class="field">
+        <input type="text" name="email" placeholder="Email">
+        <div class="error" data-error="email"></div>
+    </div>
+
+    <div class="field">
+        <input type="password" name="password" placeholder="Password">
+        <div class="error" data-error="password"></div>
+    </div>
+
+    <div class="field">
+        <input type="password" name="repassword" placeholder="Repeat password">
+        <div class="error" data-error="repassword"></div>
+    </div>
+
+    <button type="submit">Register</button>
+
+</form>
+
+<script>
+    const form = document.getElementById('register-form');
+
+    function validateRegistrationData(formData) {
+        // 1. Створюється об’єкт помилок
+        const errors = {};
+
+        // 2. Описуються правила валідації
+        // Для кожного поля задаються:
+        // - регулярні вирази (regExp)
+        // - текст помилки (errMsg)
+        // - чи поле обов’язкове (required)
+        // - куди записувати помилку (carrier)
+        const criterions = {
+            name: {
+                matchTests: [
+                    {
+                        regExp: /^[a-zа-я\u0451\u0491\u0454\u0456\u0457\u2019]*$/i,
+                        errMsg: 'Should contain only letters latin/cyrillic'
+                    }
+                ],
+                carrier: 'name',
+                required: true
+            },
+
+            email: {
+                matchTests: [
+                    {
+                        regExp: /^[a-z0-9_-]+@[a-z0-9.-]+\.[a-z0-9.-]{2,}$/ig,
+                        errMsg: 'Wrong email format'
+                    }
+                ],
+                carrier: 'email',
+                required: true
+            },
+
+            username: {
+                matchTests: [
+                    {
+                        regExp: /^[a-zа-я\u0451\u0491\u0454\u0456\u0457\u2019]*$/i,
+                        errMsg: 'Should contain only letters latin/cyrillic'
+                    }
+                ],
+                carrier: 'username',
+                required: true
+            },
+
+            password: {
+                matchTests: [
+                    {
+                        regExp: /[A-Z]/,
+                        errMsg: 'Should contain at least one uppercase letter'
+                    },
+                    {
+                        regExp: /[^a-z0-9]+/i,
+                        errMsg: 'Should contain at least one special character'
+                    },
+                    {
+                        regExp: /\d+/i,
+                        errMsg: 'Should contain at least one digit'
+                    },
+                    {
+                        regExp: /.{8,}/i,
+                        errMsg: 'Should contain at least 8 characters'
+                    }
+                ],
+                carrier: 'password',
+                required: true
+            },
+
+            repassword: {
+                matchTests: [
+                    {
+                        regExp: /^(?!\s*$).+/,
+                        errMsg: 'Require'
+                    }
+                ],
+                carrier: 'repassword',
+                required: true
+            },
+
+            year: {
+                matchTests: [
+                    {
+                        regExp: /^\d{4}$|^$/,
+                        errMsg: 'Invalid date'
+                    }
+                ],
+                carrier: 'birthday',
+                required: false
+            },
+
+            month: {
+                matchTests: [
+                    {
+                        regExp: /^\d{0,2}$/,
+                        errMsg: 'Invalid date'
+                    }
+                ],
+                carrier: 'birthday',
+                required: false
+            },
+
+            day: {
+                matchTests: [
+                    {
+                        regExp: /^\d{0,2}$/,
+                        errMsg: 'Invalid date'
+                    }
+                ],
+                carrier: 'birthday',
+                required: false
+            },
+
+            phone: {
+                matchTests: [
+                    {
+                        regExp: /^[0-9+()-\s]*$/,
+                        errMsg: 'Wrong number'
+                    }
+                ],
+                carrier: 'phone',
+                required: false
+            }
+        };
+
+        // Перебір усіх полів - функція проходиться по всіх полях форми.
+        for (const field in formData) {
+            // Виконуються перевірки
+            if (criterions[field]) {
+                const matchTestsArr = criterions[field].matchTests;
+                const carrier = criterions[field].carrier;
+                const required = criterions[field].required;
+
+                matchTestsArr.forEach( claim => {
+                    const isTestOk = claim.regExp.test(formData[field]);
+                    if (!isTestOk) errors[carrier] = claim.errMsg;
+                    if (required && !formData[field]) errors[carrier] = 'Required';
+                });
+            }
+        }
+
+        if (formData.password !== formData.repassword) {
+            errors.repassword = 'Should be equal to password';
+        }
+
+        const grantedDate = new Date(formData.year, formData.month, formData.day);
+        if (grantedDate > Date.now()) {
+            errors.birthday = 'Date should not be in future';
+        }
+
+        return errors;
+    }
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        clearErrors();
+
+        const formData = {
+            name: form.name.value,
+            email: form.email.value,
+            password: form.password.value,
+            repassword: form.repassword.value
+        };
+
+        const errors = validateRegistrationData(formData);
+
+        if (Object.keys(errors).length) {
+            showErrors(errors);
+            return;
+        }
+
+        alert('Form is valid');
+    });
+
+    function showErrors(errors) {
+        for (const field in errors) {
+
+            const errorElement = document.querySelector(
+                `[data-error="${field}"]`
+            );
+
+            const inputElement = document.querySelector(
+                `[name="${field}"]`
+            );
+
+            if (errorElement) {
+                errorElement.textContent = errors[field];
+            }
+
+            if (inputElement) {
+                inputElement.classList.add('input-error');
+            }
+        }
+    }
+
+    function clearErrors() {
+
+        document.querySelectorAll('.error')
+            .forEach(el => {
+                el.textContent = '';
+            });
+
+        document.querySelectorAll('.input-error')
+            .forEach(el => {
+                el.classList.remove('input-error');
+            });
+    }
+</script>
+</body>
+</html>
