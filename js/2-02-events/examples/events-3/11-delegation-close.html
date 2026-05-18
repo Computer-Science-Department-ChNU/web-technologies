@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="messages.css">
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 10px auto;
+            width: 470px;
+        }
+
+        h3 {
+            margin: 0;
+            padding-bottom: .3em;
+            padding-right: 20px;
+            font-size: 1.1em;
+        }
+
+        p {
+            margin: 0;
+            padding: 0 0 .5em;
+        }
+
+        .pane {
+            background: #edf5e1;
+            padding: 10px 20px 10px;
+            border-top: solid 2px #c4df9b;
+            position: relative;
+        }
+
+        .remove-button {
+            position: absolute;
+            font-size: 110%;
+            top: 0;
+            color: darkred;
+            right: 10px;
+            display: block;
+            width: 24px;
+            height: 24px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="container">
+    <div class="pane">
+        <h3>Кінь</h3>
+        <p>Кінь є одним із двох існуючих підвидів дикого коня (Equus ferus). Це парнокопитний ссавець, що належить до таксономічної родини коневих (Equidae). За останні 45-55 мільйонів років кінь еволюціонував із маленької багатопалої істоти, Еогіппа (Eohippus), до великої однопалої тварини сучасності.</p>
+        <button class="remove-button">[x]</button>
+    </div>
+    <div class="pane">
+        <h3>Осел</h3>
+        <p>Осел (Equus africanus asinus) є одомашненим представником сімейства коней (Equidae). Диким предком осла є африканський дикий осел (E. africanus). Осел використовувався як робоча тварина щонайменше 5000 років.</p>
+        <button class="remove-button">[x]</button>
+    </div>
+    <div class="pane">
+        <h3>Кіт</h3>
+        <p>Домашній кіт (лат. Felis catus) — невеликий, типово пухнастий, хижий ссавець. Їх часто називають домашніми котами, якщо їх триваюсь вдома, або просто котами, коли немає необхідності відрізняти їх від інших котячих. Люди часто цінують котів за товариські стосунки і за їх здатність полювати на шкідників.
+        </p>
+        <button class="remove-button">[x]</button>
+    </div>
+</div>
+
+<script>
+    const container = document.getElementById('container');
+
+    container.addEventListener('click', close);
+
+    function close(event) {
+        if (event.target.className !== 'remove-button') return;
+
+        let pane = event.target.closest('.pane');
+        pane.remove();
+    }
+</script>
+
+</body>
+</html>

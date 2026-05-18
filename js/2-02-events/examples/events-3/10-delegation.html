@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Делегування подій</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 300px;
+        }
+
+        li {
+            padding: 10px;
+            margin-bottom: 5px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        li:hover {
+            background-color: #dcdcdc;
+        }
+
+        .active {
+            background-color: #90caf9;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Список завдань</h2>
+
+<ul id="taskList">
+    <li>Завдання 1</li>
+    <li>Завдання 2</li>
+    <li>Завдання 3</li>
+</ul>
+
+<button id="addTask">Додати завдання</button>
+
+<script>
+    const taskList = document.getElementById('taskList');
+    const addTaskBtn = document.getElementById('addTask');
+
+    // Делегування подій - один обробник для всіх <li>
+    taskList.addEventListener('click', function(event) {
+        // Перевіряємо, чи клік був саме по <li>
+        if (event.target.tagName === 'LI') {
+            event.target.classList.toggle('active');
+        }
+    });
+
+    // Додавання нових елементів
+    let counter = 4;
+    addTaskBtn.addEventListener('click', function() {
+        const li = document.createElement('li');
+        li.textContent = 'Завдання ' + counter++;
+        taskList.appendChild(li);
+    });
+</script>
+
+</body>
+</html>

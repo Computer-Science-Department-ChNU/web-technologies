@@ -9,9 +9,11 @@
 </head>
 
 <body>
+<div id="controls">
     <button>Кнопка 1</button>
     <button>Кнопка 2</button>
     <button>Кнопка 3</button>
+</div>
 
     <script>
         // знаходимо всі кнопки
@@ -21,7 +23,8 @@
             btn.addEventListener("click", clickHandler);
         });
 
-        function clickHandler() {
+        function clickHandler(event) {
+            console.log(event);
             alert(this.textContent); // this - вказує на ту кнопку, для якої обробляється подія в даний момент.
         }
     </script>

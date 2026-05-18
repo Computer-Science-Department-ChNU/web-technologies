@@ -9,8 +9,8 @@
 <body>
     <button id="testBtn">Click me</button>
     <script>
-        document.querySelector("#testBtn").addEventListener("click", handler);
-
+        const btn = document.querySelector("#testBtn");
+        btn.addEventListener("click", handler)
         // Обробник події може приймати параметр, який, у разі виникнення події,
         // буде записуватись об'єкт події з додатковою інформацією.
         function handler(e) {

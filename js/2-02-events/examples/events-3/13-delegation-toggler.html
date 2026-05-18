@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button data-toggle-id="subscribe-mail">
+    Показати форму підписки
+</button>
+
+<form id="subscribe-mail" hidden>
+    Ваша пошта: <input type="email">
+</form>
+
+<script>
+    /*
+    Клікніть на елементі з атрибутом data-toggle-id, щоб показати/сховати елемент із заданим id:
+
+    Ще раз відзначимо, що саме ми зробили.
+    Тепер, щоб додати функціональність перемикання до елемента – навіть не потрібно знати JavaScript, достатньо просто використати атрибут data-toggle-id.
+
+    Це дуже зручно – не потрібно писати JavaScript для кожного такого елемента. Просто використовуйте поведінку. Обробник на рівні документу дозволяє працювати з будь-яким елементом сторінки.
+
+    Ми також можемо об’єднати кілька видів поведінки в одному елементі.
+     */
+    document.addEventListener('click', function(event) {
+        let id = event.target.dataset.toggleId;
+        if (!id) return;
+
+        let elem = document.getElementById(id);
+
+        elem.hidden = !elem.hidden;
+    });
+</script>
+</body>
+</html>

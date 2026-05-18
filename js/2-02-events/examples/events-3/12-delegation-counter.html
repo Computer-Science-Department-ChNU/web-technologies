@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Лічильник: <input type="button" value="1" data-counter>
+Ще один лічильник: <input type="button" value="23" data-counter>
+Ще один лічильник: <input type="button" value="122" data-counter>
+Ще один лічильник: <input type="button" value="222" data-counter>
+Ще один лічильник: <input type="button" value="22" data-counter>
+Ще один лічильник: <input type="button" value="2" data-counter>
+
+<script>
+    // атрибут data-counter додає до кнопок поведінку: “збільшити значення при кліці”:
+
+    /*
+    Атрибутів із data-counter може бути скільки завгодно.
+    Ми можемо в будь-який момент додати до HTML нові.
+    Використовуючи делегування подій, ми фактично «розширили» HTML, додали атрибут, який описує нову поведінку.
+
+     */
+
+    document.addEventListener('click', function(event) {
+        if (event.target.dataset.counter !== undefined) { // якщо атрибут існує...
+            event.target.value++;
+        }
+    });
+</script>
+</body>
+</html>
