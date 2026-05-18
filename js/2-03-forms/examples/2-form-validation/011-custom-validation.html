@@ -58,6 +58,16 @@
     </form>
 
     <script>
+        //Ключова ідея валідції - це універсальний, декларативний механізм
+        // перевірки полів через data-* атрибути + набір валідаторів.
+        // HTML каже що перевіряти (data-required, data-pattern, data-confirm)
+        // JS каже як перевіряти (об’єкт validators)
+        // Один механізм для всіх перевірок - validateElement(element);
+        // По-суті, це плагінна система валідації, де:
+        // правила задаються через data-*
+        // логіка винесена в validators
+        // UI централізований
+        // додавання нових правил не ламає існуючий код
         const form = document.forms[0];
 
         let elements = document.querySelectorAll("[data-val='true']");
