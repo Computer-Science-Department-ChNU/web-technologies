@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Приклад</title>
+    <style> /* CSS: представлення */
+    .card { padding: 16px; border-radius: 8px; background: #f0f4ff; }
+    .card.active { background: #cde; }
+    </style>
+</head>
+<body>
+<div class="card" id="card">HTML: структура</div>
+<script> // JS: поведінка
+document.getElementById('card')
+    .addEventListener('click', e => e.target.classList.toggle('active'));
+</script>
+</body>
+</html>
