@@ -1,0 +1,122 @@
+= Лабораторна робота №1
+
+*Тема:* Git та GitHub. Linux, Command Line. Git collaboration.
+
+*Мета:* Ознайомитись з основними концепціями та інструментами систем контролю версій Git та платформи GitHub, а також навчитися ефективно використовувати їх для керування кодом та спільної розробки.
+
+== Вимоги до звіту:
+Скріншоти повинні бути читабельними та містити достатньо інформації для підтвердження виконання відповідного завдання.
+
+Для команд Git на скріншотах повинні бути видимими:
+
+* команда, яку було виконано;
+* результат її виконання;
+* за необхідності - поточна гілка та стан репозиторію.
+
+Не допускається використання скріншотів, на яких неможливо встановити факт виконання завдання.
+
+== Практична частина
+
+== Завдання 1 (GitHub).
+. Зареєструвати акаунт на https://github.com/ (можете використати корпоративну пошту ЧНУ).
+
+== Завдання 2 (Git basics, Working with multiple repositories).
+. Пройдіть курс https://githowto.com/.
+. Продемонструвати результати виконання завдань зазначених у Part I: Git basics та Part II: Working with multiple repositories.
+
+== Завдання 3 (Learn Git Branching).
+. Виконати всі завдання у візуальному інтерактивному курсі https://learngitbranching.js.org/.
+. Результати виконання подати у вигляді скріншотів завершених завдань.
+
+== Завдання 4 (Linux CLI).
+. Пройдіть всі модулі (4 modules) https://linuxsurvival.com/.
+. Результати виконання подати у вигляді скріншотів завершених модулів.
+
+*Примітка*: даний курс https://linuxsurvival.com/ забезпечує віртуальне середовище для введення команд. Однак, якщо ви хочете пізніше використовувати ці команди на практиці, вам потрібно буде працювати з Linux CLI, оскільки багато команд не підтримуються Windows cmd або PowerShell. Ви повинні вже встановити git з https://git-scm.com/downloads. Він пропонує Git Bash, який можна використовувати для введення команд bash.
+
+== Завдання 5 (Connecting to GitHub with SSH, Markdown language).
+. Виконати налаштування SSH connection згідно документації https://docs.github.com/en/authentication/connecting-to-github-with-ssh[Connecting to GitHub with SSH] та продемонструвати роботу SSH connection.
+. Створіть публічний репозиторій та назвіть його web-technologies.
+. Ознайомтесь з налаштуваннями репозиторію у розділі Settings.
+. Клонуйте ваш репозиторій на свій комп'ютер з використанням SSH connection та команди git clone.
+. Створіть пустий файл https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes[README.md] у корені вашого репозиторію web-technologies.
+. Заповніть файл README.md, додавши опис репозиторію, ПІБ студента, інформацію про улюблені мови програмування, технології тощо, використовуючи https://www.markdownguide.org/[Markdown language].
+. Виконайте commit для файлу README.md дотримуючись правил https://www.conventionalcommits.org/en/v1.0.0/[Conventional Commits].
+. Запуште зміни у ваш віддалений репозиторій web-technologies.
+. У локальному репозиторію створіть директорію з назвою lab-01.
+. У директорії lab-01 створіть директорію learn-git та додайте результати виконання (скріншоти) Завдання 3. Виконайте відповідний commit дотримуючись правил https://www.conventionalcommits.org/en/v1.0.0/[Conventional Commits] та запуште зміни у ваш віддалений репозиторій web-technologies.
+. У директорії lab-01 створіть директорію linux-survival, та додайте результати виконання (скріншоти) Завдання 4. Виконайте відповідний commit дотримуючись правил https://www.conventionalcommits.org/en/v1.0.0/[Conventional Commits] та запуште зміни у ваш віддалений репозиторій web-technologies.
+. Створіть у корені репозиторію файл .gitignore. Додайте до нього типові файли та директорії, які не повинні потрапляти до Git-репозиторію, наприклад node_modules/.
+
+== Завдання 6 (GitHub Collaboration: Fork, Branch, Merge та Pull Request).
+. Форкніть репозиторій https://github.com/Computer-Science-Department-ChNU/git-collaboration через GitHub web-interface. У результаті у вашому GitHub-акаунті має з'явитися власна копія репозиторію (fork).
+. Клонуйте свій форк (fork) локально на свій комп'ютер з використанням SSH connection та команди git clone.
+. Додайте репозиторій https://github.com/Computer-Science-Department-ChNU/git-collaboration як upstream: git remote add upstream git@github.com:Computer-Science-Department-ChNU/git-collaboration.git.
+. Виконайте команду git remote -v та проаналізуйте те що ви побачите у терміналі. У результаті мають бути доступні щонайменше два віддалені репозиторії: origin - ваш fork, та upstream - оригінальний репозиторій.
+. Перейдіть до гілки main (git checkout main або git switch main) і потім створіть нову гілку, ім'я на ваш роздум (aka feature branch): git checkout -b feature/student-surname, де student-surname - прізвище студента вказується англійською мовою.
+. Внесіть деякі зміни до свого локального сховища. Для цього відкрийте файл README.md та додайте: ваше ПІБ, короткий опис того, що ви дізналися під час виконання лабораторної роботи, короткий опис ваших вражень від роботи з Git та GitHub, використовуючи https://www.markdownguide.org/[Markdown language]. Не змінюйте та не видаляйте інформацію, додану іншими студентами.
+. Внесіть зміни до новоствореної гілки (git commit -m "Your commit message"). Повідомлення коміту повинно коротко описувати виконану зміну.
+. Перейдіть до гілки main: git checkout main або git switch main.
+. Витягніть останні зміни з гілки upstream main: git pull upstream main.
+. Об’єднайте головну гілку зі своєю гілкою: git checkout feature/student-surname && git merge main.
+. Вирішіть будь-які конфлікти мержу, якщо такі є (Resolve merge conflicts). Не змінюйте та не видаляйте інформацію, додану іншими студентами.
+. Надішліть гілку до вашого віддаленого сховища: git push --set-upstream origin feature/student-surname. Після цього ваша гілка повинна з'явитися у вашому fork на GitHub.
+. Зробіть pull-request з вашого репозиторію до репозиторію https://github.com/Computer-Science-Department-ChNU/git-collaboration через GitHub web-interface.
+. Pull Request повинен мати: змістовну назву, опис виконаних змін, інформацію про те, що завдання лабораторної роботи виконано.
+. Перевірте створений Pull Request та переконайтеся, що GitHub не повідомляє про конфлікти злиття.
+. Якщо після створення Pull Request виникне потреба у виправленні конфліктів або внесенні додаткових змін, виконайте необхідні зміни у своїй локальній feature-гілці та повторно виконайте команду git push. Нові зміни автоматично з'являться у створеному Pull Request.
+. Під час виконання роботи звертайте увагу на призначення понять fork, clone, origin, upstream, branch, commit, merge та pull request, оскільки основною метою роботи є практичне ознайомлення з моделлю спільної розробки програмного забезпечення через Git та GitHub.
+. Зауважте, що ваш PR можуть не розглянути швидко.
+
+== У результаті виконання завдання 6 студент повинен мати:
+. fork репозиторію git-collaboration у власному GitHub-акаунті;
+. локальну копію репозиторію;
+. налаштовані віддалені репозиторії origin та upstream;
+. окрему feature-гілку;
+. щонайменше один власний коміт;
+. feature-гілку, синхронізовану з актуальною гілкою upstream/main;
+. feature-гілку, опубліковану у власному fork;
+. створений Pull Request до оригінального репозиторію.
+
+== Завдання 7 (Managing your profile README).
+. додати файл README.md до свого профілю GitHub, щоб розповісти про себе як розробника згідно з інструкцією https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme[Managing your profile README
+].
+. Можете використати генератор профайлу https://rahuldkjain.github.io/gh-profile-readme-generator/[GitHub Profile README Generator].
+. Ведіть свій GitHub. Під час вивчення нових технологій не забувайте публікувати прогрес. Будь-які пет-проєкти також потрібно зберігати. Окрім того, що з часом ви зможете дивитись на свій старий код і думати, чому він так жахливо написаний, згадки та використання технологій згаданих в резюме допоможе інтервʼюеру скласти про вас думку.
+
+== Додаткові матеріали.
+Вивчіть додаткові матеріали нижче, щоб покращити свої навички. Якщо ви вважаєте, що це вплине на вашу загальну ефективність курсу, подумайте над тим,
+щоб повернутись до них пізніше, наприклад коли ви виконаєте всі обов’язкові завдання:
+
+. https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts
+. https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
+. https://ohshitgit.com/
+. https://github.com/k88hudson/git-flight-rules
+. https://skills.github.com/
+
+== Контрольні запитання:
+. Що таке система контролю версій і які проблеми розробки програмного забезпечення вона вирішує?
+. У чому відмінність Git від GitHub?
+. Чим розподілена система контролю версій відрізняється від централізованої?
+. Що таке Git-репозиторій?
+. Що таке робоча директорія (working tree), staging area та Git repository?
+. Що таке commit і яку інформацію він містить?
+. Для чого використовується команда `git status`?
+. Як переглянути історію комітів у Git?
+. Для чого використовується команда `git diff`?
+. Що таке branch і навіщо використовувати окремі гілки під час розробки?
+. Як створити нову гілку та перемкнутися на неї?
+. У чому різниця між `git checkout` та `git switch`?
+. Що таке merge і для чого він використовується?
+. Що таке merge conflict? У яких випадках він виникає?
+. Як вирішити конфлікт злиття у локальному репозиторії?
+. Що таке branch і навіщо використовувати окремі гілки під час розробки?
+. Як створити нову гілку та перемкнутися на неї?
+. У чому різниця між `git checkout` та `git switch`?
+. Що таке merge і для чого він використовується?
+. Що таке merge conflict? У яких випадках він виникає?
+. Як вирішити конфлікт злиття у локальному репозиторії?
+. Що таке SSH і для чого він використовується під час роботи з GitHub?
+. Яка різниця між public key та private key у SSH?
+. Чому приватний SSH-ключ не можна передавати іншим особам?
+. Що таке Markdown і для чого він використовується на GitHub?
