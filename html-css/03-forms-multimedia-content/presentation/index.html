@@ -248,21 +248,6 @@
 </section>
 
 <section class="slide">
-    <h2>Фокус</h2>
-    <p>За традицією браузери дозволяють користувачу переміщувати фокус клавішею Tab. Ми можемо впливати на порядок
-        переміщення через атрибут tabindex. У прикладі документ переноситиме фокус із текстового поля на кнопку OK,
-        замість того, щоб спочатку пройти через посилання help link.</p>
-    <p>Press TAB key:
-        <label>
-            <input type="text" tabindex=1>
-        </label> <a href=".">(help link)</a>
-        <button onclick="console.log('ok')" tabindex=2>OK</button>
-    </p>
-    <p>За замовчуванням більшість типів елементів HTML не отримують фокусування. Але додавши tabindex до елемента, ви
-        уможливите отримання ним фокуса.</p>
-</section>
-
-<section class="slide">
     <h2>Відключені (disabled) поля</h2>
     <p>Усі поля можна відключити атрибутом disabled, який існує і як властивості елемента об'єкта DOM.</p>
     <p>
@@ -286,6 +271,55 @@
     <p>Відправлення форми зазвичай означає, що браузер переходить на сторінку, позначену в атрибуті форми action,
         використовуючи GET або POST запит.
     </p>
+</section>
+
+<section class="slide">
+    <h2>Забезпечення повноцінної клавіатурної навігації (керування фокусом, атрибут tabindex).</h2>
+    <ul>
+        <li>Фокус це елемент, який зараз отримує ввід із клавіатури. Клавіатурна навігація потрібна користувачам
+            скрінрідерів, людям з обмеженою моторикою та «power-user'ам».
+        </li>
+        <li>Основні клавіші: Tab / Shift+Tab (далі / назад), Enter (посилання, кнопки), Space (кнопки, checkbox),
+            стрілки (radio, select), Esc (закрити діалог).
+        </li>
+        <li>Нативно фокусуються: &lt;a href&gt;, &lt;button&gt;, &lt;input&gt;, &lt;select&gt;, &lt;textarea&gt;, &lt;summary&gt;,
+            &lt;audio controls&gt;, &lt;video controls&gt;, елементи з contenteditable.
+        </li>
+        <li>Порядок Tab визначається порядком у DOM, а не візуальним розташуванням.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Забезпечення повноцінної клавіатурної навігації (керування фокусом, атрибут tabindex).</h2>
+    <p>За традицією браузери дозволяють користувачу переміщувати фокус клавішею Tab. Ми можемо впливати на порядок
+        переміщення через атрибут tabindex. У прикладі документ переноситиме фокус із текстового поля на кнопку OK,
+        замість того, щоб спочатку пройти через посилання help link.</p>
+    <p>Press TAB key:
+        <label>
+            <input type="text" tabindex=1>
+        </label> <a href=".">(help link)</a>
+        <button onclick="console.log('ok')" tabindex=2>OK</button>
+    </p>
+    <p>За замовчуванням більшість типів елементів HTML не отримують фокусування. Але додавши tabindex до елемента, ви
+        уможливите отримання ним фокуса.</p>
+</section>
+
+<section class="slide">
+    <h2>Вбудовування мультимедійних компонентів (audio, video), керування потоками та субтитри.</h2>
+    <ul>
+        <li>
+            <a href="./examples/02-audio-video/01-audio-element.html" target="_blank">audio-element</a>
+        </li>
+        <li>
+            <a href="examples/02-audio-video/02-audio-element.html" target="_blank">audio-element</a>
+        </li>
+        <li>
+            <a href="./examples/02-audio-video/03-video-element.html" target="_blank">video-element</a>
+        </li>
+        <li>
+            <a href="./examples/02-audio-video/04-video.html" target="_blank">video</a>
+        </li>
+    </ul>
 </section>
 
 <section class="slide">
