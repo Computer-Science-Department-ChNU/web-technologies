@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<video controls width="640" height="360"
+       poster="preview.jpg"   <!-- обкладинка до старту -->
+preload="metadata"     <!-- завантажити лише тривалість/розміри, не весь файл -->
+playsinline>           <!-- мобільний iOS: не розгортати на весь екран автоматично -->
+
+<!-- Браузер пройде по списку і візьме перший формат, який підтримує.
+     type допомагає пропустити непідтримуваний без завантаження -->
+<source src="lecture.webm" type="video/webm">
+<source src="lecture.mp4"  type="video/mp4">
+
+<!-- Субтитри: kind — призначення, srclang — мова, label — назва в меню,
+     default — увімкнути за замовчуванням -->
+<track kind="subtitles" src="lecture.uk.vtt" srclang="uk" label="Українська" default>
+<track kind="subtitles" src="lecture.en.vtt" srclang="en" label="English">
+
+<!-- Fallback для старих браузерів -->
+<p>Ваш браузер не підтримує відео. <a href="lecture.mp4">Завантажити файл</a>.</p>
+</video>
+</body>
+</html>

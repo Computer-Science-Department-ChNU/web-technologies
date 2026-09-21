@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form id="order" action="/order" method="post">
+    <label>
+        <input name="qty" type="number" required>
+    </label>
+
+    <!-- Відправляє форму (submit — значення за замовчуванням, краще вказувати явно) -->
+    <button type="submit">Замовити</button>
+
+    <!-- formaction / formmethod / formnovalidate перевизначають налаштування форми
+         лише для цієї кнопки; корисно для «Зберегти чернетку» -->
+    <button type="submit" formaction="/draft" formnovalidate>Зберегти чернетку</button>
+
+    <!-- Скидає значення до початкових (у UX використовується рідко: легко натиснути випадково) -->
+    <button type="reset">Очистити</button>
+
+    <!-- type="button": не відправляє форму, лише запускає скрипт -->
+    <button type="button" id="preview">Попередній перегляд</button>
+
+    <!-- Кнопка-іконка: без тексту потрібна доступна назва через aria-label -->
+    <button type="button" aria-label="Закрити">
+        <svg aria-hidden="true" width="16" height="16"><!-- іконка --></svg>
+    </button>
+
+    <!-- disabled: не фокусується, не клікається, не відправляється; стилізується :disabled -->
+    <button type="submit" disabled>Недоступно</button>
+</form>
+
+<!-- Кнопка поза формою, але прив'язана до неї через атрибут form (за id) -->
+<button type="submit" form="order">Замовити (зовнішня кнопка)</button>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input:user-invalid {
+            border-color: crimson;
+        }
+
+        input:user-valid {
+            border-color: seagreen;
+        }
+
+        input:required {
+            border-left: 4px solid orange;
+        }
+
+        input:out-of-range {
+            background: #fee;
+        }
+    </style>
+</head>
+<body>
+<!-- Форма перевіряється при натисканні submit; novalidate на <form> вимкнув би перевірку -->
+<form action="/register" method="post">
+
+    <label for="user">Логін</label>
+    <!-- required: не порожнє; minlength/maxlength: від 3 до 20 символів;
+         pattern: лише латиниця, цифри та _ (вираз автоматично «прив'язаний» до початку і кінця рядка);
+         title: текст, який браузер показує в повідомленні про помилку -->
+    <input id="user" name="user" required minlength="3" maxlength="20"
+           pattern="[A-Za-z0-9_]+" title="Лише латиниця, цифри та символ _">
+
+    <label for="phone">Телефон</label>
+    <!-- формат: +380 і ще 9 цифр -->
+    <input id="phone" name="phone" type="tel"
+           pattern="\+380\d{9}" title="Формат: +380501234567" placeholder="+380501234567">
+
+    <label for="age">Вік</label>
+    <!-- min/max/step працюють для чисел; значення поза діапазоном блокує відправку -->
+    <input id="age" name="age" type="number" min="18" max="99" step="1" required>
+
+    <label for="start">Дата початку</label>
+    <!-- для дат min/max задаються у форматі YYYY-MM-DD -->
+    <input id="start" name="start" type="date" min="2026-09-01" max="2026-12-31">
+
+    <button type="submit">Зареєструватися</button>
+</form>
+</body>
+</html>
