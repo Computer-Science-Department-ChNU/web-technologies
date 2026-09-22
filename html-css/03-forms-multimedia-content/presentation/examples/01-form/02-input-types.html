@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form>
+    <!-- label + for: клік по підписі фокусує поле, це також читають скрінрідери -->
+    <label for="email">Email</label>
+    <!-- autocomplete підказує браузеру, що підставити; inputmode уточнює клавіатуру -->
+    <input type="email" id="email" name="email"
+           autocomplete="email" inputmode="email"
+           placeholder="name@example.com">
+
+    <label for="phone">Телефон</label>
+    <!-- type="tel" лише відкриває цифрову панель, формат перевіряє pattern (див. п. 2) -->
+    <input type="tel" id="phone" name="phone" autocomplete="tel">
+
+    <label for="pass">Пароль</label>
+    <!-- new-password: менеджер паролів запропонує згенерувати; для входу: current-password -->
+    <input type="password" id="pass" name="pass" autocomplete="new-password">
+
+    <label for="birth">Дата народження</label>
+    <!-- значення в value завжди YYYY-MM-DD, незалежно від того, що бачить користувач -->
+    <input type="date" id="birth" name="birth">
+
+    <label for="qty">Кількість</label>
+    <!-- step="any" дозволяє дробові значення; за замовчуванням дозволені лише цілі -->
+    <input type="number" id="qty" name="qty" min="1" max="10" value="1">
+
+    <label for="vol">Гучність</label>
+    <input type="range" id="vol" name="vol" min="0" max="100" value="50">
+    <!-- range не показує число; <output> виводить його (оновлення значення потребує JS) -->
+    <output for="vol">50</output>
+</form>
+</body>
+</html>

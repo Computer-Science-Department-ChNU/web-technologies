@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form>
+    <!-- ===== textarea ===== -->
+    <label for="msg">Повідомлення</label>
+    <!-- rows/cols задають початковий розмір; текст усередині тегів це початкове значення;
+         maxlength обмежує довжину; resize керується через CSS, а не атрибутом -->
+    <textarea id="msg" name="msg" rows="4" maxlength="500"
+              placeholder="Опишіть проблему" required></textarea>
+
+    <!-- ===== select ===== -->
+    <label for="city">Місто</label>
+    <select id="city" name="city" required>
+        <!-- value="" у першому option + required: користувач не зможе відправити «заглушку» -->
+        <option value="">— оберіть місто —</option>
+        <!-- optgroup групує варіанти -->
+        <optgroup label="Західна Україна">
+            <option value="lviv">Львів</option>
+            <option value="cv" selected>Чернівці</option> <!-- selected: вибране за замовчуванням -->
+        </optgroup>
+        <optgroup label="Центр">
+            <option value="kyiv">Київ</option>
+        </optgroup>
+    </select>
+    <!-- multiple + size перетворюють список на множинний вибір (Ctrl/Cmd + клік) -->
+
+    <!-- ===== radio: один варіант із групи ===== -->
+    <fieldset>
+        <legend>Спосіб доставки</legend>
+        <!-- однаковий name = одна група; відправиться value лише вибраного -->
+        <label><input type="radio" name="delivery" value="post" required> Пошта</label>
+        <label><input type="radio" name="delivery" value="courier" checked> Кур'єр</label>
+    </fieldset>
+
+    <!-- ===== checkbox: незалежні прапорці ===== -->
+    <fieldset>
+        <legend>Додатково</legend>
+        <label><input type="checkbox" name="extras" value="gift"> Подарункове пакування</label>
+        <label><input type="checkbox" name="extras" value="sms" checked> SMS-повідомлення</label>
+    </fieldset>
+
+    <!-- Одиночний checkbox з required: типова «згода з умовами» -->
+    <label><input type="checkbox" name="agree" required> Погоджуюсь з умовами</label>
+</form>
+</body>
+</html>
