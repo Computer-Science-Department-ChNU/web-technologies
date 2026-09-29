@@ -6,25 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Пріоритетність в CSS</title>
   <!-- https://html-css.co.ua/self-css/kaskaduvannya/ -->
+    <style>
+        /* Ідентифікатор: висока пріоритетність = 100 */
+        #alert {
+            background: green;
+            background: aqua;
+        }
+
+        /* Клас: середня пріоритетність = 10 */
+        .paragraph {
+            background: blue;
+        }
+
+        /* Ім'я тега: низька пріоритетність = 1 */
+        p {
+            background: gold;
+        }
+    </style>
 </head>
 <body>
-<style>
-  /* Ідентифікатор: висока пріоритетність = 100 */
-  #alert {
-    background: green;
-    background: aqua;
-  }
-
-  /* Клас: середня пріоритетність = 10 */
-  .paragraph {
-    background: blue;
-  }
-
-  /* Ім'я тега: низька пріоритетність = 1 */
-  p {
-    background: gold;
-  }
-</style>
 <!-- Атрибут style пріоритетність = 1000 -->
 <p class="paragraph" id="alert" style="background: red;">Lorem ipsum dolor sit amet.</p>
 

@@ -6,29 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Пріоритетність в CSS</title>
   <!-- https://html-css.co.ua/self-css/kaskaduvannya/ -->
+    <style>
+        /* !important перебиває все і рекомендується уникати його застосування*/
+        /* !important використовувати тільки у крайніх випадках */
+        #alert {
+            background: green;
+        }
+
+        .paragraph {
+            background: green !important;
+        }
+
+        .paragraph {
+            background: blue;
+        }
+
+        p {
+            background: gold !important;
+        }
+    </style>
 </head>
 <body>
-
-<style>
-  /* !important перебиває все і рекомендується уникати його застосування*/
-  /* !important використовувати тільки у крайніх випадках */
-  #alert {
-    background: green;
-  }
-
-  .paragraph {
-    background: green !important;
-  }
-
-  .paragraph {
-    background: blue;
-  }
-
-  p {
-    background: gold !important;
-  }
-
-</style>
 
 <p id="alert" class="paragraph">Lorem, ipsum dolor.</p>
 <p id="alert" class="paragraph">Lorem, ipsum dolor.</p>
