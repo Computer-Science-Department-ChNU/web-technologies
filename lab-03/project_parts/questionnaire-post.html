@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Завдання 4. Анкета (POST)</title>
+  <style>
+    body { display: flex; flex-direction: column; align-items: center; font-family: Arial, sans-serif; }
+    form { width: 600px; }
+    fieldset { margin-bottom: 16px; }
+    label { display: block; margin: 8px 0 2px; }
+    label.inline { display: inline; margin-right: 12px; }
+    input[type="text"], input[type="password"], input[type="email"], input[type="tel"],
+    input[type="date"], textarea, select { width: 95%; padding: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Анкета</h1>
+  <!-- POST + multipart/form-data: структуру запиту дивіться у DevTools → Network (відповідь httpbin.org показує всі поля). -->
+  <form action="https://httpbin.org/post" method="post" enctype="multipart/form-data">
+
+    <fieldset>
+      <legend>Особисті дані</legend>
+      <label for="fname">Ім'я:</label>
+      <input type="text" id="fname" name="first_name" placeholder="Іван" required tabindex="1">
+
+      <label for="lname">Прізвище:</label>
+      <input type="text" id="lname" name="last_name" placeholder="Петренко" required tabindex="2">
+
+      <label for="bday">Дата народження:</label>
+      <input type="date" id="bday" name="birthday" tabindex="3">
+
+      <label for="about">Про себе:</label>
+      <textarea id="about" name="about" rows="4" placeholder="Кілька слів про себе" tabindex="4"></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Контакти та акаунт</legend>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="name@example.com" autocomplete="off" required
+             pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" tabindex="5">
+
+      <label for="tel">Мобільний номер:</label>
+      <input type="tel" id="tel" name="phone" placeholder="+380501234567" required
+             pattern="\+380[0-9]{9}" tabindex="6">
+
+      <label for="pass">Пароль (6 символів: велика, мала літера, цифра):</label>
+      <input type="password" id="pass" name="password" placeholder="Abc123" required
+             pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6}" title="Рівно 6 символів: велика і мала літера та цифра" tabindex="7">
+    </fieldset>
+
+    <fieldset>
+      <legend>Вибір (radio та checkbox)</legend>
+      <p>Стать:</p>
+      <input type="radio" id="g1" name="gender" value="male" tabindex="8"><label class="inline" for="g1">Чоловіча</label>
+      <input type="radio" id="g2" name="gender" value="female" tabindex="9"><label class="inline" for="g2">Жіноча</label>
+      <input type="radio" id="g3" name="gender" value="other" tabindex="10"><label class="inline" for="g3">Інше</label>
+
+      <p>Форма навчання:</p>
+      <input type="radio" id="s1" name="study" value="full" tabindex="11"><label class="inline" for="s1">Денна</label>
+      <input type="radio" id="s2" name="study" value="part" checked tabindex="12"><label class="inline" for="s2">Заочна</label>
+      <input type="radio" id="s3" name="study" value="online" tabindex="13"><label class="inline" for="s3">Дистанційна</label>
+
+      <p>Інтереси:</p>
+      <input type="checkbox" id="i1" name="interests" value="web" tabindex="14"><label class="inline" for="i1">Web</label>
+      <input type="checkbox" id="i2" name="interests" value="mobile" tabindex="15"><label class="inline" for="i2">Mobile</label>
+      <input type="checkbox" id="i3" name="interests" value="ai" tabindex="16"><label class="inline" for="i3">AI</label>
+      <input type="checkbox" id="i4" name="interests" value="games" tabindex="17"><label class="inline" for="i4">Games</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Списки</legend>
+      <label for="course">Курс (select, 3-й за замовчуванням):</label>
+      <select id="course" name="course" tabindex="18">
+        <option value="1">1 курс</option>
+        <option value="2">2 курс</option>
+        <option value="3" selected>3 курс</option>
+        <option value="4">4 курс</option>
+        <option value="5">5 курс</option>
+      </select>
+
+      <label for="langs">Мови програмування (multiple, Ctrl+клік):</label>
+      <select id="langs" name="languages" multiple size="6" tabindex="19">
+        <option value="c">C</option>
+        <option value="cpp">C++</option>
+        <option value="cs">C#</option>
+        <option value="java">Java</option>
+        <option value="js">JavaScript</option>
+        <option value="py">Python</option>
+      </select>
+
+      <label for="food">Улюблена їжа (optgroup):</label>
+      <select id="food" name="food" tabindex="20">
+        <optgroup label="Фрукти">
+          <option value="apple">Яблуко</option>
+          <option value="banana">Банан</option>
+          <option value="orange">Апельсин</option>
+        </optgroup>
+        <optgroup label="Овочі">
+          <option value="tomato">Помідор</option>
+          <option value="cucumber">Огірок</option>
+          <option value="carrot">Морква</option>
+        </optgroup>
+        <optgroup label="Напої">
+          <option value="tea">Чай</option>
+          <option value="coffee">Кава</option>
+          <option value="juice">Сік</option>
+        </optgroup>
+        <optgroup label="Десерти">
+          <option value="cake">Торт</option>
+          <option value="icecream">Морозиво</option>
+          <option value="candy">Цукерки</option>
+        </optgroup>
+      </select>
+
+      <label for="city">Місто (datalist):</label>
+      <input type="text" id="city" name="city" list="cities" placeholder="Почніть вводити..." tabindex="21">
+      <datalist id="cities">
+        <option value="Київ">
+        <option value="Львів">
+        <option value="Чернівці">
+        <option value="Одеса">
+        <option value="Харків">
+      </datalist>
+    </fieldset>
+
+    <fieldset>
+      <legend>Файли</legend>
+      <label for="audio">Аудіофайли:</label>
+      <input type="file" id="audio" name="audio_files" accept="audio/*" multiple tabindex="22">
+    </fieldset>
+
+    <button type="submit" name="action" value="send" tabindex="23">Надіслати</button>
+    <button type="reset" name="action" value="reset" tabindex="24">Очистити</button>
+  </form>
+  <p><a href="../index.html">Повернутись на головну</a></p>
+</body>
+</html>
