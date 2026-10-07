@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Завдання 1. Таблиця</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    table {
+      border: 2px solid #000;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background-color: #fff;
+    }
+
+    td {
+      border: 2px solid #000;
+      height: 35px;
+    }
+
+    .bg-teal   { background-color: #2fffd0; }
+    .bg-cream  { background-color: #fffacd; }
+    .bg-red    { background-color: #ff1f2d; }
+    .bg-blue   { background-color: #1f3dff; }
+    .bg-green  { background-color: #2fff3a; }
+    .bg-yellow { background-color: #ffff4d; }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>Завдання 1. Таблиця</h1>
+
+    <table>
+      <colgroup>
+        <col style="width: 40px;" span="8">
+      </colgroup>
+      <tbody>
+        <tr>
+          <td class="bg-teal" colspan="8"></td>
+        </tr>
+        <tr>
+          <td class="bg-cream" rowspan="6"></td>
+          <td class="bg-teal" colspan="6"></td>
+          <td class="bg-cream" rowspan="6"></td>
+        </tr>
+        <tr>
+          <td class="bg-cream" rowspan="4"></td>
+          <td class="bg-teal" colspan="4"></td>
+          <td class="bg-cream" rowspan="4"></td>
+        </tr>
+        <tr>
+          <td class="bg-cream" rowspan="2"></td>
+          <td class="bg-red"></td>
+          <td class="bg-blue"></td>
+          <td class="bg-cream" rowspan="2"></td>
+        </tr>
+        <tr>
+          <td class="bg-green"></td>
+          <td class="bg-yellow"></td>
+        </tr>
+        <tr>
+          <td class="bg-teal" colspan="4"></td>
+        </tr>
+        <tr>
+          <td class="bg-teal" colspan="6"></td>
+        </tr>
+        <tr>
+          <td class="bg-teal" colspan="8"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      <a href="../index.html">Повернутись на головну</a>
+    </p>
+  </main>
+
+</body>
+</html>
