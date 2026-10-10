@@ -1,0 +1,61 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+}
+
+fieldset {
+  border: 3px solid blue;
+}
+
+h1 {
+  color: red;
+  text-align: center;
+  font-size: 36px;
+}
+
+h2 {
+  text-align: center;
+  font-style: italic;
+  font-size: 30px;
+}
+
+p {
+  text-align: center;
+}
+
+.products {
+  line-height: 1.4;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.qty {
+  font-size: 17px;
+}
+
+.old {
+  text-decoration: line-through;
+}
+
+.extra {
+  text-decoration: underline;
+}
+
+.optional {
+  background-color: yellow;
+}
+
+hr {
+  width: 70%;
+  height: 6px;
+  border: none;
+  background-color: green;
+}
+
+#tip {
+  font-family: Consolas, monospace;
+  font-style: italic;
+}
