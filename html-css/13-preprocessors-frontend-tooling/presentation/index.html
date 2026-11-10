@@ -22,14 +22,188 @@
     <div class="columns two">
         <div>
             <h3>План лекції:</h3>
-            <ol>
+            <ol style="font-size: 16px;">
+                <li>NPM: менеджер пакетів і залежності</li>
                 <li>Препроцесор (шаблонізатор) Pug</li>
-                <li>Препроцесори SCSS/SASS)</li>
+                <li>Препроцесор SASS/SCSS</li>
                 <li>Автоматизація процесів верстки (Gulp, Webpack, Vite)</li>
+                <li>Постпроцесинг CSS (PostCSS, Autoprefixer)</li>
+                <li>Оптимізація зображень</li>
+                <li>Якість коду (Prettier, Stylelint, pre-commit хуки)</li>
+                <li>Підсумок і практичне завдання</li>
             </ol>
         </div>
         <img src="images/intro.jpg" width="100%" alt="">
     </div>
+</section>
+
+<section class="slide">
+    <h2>Node Package Manager</h2>
+    <p>
+        <b>NPM (Node Package Manager)</b> - це платформа
+        та менеджер пакетів, які використовуються
+        для розробки програм мовою
+        програмування JavaScript і середовищі
+        виконання Node.js. NPM дозволяє
+        розробникам легко управляти залежностями
+        (бібліотеками та модулями), які
+        використовуються в їхніх проєктах.
+    </p>
+    <p>
+        Щоб установити пакет глобально,
+        скористайтеся цією командою:
+        <br>
+        <code>npm install -g [package-name]</code>
+    </p>
+    <p><a href="https://kinsta.com/knowledgebase/what-is-npm/" target="_blank">What Is npm? An Introduction to Node’s
+        Package Manager</a></p>
+</section>
+
+<section class="slide">
+    <h2>Як встановити Node.js і NPM</h2>
+    <ol>
+        <li>Завантажте інсталятор
+            (<a href="https://nodejs.org/uk/download/prebuilt-installer">Завантажити Node.js</a>)
+        </li>
+        <li>
+            Встановіть Node.js і NPM зі скачаного інсталятора
+        </li>
+        <li>
+            Перевірте версію Node.js і NPM: <code>node -v</code>, <code>npm -v</code>
+        </li>
+    </ol>
+    <img src="images/2.jpg" alt="" width="350" style="display: block; margin: 0 auto">
+</section>
+
+<section class="slide">
+    <h2>Node Package Manager (NPM)</h2>
+    <h3>Дозволяє:</h3>
+    <ul style="font-size: 19px;">
+        <li>Легко встановлювати та оновлювати пакети.
+        </li>
+        <li>
+            Ділитися власними пакетами з іншими розробниками.
+        </li>
+        <li>
+            Керувати залежностями проекту.
+        </li>
+    </ul>
+    <h4>Чому використовують NPM?</h4>
+    <ul style="font-size: 19px;">
+        <li>Велика екосистема: десятки тисяч пакетів у відкритому доступі</li>
+        <li>Простота встановлення: будь-який пакет можна додати однією командою</li>
+        <li>Оновлення: підтримка нових версій для всіх залежностей проєкту</li>
+        <li>Спільнота: спільний доступ до інструментів, розширень та бібліотек</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Ініціалізація проєкту з NPM</h2>
+    <ul style="font-size: 19px;">
+        <li>Команда для створення package.json, який зберігає інформацію про проєкт та залежності: <code>npm init</code>
+        </li>
+        <li>
+            Відповідайте на питання або використовуйте <code>npm init -y</code> для швидкого створення з налаштуваннями
+            за
+            замовчуванням.
+        </li>
+        <li>
+            Файл package.json містить метадані проєкту та перелік встановлених залежностей.
+        </li>
+    </ul>
+    <h3>Встановлення пакетів</h3>
+    <ul style="font-size: 19px;">
+        <li>Встановлення локального пакета (для цього проєкту): <code>npm install package-name</code></li>
+        <li>Встановлення локального пакета з версією (для цього проєкту): <code>npm install package-name@version</code>
+        </li>
+        <li>Встановлення глобального пакету (доступного в системі): <code>npm install -g package-name</code></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Основні команди NPM</h2>
+    <ol>
+        <li>Встановлення всіх залежностей з package.json: <code>npm install</code> (або <code>npm i</code>)</li>
+        <li>Встановлення пакету: <code>npm install назва_пакету</code></li>
+        <li>Встановлення пакету для розробки: <code>npm install -D назва_пакету</code></li>
+        <li>Оновлення пакету: <code>npm update назва_пакету</code></li>
+        <li>Видалення пакету: <code>npm uninstall назва_пакету</code></li>
+        <li>Запуск скриптів: <code>npm run назва_скрипту</code></li>
+        <li>Запуск пакета без глобального встановлення: <code>npx назва_пакету</code></li>
+        <li>Список глобальних пакетів: <code>npm list -g</code></li>
+        <li>Перевірка / очищення кешу: <code>npm cache verify</code>, <code>npm cache clean --force</code></li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Що таке npm-залежності?</h2>
+    <p>Коли ми встановлюємо пакети, node_modules створюється директорія, де ми можемо бачити інші директорії, а саме
+        директорію та директорії кожного пакета. Ви можете запитати, чому ці інші директорії там є, якщо ви їх не
+        встановлювали.</p>
+    <p>У вашому файлі package.json ваші пакети перелічені в розділі залежностей, оскільки ваш проект «залежить» від цих
+        пакетів для виконання роботи.</p>
+    <p>Додаткові директорії, створені у вашій node_modules директорії, – це інші, додаткові пакети, від яких залежать
+        встановлені вами пакети для забезпечення найкращої функціональності. Ви можете легко перевірити це, переглянувши
+        файл package.json встановленого пакета, щоб побачити його залежності.</p>
+</section>
+
+<section class="slide">
+    <h2>Залежності та package-lock.json</h2>
+    <ol>
+        <li>package.json: основний файл конфігурації NPM</li>
+        <li>package-lock.json: автоматично створений файл, який містить точні версії всіх встановлених залежностей</li>
+        <li>"dependencies": потрібні для роботи програми</li>
+        <li>"devDependencies": потрібні тільки для розробки (команда <code>npm install --save-dev</code> або
+            <code>-D</code>)
+        </li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Semantic Versioning</h2>
+    <p>У Node Package Manager (NPM) версії записуються за стандартом Semantic Versioning, і версії, такі як "^5.1.0",
+        вказують певний діапазон сумісності. Основні частини семантичного версіонування. Формат версій виглядає як
+        MAJOR.MINOR.PATCH:</p>
+    <ul>
+        <li>MAJOR — головна версія: змінюється, коли відбуваються не зворотно сумісні зміни.</li>
+        <li>MINOR — мінорна версія: змінюється, коли додається новий функціонал, але зберігається зворотна сумісність.
+        </li>
+        <li>PATCH — патч: змінюється, коли виправляються помилки без додавання нових функцій або порушення сумісності.
+        </li>
+    </ul>
+    <a href="https://semver.org/" target="_blank">About Semantic Versioning</a>
+</section>
+
+<section class="slide">
+    <h2>Semantic Versioning</h2>
+    <p>Значення символів у версіях</p>
+    <ul>
+        <li>^: ця позначка означає, що можна використовувати будь-яку версію, де головна версія (MAJOR) не змінюється,
+            але дозволені зміни в MINOR і PATCH. Наприклад, "^5.1.0" означає, що NPM встановить будь-яку версію,
+            починаючи від 5.1.0 і аж до 6.0.0 (але не включаючи 6.0.0), тобто 5.x.x.
+        </li>
+
+        <li> ~: символ ~ дозволяє оновлювати лише PATCH-версії, зберігаючи конкретну MINOR-версію. Наприклад, "~5.1.0"
+            дозволить оновлення від 5.1.0 до 5.1.x (де x може бути будь-яким), але не більше.
+        </li>
+
+        <li>Без символів (5.1.0): вказує на чітку конкретну версію, і NPM буде використовувати тільки її, без
+            оновлення.
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Semantic Versioning</h2>
+    <p>Приклади</p>
+    <ul>
+        <li>"^5.1.0" ➔ дозволяє версії від 5.1.0 до <6.0.0</li>
+        <li>"~5.1.0" ➔ дозволяє версії від 5.1.0 до <5.2.0</li>
+        <li>"5.1.0" ➔ використовується тільки версія 5.1.0</li>
+    </ul>
+    <p>Навіщо це потрібно?</p>
+    <p>Використання таких символів забезпечує баланс між стабільністю та можливістю отримувати оновлення, сумісні з
+        вашим проєктом.</p>
 </section>
 
 <section class="slide">
@@ -143,318 +317,11 @@
     <p>
         На офіційному сайті документації Pug
         ми можемо побачити використання
-        команди менеджера пакетів (<code>(npm install pug)</code>) та
+        команди менеджера пакетів (<code>npm install pug</code>) та
         залежностей npm, що автоматично
         встановлюється разом з Node.js.
     </p>
     <p><a href="https://pugjs.org/api/getting-started.html" target="_blank">Pug Getting Started</a></p>
-</section>
-
-<section class="slide">
-    <h2>Node Package Manager</h2>
-    <p>
-        <b>NPM (Node Package Manager)</b>- це платформа
-        та менеджер пакетів, які використовуються
-        для розробки програм мовою
-        програмування JavaScript і середовищі
-        виконання Node.js. NPM дозволяє
-        розробникам легко управляти залежностями
-        (бібліотеками та модулями), які
-        використовуються в їхніх проєктах.
-    </p>
-    <p>
-        Щоб установити пакет глобально,
-        скористайтеся цією командою:
-        br
-        <code>npm install -g [package-name]</code>
-    </p>
-    <p><a href="https://kinsta.com/knowledgebase/what-is-npm/" target="_blank">What Is npm? An Introduction to Node’s
-        Package Manager</a></p>
-</section>
-
-<section class="slide">
-    <h2>Як встановити Node.js і NPM</h2>
-    <ol>
-        <li>Завантажте інсталятор
-            (<a href="https://nodejs.org/uk/download/prebuilt-installer">Завантажити Node.js</a>)
-        </li>
-        <li>
-            Встановіть Node.js і NPM зі скачаного інсталятора
-        </li>
-        <li>
-            Перевірте версію Node.js і NPM: <code>node -v</code>, <code>npm -v</code>
-        </li>
-    </ol>
-    <img src="images/2.jpg" alt="" width="350" style="display: block; margin: 0 auto">
-</section>
-
-<section class="slide">
-    <h2>Node Package Manager (NPM)</h2>
-    <h3>Дозволяє:</h3>
-    <ul style="font-size: 19px;">
-        <li>Легко встановлювати та оновлювати пакети.
-        </li>
-        <li>
-            Ділитися власними пакетами з іншими розробниками.
-        </li>
-        <li>
-            Керувати залежностями проекту.
-        </li>
-    </ul>
-    <h4>Чому використовують NPM?</h4>
-    <ul style="font-size: 19px;">
-        <li>Велика екосистема: десятки тисяч пакетів у відкритому доступі</li>
-        <li>Простота встановлення: будь-який пакет можна додати однією командою</li>
-        <li>Оновлення: підтримка нових версій для всіх залежностей проєкту</li>
-        <li>Спільнота: спільний доступ до інструментів, розширень та бібліотек</li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>Ініціалізація проєкту з NPM</h2>
-    <ul style="font-size: 19px;">
-        <li>Команда для створення package.json, який зберігає інформацію про проєкт та залежності: npm init</li>
-        <li>
-            Відповідайте на питання або використовуйте npm init -y для швидкого створення з налаштуваннями за
-            замовчуванням.
-        </li>
-        <li>
-            Файл package.json містить метадані проєкту та перелік встановлених залежностей..
-        </li>
-    </ul>
-    <h3>Встановлення пакетів</h3>
-    <ul style="font-size: 19px;">
-        <li>Встановлення локального пакета (для цього проєкту): install "package-name"</li>
-        <li>Встановлення локального пакета з версією (для цього проєкту): install "package-name@versiom"</li>
-        <li>Встановлення глобального пакету (доступного в системі): npm install -g "package-name"</li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>Основні команди NPM</h2>
-    <ol>
-        <li>Встановлення пакету: npm install "назва_пакету"</li>
-        <li>Оновлення пакету: npm update "назва_пакету"</li>
-        <li>Видалення пакету: npm uninstall "назва_пакету"</li>
-        <li>Запуск скриптів: npm run "назва_скрипту"</li>
-        <li>Список глобальних пакетів: npm list -g</li>
-        <li>Очищення кешу: npm cache clean</li>
-    </ol>
-</section>
-
-<section class="slide">
-    <h2>Що таке npm-залежності?</h2>
-    <p>Коли ми встановлюємо пакети, node_modules створюється директорія, де ми можемо бачити інші директорії, а саме директорію та директорії кожного пакета. Ви можете запитати, чому ці інші директорії там є, якщо ви їх не встановлювали.</p>
-    <p>У вашому файлі package.json ваші пакети перелічені в розділі залежностей, оскільки ваш проект «залежить» від цих пакетів для виконання роботи.</p>
-    <p>Додаткові директорії, створені у вашій node_modules директорії, – це інші, додаткові пакети, від яких залежать встановлені вами пакети для забезпечення найкращої функціональності. Ви можете легко перевірити це, переглянувши файл package.json встановленого пакета, щоб побачити його залежності.</p>
-</section>
-
-<section class="slide">
-    <h2>Залежності та package-lock.json</h2>
-    <ol>
-        <li>package.json: основний файл конфігурації NPM</li>
-        <li>package-lock.json: автоматично створений файл, який містить точні версії всіх встановлених залежностей</li>
-        <li>"dependencies": потрібні для роботи програми</li>
-        <li>"devDependencies": потрібні тільки для розробки (команда npm install --save-dev)</li>
-    </ol>
-</section>
-
-<section class="slide">
-    <h2>Semantic Versioning</h2>
-    <p>У Node Package Manager (NPM) версії записуються за стандартом Semantic Versioning, і версії, такі як "^5.1.0",
-        вказують певний діапазон сумісності. Основні частини семантичного версіонування. Формат версій виглядає як
-        MAJOR.MINOR.PATCH:</p>
-    <ul>
-        <li>MAJOR — головна версія: змінюється, коли відбуваються не зворотно сумісні зміни.</li>
-        <li>MINOR — мінорна версія: змінюється, коли додається новий функціонал, але зберігається зворотна сумісність.
-        </li>
-        <li>PATCH — патч: змінюється, коли виправляються помилки без додавання нових функцій або порушення сумісності.
-        </li>
-    </ul>
-    <a href="https://semver.org/" target="_blank">About Semantic Versioning</a>
-</section>
-
-<section class="slide">
-    <h2>Semantic Versioning</h2>
-    <p>Значення символів у версіях</p>
-    <ul>
-        <li>^: ця позначка означає, що можна використовувати будь-яку версію, де головна версія (MAJOR) не змінюється,
-            але дозволені зміни в MINOR і PATCH. Наприклад, "^5.1.0" означає, що NPM встановить будь-яку версію,
-            починаючи від 5.1.0 і аж до 6.0.0 (але не включаючи 6.0.0), тобто 5.x.x.
-        </li>
-
-        <li> ~: символ ~ дозволяє оновлювати лише PATCH-версії, зберігаючи конкретну MINOR-версію. Наприклад, "~5.1.0"
-            дозволить оновлення від 5.1.0 до 5.1.x (де x може бути будь-яким), але не більше.
-        </li>
-
-        <li>Без символів (5.1.0): вказує на чітку конкретну версію, і NPM буде використовувати тільки її, без
-            оновлення.
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>Semantic Versioning</h2>
-    <p>Приклади</p>
-    <ul>
-        <li>"^5.1.0" ➔ дозволяє версії від 5.1.0 до <6.0.0</li>
-        <li>"~5.1.0" ➔ дозволяє версії від 5.1.0 до <5.2.0</li>
-        <li>"5.1.0" ➔ використовується тільки версія 5.1.0</li>
-    </ul>
-    <p>Навіщо це потрібно?</p>
-    <p>Використання таких символів забезпечує баланс між стабільністю та можливістю отримувати оновлення, сумісні з
-        вашим проєктом.</p>
-</section>
-
-<section class="slide">
-    <h2>Gulp</h2>
-    <div style="font-size: 19px;">
-        <p>
-            <b>Gulp</b> (<a
-            href="https://gulpjs.com/docs/en/getting-started/quick-start/">Gulpjs Quick Start
-        </a>) - це інструмент для автоматизації рутинних задач у веброзробці. Він допомагає спростити процес
-            роботи з
-            вебпроєктами, забезпечуючи автоматичне виконання завдань,
-            таких як компіляція із препроцесорів (наприклад, Sass чи LESS),
-            оптимізація зображень, об'єднання та мініфікація файлів
-            JavaScript і CSS, попереднє відстеження змін в файлах тощо.
-        </p>
-        <p>
-            Основна ідея Gulp полягає у використанні концепції «завдань»
-            (tasks) і «плагінів» (plugins).
-            <br>
-            <b>Завдання</b> - це прості функції, які
-            виконують певні операції.
-            <br>
-            <b>Плагіни</b> - це зовнішні розширення, які
-            використовуються для конкретних завдань.
-            <br>
-            Gulp дозволяє вам
-            створювати ланцюжки завдань, які будуть виконуватися
-            послідовно при запуску команди.
-        </p>
-    </div>
-</section>
-
-<section class="slide">
-    <h2>Основні переваги Gulp</h2>
-    <ul>
-        <li><b>Автоматизація задач:</b> Gulp дозволяє автоматизувати багато рутинних задач,
-            що допомагає зекономити час розробників і знизити ризик виникнення помилок.
-        </li>
-        <li><b>Легкість використання:</b> Створення та налаштування завдань у Gulp
-            відбувається за допомогою коду на JavaScript. Це дозволяє розробникам більш
-            гнучко налаштовувати свої процеси автоматизації.
-        </li>
-        <li><b>Багатофункціональність:</b> Завдяки великій кількості плагінів, Gulp може
-            виконувати різноманітні завдання: від оптимізації зображень до обробки CSS і
-            HTML.
-        </li>
-        <li><b>Чистий код:</b> Gulp дозволяє створювати покращені робочі потоки, які
-            полегшують обслуговування коду і покращують загальну якість проєкту.
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>Vite</h2>
-    <div style="font-size: 19px;">
-        <p>Vite - це сучасний інструмент для збирання фронтенд-проєктів, створений Еваном Ю (автором Vue). Його основна мета - забезпечити швидку розробку та ефективне збирання застосунків.</p>
-        <b>Ключові особливості Vite</b> (<a href="https://vite.dev/" target="_blank">Vite документація</a>)
-        <ul>
-            <li>Миттєвий старт dev-сервера. Завдяки використанню нативних ES-модулів браузера Vite не робить повної збірки під час запуску - сторінка відкривається майже миттєво.</li>
-            <li>Надзвичайно швидкий HMR (Hot Module Replacement). Оновлюються лише змінені файли, а не весь проєкт.</li>
-            <li>Оптимізована продакшн-збірка.</li>
-            <li>Підтримка TypeScript, Vue, React, Svelte та інших фреймворків із коробки.</li>
-            <li>Легка конфігурація. Часто достатньо мінімального налаштування або взагалі без нього.</li>
-        </ul>
-    </div>
-</section>
-
-<section class="slide">
-    <h2>Vite</h2>
-    <div style="font-size: 12px;">
-        <table>
-            <tr>
-                <th>Характеристика</th>
-                <th>Vite</th>
-                <th>Gulp</th>
-                <th>Webpack</th>
-            </tr>
-            <tr>
-                <td>Тип інструмента</td>
-                <td>Білдер + dev-сервер нового покоління</td>
-                <td>Таск-раннер</td>
-                <td>Повноцінний білдер (bundler)</td>
-            </tr>
-            <tr>
-                <td>Призначення</td>
-                <td>Розробка та збірка сучасних фронтенд-проєктів</td>
-                <td>Автоматизація задач</td>
-                <td>Збірка складних SPA</td>
-            </tr>
-            <tr>
-                <td>Швидкість запуску</td>
-                <td>Дуже швидка (ESM)</td>
-                <td>Миттєва</td>
-                <td>Повільна</td>
-            </tr>
-            <tr>
-                <td>Швидкість HMR</td>
-                <td>Надшвидкий</td>
-                <td>Немає</td>
-                <td>Є, але повільний</td>
-            </tr>
-            <tr>
-                <td>Збірка продакшн</td>
-                <td>Rollup</td>
-                <td>Залежить від плагінів</td>
-                <td>Потужна і гнучка</td>
-            </tr>
-            <tr>
-                <td>Сфера застосування</td>
-                <td>Vue, React, Svelte, сучасні SPA</td>
-                <td>Будь-що, але вручну</td>
-                <td>Великі SPA, enterprise</td>
-            </tr>
-            <tr>
-                <td>Конфігурація</td>
-                <td>Мінімальна</td>
-                <td>Середня</td>
-                <td>Складна</td>
-            </tr>
-            <tr>
-                <td>Гнучкість</td>
-                <td>Середня</td>
-                <td>Дуже висока</td>
-                <td>Дуже висока</td>
-            </tr>
-            <tr>
-                <td>Екосистема плагінів</td>
-                <td>Зростає</td>
-                <td>Велика</td>
-                <td>Дуже велика</td>
-            </tr>
-            <tr>
-                <td>Сильні сторони</td>
-                <td>Швидкість, простота</td>
-                <td>Автоматизація будь-яких процесів</td>
-                <td>Потужність і контроль</td>
-            </tr>
-            <tr>
-                <td>Слабкі сторони</td>
-                <td>Менш підходить для нестандартних збірок</td>
-                <td>Не є збирачем модулів</td>
-                <td>Повільність та складність</td>
-            </tr>
-            <tr>
-                <td>Ідеальні задачі</td>
-                <td>Сучасні SPA</td>
-                <td>Копіювання файлів, Sass, оптимізація зображень</td>
-                <td>Великі веб-застосунки</td>
-            </tr>
-        </table>
-    </div>
 </section>
 
 <section class="slide">
@@ -492,34 +359,248 @@
 </section>
 
 <section class="slide">
-    <h2>Основи Pug: робота з атрибутами. Класи та ідентифікатори</h2>
-    <ul>
-        <li><a href="https://pugjs.org/language/attributes.html" target="_blank">Attributes</a></li>
-        <li><a href="https://pugjs.org/language/attributes.html#class-attributes" target="_blank">Class Attributes</a>
-        <li><a href="https://pugjs.org/language/attributes.html#id-literal" target="_blank">ID Literal</a>
+    <h2>Основи Pug: приклад синтаксису</h2>
+    <div class="columns two" style="font-size: 14px;">
+        <div>
+            <p>Pug:</p>
+            <pre>
+                <code>doctype html</code>
+                <code>html(lang="uk")</code>
+                <code>  head</code>
+                <code>    title Моя сторінка</code>
+                <code>  body</code>
+                <code>    header.header</code>
+                <code>      h1.header__title Привіт, Pug!</code>
+                <code>    p Текст в одному рядку з тегом</code>
+                <code>    p</code>
+                <code>      | Довгий текст можна</code>
+                <code>      | писати з символом |</code>
+            </pre>
+        </div>
+        <div>
+            <p>Результат (HTML):</p>
+            <pre>
+                <code>&lt;!DOCTYPE html&gt;</code>
+                <code>&lt;html lang="uk"&gt;</code>
+                <code>  &lt;head&gt;</code>
+                <code>    &lt;title&gt;Моя сторінка&lt;/title&gt;</code>
+                <code>  &lt;/head&gt;</code>
+                <code>  &lt;body&gt;</code>
+                <code>    &lt;header class="header"&gt;</code>
+                <code>      &lt;h1 class="header__title"&gt;Привіт, Pug!&lt;/h1&gt;</code>
+                <code>    &lt;/header&gt;</code>
+                <code>    &lt;p&gt;Текст в одному рядку з тегом&lt;/p&gt;</code>
+                <code>    &lt;p&gt;</code>
+                <code>      Довгий текст можна</code>
+                <code>      писати з символом |</code>
+                <code>    &lt;/p&gt;</code>
+                <code>  &lt;/body&gt;</code>
+                <code>&lt;/html&gt;</code>
+            </pre>
+        </div>
+    </div>
+    <p style="font-size: 15px;">Вкладеність - лише відступами (пробіли <b>або</b> таби, не змішувати). Закриваючих тегів
+        немає.</p>
+</section>
+
+<section class="slide">
+    <h2>Основи Pug: атрибути, класи та ідентифікатори</h2>
+    <div class="columns two" style="font-size: 14px;">
+        <div>
+            <p>Pug:</p>
+            <pre>
+                <code>a.link(href="/about" target="_blank") Про нас</code>
+                <code>input#email(type="email" required)</code>
+                <code>.card.card--new</code>
+                <code>button(class=["btn", "btn--primary"]) OK</code>
+                <code>- const isActive = true</code>
+                <code>li(class={active: isActive}) Пункт</code>
+            </pre>
+        </div>
+        <div>
+            <p>Результат (HTML):</p>
+            <pre>
+                <code>&lt;a class="link" href="/about" target="_blank"&gt;Про нас&lt;/a&gt;</code>
+                <code>&lt;input id="email" type="email" required&gt;</code>
+                <code>&lt;div class="card card--new"&gt;&lt;/div&gt;</code>
+                <code>&lt;button class="btn btn--primary"&gt;OK&lt;/button&gt;</code>
+                <code></code>
+                <code>&lt;li class="active"&gt;Пункт&lt;/li&gt;</code>
+            </pre>
+        </div>
+    </div>
+    <ul style="font-size: 15px;">
+        <li><code>.class</code> і <code>#id</code> записуються одразу після тегу; без тегу - створюється
+            <code>div</code>.
         </li>
-    </ul>
-    <h2>Робота зі змінними. Вбудований код JavaScript</h2>
-    <ul>
-        <li>
-            <a href="https://pugjs.org/language/code.html" target="_blank">Code</a>
-        </li>
-        <li>
-            <a href="https://pugjs.org/language/comments.html" target="_blank">Comments</a>
-        </li>
+        <li>Булеві атрибути (<code>required</code>) виводяться коротко, якщо в шаблоні є <code>doctype html</code>.</li>
+        <li>Документація: <a href="https://pugjs.org/language/attributes.html" target="_blank">Attributes</a>,
+            <a href="https://pugjs.org/language/attributes.html#class-attributes" target="_blank">Class Attributes</a>,
+            <a href="https://pugjs.org/language/attributes.html#id-literal" target="_blank">ID Literal</a></li>
     </ul>
 </section>
 
 <section class="slide">
-    <h2>Основи Pug: Умовний синтаксис / Оператор case (when)</h2>
-    <ul>
-        <li><a href="https://pugjs.org/language/case.html" target="_blank">Case</a></li>
-        <li><a href="https://pugjs.org/language/conditionals.html" target="_blank">Conditionals</a></li>
+    <h2>Основи Pug: змінні, інтерполяція, коментарі</h2>
+    <div class="columns two" style="font-size: 14px;">
+        <div>
+            <p>Pug:</p>
+            <pre>
+                <code>- const user = { name: 'Олена', role: 'admin' }</code>
+                <code>- const links = ['Головна', 'Блог']</code>
+                <code></code>
+                <code>h1= user.name</code>
+                <code>p Вітаємо, #{user.name}!</code>
+                <code>p Посилань: #{links.length}</code>
+                <code>p= `Роль: ${user.role}`</code>
+                <code>//- коментар Pug: не потрапить у HTML</code>
+                <code>// звичайний HTML-коментар</code>
+            </pre>
+        </div>
+        <div>
+            <p>Результат (HTML):</p>
+            <pre>
+                <code>&lt;h1&gt;Олена&lt;/h1&gt;</code>
+                <code>&lt;p&gt;Вітаємо, Олена!&lt;/p&gt;</code>
+                <code>&lt;p&gt;Посилань: 2&lt;/p&gt;</code>
+                <code>&lt;p&gt;Роль: admin&lt;/p&gt;</code>
+                <code>&lt;!-- звичайний HTML-коментар--&gt;</code>
+            </pre>
+        </div>
+    </div>
+    <ul style="font-size: 15px;">
+        <li><code>-</code> - рядок JavaScript-коду (не виводиться); <code>=</code> - вивести значення виразу.</li>
+        <li><code>#{...}</code> - інтерполяція з екрануванням HTML; <code>!{...}</code> та <code>!=</code> - без
+            екранування
+            (небезпечно для даних від користувача).
+        </li>
+        <li>Документація: <a href="https://pugjs.org/language/code.html" target="_blank">Code</a>,
+            <a href="https://pugjs.org/language/interpolation.html" target="_blank">Interpolation</a>,
+            <a href="https://pugjs.org/language/comments.html" target="_blank">Comments</a></li>
     </ul>
-    <h2>Цикли та міксини</h2>
-    <ul>
-        <li><a href="https://pugjs.org/language/iteration.html" target="_blank">Iteration</a></li>
-        <li><a href="https://pugjs.org/language/mixins.html" target="_blank">Mixins</a></li>
+</section>
+
+<section class="slide">
+    <h2>Основи Pug: умови та оператор case</h2>
+    <div class="columns two" style="font-size: 14px;">
+        <div>
+            <p>Pug:</p>
+            <pre>
+                <code>- const user = { isAdmin: false, plan: 'pro' }</code>
+                <code></code>
+                <code>if user.isAdmin</code>
+                <code>  a(href="/admin") Адмінка</code>
+                <code>else</code>
+                <code>  p Звичайний користувач</code>
+                <code></code>
+                <code>case user.plan</code>
+                <code>  when 'free'</code>
+                <code>    p Безкоштовний тариф</code>
+                <code>  when 'pro'</code>
+                <code>    p Тариф Pro</code>
+                <code>  default</code>
+                <code>    p Невідомий тариф</code>
+            </pre>
+        </div>
+        <div>
+            <p>Результат (HTML):</p>
+            <pre>
+                <code>&lt;p&gt;Звичайний користувач&lt;/p&gt;</code>
+                <code>&lt;p&gt;Тариф Pro&lt;/p&gt;</code>
+            </pre>
+            <ul>
+                <li>Є також <code>else if</code> та <code>unless</code> (заперечення <code>if</code>).</li>
+                <li><code>case</code> - аналог <code>switch</code> у JavaScript.</li>
+                <li>Документація: <a href="https://pugjs.org/language/conditionals.html"
+                                     target="_blank">Conditionals</a>,
+                    <a href="https://pugjs.org/language/case.html" target="_blank">Case</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Основи Pug: цикли</h2>
+    <div class="columns two" style="font-size: 14px;">
+        <div>
+            <p>Pug:</p>
+            <pre>
+                <code>- const menu = ['Головна', 'Блог', 'Контакти']</code>
+                <code></code>
+                <code>ul.menu</code>
+                <code>  each item, i in menu</code>
+                <code>    li.menu__item #{i + 1}. #{item}</code>
+                <code>  else</code>
+                <code>    li Меню порожнє</code>
+                <code></code>
+                <code>- const price = { basic: 100, pro: 250 }</code>
+                <code>each value, key in price</code>
+                <code>  p #{key}: #{value} грн</code>
+            </pre>
+        </div>
+        <div>
+            <p>Результат (HTML):</p>
+            <pre>
+                <code>&lt;ul class="menu"&gt;</code>
+                <code>  &lt;li class="menu__item"&gt;1. Головна&lt;/li&gt;</code>
+                <code>  &lt;li class="menu__item"&gt;2. Блог&lt;/li&gt;</code>
+                <code>  &lt;li class="menu__item"&gt;3. Контакти&lt;/li&gt;</code>
+                <code>&lt;/ul&gt;</code>
+                <code>&lt;p&gt;basic: 100 грн&lt;/p&gt;</code>
+                <code>&lt;p&gt;pro: 250 грн&lt;/p&gt;</code>
+            </pre>
+            <ul>
+                <li><code>each</code> працює з масивами та об'єктами; блок <code>else</code> - якщо масив порожній.</li>
+                <li>Є також цикл <code>while</code>.</li>
+                <li><a href="https://pugjs.org/language/iteration.html" target="_blank">Iteration</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Основи Pug: міксини</h2>
+    <div class="columns two" style="font-size: 14px;">
+        <div>
+            <p>Pug:</p>
+            <pre>
+                <code>mixin btn(text, mod)</code>
+                <code>  button.btn(class='btn--' + mod)&amp;attributes(attributes)= text</code>
+                <code></code>
+                <code>mixin card(title)</code>
+                <code>  article.card</code>
+                <code>    h3.card__title= title</code>
+                <code>    if block</code>
+                <code>      .card__body</code>
+                <code>        block</code>
+                <code></code>
+                <code>+btn('Купити', 'primary')(type="submit")</code>
+                <code>+card('Pug')</code>
+                <code>  p Шаблонізатор для HTML</code>
+            </pre>
+        </div>
+        <div>
+            <p>Результат (HTML):</p>
+            <pre>
+                <code>&lt;button class="btn btn--primary" type="submit"&gt;Купити&lt;/button&gt;</code>
+                <code>&lt;article class="card"&gt;</code>
+                <code>  &lt;h3 class="card__title"&gt;Pug&lt;/h3&gt;</code>
+                <code>  &lt;div class="card__body"&gt;</code>
+                <code>    &lt;p&gt;Шаблонізатор для HTML&lt;/p&gt;</code>
+                <code>  &lt;/div&gt;</code>
+                <code>&lt;/article&gt;</code>
+            </pre>
+        </div>
+    </div>
+    <ul style="font-size: 15px;">
+        <li><b>Міксин</b> - повторно використовуваний фрагмент розмітки з параметрами (як функція). Виклик - через
+            <code>+</code>.
+        </li>
+        <li><code>block</code> - вкладений контент при виклику; <code>&amp;attributes(attributes)</code> - передача
+            атрибутів.
+        </li>
+        <li>Приклади компонентів: <code>examples/components/btn.pug</code>, <code>card.pug</code>.
+            <a href="https://pugjs.org/language/mixins.html" target="_blank">Mixins</a></li>
     </ul>
 </section>
 
@@ -587,6 +668,46 @@
 </section>
 
 <section class="slide">
+    <h2>Основи Pug: макет, include та extends на практиці</h2>
+    <div class="columns two" style="font-size: 14px;">
+        <div>
+            <p><code>layout.pug</code> - базовий макет:</p>
+            <pre>
+                <code>doctype html</code>
+                <code>html(lang="uk")</code>
+                <code>  head</code>
+                <code>    meta(charset="utf-8")</code>
+                <code>    block head</code>
+                <code>      title Мій сайт</code>
+                <code>  body</code>
+                <code>    include includes/header</code>
+                <code>    main</code>
+                <code>      block content</code>
+                <code>    include includes/footer</code>
+            </pre>
+        </div>
+        <div>
+            <p><code>index.pug</code> - сторінка:</p>
+            <pre>
+                <code>extends layout</code>
+                <code></code>
+                <code>append head</code>
+                <code>  link(rel="stylesheet" href="css/home.css")</code>
+                <code></code>
+                <code>block content</code>
+                <code>  h1 Головна сторінка</code>
+                <code>  p Контент сторінки</code>
+            </pre>
+            <ul>
+                <li><code>include</code> - вставляє вміст іншого файлу (шапка, футер).</li>
+                <li><code>extends</code> + <code>block</code> - сторінка заповнює «слоти» макета.</li>
+                <li><code>append</code> - додає до блоку, не замінюючи <code>title</code>.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
     <h2>Pug is awesome tool!</h2>
     <img src="images/1.jpg" alt="" width="450" style="display: block; margin: 0 auto">
 </section>
@@ -609,31 +730,418 @@
 </section>
 
 <section class="slide">
-    <h2>Встановлення та Налаштування SASS</h2>
-    <ul>
-        <li>Інсталяція через npm: npm install -g sass.</li>
-    </ul>
-    <h2>Компіляція SASS у CSS</h2>
-    <ul>
-        <li>Використання команди в терміналі: sass style.scss style.css</li>
-        <li>Альтернативні способи: автоматичні компілятори, такі як Gulp, Vite, Webpack.</li>
-    </ul>
+    <h2>SCSS та SASS: два синтаксиси</h2>
+    <div class="columns two" style="font-size: 16px;">
+        <div>
+            <p><b>.scss</b> - схожий на CSS (фігурні дужки, <code>;</code>):</p>
+            <pre>
+                <code>$primary: #3b82f6;</code>
+                <code></code>
+                <code>.btn {</code>
+                <code>  color: $primary;</code>
+                <code></code>
+                <code>  &amp;:hover {</code>
+                <code>    color: white;</code>
+                <code>  }</code>
+                <code>}</code>
+            </pre>
+        </div>
+        <div>
+            <p><b>.sass</b> - відступний синтаксис (без дужок і <code>;</code>):</p>
+            <pre>
+                <code>$primary: #3b82f6</code>
+                <code></code>
+                <code>.btn</code>
+                <code>  color: $primary</code>
+                <code></code>
+                <code>  &amp;:hover</code>
+                <code>    color: white</code>
+            </pre>
+        </div>
+    </div>
+    <p style="font-size: 15px;">Обидва синтаксиси компілюються в однаковий CSS. На практиці найчастіше використовують
+        <b>SCSS</b>: будь-який валідний CSS є валідним SCSS, тому перехід простий. Далі в лекції - приклади на SCSS.</p>
 </section>
 
 <section class="slide">
-    <h2>Практичне застосування</h2>
-    <ul>
-        <li>Розбивка на модулі: структура файлів у SASS.</li>
-        <li>Рекомендовані директорії:
+    <h2>SASS: змінні та вкладеність</h2>
+    <div class="columns two" style="font-size: 14px;">
+        <div>
+            <p>SCSS:</p>
+            <pre>
+                <code>$primary: #3b82f6;</code>
+                <code>$radius: 8px;</code>
+                <code></code>
+                <code>.nav {</code>
+                <code>  background: $primary;</code>
+                <code>  border-radius: $radius;</code>
+                <code></code>
+                <code>  ul {</code>
+                <code>    display: flex;</code>
+                <code>  }</code>
+                <code></code>
+                <code>  a {</code>
+                <code>    color: white;</code>
+                <code></code>
+                <code>    &amp;:hover {</code>
+                <code>      text-decoration: underline;</code>
+                <code>    }</code>
+                <code>  }</code>
+                <code>}</code>
+            </pre>
+        </div>
+        <div>
+            <p>Результат (CSS):</p>
+            <pre>
+                <code>.nav {</code>
+                <code>  background: #3b82f6;</code>
+                <code>  border-radius: 8px;</code>
+                <code>}</code>
+                <code>.nav ul {</code>
+                <code>  display: flex;</code>
+                <code>}</code>
+                <code>.nav a {</code>
+                <code>  color: white;</code>
+                <code>}</code>
+                <code>.nav a:hover {</code>
+                <code>  text-decoration: underline;</code>
+                <code>}</code>
+            </pre>
+        </div>
+    </div>
+    <p style="font-size: 15px;"><code>&amp;</code> - посилання на батьківський селектор. Правило: вкладеність не глибша
+        за 3 рівні, інакше селектори стають надто специфічними.</p>
+</section>
+
+<section class="slide">
+    <h2>SASS: БЕМ і батьківський селектор &amp;</h2>
+    <div class="columns two" style="font-size: 14px;">
+        <div>
+            <p>SCSS (як у <code>examples/sass/card.scss</code>):</p>
+            <pre>
+                <code>.card {</code>
+                <code>  $b: &amp;; // зберігаємо ".card"</code>
+                <code></code>
+                <code>  padding: 16px;</code>
+                <code></code>
+                <code>  &amp;__title {</code>
+                <code>    font-size: 20px;</code>
+                <code>  }</code>
+                <code></code>
+                <code>  &amp;__img {</code>
+                <code>    display: block;</code>
+                <code>  }</code>
+                <code></code>
+                <code>  &amp;--new {</code>
+                <code>    border: 2px solid gold;</code>
+                <code></code>
+                <code>    #{$b}__title {</code>
+                <code>      color: gold;</code>
+                <code>    }</code>
+                <code>  }</code>
+                <code>}</code>
+            </pre>
+        </div>
+        <div>
+            <p>Результат (CSS):</p>
+            <pre>
+                <code>.card {</code>
+                <code>  padding: 16px;</code>
+                <code>}</code>
+                <code>.card__title {</code>
+                <code>  font-size: 20px;</code>
+                <code>}</code>
+                <code>.card__img {</code>
+                <code>  display: block;</code>
+                <code>}</code>
+                <code>.card--new {</code>
+                <code>  border: 2px solid gold;</code>
+                <code>}</code>
+                <code>.card--new .card__title {</code>
+                <code>  color: gold;</code>
+                <code>}</code>
+            </pre>
+        </div>
+    </div>
+    <p style="font-size: 15px;"><code>&amp;__element</code> і <code>&amp;--modifier</code> склеюють назву класу. Увесь
+        компонент описаний в одному місці, а в CSS отримуємо пласкі БЕМ-селектори.</p>
+</section>
+
+<section class="slide">
+    <h2>SASS: міксини та функції</h2>
+    <div class="columns two" style="font-size: 13px;">
+        <div>
+            <p>SCSS:</p>
+            <pre>
+                <code>@use 'sass:math';</code>
+                <code></code>
+                <code>@function rem($px) {</code>
+                <code>  @return math.div($px, 16px) * 1rem;</code>
+                <code>}</code>
+                <code></code>
+                <code>@mixin flex-center($dir: row) {</code>
+                <code>  display: flex;</code>
+                <code>  flex-direction: $dir;</code>
+                <code>  justify-content: center;</code>
+                <code>  align-items: center;</code>
+                <code>}</code>
+                <code></code>
+                <code>@mixin mobile {</code>
+                <code>  @media (max-width: 767px) { @content; }</code>
+                <code>}</code>
+                <code></code>
+                <code>.hero {</code>
+                <code>  @include flex-center(column);</code>
+                <code>  font-size: rem(32px);</code>
+                <code></code>
+                <code>  @include mobile {</code>
+                <code>    font-size: rem(24px);</code>
+                <code>  }</code>
+                <code>}</code>
+            </pre>
+        </div>
+        <div>
+            <p>Результат (CSS):</p>
+            <pre>
+                <code>.hero {</code>
+                <code>  display: flex;</code>
+                <code>  flex-direction: column;</code>
+                <code>  justify-content: center;</code>
+                <code>  align-items: center;</code>
+                <code>  font-size: 2rem;</code>
+                <code>}</code>
+                <code>@media (max-width: 767px) {</code>
+                <code>  .hero {</code>
+                <code>    font-size: 1.5rem;</code>
+                <code>  }</code>
+                <code>}</code>
+            </pre>
+        </div>
+    </div>
+    <p style="font-size: 15px;"><b>@mixin</b> повертає набір властивостей (з параметрами та значеннями за замовчуванням,
+        <code>@content</code> - вкладений блок). <b>@function</b> повертає одне значення.</p>
+</section>
+
+<section class="slide">
+    <h2>SASS: @extend, цикли та map</h2>
+    <div class="columns two" style="font-size: 13px;">
+        <div>
+            <p>SCSS:</p>
+            <pre>
+                <code>%btn-base {</code>
+                <code>  padding: 8px 16px;</code>
+                <code>  border: none;</code>
+                <code>}</code>
+                <code></code>
+                <code>.btn-primary { @extend %btn-base; background: blue; }</code>
+                <code>.btn-danger  { @extend %btn-base; background: red; }</code>
+                <code></code>
+                <code>$colors: (success: #16a34a, error: #dc2626);</code>
+                <code></code>
+                <code>@each $name, $color in $colors {</code>
+                <code>  .alert--#{$name} {</code>
+                <code>    color: $color;</code>
+                <code>  }</code>
+                <code>}</code>
+            </pre>
+        </div>
+        <div>
+            <p>Результат (CSS):</p>
+            <pre>
+                <code>.btn-danger, .btn-primary {</code>
+                <code>  padding: 8px 16px;</code>
+                <code>  border: none;</code>
+                <code>}</code>
+                <code>.btn-primary { background: blue; }</code>
+                <code>.btn-danger { background: red; }</code>
+                <code></code>
+                <code>.alert--success {</code>
+                <code>  color: #16a34a;</code>
+                <code>}</code>
+                <code>.alert--error {</code>
+                <code>  color: #dc2626;</code>
+                <code>}</code>
+            </pre>
+        </div>
+    </div>
+    <p style="font-size: 15px;"><code>%placeholder</code> - селектор, який не потрапляє в CSS сам по собі, лише через
+        @extend. Частіше краще використовувати міксини: @extend не працює між медіазапитами і робить CSS менш
+        передбачуваним. Є також <code>@if</code> / <code>@else</code>, <code>@for</code>, <code>@while</code>.</p>
+</section>
+
+<section class="slide">
+    <h2>SASS: модулі @use та @forward</h2>
+    <div class="columns two" style="font-size: 14px;">
+        <div>
+            <pre>
+                <code>// _variables.scss  (partial: не компілюється окремо)</code>
+                <code>$primary: #3b82f6;</code>
+                <code></code>
+                <code>// _buttons.scss</code>
+                <code>@use 'variables' as v;</code>
+                <code></code>
+                <code>.btn {</code>
+                <code>  background: v.$primary;</code>
+                <code>}</code>
+                <code></code>
+                <code>// style.scss - вхідний файл</code>
+                <code>@use 'variables';</code>
+                <code>@use 'buttons';</code>
+                <code></code>
+                <code>.link {</code>
+                <code>  color: variables.$primary;</code>
+                <code>}</code>
+            </pre>
+        </div>
+        <div>
             <ul>
-                <li>_variables.scss</li>
-                <li>_mixins.scss</li>
-                <li>_base.scss</li>
-                <li>_layout.scss</li>
-                <li>_components.scss</li>
+                <li>Файли з <code>_</code> на початку (partials) - це модулі, окремих CSS-файлів для них не створюється.
+                </li>
+                <li><b>@use</b> підключає модуль <b>один раз</b> і з <b>простором імен</b> (<code>v.$primary</code>).
+                    <code>as *</code> - без простору імен.
+                </li>
+                <li><b>@forward</b> - реекспорт: у <code>_index.scss</code> папки пишемо
+                    <code>@forward 'variables';</code>, тоді <code>@use 'abstracts'</code> підключає все одразу.
+                </li>
+                <li>Вбудовані модулі: <code>sass:math</code>, <code>sass:color</code>, <code>sass:map</code>.</li>
+                <li><b>@import</b> застарів (з Dart Sass 1.80) і буде видалений у Sass 3.0 - у нових проєктах
+                    використовуйте лише <code>@use</code>.
+                </li>
+                <li><a href="https://sass-lang.com/documentation/at-rules/use/" target="_blank">Документація @use</a>
+                </li>
             </ul>
-        </li>
-    </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Встановлення та компіляція SASS</h2>
+    <div style="font-size: 17px;">
+        <p>Офіційна реалізація - <b>Dart Sass</b> (пакет <code>sass</code>). Старі node-sass і LibSass застаріли.</p>
+        <pre>
+            <code>npm install -D sass</code>
+            <code></code>
+            <code># один файл</code>
+            <code>npx sass src/scss/style.scss dist/css/style.css</code>
+            <code></code>
+            <code># уся папка + стеження за змінами</code>
+            <code>npx sass src/scss:dist/css --watch</code>
+            <code></code>
+            <code># мініфікований CSS без source map</code>
+            <code>npx sass src/scss/style.scss dist/css/style.min.css --style=compressed --no-source-map</code>
+        </pre>
+        <ul>
+            <li><b>Source map</b> (<code>style.css.map</code>) створюється за замовчуванням - DevTools показує
+                рядок у <code>.scss</code>, а не в скомпільованому CSS.
+            </li>
+            <li>Скрипт у <code>package.json</code>: <code>"sass": "sass src/scss:dist/css --watch"</code></li>
+            <li>У реальних проєктах компіляцію виконують збирачі: Gulp, Vite, Webpack.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Практичне застосування: структура SCSS-файлів</h2>
+    <div class="columns two" style="font-size: 14px;">
+        <div>
+            <pre>
+                <code>scss/</code>
+                <code>├─ abstracts/</code>
+                <code>│  ├─ _variables.scss</code>
+                <code>│  ├─ _mixins.scss</code>
+                <code>│  └─ _index.scss    // @forward 'variables';</code>
+                <code>│                    // @forward 'mixins';</code>
+                <code>├─ base/</code>
+                <code>│  ├─ _reset.scss</code>
+                <code>│  └─ _typography.scss</code>
+                <code>├─ layout/</code>
+                <code>│  ├─ _header.scss</code>
+                <code>│  └─ _footer.scss</code>
+                <code>├─ components/</code>
+                <code>│  ├─ _btn.scss</code>
+                <code>│  └─ _card.scss</code>
+                <code>└─ style.scss        // єдиний вхідний файл</code>
+            </pre>
+        </div>
+        <div>
+            <p><code>style.scss</code>:</p>
+            <pre>
+                <code>@use 'base/reset';</code>
+                <code>@use 'base/typography';</code>
+                <code>@use 'layout/header';</code>
+                <code>@use 'layout/footer';</code>
+                <code>@use 'components/btn';</code>
+                <code>@use 'components/card';</code>
+            </pre>
+            <p><code>components/_card.scss</code>:</p>
+            <pre>
+                <code>@use '../abstracts' as *;</code>
+                <code></code>
+                <code>.card {</code>
+                <code>  color: $primary;</code>
+                <code>  @include mobile { padding: 8px; }</code>
+                <code>}</code>
+            </pre>
+        </div>
+    </div>
+    <p style="font-size: 15px;">Один файл - один компонент. Популярний підхід -
+        <a href="https://sass-guidelin.es/#the-7-1-pattern" target="_blank">патерн 7-1</a>.</p>
+</section>
+
+<section class="slide">
+    <h2>Чи потрібен SASS у сучасному CSS?</h2>
+    <div style="font-size: 13px;">
+        <table>
+            <tr>
+                <th>Можливість</th>
+                <th>SASS</th>
+                <th>Сучасний CSS</th>
+            </tr>
+            <tr>
+                <td>Змінні</td>
+                <td><code>$primary</code> - підставляються під час компіляції</td>
+                <td><code>--primary</code> (custom properties) - живуть у браузері, успадковуються,
+                    змінюються в медіазапитах і через JavaScript
+                </td>
+            </tr>
+            <tr>
+                <td>Вкладеність</td>
+                <td>Так</td>
+                <td>Так - CSS Nesting (усі сучасні браузери з 2023 року)</td>
+            </tr>
+            <tr>
+                <td>Обчислення</td>
+                <td><code>math.div()</code>, <code>+ - * /</code></td>
+                <td><code>calc()</code>, <code>min()</code>, <code>max()</code>, <code>clamp()</code> - ще й зі
+                    змішуванням одиниць
+                </td>
+            </tr>
+            <tr>
+                <td>Кольори</td>
+                <td><code>color.adjust()</code>, <code>color.mix()</code></td>
+                <td><code>color-mix()</code>, відносні кольори</td>
+            </tr>
+            <tr>
+                <td>Міксини та функції</td>
+                <td>Так</td>
+                <td>Поки немає широкої підтримки</td>
+            </tr>
+            <tr>
+                <td>Цикли, умови, map</td>
+                <td><code>@each</code>, <code>@for</code>, <code>@if</code></td>
+                <td>Немає</td>
+            </tr>
+            <tr>
+                <td>Об'єднання файлів</td>
+                <td><code>@use</code> → один CSS-файл</td>
+                <td><code>@import</code> робить окремі запити (потрібен збирач)</td>
+            </tr>
+        </table>
+        <p style="font-size: 15px;">Висновок: для невеликих проєктів часто достатньо сучасного CSS + PostCSS. SASS
+            лишається
+            корисним для великих кодових баз і дизайн-систем (міксини, цикли, модулі). Обидва підходи можна поєднувати:
+            <code>$змінні</code> SASS для налаштувань збірки, <code>--змінні</code> CSS для тем і динаміки.</p>
+    </div>
 </section>
 
 <section class="slide">
@@ -643,25 +1151,27 @@
             <b>Переваги</b>:
             <ul>
                 <li>Зручність і гнучкість у написанні стилів</li>
-                <li>Читаємість коду та його модульність</li>
-                <li>Швидша розробка та підтримка проектів.</li>
+                <li>Читабельність коду та його модульність</li>
+                <li>Швидша розробка та підтримка проєктів.</li>
             </ul>
         </li>
         <li>
             <b>Недоліки</b>:
             <ul>
-                <li>Потребує компіляції у CSS</li>
-                <li>Може стати важким для підтримки при надмірному вкладенні.ь</li>
+                <li>Потребує компіляції у CSS (ще одна залежність і крок збирання)</li>
+                <li>Може стати важким для підтримки при надмірному вкладенні</li>
+                <li>Надмірне використання @extend і вкладеності роздуває результуючий CSS</li>
+                <li>Частина можливостей уже є в сучасному CSS</li>
             </ul>
         </li>
     </ul>
 </section>
 
 <section class="slide">
-    <h2>Додаткові Ресурси</h2>
+    <h2>Додаткові ресурси: SASS</h2>
     <ul>
         <li>
-            <a href="https://sass-lang.com/" target="_blank">Офіційна документація</a>
+            <a href="https://sass-lang.com/" target="_blank">Офіційна документація Sass</a>
         </li>
         <li>
             <a href="https://sass-guidelin.es/" target="_blank">Sass Guidelines: найкращі практики та стандарти.</a>
@@ -670,6 +1180,1180 @@
             <a href="https://www.codecademy.com/learn/learn-sass" target="_blank">Learn Sass Course</a>
         </li>
     </ul>
+</section>
+
+<section class="slide">
+    <h2>Gulp</h2>
+    <div style="font-size: 19px;">
+        <p>
+            <b>Gulp</b> (<a
+            href="https://gulpjs.com/docs/en/getting-started/quick-start/">Gulpjs Quick Start
+        </a>) - це інструмент для автоматизації рутинних задач у веброзробці. Він допомагає спростити процес
+            роботи з
+            вебпроєктами, забезпечуючи автоматичне виконання завдань,
+            таких як компіляція із препроцесорів (наприклад, Sass чи LESS),
+            оптимізація зображень, об'єднання та мініфікація файлів
+            JavaScript і CSS, попереднє відстеження змін в файлах тощо.
+        </p>
+        <p>
+            Основна ідея Gulp полягає у використанні концепції «завдань»
+            (tasks) і «плагінів» (plugins).
+            <br>
+            <b>Завдання</b> - це прості функції, які
+            виконують певні операції.
+            <br>
+            <b>Плагіни</b> - це зовнішні розширення, які
+            використовуються для конкретних завдань.
+            <br>
+            Gulp дозволяє вам
+            створювати ланцюжки завдань, які будуть виконуватися
+            послідовно при запуску команди.
+        </p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Основні переваги Gulp</h2>
+    <ul>
+        <li><b>Автоматизація задач:</b> Gulp дозволяє автоматизувати багато рутинних задач,
+            що допомагає зекономити час розробників і знизити ризик виникнення помилок.
+        </li>
+        <li><b>Легкість використання:</b> Створення та налаштування завдань у Gulp
+            відбувається за допомогою коду на JavaScript. Це дозволяє розробникам більш
+            гнучко налаштовувати свої процеси автоматизації.
+        </li>
+        <li><b>Багатофункціональність:</b> Завдяки великій кількості плагінів, Gulp може
+            виконувати різноманітні завдання: від оптимізації зображень до обробки CSS і
+            HTML.
+        </li>
+        <li><b>Чистий код:</b> Gulp дозволяє створювати покращені робочі потоки, які
+            полегшують обслуговування коду і покращують загальну якість проєкту.
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Gulp: Pug + SCSS + BrowserSync</h2>
+    <div class="columns two" style="font-size: 13px;">
+        <div>
+            <pre>
+                <code>import gulp from 'gulp'</code>
+                <code>import pug from 'gulp-pug'</code>
+                <code>import * as dartSass from 'sass'</code>
+                <code>import gulpSass from 'gulp-sass'</code>
+                <code>import browserSync from 'browser-sync'</code>
+                <code></code>
+                <code>const sass = gulpSass(dartSass)</code>
+                <code>const bs = browserSync.create()</code>
+                <code></code>
+                <code>export const html = () =&gt;</code>
+                <code>  gulp.src(['src/pug/*.pug'])</code>
+                <code>    .pipe(pug({ pretty: true }))</code>
+                <code>    .pipe(gulp.dest('dist'))</code>
+                <code>    .pipe(bs.stream())</code>
+                <code></code>
+                <code>export const styles = () =&gt;</code>
+                <code>  gulp.src('src/scss/style.scss')</code>
+                <code>    .pipe(sass().on('error', sass.logError))</code>
+                <code>    .pipe(gulp.dest('dist/css'))</code>
+                <code>    .pipe(bs.stream())</code>
+            </pre>
+        </div>
+        <div>
+            <pre>
+                <code>export function serve() {</code>
+                <code>  bs.init({ server: 'dist' })</code>
+                <code>  gulp.watch('src/pug/**/*.pug', html)</code>
+                <code>  gulp.watch('src/scss/**/*.scss', styles)</code>
+                <code>}</code>
+                <code></code>
+                <code>export default gulp.series(</code>
+                <code>  gulp.parallel(html, styles),</code>
+                <code>  serve,</code>
+                <code>)</code>
+            </pre>
+            <ul style="font-size: 15px;">
+                <li><code>gulp.src</code> → <code>.pipe(плагін)</code> → <code>gulp.dest</code> - потік файлів.</li>
+                <li><code>series</code> - послідовно, <code>parallel</code> - паралельно.</li>
+                <li><code>watch</code> - перезапуск задачі при зміні файлів.</li>
+                <li>Запуск: <code>npx gulp</code>. Готовий шаблон: <code>examples/pug-start</code>.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Webpack</h2>
+    <div class="columns two" style="font-size: 15px;">
+        <div>
+            <p><b>Webpack</b> (<a href="https://webpack.js.org/" target="_blank">webpack.js.org</a>) - збирач модулів
+                (module bundler). Починає з точки входу (<code>entry</code>), будує граф залежностей
+                (<code>import</code> JS, CSS, зображень) і пакує все в один чи кілька файлів (bundle).</p>
+            <ul>
+                <li><b>Loaders</b> - перетворюють файли (SCSS → CSS, TypeScript → JS).</li>
+                <li><b>Plugins</b> - решта задач: генерація HTML, мініфікація, винесення CSS в окремий файл.</li>
+                <li>Сьогодні нові проєкти частіше стартують на Vite, але Webpack досі працює в багатьох великих
+                    і старших проєктах.
+                </li>
+            </ul>
+        </div>
+        <div>
+            <pre>
+                <code>// webpack.config.js</code>
+                <code>export default {</code>
+                <code>  entry: './src/index.js',</code>
+                <code>  output: { filename: 'bundle.js' },</code>
+                <code>  module: {</code>
+                <code>    rules: [</code>
+                <code>      {</code>
+                <code>        test: /\.scss$/,</code>
+                <code>        use: [</code>
+                <code>          'style-loader',</code>
+                <code>          'css-loader',</code>
+                <code>          'postcss-loader',</code>
+                <code>          'sass-loader',</code>
+                <code>        ],</code>
+                <code>      },</code>
+                <code>    ],</code>
+                <code>  },</code>
+                <code>}</code>
+            </pre>
+            <p>Loaders застосовуються <b>знизу вгору</b>: sass → postcss → css → style.</p>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Vite</h2>
+    <div style="font-size: 19px;">
+        <p>Vite - це сучасний інструмент для збирання фронтенд-проєктів, створений Еваном Ю (автором Vue). Його основна
+            мета - забезпечити швидку розробку та ефективне збирання застосунків.</p>
+        <b>Ключові особливості Vite</b> (<a href="https://vite.dev/" target="_blank">Vite документація</a>)
+        <ul>
+            <li>Миттєвий старт dev-сервера. Завдяки використанню нативних ES-модулів браузера Vite не робить повної
+                збірки під час запуску - сторінка відкривається майже миттєво.
+            </li>
+            <li>Надзвичайно швидкий HMR (Hot Module Replacement). Оновлюються лише змінені файли, а не весь проєкт.</li>
+            <li>Оптимізована продакшн-збірка.</li>
+            <li>Підтримка TypeScript, Vue, React, Svelte та інших фреймворків із коробки.</li>
+            <li>Легка конфігурація. Часто достатньо мінімального налаштування або взагалі без нього.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Vite: перший проєкт</h2>
+    <div class="columns two" style="font-size: 15px;">
+        <div>
+            <pre>
+                <code>npm create vite@latest my-site</code>
+                <code># шаблон: Vanilla, мова: JavaScript</code>
+                <code>cd my-site</code>
+                <code>npm install</code>
+                <code></code>
+                <code>npm run dev      # dev-сервер з HMR</code>
+                <code>npm run build    # продакшн-збірка в dist/</code>
+                <code>npm run preview  # перегляд збірки</code>
+            </pre>
+            <p>Структура:</p>
+            <pre>
+                <code>my-site/</code>
+                <code>├─ index.html     // точка входу</code>
+                <code>├─ public/        // файли без обробки</code>
+                <code>├─ src/</code>
+                <code>│  ├─ main.js</code>
+                <code>│  └─ style.scss</code>
+                <code>└─ package.json</code>
+            </pre>
+        </div>
+        <div>
+            <p><b>SCSS у Vite</b> - без налаштувань, достатньо встановити компілятор:</p>
+            <pre>
+                <code>npm install -D sass</code>
+            </pre>
+            <p>і підключити файл у <code>src/main.js</code>:</p>
+            <pre>
+                <code>import './style.scss'</code>
+            </pre>
+            <ul>
+                <li>PostCSS і мініфікація CSS - вбудовані.</li>
+                <li>Pug не підтримується з коробки - потрібен плагін; для «чистої» верстки на Pug зручніше Gulp.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Порівняння: Vite, Gulp, Webpack</h2>
+    <div style="font-size: 12px;">
+        <table>
+            <tr>
+                <th>Характеристика</th>
+                <th>Vite</th>
+                <th>Gulp</th>
+                <th>Webpack</th>
+            </tr>
+            <tr>
+                <td>Тип інструмента</td>
+                <td>Білдер + dev-сервер нового покоління</td>
+                <td>Таск-раннер</td>
+                <td>Повноцінний білдер (bundler)</td>
+            </tr>
+            <tr>
+                <td>Призначення</td>
+                <td>Розробка та збірка сучасних фронтенд-проєктів</td>
+                <td>Автоматизація задач</td>
+                <td>Збірка складних SPA</td>
+            </tr>
+            <tr>
+                <td>Швидкість запуску</td>
+                <td>Дуже швидка (ESM)</td>
+                <td>Залежить від кількості задач (немає власного dev-сервера)</td>
+                <td>Повільна</td>
+            </tr>
+            <tr>
+                <td>Швидкість HMR</td>
+                <td>Надшвидкий</td>
+                <td>Немає (лише live reload через BrowserSync)</td>
+                <td>Є, але повільний</td>
+            </tr>
+            <tr>
+                <td>Збірка продакшн</td>
+                <td>Rollup / Rolldown</td>
+                <td>Залежить від плагінів</td>
+                <td>Потужна і гнучка</td>
+            </tr>
+            <tr>
+                <td>Сфера застосування</td>
+                <td>Vue, React, Svelte, сучасні SPA</td>
+                <td>Будь-що, але вручну</td>
+                <td>Великі SPA, enterprise</td>
+            </tr>
+            <tr>
+                <td>Конфігурація</td>
+                <td>Мінімальна</td>
+                <td>Середня</td>
+                <td>Складна</td>
+            </tr>
+            <tr>
+                <td>Гнучкість</td>
+                <td>Середня</td>
+                <td>Дуже висока</td>
+                <td>Дуже висока</td>
+            </tr>
+            <tr>
+                <td>Екосистема плагінів</td>
+                <td>Зростає</td>
+                <td>Велика</td>
+                <td>Дуже велика</td>
+            </tr>
+            <tr>
+                <td>Сильні сторони</td>
+                <td>Швидкість, простота</td>
+                <td>Автоматизація будь-яких процесів</td>
+                <td>Потужність і контроль</td>
+            </tr>
+            <tr>
+                <td>Слабкі сторони</td>
+                <td>Менш підходить для нестандартних збірок</td>
+                <td>Не є збирачем модулів</td>
+                <td>Повільність та складність</td>
+            </tr>
+            <tr>
+                <td>Ідеальні задачі</td>
+                <td>Сучасні SPA</td>
+                <td>Копіювання файлів, Sass, оптимізація зображень</td>
+                <td>Великі веб-застосунки</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Що таке PostCSS?</h2>
+    <div style="font-size: 19px;">
+        <p>
+            <b>PostCSS</b> (<a href="https://postcss.org/" target="_blank">postcss.org</a>) - це інструмент для
+            трансформації CSS за допомогою JavaScript-плагінів. Сам по собі PostCSS нічого не змінює: він
+            розбирає CSS на дерево (AST), передає його плагінам, а потім знову перетворює на CSS.
+        </p>
+        <p>
+            Якщо SASS - це <b>препроцесор</b> (ми пишемо на іншій мові, яка компілюється в CSS), то PostCSS часто
+            називають <b>постпроцесором</b>: він обробляє вже готовий CSS.
+        </p>
+        <pre>
+            <code>CSS / SCSS → [Sass] → CSS → [PostCSS + плагіни] → оброблений CSS</code>
+        </pre>
+        <p>PostCSS вбудований у Vite, Webpack (postcss-loader), Next.js, Tailwind CSS тощо.</p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Популярні плагіни PostCSS</h2>
+    <ul style="font-size: 19px;">
+        <li><b>autoprefixer</b> - автоматично додає вендорні префікси (<code>-webkit-</code>, <code>-moz-</code>
+            тощо).
+        </li>
+        <li><b>postcss-preset-env</b> - дозволяє використовувати сучасні можливості CSS, перетворюючи їх на
+            код, зрозумілий старішим браузерам (містить autoprefixer).
+        </li>
+        <li><b>cssnano</b> - мініфікація CSS: видаляє пробіли, коментарі, дублікати, скорочує значення.</li>
+        <li><b>postcss-nested</b> - вкладеність селекторів як у SASS.</li>
+        <li><b>postcss-import</b> - об'єднує файли, підключені через <code>@import</code>, в один.</li>
+        <li><b>stylelint</b> - лінтер для CSS, що також працює на основі PostCSS.</li>
+    </ul>
+    <p><a href="https://www.postcss.parts/" target="_blank">Каталог плагінів PostCSS</a></p>
+</section>
+
+<section class="slide">
+    <h2>Налаштування PostCSS</h2>
+    <div style="font-size: 18px;">
+        <p>1. Встановлення (як devDependencies):</p>
+        <pre>
+            <code>npm install -D postcss postcss-cli autoprefixer cssnano</code>
+        </pre>
+        <p>2. Файл конфігурації <code>postcss.config.js</code> у корені проєкту:</p>
+        <pre>
+            <code>import autoprefixer from 'autoprefixer'</code>
+            <code>import cssnano from 'cssnano'</code>
+            <code></code>
+            <code>export default {</code>
+            <code>    plugins: [autoprefixer(), cssnano()],</code>
+            <code>}</code>
+        </pre>
+        <p>3. Скрипт у <code>package.json</code> і запуск <code>npm run css</code>:</p>
+        <pre>
+            <code>"scripts": { "css": "postcss src/style.css -o dist/style.css" }</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Autoprefixer</h2>
+    <div style="font-size: 19px;">
+        <p>
+            <b>Вендорні префікси</b> - це приставки до назв CSS-властивостей (<code>-webkit-</code>,
+            <code>-moz-</code>, <code>-ms-</code>), які браузери використовували для експериментальних
+            або ще не стандартизованих можливостей.
+        </p>
+        <p>
+            <b>Autoprefixer</b> (<a href="https://github.com/postcss/autoprefixer" target="_blank">GitHub</a>) -
+            найпопулярніший плагін PostCSS, який автоматично додає потрібні префікси, а також видаляє застарілі.
+        </p>
+        <ul>
+            <li>Дані про підтримку браузерами бере з <a href="https://caniuse.com/" target="_blank">Can I Use</a>.</li>
+            <li>Список цільових браузерів визначається через <b>Browserslist</b>.</li>
+            <li>Ми пишемо стандартний CSS без префіксів - решту робить інструмент.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Autoprefixer: до і після</h2>
+    <div class="columns two" style="font-size: 17px;">
+        <div>
+            <p>Вхідний CSS:</p>
+            <pre>
+                <code>.card {</code>
+                <code>    user-select: none;</code>
+                <code>    backdrop-filter: blur(4px);</code>
+                <code>}</code>
+                <code></code>
+                <code>.title {</code>
+                <code>    background-clip: text;</code>
+                <code>}</code>
+            </pre>
+        </div>
+        <div>
+            <p>Результат після Autoprefixer:</p>
+            <pre>
+                <code>.card {</code>
+                <code>    -webkit-user-select: none;</code>
+                <code>    user-select: none;</code>
+                <code>    -webkit-backdrop-filter: blur(4px);</code>
+                <code>    backdrop-filter: blur(4px);</code>
+                <code>}</code>
+                <code>.title {</code>
+                <code>    -webkit-background-clip: text;</code>
+                <code>    background-clip: text;</code>
+                <code>}</code>
+            </pre>
+        </div>
+    </div>
+    <p style="font-size: 16px;">Результат залежить від налаштувань Browserslist. Спробувати онлайн:
+        <a href="https://autoprefixer.github.io/" target="_blank">Autoprefixer CSS online</a></p>
+</section>
+
+<section class="slide">
+    <h2>Browserslist</h2>
+    <div style="font-size: 18px;">
+        <p>
+            <b>Browserslist</b> (<a href="https://browsersl.ist/" target="_blank">browsersl.ist</a>) - спільна
+            конфігурація цільових браузерів для Autoprefixer, postcss-preset-env, Babel, ESLint тощо.
+            Задається у файлі <code>.browserslistrc</code> або в <code>package.json</code>:
+        </p>
+        <pre>
+            <code>"browserslist": [</code>
+            <code>    "&gt; 0.5%",</code>
+            <code>    "last 2 versions",</code>
+            <code>    "not dead"</code>
+            <code>]</code>
+        </pre>
+        <ul>
+            <li><code>&gt; 0.5%</code> - браузери з часткою використання понад 0.5%</li>
+            <li><code>last 2 versions</code> - дві останні версії кожного браузера</li>
+            <li><code>not dead</code> - без браузерів, які більше не оновлюються</li>
+            <li>Перевірити список: <code>npx browserslist</code></li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>PostCSS у Gulp та Vite</h2>
+    <div class="columns two" style="font-size: 15px;">
+        <div>
+            <p><b>Gulp</b> (<code>npm i -D gulp-postcss gulp-sass sass</code>):</p>
+            <pre>
+                <code>import gulp from 'gulp'</code>
+                <code>import postcss from 'gulp-postcss'</code>
+                <code>import autoprefixer from 'autoprefixer'</code>
+                <code>import cssnano from 'cssnano'</code>
+                <code>import * as dartSass from 'sass'</code>
+                <code>import gulpSass from 'gulp-sass'</code>
+                <code></code>
+                <code>const sass = gulpSass(dartSass)</code>
+                <code></code>
+                <code>export function styles() {</code>
+                <code>  return gulp.src('src/scss/style.scss')</code>
+                <code>    .pipe(sass())</code>
+                <code>    .pipe(postcss([autoprefixer(), cssnano()]))</code>
+                <code>    .pipe(gulp.dest('dist/css'))</code>
+                <code>}</code>
+            </pre>
+        </div>
+        <div>
+            <p><b>Vite</b> - PostCSS вбудований.</p>
+            <p>Достатньо встановити плагіни та створити <code>postcss.config.js</code> - Vite підхопить його
+                автоматично:</p>
+            <pre>
+                <code>// postcss.config.js</code>
+                <code>import autoprefixer from 'autoprefixer'</code>
+                <code></code>
+                <code>export default {</code>
+                <code>  plugins: [autoprefixer()],</code>
+                <code>}</code>
+            </pre>
+            <p>Мініфікацію CSS у продакшн-збірці Vite виконує сам.</p>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Оптимізація зображень: навіщо?</h2>
+    <div style="font-size: 19px;">
+        <p>
+            Зображення зазвичай становлять <b>найбільшу частку ваги вебсторінки</b>. Неоптимізовані
+            зображення сповільнюють завантаження, особливо на мобільних пристроях та повільному інтернеті.
+        </p>
+        <ul>
+            <li>Швидше завантаження сторінки та кращий користувацький досвід.</li>
+            <li>Кращі показники <b>Core Web Vitals</b> (зокрема LCP - Largest Contentful Paint) та SEO.</li>
+            <li>Менше трафіку для користувача і менше навантаження на сервер.</li>
+        </ul>
+        <p><b>Основні напрями оптимізації:</b></p>
+        <ol>
+            <li>Правильний формат.</li>
+            <li>Стиснення.</li>
+            <li>Правильний розмір (адаптивні зображення).</li>
+            <li>Відкладене завантаження (lazy loading).</li>
+        </ol>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Формати зображень</h2>
+    <div style="font-size: 14px;">
+        <table>
+            <tr>
+                <th>Формат</th>
+                <th>Тип стиснення</th>
+                <th>Прозорість</th>
+                <th>Коли використовувати</th>
+            </tr>
+            <tr>
+                <td>JPEG</td>
+                <td>З втратами</td>
+                <td>Ні</td>
+                <td>Фотографії (як запасний варіант)</td>
+            </tr>
+            <tr>
+                <td>PNG</td>
+                <td>Без втрат</td>
+                <td>Так</td>
+                <td>Скриншоти, графіка з чіткими краями</td>
+            </tr>
+            <tr>
+                <td>WebP</td>
+                <td>З втратами / без втрат</td>
+                <td>Так</td>
+                <td>Універсальна заміна JPEG і PNG (~25-35% менше)</td>
+            </tr>
+            <tr>
+                <td>AVIF</td>
+                <td>З втратами / без втрат</td>
+                <td>Так</td>
+                <td>Найкраще стиснення фото, сучасні браузери</td>
+            </tr>
+            <tr>
+                <td>SVG</td>
+                <td>Векторний (текст/XML)</td>
+                <td>Так</td>
+                <td>Іконки, логотипи, ілюстрації - масштабується без втрати якості</td>
+            </tr>
+            <tr>
+                <td>GIF</td>
+                <td>Без втрат (256 кольорів)</td>
+                <td>Так (1 біт)</td>
+                <td>Застарілий - для анімацій краще відео (MP4/WebM) або WebP</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Стиснення зображень</h2>
+    <div style="font-size: 19px;">
+        <ul>
+            <li><b>Стиснення з втратами (lossy)</b> - частина інформації відкидається; файл значно менший,
+                а різниця для ока часто непомітна (якість 70-85% для фото).
+            </li>
+            <li><b>Стиснення без втрат (lossless)</b> - видаляються метадані та оптимізується кодування,
+                зображення лишається піксель-у-піксель ідентичним.
+            </li>
+        </ul>
+        <p><b>Інструменти:</b></p>
+        <ul>
+            <li><a href="https://squoosh.app/" target="_blank">Squoosh</a> - онлайн-конвертер від Google
+                (порівняння якості «до / після»).
+            </li>
+            <li><a href="https://tinypng.com/" target="_blank">TinyPNG</a> - стиснення PNG, JPEG, WebP.</li>
+            <li><a href="https://svgomg.net/" target="_blank">SVGOMG</a> / SVGO - оптимізація SVG.</li>
+            <li><a href="https://sharp.pixelplumbing.com/" target="_blank">sharp</a>,
+                imagemin - Node.js-бібліотеки для автоматизації.
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Адаптивні зображення: srcset та sizes</h2>
+    <div style="font-size: 17px;">
+        <p>Браузер сам обирає файл потрібного розміру залежно від ширини екрана та щільності пікселів:</p>
+        <pre>
+            <code>&lt;img src="card-800.jpg"</code>
+            <code>     srcset="card-400.jpg 400w, card-800.jpg 800w, card-1600.jpg 1600w"</code>
+            <code>     sizes="(max-width: 600px) 100vw, 50vw"</code>
+            <code>     width="800" height="600"</code>
+            <code>     alt="Картка товару"&gt;</code>
+        </pre>
+        <ul>
+            <li><code>srcset</code> - список файлів та їхня реальна ширина (<code>w</code>).</li>
+            <li><code>sizes</code> - яку ширину займе зображення на сторінці за різних умов.</li>
+            <li><code>width</code> / <code>height</code> - резервують місце і запобігають «стрибкам» макета
+                (CLS).
+            </li>
+        </ul>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images" target="_blank">MDN:
+            Responsive images</a></p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Елемент &lt;picture&gt; та lazy loading</h2>
+    <div style="font-size: 17px;">
+        <p>Сучасні формати із запасним варіантом - браузер бере перший підтримуваний:</p>
+        <pre>
+            <code>&lt;picture&gt;</code>
+            <code>    &lt;source srcset="hero.avif" type="image/avif"&gt;</code>
+            <code>    &lt;source srcset="hero.webp" type="image/webp"&gt;</code>
+            <code>    &lt;img src="hero.jpg" alt="..." width="1200" height="600"&gt;</code>
+            <code>&lt;/picture&gt;</code>
+        </pre>
+        <p>Відкладене завантаження зображень, які не видно одразу:</p>
+        <pre>
+            <code>&lt;img src="card.webp" alt="..." loading="lazy" decoding="async"&gt;</code>
+        </pre>
+        <ul>
+            <li><code>loading="lazy"</code> - завантаження лише при наближенні до видимої області.</li>
+            <li>Головне зображення першого екрана <b>не</b> робимо lazy; можна додати
+                <code>fetchpriority="high"</code>.
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Автоматизація оптимізації зображень</h2>
+    <div class="columns two" style="font-size: 15px;">
+        <div>
+            <p><b>Gulp</b> (<code>npm i -D gulp-imagemin</code>):</p>
+            <pre>
+                <code>import gulp from 'gulp'</code>
+                <code>import imagemin from 'gulp-imagemin'</code>
+                <code></code>
+                <code>export function images() {</code>
+                <code>  return gulp.src('src/images/**/*', {</code>
+                <code>      encoding: false, // Gulp 5: бінарні файли</code>
+                <code>    })</code>
+                <code>    .pipe(imagemin())</code>
+                <code>    .pipe(gulp.dest('dist/images'))</code>
+                <code>}</code>
+            </pre>
+            <p>Конвертація у WebP: плагін <code>gulp-webp</code>.</p>
+        </div>
+        <div>
+            <p><b>Vite</b> (<code>npm i -D vite-plugin-image-optimizer sharp svgo</code>):</p>
+            <pre>
+                <code>// vite.config.js</code>
+                <code>import { defineConfig } from 'vite'</code>
+                <code>import { ViteImageOptimizer }</code>
+                <code>  from 'vite-plugin-image-optimizer'</code>
+                <code></code>
+                <code>export default defineConfig({</code>
+                <code>  plugins: [</code>
+                <code>    ViteImageOptimizer({ jpg: { quality: 80 } }),</code>
+                <code>  ],</code>
+                <code>})</code>
+            </pre>
+            <p>Зображення оптимізуються під час <code>vite build</code>.</p>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Якість коду: ще один рівень автоматизації</h2>
+    <div style="font-size: 19px;">
+        <p>
+            Збирачі (Gulp, Vite) автоматизують <b>обробку</b> коду. Наступний крок - автоматизувати
+            <b>перевірку якості</b> коду, щоб уся команда писала в одному стилі та без типових помилок.
+        </p>
+        <ul>
+            <li><b>Форматер</b> (formatter) - відповідає за <i>вигляд</i> коду: відступи, лапки, переноси рядків,
+                порядок пробілів. Приклад: <b>Prettier</b>.
+            </li>
+            <li><b>Лінтер</b> (linter) - аналізує код і знаходить <i>помилки та погані практики</i>: невідомі
+                властивості, дублікати, неправильні значення. Приклади: <b>Stylelint</b> (CSS/SCSS),
+                ESLint (JavaScript).
+            </li>
+        </ul>
+        <p>
+            Обидва інструменти працюють з командного рядка, в редакторі коду (VS Code, WebStorm) і перед комітом у Git.
+        </p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Prettier</h2>
+    <div style="font-size: 17px;">
+        <p>
+            <b>Prettier</b> (<a href="https://prettier.io/" target="_blank">prettier.io</a>) - «самовпевнений»
+            (opinionated) форматер для HTML, CSS, SCSS, JavaScript, JSON, Markdown тощо. Має мінімум
+            налаштувань - суперечки про стиль коду в команді зникають.
+        </p>
+        <div class="columns two">
+            <div>
+                <p>Встановлення та запуск:</p>
+                <pre>
+                    <code>npm install -D prettier</code>
+                    <code></code>
+                    <code># відформатувати всі файли</code>
+                    <code>npx prettier . --write</code>
+                    <code></code>
+                    <code># лише перевірити (для CI)</code>
+                    <code>npx prettier . --check</code>
+                </pre>
+            </div>
+            <div>
+                <p>Файл <code>.prettierrc</code>:</p>
+                <pre>
+                    <code>{</code>
+                    <code>    "tabWidth": 4,</code>
+                    <code>    "singleQuote": true,</code>
+                    <code>    "semi": false,</code>
+                    <code>    "printWidth": 100</code>
+                    <code>}</code>
+                </pre>
+                <p>Виключення - у <code>.prettierignore</code> (наприклад, <code>dist</code>).</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Stylelint</h2>
+    <div style="font-size: 17px;">
+        <p>
+            <b>Stylelint</b> (<a href="https://stylelint.io/" target="_blank">stylelint.io</a>) - лінтер для CSS та
+            SCSS, побудований на PostCSS. Має понад 100 вбудованих правил і готові набори правил.
+        </p>
+        <div class="columns two">
+            <div>
+                <p>Встановлення (для SCSS):</p>
+                <pre>
+                    <code>npm install -D stylelint \</code>
+                    <code>    stylelint-config-standard-scss</code>
+                </pre>
+                <p>Файл <code>stylelint.config.js</code>:</p>
+                <pre>
+                    <code>export default {</code>
+                    <code>  extends: ['stylelint-config-standard-scss'],</code>
+                    <code>  rules: {</code>
+                    <code>    'color-named': 'never',</code>
+                    <code>  },</code>
+                    <code>}</code>
+                </pre>
+            </div>
+            <div>
+                <p>Запуск:</p>
+                <pre>
+                    <code>npx stylelint "src/**/*.{css,scss}"</code>
+                    <code></code>
+                    <code># виправити те, що можна, автоматично</code>
+                    <code>npx stylelint "src/**/*.scss" --fix</code>
+                </pre>
+                <p>Для чистого CSS - набір <code>stylelint-config-standard</code>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Stylelint: що він знаходить</h2>
+    <div class="columns two" style="font-size: 17px;">
+        <div>
+            <pre>
+                <code>.card {</code>
+                <code>    colr: #333;</code>
+                <code>    margin: 10px;</code>
+                <code>    margin: 20px;</code>
+                <code>    color: #fffffg;</code>
+                <code>}</code>
+                <code></code>
+                <code>.card {</code>
+                <code>    padding: 0px;</code>
+                <code>}</code>
+            </pre>
+        </div>
+        <div>
+            <ul>
+                <li><code>colr</code> - невідома властивість (<code>property-no-unknown</code>)</li>
+                <li><code>margin</code> двічі - дублікат (<code>declaration-block-no-duplicate-properties</code>)</li>
+                <li><code>#fffffg</code> - некоректний колір (<code>color-no-invalid-hex</code>)</li>
+                <li><code>.card</code> двічі - дублікат селектора (<code>no-duplicate-selectors</code>)</li>
+                <li><code>0px</code> → <code>0</code> - зайва одиниця (<code>length-zero-no-unit</code>, виправляється
+                    через <code>--fix</code>)
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Prettier + Stylelint разом</h2>
+    <div style="font-size: 17px;">
+        <ul>
+            <li>Розподіл обов'язків: <b>Prettier</b> - форматування, <b>Stylelint</b> - помилки та правила якості.
+                Починаючи з версії 15 Stylelint не перевіряє форматування, тож інструменти не конфліктують.
+            </li>
+            <li>Скрипти в <code>package.json</code>:</li>
+        </ul>
+        <pre>
+            <code>"scripts": {</code>
+            <code>    "format": "prettier . --write",</code>
+            <code>    "lint:css": "stylelint \"src/**/*.{css,scss}\"",</code>
+            <code>    "lint": "prettier . --check &amp;&amp; npm run lint:css"</code>
+            <code>}</code>
+        </pre>
+        <ul>
+            <li><b>У редакторі:</b> розширення Prettier та Stylelint для VS Code - форматування і підсвічування
+                помилок під час збереження файлу.
+            </li>
+            <li><b>Перед комітом:</b> <code>husky</code> + <code>lint-staged</code> запускають перевірку лише для
+                змінених файлів - код з помилками не потрапляє в репозиторій.
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Git hooks: що це таке?</h2>
+    <div class="columns two" style="font-size: 15px;">
+        <div>
+            <p>
+                <b>Git hooks</b> (хуки) - скрипти, які Git автоматично запускає на певних етапах роботи.
+                Якщо скрипт завершується з помилкою (ненульовий код виходу), Git <b>скасовує дію</b>.
+            </p>
+            <ul>
+                <li><code>pre-commit</code> - перед створенням коміту: лінтери, форматування.</li>
+                <li><code>commit-msg</code> - перевірка тексту повідомлення коміту.</li>
+                <li><code>pre-push</code> - перед <code>git push</code>: тести, збірка проєкту.</li>
+                <li><code>post-merge</code>, <code>post-checkout</code> - після злиття / перемикання гілки
+                    (наприклад, <code>npm install</code>).
+                </li>
+            </ul>
+        </div>
+        <div>
+            <p>«Ручний» хук - файл <code>.git/hooks/pre-commit</code>:</p>
+            <pre>
+                <code>#!/bin/sh</code>
+                <code>echo "Перевірка стилів..."</code>
+                <code>npx stylelint "src/**/*.scss" || exit 1</code>
+            </pre>
+            <pre>
+                <code>chmod +x .git/hooks/pre-commit</code>
+            </pre>
+            <p><b>Проблема:</b> папка <code>.git/hooks</code> не потрапляє в репозиторій - кожен учасник команди
+                мусить налаштовувати хуки вручну. Тому використовують спеціальні інструменти, які зберігають
+                налаштування хуків разом із проєктом.</p>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Інструменти для pre-commit хуків</h2>
+    <div style="font-size: 14px;">
+        <table>
+            <tr>
+                <th>Інструмент</th>
+                <th>Що робить</th>
+                <th>Де налаштовується</th>
+            </tr>
+            <tr>
+                <td><a href="https://typicode.github.io/husky/" target="_blank">husky</a></td>
+                <td>Зберігає хуки як звичайні shell-файли в репозиторії й підключає їх до Git після <code>npm
+                    install</code></td>
+                <td>Папка <code>.husky/</code></td>
+            </tr>
+            <tr>
+                <td><a href="https://github.com/lint-staged/lint-staged" target="_blank">lint-staged</a></td>
+                <td>Запускає команди лише для файлів, доданих у коміт (<code>git add</code>) - швидко навіть у великому
+                    проєкті
+                </td>
+                <td><code>package.json</code> або <code>.lintstagedrc</code></td>
+            </tr>
+            <tr>
+                <td><a href="https://commitlint.js.org/" target="_blank">commitlint</a></td>
+                <td>Перевіряє повідомлення комітів (хук <code>commit-msg</code>), наприклад за Conventional Commits</td>
+                <td><code>commitlint.config.js</code></td>
+            </tr>
+            <tr>
+                <td><a href="https://github.com/toplenboren/simple-git-hooks" target="_blank">simple-git-hooks</a></td>
+                <td>Мінімалістична альтернатива husky без залежностей</td>
+                <td><code>package.json</code></td>
+            </tr>
+            <tr>
+                <td><a href="https://lefthook.dev/" target="_blank">Lefthook</a></td>
+                <td>Швидкий менеджер хуків (написаний на Go): паралельний запуск, фільтри файлів, будь-які мови</td>
+                <td><code>lefthook.yml</code></td>
+            </tr>
+            <tr>
+                <td><a href="https://pre-commit.com/" target="_blank">pre-commit</a></td>
+                <td>Фреймворк на Python з каталогом готових хуків; популярний у мультимовних проєктах</td>
+                <td><code>.pre-commit-config.yaml</code></td>
+            </tr>
+        </table>
+        <p>Найпоширеніша зв'язка у фронтенді - <b>husky + lint-staged</b> (+ commitlint).</p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Перевірка перед комітом: husky + lint-staged</h2>
+    <div style="font-size: 17px;">
+        <p>1. Встановлення та ініціалізація husky (створює папку <code>.husky</code> і додає в
+            <code>package.json</code> скрипт <code>"prepare": "husky"</code>, тож хуки підключаються після
+            <code>npm install</code> у кожного учасника команди):</p>
+        <pre>
+            <code>npm install -D husky lint-staged</code>
+            <code>npx husky init</code>
+        </pre>
+        <p>2. У файлі <code>.husky/pre-commit</code> замінюємо вміст на:</p>
+        <pre>
+            <code>npx lint-staged</code>
+        </pre>
+        <p>3. Налаштування <code>lint-staged</code> у <code>package.json</code>:</p>
+        <pre>
+            <code>"lint-staged": {</code>
+            <code>    "*.{css,scss}": ["stylelint --fix", "prettier --write"],</code>
+            <code>    "*.{html,js,json,md}": "prettier --write"</code>
+            <code>}</code>
+        </pre>
+        <p>Тепер при кожному <code>git commit</code> змінені файли автоматично перевіряються та форматуються.</p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>husky + lint-staged: як це працює</h2>
+    <div class="columns two" style="font-size: 15px;">
+        <div>
+            <pre>
+                <code>$ git add src/scss/_card.scss</code>
+                <code>$ git commit -m "feat: add card styles"</code>
+                <code></code>
+                <code>✔ Backed up original state in git stash</code>
+                <code>❯ Running tasks for staged files...</code>
+                <code>  ❯ *.{css,scss} — 1 file</code>
+                <code>    ✖ stylelint --fix [FAILED]</code>
+                <code>    ◼ prettier --write</code>
+                <code></code>
+                <code>src/scss/_card.scss</code>
+                <code>  3:5  ✖  Unexpected unknown property "colr"</code>
+                <code>          property-no-unknown</code>
+                <code></code>
+                <code>husky - pre-commit script failed (code 1)</code>
+            </pre>
+        </div>
+        <div>
+            <ol>
+                <li>Git запускає хук <code>.husky/pre-commit</code>.</li>
+                <li>lint-staged бере лише файли зі staging area і запускає для них команди.</li>
+                <li>Автовиправлення (<code>--fix</code>, <code>--write</code>) одразу додаються в коміт.</li>
+                <li>Якщо лишилась помилка, яку не можна виправити автоматично, <b>коміт не створюється</b>,
+                    а в консолі видно файл, рядок і правило.
+                </li>
+            </ol>
+            <p>Можна додати хук <code>pre-push</code> з тестами чи збіркою:</p>
+            <pre>
+                <code># .husky/pre-push</code>
+                <code>npm run build</code>
+            </pre>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>commitlint: перевірка повідомлень комітів</h2>
+    <div class="columns two" style="font-size: 15px;">
+        <div>
+            <p><b>Conventional Commits</b> (<a href="https://www.conventionalcommits.org/uk/" target="_blank">conventionalcommits.org</a>)
+                -
+                угода про формат повідомлень: <code>тип(область): опис</code></p>
+            <pre>
+                <code>feat(header): add mobile menu</code>
+                <code>fix(card): correct image aspect ratio</code>
+                <code>style: format scss with prettier</code>
+                <code>docs: update README</code>
+            </pre>
+            <p>Типи: <code>feat</code>, <code>fix</code>, <code>docs</code>, <code>style</code>, <code>refactor</code>,
+                <code>perf</code>, <code>test</code>, <code>build</code>, <code>ci</code>, <code>chore</code>.</p>
+            <p>Переваги: зрозуміла історія змін, автоматична генерація CHANGELOG і версій.</p>
+        </div>
+        <div>
+            <p>Встановлення:</p>
+            <pre>
+                <code>npm install -D @commitlint/cli \</code>
+                <code>    @commitlint/config-conventional</code>
+            </pre>
+            <p><code>commitlint.config.js</code>:</p>
+            <pre>
+                <code>export default {</code>
+                <code>  extends: ['@commitlint/config-conventional'],</code>
+                <code>}</code>
+            </pre>
+            <p>Хук <code>.husky/commit-msg</code>:</p>
+            <pre>
+                <code>npx --no -- commitlint --edit $1</code>
+            </pre>
+            <p>Коміт <code>git commit -m "fixed stuff"</code> буде відхилено: немає типу.</p>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Lefthook: альтернатива husky</h2>
+    <div class="columns two" style="font-size: 15px;">
+        <div>
+            <pre>
+                <code>npm install -D lefthook</code>
+                <code>npx lefthook install</code>
+            </pre>
+            <ul>
+                <li>Усі хуки описані в одному файлі <code>lefthook.yml</code>.</li>
+                <li><code>{staged_files}</code> - підставляє файли з коміту (lint-staged не потрібен).</li>
+                <li><code>glob</code> - фільтр файлів, <code>parallel</code> - паралельний запуск.</li>
+                <li><code>stage_fixed</code> - автоматично додає виправлені файли в коміт.</li>
+                <li>Працює з будь-якими мовами, а не лише з Node.js-проєктами.</li>
+            </ul>
+        </div>
+        <div>
+            <p><code>lefthook.yml</code>:</p>
+            <pre style="font-size: 10px">
+                <code>pre-commit:</code>
+                <code>  parallel: true</code>
+                <code>  commands:</code>
+                <code>    stylelint:</code>
+                <code>      glob: "*.{css,scss}"</code>
+                <code>      run: npx stylelint --fix {staged_files}</code>
+                <code>      stage_fixed: true</code>
+                <code>    prettier:</code>
+                <code>      glob: "*.{html,css,scss,js,json,md}"</code>
+                <code>      run: npx prettier --write {staged_files}</code>
+                <code>      stage_fixed: true</code>
+                <code></code>
+                <code>commit-msg:</code>
+                <code>  commands:</code>
+                <code>    commitlint:</code>
+                <code>      run: npx commitlint --edit {1}</code>
+                <code></code>
+                <code>pre-push:</code>
+                <code>  commands:</code>
+                <code>    build:</code>
+                <code>      run: npm run build</code>
+            </pre>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Фреймворк pre-commit</h2>
+    <div class="columns two" style="font-size: 15px;">
+        <div>
+            <p><b>pre-commit</b> (<a href="https://pre-commit.com/" target="_blank">pre-commit.com</a>) -
+                менеджер хуків на Python. Хуки підключаються з Git-репозиторіїв за версією (<code>rev</code>),
+                тому однакові в усіх учасників команди.</p>
+            <pre>
+                <code>pip install pre-commit</code>
+                <code>pre-commit install          # підключити хук</code>
+                <code>pre-commit run --all-files # перевірити весь проєкт</code>
+                <code>pre-commit autoupdate      # оновити версії хуків</code>
+            </pre>
+            <p>Зручний, коли в проєкті кілька мов (наприклад, бекенд на Python + фронтенд).</p>
+        </div>
+        <div>
+            <p><code>.pre-commit-config.yaml</code>:</p>
+            <pre style="font-size: 10px">
+                <code>repos:</code>
+                <code>  - repo: https://github.com/pre-commit/pre-commit-hooks</code>
+                <code>    rev: v5.0.0</code>
+                <code>    hooks:</code>
+                <code>      - id: trailing-whitespace</code>
+                <code>      - id: end-of-file-fixer</code>
+                <code>      - id: check-yaml</code>
+                <code>      - id: check-added-large-files</code>
+                <code></code>
+                <code>  - repo: local</code>
+                <code>    hooks:</code>
+                <code>      - id: stylelint</code>
+                <code>        name: stylelint</code>
+                <code>        entry: npx stylelint --fix</code>
+                <code>        language: system</code>
+                <code>        files: \.(css|scss)$</code>
+            </pre>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Pre-commit хуки: обмеження та добрі практики</h2>
+    <div style="font-size: 17px;">
+        <ul>
+            <li><b>Хуки можна обійти:</b> <code>git commit --no-verify</code> (або <code>-n</code>) пропускає
+                <code>pre-commit</code> і <code>commit-msg</code>. Тому ті самі перевірки (<code>npm run lint</code>)
+                обов'язково дублюють у <b>CI</b> (наприклад, GitHub Actions) - це остаточний «контроль на вході».
+            </li>
+            <li><b>Хуки мають бути швидкими:</b> у <code>pre-commit</code> - лише лінтери й форматування змінених
+                файлів; довгі тести та збірку - у <code>pre-push</code> або CI.
+            </li>
+            <li><b>Автовиправлення замість помилок:</b> <code>--fix</code> / <code>--write</code> там, де можливо, -
+                розробник не витрачає час на дрібниці.
+            </li>
+            <li><b>Одна конфігурація для всіх:</b> налаштування хуків, лінтерів і форматерів зберігаються в
+                репозиторії; редактор, хук і CI використовують однакові правила.
+            </li>
+        </ul>
+        <pre>
+            <code>Редактор (при збереженні) → pre-commit (змінені файли) → <br> → pre-push (збірка) → CI (весь проєкт)</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Підсумок: процес збирання фронтенду</h2>
+    <div style="font-size: 15px;">
+        <pre>
+            <code> src/                                                       dist/</code>
+            <code> ├─ pug/*.pug     ── Pug ──────────────────────────────►    *.html</code>
+            <code> ├─ scss/*.scss   ── Sass ── PostCSS ──────────────────►    css/style.css</code>
+            <code> │                         (Autoprefixer, cssnano)</code>
+            <code> └─ images/*      ── imagemin / sharp ─────────────────►    images/*.webp</code>
+            <code></code>
+            <code>       ▲  Gulp / Vite / Webpack запускають усі кроки, стежать за змінами (watch)</code>
+            <code>       │  і піднімають dev-сервер з автооновленням</code>
+            <code></code>
+            <code> Prettier + Stylelint  ── у редакторі та перед комітом (husky + lint-staged)</code>
+        </pre>
+        <ul>
+            <li><b>NPM</b> - встановлює всі інструменти та фіксує їхні версії.</li>
+            <li><b>Препроцесори</b> (Pug, SASS) - зручніша мова для написання коду.</li>
+            <li><b>Постпроцесори</b> (PostCSS) та <b>оптимізація</b> - підготовка коду і ресурсів для браузера.</li>
+            <li><b>Лінтери та форматери</b> - стабільна якість коду в команді.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Практичне завдання</h2>
+    <div style="font-size: 16px;">
+        <p>Зверстати сторінку використовуючи всі інструменти лекції.
+            Основа - стартовий шаблон <code>https://github.com/Computer-Science-Department-ChNU/vite-pug-scss-template/tree/main</code>
+            (Vite Pug Template).</p>
+        <ol>
+            <li><b>Pug:</b> макет <code>layout.pug</code> з <code>block</code>, шапка та футер через
+                <code>include</code>,
+                міксин <code>card</code>, дані блоків - масив об'єктів, вивід через <code>each</code>.
+            </li>
+            <li><b>SCSS:</b> структура папок з <code>@use</code> / <code>@forward</code>, змінні, міксин для
+                медіазапитів, БЕМ-класи через <code>&amp;__</code> і <code>&amp;--</code>.
+            </li>
+            <li><b>PostCSS:</b> Autoprefixer + Browserslist, cssnano для продакшн-збірки.</li>
+            <li><b>Зображення:</b> WebP/AVIF, <code>&lt;picture&gt;</code>, <code>srcset</code>,
+                <code>loading="lazy"</code>
+                для карток.
+            </li>
+            <li><b>Якість коду:</b> Prettier і Stylelint, npm-скрипти <code>format</code> і <code>lint</code>
+                pre-commit хук через husky + lint-staged (за бажанням - commitlint).
+            </li>
+        </ol>
+        <p><b>Результат:</b> репозиторій без <code>node_modules</code> і <code>dist</code> (додати в
+            <code>.gitignore</code>),
+            <code>npm install</code> + <code>npm run build</code> збирають робочу сторінку, <code>npm run lint</code>
+            проходить без помилок.</p>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Додаткові Ресурси: PostCSS, зображення, якість коду</h2>
+    <div class="columns two">
+        <ul>
+            <li><a href="https://postcss.org/docs/" target="_blank">Документація PostCSS</a></li>
+            <li><a href="https://github.com/postcss/autoprefixer" target="_blank">Autoprefixer</a></li>
+            <li><a href="https://browsersl.ist/" target="_blank">Browserslist: перевірка запитів</a></li>
+            <li><a href="https://web.dev/learn/images" target="_blank">web.dev: Learn Images</a></li>
+            <li><a href="https://squoosh.app/" target="_blank">Squoosh</a></li>
+            <li><a href="https://prettier.io/docs/" target="_blank">Документація Prettier</a></li>
+            <li><a href="https://stylelint.io/user-guide/get-started" target="_blank">Stylelint: Getting started</a>
+            </li>
+        </ul>
+        <ul>
+            <li><a href="https://git-scm.com/book/uk/v2/Налаштування-Git-Гаки-hooks-Git" target="_blank">Pro Git: Гаки
+                Git</a></li>
+            <li><a href="https://typicode.github.io/husky/" target="_blank">husky</a></li>
+            <li><a href="https://github.com/lint-staged/lint-staged" target="_blank">lint-staged</a></li>
+            <li><a href="https://commitlint.js.org/" target="_blank">commitlint</a></li>
+            <li><a href="https://www.conventionalcommits.org/uk/" target="_blank">Conventional Commits</a></li>
+            <li><a href="https://lefthook.dev/" target="_blank">Lefthook</a></li>
+            <li><a href="https://pre-commit.com/" target="_blank">pre-commit</a></li>
+        </ul>
+    </div>
 </section>
 
 <section class="slide">
