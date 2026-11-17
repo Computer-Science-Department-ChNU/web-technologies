@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <title>Лекція 14. CSS методології</title>
+    <title>Лекція 14. CSS-методології та workflow верстки</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link rel="stylesheet" href="../../../core/styles/styles.css">
@@ -9,25 +9,182 @@
         .shower {
             --slide-ratio: calc(16 / 9);
         }
+
+        .slide .s14 {
+            font-size: 14px;
+        }
+
+        .slide .s15 {
+            font-size: 15px;
+        }
+
+        .slide .s16 {
+            font-size: 16px;
+        }
+
+        .slide .s17 {
+            font-size: 17px;
+        }
+
+        .slide .s18 {
+            font-size: 18px;
+        }
+
+        .slide .s19 {
+            font-size: 19px;
+        }
+
+        .slide pre code {
+            line-height: 1.65;
+        }
+
+        .slide .ok {
+            color: #1a7f37;
+            font-weight: bold;
+        }
+
+        .slide .bad {
+            color: var(--color-red);
+            font-weight: bold;
+        }
+
+        .slide .muted {
+            color: var(--color-grey);
+        }
+
+        .slide .center {
+            text-align: center;
+        }
+
+        .slide .lead {
+            margin: 0 0 12px;
+            padding: 8px 16px;
+            border-left: 4px solid var(--color-blue);
+            background: var(--color-fill);
+            line-height: 1.5;
+        }
+
+        .slide .pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            font-size: 14px;
+            line-height: 1.3;
+        }
+
+        .slide .pyramid div {
+            padding: 5px 8px;
+            color: #fff;
+            text-align: center;
+            border-radius: 3px;
+        }
+
+        .slide .pyramid div:nth-child(1) {
+            width: 100%;
+            background: #2f5f8f;
+        }
+
+        .slide .pyramid div:nth-child(2) {
+            width: 88%;
+            background: #3a6fa4;
+        }
+
+        .slide .pyramid div:nth-child(3) {
+            width: 76%;
+            background: #4b86c2;
+        }
+
+        .slide .pyramid div:nth-child(4) {
+            width: 64%;
+            background: #5f97c9;
+        }
+
+        .slide .pyramid div:nth-child(5) {
+            width: 52%;
+            background: #c27b4b;
+        }
+
+        .slide .pyramid div:nth-child(6) {
+            width: 40%;
+            background: #b8612e;
+        }
+
+        .slide .pyramid div:nth-child(7) {
+            width: 28%;
+            background: #cc0000;
+        }
+
+        .slide .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 16px;
+            line-height: 1.35;
+        }
+
+        .slide .steps li {
+            padding: 10px 12px;
+            border-radius: 6px;
+            background: var(--color-fill);
+        }
+
+        .slide .steps li::before {
+            display: none;
+        }
+
+        .slide .steps b {
+            display: block;
+            color: var(--color-blue);
+        }
+
+        .slide .map {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            font-size: 17px;
+            line-height: 1.45;
+        }
+
+        .slide .map > div {
+            padding: 12px 16px;
+            border-radius: 8px;
+            background: var(--color-fill);
+        }
+
+        .slide .map h3 {
+            margin: 0 0 6px;
+            font-size: 19px;
+        }
+
+        .slide .map p {
+            margin: 0 0 6px;
+        }
     </style>
 </head>
 <body class="shower list">
 
 <header class="caption">
-    <h1>Лекція 14. CSS методології</h1>
+    <h1>Лекція 14. CSS-методології та workflow верстки</h1>
 </header>
 
 <section class="slide">
-    <h2>Лекція 14. CSS методології</h2>
+    <h2>Лекція 14. CSS-методології та workflow верстки</h2>
     <div class="columns two">
         <div>
             <h3>План лекції:</h3>
-            <ol>
+            <ol class="s18">
+                <li>Навіщо потрібні методології</li>
                 <li>BEM</li>
+                <li>OOCSS</li>
                 <li>SMACSS</li>
-                <li>ITCSS (Inverted Triangle CSS)</li>
-                <li>OOCSS (Object-Oriented CSS)</li>
-                <li>Atomic CSS</li>
+                <li>ITCSS і <code>@layer</code></li>
+                <li>Atomic CSS (Tailwind)</li>
+                <li>Порівняння і що обрати</li>
+                <li>Workflow верстки макета</li>
             </ol>
         </div>
         <img src="images/2.webp" alt="" width="100%">
@@ -35,369 +192,873 @@
 </section>
 
 <section class="slide">
-    <h2>CSS методології</h2>
-    <p>
-        CSS-методології — це підходи до написання CSS-коду, які допомагають структурувати стилі для полегшення
-        їх підтримки та масштабування.
-    </p>
-    <p>
-        Особливо корисні для середніх та великих проектів, де легко допустити плутанину в стилях.
-    </p>
-    <p>
-        Мета — зменшити складність та покращити організацію CSS, щоб код залишався чистим і легко змінюваним.
-    </p>
+    <h2>Знайома ситуація?</h2>
+    <div class="columns two">
+        <div class="s17">
+            <pre>
+                <code>.menu a { color: #333; }</code>
+                <code>.header .menu li a { color: blue; }</code>
+                <code>#nav .menu li a { color: green; }</code>
+                <code>.footer a { color: #333 !important; }</code>
+                <code>.menu a.link { color: red !important; }</code>
+            </pre>
+            <p class="lead">Кожен новий стиль «перебиває» попередній — специфічність тільки росте, а
+                <code>!important</code> множиться.</p>
+        </div>
+        <img src="images/1.webp" alt="Мем: HTML і CSS — не мови програмування?" height="360"
+             style="display: block; margin: 0 auto">
+    </div>
 </section>
 
 <section class="slide">
-    <h2>Навіщо потрібні CSS-методології?</h2>
-    <ul>
-        <li>Уникнення конфліктів стилів: запобігають переписуванню стилів один одним.</li>
-        <li>Краща читабельність: забезпечують структурований підхід до написання CSS-коду.</li>
-        <li>Покращення продуктивності: дозволяють ефективно повторно використовувати стилі.</li>
-        <li>Масштабованість: забезпечують легкість додавання нових компонентів.</li>
-    </ul>
-    <h3>Популярні CSS-методології</h3>
-    <ul>
-        <li>BEM (Block, Element, Modifier)</li>
-        <li>SMACSS (Scalable and Modular Architecture for CSS)</li>
-        <li>ITCSS (Inverted Triangle CSS)</li>
-        <li>OOCSS (Object-Oriented CSS)</li>
-        <li>Atomic CSS</li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>BEM (Block, Element, Modifier)</h2>
-    <ul>
-        <li>Синтаксис: block, block__element--modifier</li>
-        <li>Приклад: .button__icon--active</li>
-        <li>Задача: розділяє CSS на блоки, елементи та модифікатори, що дозволяє уникати конфліктів стилів та робить
-            структуру коду зрозумілішою.
+    <h2>Проблеми CSS без правил</h2>
+    <ul class="s19">
+        <li><b>Глобальність:</b> будь-який клас діє на всю сторінку — стилі одного компонента «ламають» інший.</li>
+        <li><b>Війна специфічності:</b> <code>.header .menu li a</code> → <code>#nav .menu li a</code> →
+            <code>!important</code> → …
         </li>
-    </ul>
-    Переваги:
-    <ul>
-        <li>Добре працює з компонентним підходом.</li>
-        <li>Полегшує читабельність.</li>
-    </ul>
-    Недоліки:
-    <ul>
-        <li>Збільшує довжину класів.</li>
+        <li><b>Страх видаляти:</b> «а раптом цей клас ще десь використовується?» — CSS лише росте.</li>
+        <li><b>Неочевидні зв'язки:</b> з HTML не зрозуміло, де лежать стилі і що від чого залежить.</li>
+        <li><b>Залежність від DOM:</b> переніс блок в інше місце — він виглядає інакше.</li>
     </ul>
 </section>
 
 <section class="slide">
-    <h2>BEM (Block, Element, Modifier)</h2>
-    <p>В основі лежить поділ інтерфейсу на незалежні блоки, що дозволяє їх перевикористовувати.</p>
-    <p>Block — це незалежна одиниця (header, container, menu), що несе семантичне навантаження.</p>
-    <p>Правильно створена назва блоку відповідає на питання “Що це?” — menu, button і ні в якому разі не описує блок
-        “Який блок?” — red, big.
-        Блоки можуть мати необмежену вкладеність.</p>
+    <h2>Що таке CSS-методологія</h2>
+    <p class="lead s19"><b>CSS-методологія</b> — набір правил і домовленостей щодо <b>іменування класів</b> та
+        <b>організації файлів стилів</b>.</p>
+    <table class="s18">
+        <tr>
+            <th>Перевага</th>
+            <th>Пояснення</th>
+        </tr>
+        <tr>
+            <td>Уникнення конфліктів</td>
+            <td>Стилі не перезаписують один одного</td>
+        </tr>
+        <tr>
+            <td>Читабельність</td>
+            <td>Структура зрозуміла з назви класу</td>
+        </tr>
+        <tr>
+            <td>Повторне використання</td>
+            <td>Компоненти переносяться між сторінками й проєктами</td>
+        </tr>
+        <tr>
+            <td>Масштабованість</td>
+            <td>Нові компоненти додаються без страху щось зламати</td>
+        </tr>
+        <tr>
+            <td>Командна робота</td>
+            <td>Усі пишуть CSS однаково</td>
+        </tr>
+    </table>
 </section>
 
 <section class="slide">
-    <h2>BEM (Block, Element, Modifier)</h2>
-    <p>Element — складова блоку, що є семантично прив’язана до нього (menu item, list item, checkbox caption). Назва
-        елемента повинна відповідати на питання “Що це?” — item, text і т.д., та не вказувати стан елементу “Який тип?”,
-        чи “Який він?” — red, big.
-    </p>
-    <p>
-        Елементи як і блоки також можуть бути вкладеними, та не обмежуються у рівні вкладеності.
-    </p>
-    <p>Modifier: Може бути лише частиною елементу й описує його стан, чи поведінку (disabled, highlighted, enabled,
-        checked).</p>
-    <p>block-name__element-name--modifier-name, BlockName__ElementName--ModifierName</p>
+    <h2>Карта методологій</h2>
+    <div class="map">
+        <div>
+            <h3>Як називати класи?</h3>
+            <p><b>BEM</b> — блоки, елементи, модифікатори</p>
+            <p><b>OOCSS</b> — перевикористовувані «об'єкти»</p>
+            <p><b>Atomic CSS</b> — один клас = одна властивість</p>
+        </div>
+        <div>
+            <h3>Як організувати файли?</h3>
+            <p><b>SMACSS</b> — 5 категорій стилів</p>
+            <p><b>ITCSS</b> — шари від загального до конкретного</p>
+            <p class="muted">(+ нативний <code>@layer</code> у CSS)</p>
+        </div>
+    </div>
+    <p class="lead s18" style="margin-top: 16px;">Методології <b>не взаємовиключні</b>: типова комбінація —
+        <b>ITCSS</b> для структури файлів + <b>BEM</b> для іменування.</p>
 </section>
 
 <section class="slide">
-    <h2>SMACSS (Scalable and Modular Architecture for CSS)</h2>
-    <ul>
-        <li>Принцип: ділить стилі на 5 категорій: Base, Layout, Module, State, Theme.</li>
-        <li>Задача: згрупувати CSS-код за типами для кращої організації та гнучкості.</li>
-        <li>Задача: розділяє CSS на блоки, елементи та модифікатори, що дозволяє уникати конфліктів стилів та робить
-            структуру коду зрозумілішою.
+    <h2>BEM: Block, Element, Modifier</h2>
+    <p class="s19">Найпопулярніша методологія іменування (2009). Інтерфейс ділиться на <b>незалежні
+        блоки</b>.</p>
+    <div class="columns two">
+        <pre class="s19">
+            <code>block</code>
+            <code>block__element</code>
+            <code>block--modifier</code>
+            <code>block__element--modifier</code>
+        </pre>
+        <pre class="s19">
+            <code>.search-form</code>
+            <code>.search-form__input</code>
+            <code>.search-form--compact</code>
+            <code>.search-form__button--disabled</code>
+        </pre>
+    </div>
+    <p class="s18">Слова всередині назви — через дефіс: <code>search-form</code>. Два підкреслення <code>__</code> —
+        елемент, два дефіси <code>--</code> — модифікатор.</p>
+</section>
+
+<section class="slide">
+    <h2>Блок, елемент, модифікатор</h2>
+    <table class="s16">
+        <tr>
+            <th>Сутність</th>
+            <th>Що це</th>
+            <th>Питання</th>
+            <th>Приклади</th>
+        </tr>
+        <tr>
+            <td><b>Block</b></td>
+            <td>Незалежний компонент, має сенс сам по собі</td>
+            <td>«Що це?»</td>
+            <td><code>header</code>, <code>menu</code>, <code>card</code></td>
+        </tr>
+        <tr>
+            <td><b>Element</b></td>
+            <td>Частина блоку, окремо не існує</td>
+            <td>«Що це?»</td>
+            <td><code>menu__item</code>, <code>card__title</code></td>
+        </tr>
+        <tr>
+            <td><b>Modifier</b></td>
+            <td>Стан, вигляд або поведінка</td>
+            <td>«Який? Як поводиться?»</td>
+            <td><code>button--disabled</code>, <code>card--featured</code></td>
+        </tr>
+    </table>
+    <p class="s18">Назви — за <b>змістом</b>, а не за виглядом:
+        <span class="ok">✅ button--danger</span> &nbsp; <span class="bad">❌ button--red</span> &nbsp;
+        <span class="bad">❌ big-block</span></p>
+</section>
+
+<section class="slide">
+    <h2>BEM на прикладі картки</h2>
+    <pre class="s15">
+        <code>&lt;article class="card card--featured"&gt;</code>
+        <code>  &lt;img class="card__img" src="pug.png" alt="Pug"&gt;</code>
+        <code>  &lt;h3 class="card__title"&gt;Pug&lt;/h3&gt;</code>
+        <code>  &lt;p class="card__text"&gt;Шаблонізатор для HTML&lt;/p&gt;</code>
+        <code>  &lt;a class="card__btn button button--primary" href="#"&gt;Детальніше&lt;/a&gt;</code>
+        <code>&lt;/article&gt;</code>
+    </pre>
+    <pre class="s15">
+        <code>.card { padding: 16px; border-radius: 12px; }</code>
+        <code>.card--featured { border: 2px solid gold; }</code>
+        <code>.card__img { width: 100%; }</code>
+        <code>.card__title { font-size: 1.25rem; }</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>Правила BEM</h2>
+    <ul class="s18">
+        <li><span class="ok">✅</span> Стилізуємо <b>лише через класи</b> — не теги, не id.</li>
+        <li><span class="ok">✅</span> Специфічність усіх селекторів однакова (0,1,0) → <b>жодних воєн
+            специфічності</b>.
         </li>
-    </ul>
-    Переваги:
-    <ul>
-        <li>Гнучкий, адаптується до різних проектів.</li>
-    </ul>
-    Недоліки:
-    <ul>
-        <li>Може бути складним для новачків.</li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>SMACSS (Scalable and Modular Architecture for CSS)</h2>
-    <ul>
-        <li>Base. До базових відносяться css правила, які застосовуються для нормалізації стилів, а також правила
-            дефолтних стилів. Для цього використовуються лише теги.
+        <li><span class="bad">❌</span> Не відображаємо вкладеність DOM у назві: <code>card__body__title</code> →
+            <code>card__title</code>. Елемент належить <b>блоку</b>, а не іншому елементу.
         </li>
-        <li>
-            Layout. Поділяє сторінку на значні за розміром секції (header, footer, main). Зазвичай правила
-            застосовуються з використанням ID або класів, зрідка можуть додаватися префікси, наприклад l-(l — ‘layout’).
-            Лейаут може об’єднувати в себе кілька модулів.
+        <li><span class="ok">✅</span> Модифікатор <b>завжди разом</b> з основним класом:
+            <code>class="button button--primary"</code>.
         </li>
-        <li>
-            Module. Модулем можуть бути частини, які перевикористовуються на сторінці (nav, ul, а також форми для
-            логування, віджети чи каруселі). Кожен модуль повинен бути створений як самостійна одиниця, що не залежить
-            від інших. Дозволяється вкладеність.
-            При створенні css правил для модулів, слід використовувати класи, та уникати використання ID.
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>SMACSS (Scalable and Modular Architecture for CSS)</h2>
-    <ul>
-        <li>
-            State. Правила, що описують, як модуль чи лейаут повинен виглядати у певному стані (hover, active і т.д).
-            Зазвичай додаються префікси is- або ж has-
-        </li>
-        <li>
-            Theme rules. Тут задаються правила, що описують тему сайту (чорно-біла схема, кольорова і т.д.).
-        </li>
-    </ul>
-    <p>Отже, SMACSS пропонує добре організований css розділений логічно на модулі, окремі файли. Однак використання
-        SMACSS має потенційно слабкі місця, дозволяючи використовувати ID та покладаючись на ланцюжок селекторів для
-        стану.</p>
-</section>
-
-<section class="slide">
-    <h2>ITCSS (Inverted Triangle CSS)</h2>
-    <ul>
-        <li>Принцип: побудова стилів за ієрархією від глобальних стилів до специфічних.</li>
-        <li>Задача: забезпечує кращу структуру стилів з чітким рівнем пріоритету.</li>
-    </ul>
-    Переваги:
-    <ul>
-        <li>Легше керувати стилями у великих проектах.</li>
-    </ul>
-    Недоліки:
-    <ul>
-        <li>Складний для налаштування і підтримки на початку.</li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>ITCSS (Inverted Triangle CSS)</h2>
-    <p>ITCSS ділить стилі на декілька рівнів, які організовані у вигляді перевернутої піраміди. Стилі на верхніх рівнях
-        застосовуються до всього сайту, а чим нижче по ієрархії, тим більш специфічні та локалізовані стилі стають.
-        Рівні виглядають приблизно так:</p>
-    <ul style="font-size: 19px;">
-        <li>Settings: змінні, кольори, шрифти (не містять реальних стилів).</li>
-        <li>Tools: міксіни, функції (можуть використовуватися на всіх наступних рівнях).</li>
-        <li>Generic: глобальні скидання стилів, нормалізація.</li>
-        <li>Elements: базові стилі HTML-елементів (h1, p, a).</li>
-        <li>Objects: невеликі, багаторазові структури (наприклад, медіа-об'єкти).</li>
-        <li>Components: стилі для конкретних компонентів (картки, кнопки).</li>
-        <li>Utilities: специфічні стилі, які можуть переписувати все вище (класові стилі типу .text-center,
-            .float-left).
-        </li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>OOCSS (Object-Oriented CSS)</h2>
-    <ul>
-        <li>Принцип: відокремлення структури та вигляду.</li>
-        <li>Задача: заохочує використання повторно використовуваних CSS-«об'єктів».
-        </li>
-    </ul>
-    Переваги:
-    <ul>
-        <li>Полегшує створення гнучких компонентів.</li>
-    </ul>
-    Недоліки:
-    <ul>
-        <li>Вимагає багато класів, що може заплутати.</li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>OOCSS (Object-Oriented CSS)</h2>
-    <p>Об’єкто-орієнтована методологія css має багато спільного з ООП (об’єкто-орієнтованим програмуванням), оскільки
-        підхід передбачає створення дефолтних об’єктів.</p>
-    <p>
-        Обє’кто-орієнтований css був запропонований Ніколь Салліван (Nicole Sullivan), для того, щоб зробити динамічний
-        css більш зручним у користуванні.
-    </p>
-</section>
-
-<section class="slide">
-    <h2>OOCSS (Object-Oriented CSS)</h2>
-    <b>
-        OOCSS має два основні принципи:
-    </b>
-    <ul>
-        <li>
-            Separate structure and skin — відокремлення структури від оболонки. Відокремлення візуальних особливостей
-            (width, height, margins, paddings та ін.) як окремих оболонок, що можна використовувати в будь-якій
-            варіації.
-        </li>
-        <li>
-            Separate container and content — відокремлення контенту від контексту. Це значить рідко використовувати
-            залежність від локації. Об’єкт що використовується повинен виглядати однаково будь-де.
-        </li>
-    </ul>
-    <p>
-        OOCSS дарує девелоперам майже цілковиту свободу при створенні класів. Проте це є і мінусом. Відсутність правил і
-        консистентності призводить до збільшення кількості варіацій класів.
-    </p>
-</section>
-
-<section class="slide">
-    <h2>OOCSS (Object-Oriented CSS)</h2>
-    <img src="images/1.png" alt="" width="400">
-</section>
-
-<section class="slide">
-    <h2>Atomic CSS</h2>
-    <ul>
-        <li>Принцип: кожен клас представляє одну властивість CSS (наприклад, .text-center, .bg-blue).</li>
-        <li>Задача: забезпечує гнучкість і легкість змін стилів без додаткових CSS-файлів.</li>
-    </ul>
-    Переваги:
-    <ul>
-        <li>Прискорює розробку, зменшує об'єм CSS.</li>
-    </ul>
-    Недоліки:
-    <ul>
-        <li>Стилі можуть бути складні для читання та підтримки.</li>
-    </ul>
-    <p>Якщо коротко описати, то методологія зводиться до простого твердження “одне правило — для одного стилю”</p>
-</section>
-
-<section class="slide">
-    <h2>Переваги та недоліки CSS-методологій</h2>
-    <b>
-        Переваги:
-    </b>
-    <ul>
-        <li>Краща організація коду.</li>
-        <li>Збільшена масштабованість.</li>
-        <li>Легке управління стилями.</li>
-        <li>Зменшення конфліктів стилів.</li>
-    </ul>
-    <b>Недоліки:</b>
-    <ul>
-        <li>Збільшення кількості класів.</li>
-        <li>Потрібен час для навчання і адаптації.</li>
-        <li>Деякі методології можуть бути складними у використанні.</li>
-    </ul>
-</section>
-
-<section class="slide">
-    <h2>HTML, CSS workflow</h2>
-    <b>1. Підготовка та планування</b>
-    <ul>
-        <li>Аналіз макета: детально розгляньте макет сторінки (наприклад, у Figma або Photoshop), визначте основні
-            блоки, компоненти та стилі.
-        </li>
-        <li>Планування структури: продумайте HTML-структуру та CSS-методологію (наприклад, BEM, ITCSS), яку будете
-            використовувати.
-        </li>
-        <li>Вибір інструментів: вирішіть, чи будете використовувати препроцесори (Sass, LESS), CSS-фреймворки
-            (Bootstrap, Tailwind) або системи зборки (Webpack, Vite).
+        <li><span class="ok">✅</span> Блок <b>не задає</b> собі зовнішніх відступів і позиції — це робить батьківський
+            блок.
         </li>
     </ul>
 </section>
 
 <section class="slide">
-    <h2>HTML, CSS workflow</h2>
-    <b>2. Налаштування робочого середовища</b>
-    <ul style="font-size: 19px;">
-        <li>Створення структури проекту: підготуйте базові папки (css, js, images, fonts тощо).</li>
-        <li>Підключення базових файлів: створіть і підключіть базові файли стилів (main.css, reset.css або
-            normalize.css), а також основний HTML-файл.
+    <h2>Міксування (mix)</h2>
+    <p class="s18">Один HTML-вузол може бути одночасно <b>елементом</b> одного блоку і <b>самостійним блоком</b>.</p>
+    <pre class="s16">
+        <code>&lt;a class="card__btn button button--primary" href="#"&gt;Детальніше&lt;/a&gt;</code>
+    </pre>
+    <pre class="s16">
+        <code><span class="comment">/* блок button: як виглядає кнопка будь-де */</span></code>
+        <code>.button { padding: 8px 16px; border-radius: 6px; }</code>
+        <code>.button--primary { background: #4b86c2; color: #fff; }</code>
+        <code> </code>
+        <code><span class="comment">/* елемент card__btn: де кнопка стоїть усередині картки */</span></code>
+        <code>.card__btn { margin-top: auto; align-self: flex-start; }</code>
+    </pre>
+</section>
+
+<section class="slide">
+    <h2>BEM + SCSS</h2>
+    <div class="columns two">
+        <pre class="s16">
+            <code>.card {</code>
+            <code>  padding: 16px;</code>
+            <code> </code>
+            <code>  &amp;__title { font-size: 1.25rem; }</code>
+            <code>  &amp;__img   { width: 100%; }</code>
+            <code> </code>
+            <code>  &amp;--featured {</code>
+            <code>    border: 2px solid gold;</code>
+            <code>  }</code>
+            <code>}</code>
+        </pre>
+        <pre class="s16">
+            <code><span class="comment">/* результат компіляції */</span></code>
+            <code>.card { padding: 16px; }</code>
+            <code>.card__title {</code>
+            <code>  font-size: 1.25rem;</code>
+            <code>}</code>
+            <code>.card__img { width: 100%; }</code>
+            <code>.card--featured {</code>
+            <code>  border: 2px solid gold;</code>
+            <code>}</code>
+        </pre>
+    </div>
+    <p class="s17">Один блок = один файл: <code>components/_card.scss</code>. <code>&amp;</code> склеює назву, але
+        <b>не</b> створює вкладеності.</p>
+</section>
+
+<section class="slide">
+    <h2>Знайдіть помилки 🔍</h2>
+    <pre class="s16">
+        <code>&lt;nav class="Menu"&gt;</code>
+        <code>  &lt;ul class="menu__list"&gt;</code>
+        <code>    &lt;li class="menu__list__item"&gt;</code>
+        <code>      &lt;a class="menu__link--active" href="/"&gt;Головна&lt;/a&gt;</code>
+        <code>    &lt;/li&gt;</code>
+        <code>  &lt;/ul&gt;</code>
+        <code>  &lt;button class="menu__btn-blue big"&gt;Увійти&lt;/button&gt;</code>
+        <code>&lt;/nav&gt;</code>
+    </pre>
+    <p class="s17 muted">Скільки порушень BEM ви бачите? Як має бути правильно?</p>
+</section>
+
+<section class="slide">
+    <h2>BEM: переваги та недоліки</h2>
+    <table class="s18">
+        <tr>
+            <th>✅ Переваги</th>
+            <th>❌ Недоліки</th>
+        </tr>
+        <tr>
+            <td>Ідеально для компонентного підходу</td>
+            <td>Довгі назви класів</td>
+        </tr>
+        <tr>
+            <td>Структура зрозуміла з HTML</td>
+            <td>Потрібна дисципліна команди</td>
+        </tr>
+        <tr>
+            <td>Плоска специфічність</td>
+            <td>Спочатку здається «багатослівним»</td>
+        </tr>
+        <tr>
+            <td>Блоки легко переносити й видаляти</td>
+            <td>Не регулює структуру файлів</td>
+        </tr>
+    </table>
+</section>
+
+<section class="slide">
+    <h2>OOCSS: структура окремо від оформлення</h2>
+    <p class="s17">Object-Oriented CSS — <b>Nicole Sullivan, 2008</b>. Ідея з ООП: перевикористовувані
+        CSS-«об'єкти».</p>
+    <div class="columns two">
+        <pre class="s14">
+            <code><span class="comment">/* ❌ усе змішано, дублювання */</span></code>
+            <code>.btn-login {</code>
+            <code>  padding: 8px 16px;</code>
+            <code>  border-radius: 4px;</code>
+            <code>  background: blue;</code>
+            <code>}</code>
+            <code>.btn-delete {</code>
+            <code>  padding: 8px 16px;</code>
+            <code>  border-radius: 4px;</code>
+            <code>  background: red;</code>
+            <code>}</code>
+        </pre>
+        <pre class="s14">
+            <code><span class="comment">/* ✅ structure + skin */</span></code>
+            <code>.btn {</code>
+            <code>  padding: 8px 16px;</code>
+            <code>  border-radius: 4px;</code>
+            <code>}</code>
+            <code>.skin-primary { background: blue; }</code>
+            <code>.skin-danger  { background: red; }</code>
+            <code> </code>
+            <code>&lt;button class="btn skin-danger"&gt;</code>
+        </pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>OOCSS: вміст окремо від контейнера</h2>
+    <div class="columns two">
+        <pre class="s16">
+            <code><span class="comment">/* ❌ залежить від місця */</span></code>
+            <code>.sidebar h3 {</code>
+            <code>  font-size: 18px;</code>
+            <code>}</code>
+            <code>.footer h3 {</code>
+            <code>  font-size: 18px;</code>
+            <code>}</code>
+        </pre>
+        <pre class="s16">
+            <code><span class="comment">/* ✅ виглядає однаково будь-де */</span></code>
+            <code>.heading-small {</code>
+            <code>  font-size: 18px;</code>
+            <code>}</code>
+        </pre>
+    </div>
+    <table class="s17">
+        <tr>
+            <th>✅ Переваги</th>
+            <th>❌ Недоліки</th>
+        </tr>
+        <tr>
+            <td>Гнучкі, перевикористовувані компоненти, менше дублювання</td>
+            <td>Багато класів в HTML, немає правил іменування → «зоопарк» класів</td>
+        </tr>
+    </table>
+</section>
+
+<section class="slide">
+    <h2>SMACSS: 5 категорій стилів</h2>
+    <p class="s17">Scalable and Modular Architecture for CSS — <b>Jonathan Snook, 2011</b>.</p>
+    <table class="s16">
+        <tr>
+            <th>Категорія</th>
+            <th>Що містить</th>
+            <th>Приклад</th>
+        </tr>
+        <tr>
+            <td><b>Base</b></td>
+            <td>Нормалізація, стилі за замовчуванням — лише <b>теги</b></td>
+            <td><code>body, a, h1 { … }</code></td>
+        </tr>
+        <tr>
+            <td><b>Layout</b></td>
+            <td>Великі секції сторінки, префікс <code>l-</code></td>
+            <td><code>.l-header</code>, <code>.l-sidebar</code></td>
+        </tr>
+        <tr>
+            <td><b>Module</b></td>
+            <td>Перевикористовувані компоненти</td>
+            <td><code>.nav</code>, <code>.card</code></td>
+        </tr>
+        <tr>
+            <td><b>State</b></td>
+            <td>Стани, префікси <code>is-</code>, <code>has-</code></td>
+            <td><code>.is-active</code>, <code>.has-error</code></td>
+        </tr>
+        <tr>
+            <td><b>Theme</b></td>
+            <td>Тема оформлення</td>
+            <td><code>theme-dark.css</code></td>
+        </tr>
+    </table>
+</section>
+
+<section class="slide">
+    <h2>SMACSS на практиці</h2>
+    <pre class="s16">
+        <code>&lt;header class="l-header"&gt;</code>
+        <code>  &lt;nav class="nav"&gt;</code>
+        <code>    &lt;a class="nav__link is-active" href="#"&gt;Головна&lt;/a&gt;</code>
+        <code>  &lt;/nav&gt;</code>
+        <code>&lt;/header&gt;</code>
+    </pre>
+    <ul class="s17">
+        <li><span class="ok">✅</span> Логічний поділ CSS на файли, гнучкість під різні проєкти.</li>
+        <li><span class="bad">❌</span> Дозволяє id для лейаутів і ланцюжки селекторів для станів
+            (<code>.nav .is-active</code>) — специфічність знову росте.
         </li>
-        <li>Налаштування системи контролю версій: ініціалізуйте Git-репозиторій для відстеження змін та командної
-            роботи.
-        </li>
-    </ul>
-    <b>3. Базова HTML-структура</b>
-    <ul style="font-size: 19px;">
-        <li>Створення семантичної розмітки: розмістіть основні блоки за допомогою семантичних тегів (header, main,
-            section, footer тощо).
-        </li>
-        <li>Розбивка на компоненти: для SPA або проектів з компонентною архітектурою створіть окремі файли чи шаблони
-            для кожного компонента.
+        <li>💡 Префікси станів <code>is-</code> / <code>has-</code> широко використовують <b>разом із BEM</b>,
+            особливо для станів, які перемикає JavaScript.
         </li>
     </ul>
 </section>
 
 <section class="slide">
-    <h2>HTML, CSS workflow</h2>
-    <b>4. Базові стилі та скидання стилів</b>
-    <ul style="font-size: 19px;">
-        <li>Скидання стилів: додайте reset.css або normalize.css, щоб зробити відображення стилів у різних браузерах
-            однаковим.
-        </li>
-        <li>Налаштування змінних: у файлі налаштувань (settings.scss) задайте основні змінні — кольори, шрифти,
-            відступи, брейкпоінти для медіа-запитів.
-        </li>
+    <h2>ITCSS: перевернута піраміда</h2>
+    <div class="columns two" style="grid-template-columns: 1.1fr 1fr; grid-column-gap: 40px;">
+        <div class="pyramid">
+            <div>1. Settings — змінні, кольори, шрифти</div>
+            <div>2. Tools — міксини, функції</div>
+            <div>3. Generic — reset, normalize, box-sizing</div>
+            <div>4. Elements — h1, p, a (без класів)</div>
+            <div>5. Objects — .o-container</div>
+            <div>6. Components — .card</div>
+            <div>7. Utilities</div>
+        </div>
+        <div class="s17" style="line-height: 1.5;">
+            <p><b>Inverted Triangle CSS</b> — Harry Roberts.</p>
+            <p>Згори вниз:</p>
+            <ul>
+                <li>охоплення: <b>широке → вузьке</b></li>
+                <li>специфічність: <b>низька → висока</b></li>
+                <li>явність: <b>загальне → конкретне</b></li>
+            </ul>
+            <p class="muted">Settings і Tools не генерують жодного CSS.</p>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>ITCSS у проєкті</h2>
+    <div class="columns two">
+        <pre class="s15">
+            <code>scss/</code>
+            <code>├── settings/   _colors.scss</code>
+            <code>├── tools/      _mixins.scss</code>
+            <code>├── generic/    _reset.scss</code>
+            <code>├── elements/   _typography.scss</code>
+            <code>├── objects/    _container.scss</code>
+            <code>├── components/ _card.scss</code>
+            <code>│               _button.scss</code>
+            <code>├── utilities/  _helpers.scss</code>
+            <code>└── main.scss</code>
+        </pre>
+        <pre class="s15">
+            <code><span class="comment">// main.scss — порядок = шари</span></code>
+            <code>@use 'settings/colors';</code>
+            <code>@use 'tools/mixins';</code>
+            <code>@use 'generic/reset';</code>
+            <code>@use 'elements/typography';</code>
+            <code>@use 'objects/container';</code>
+            <code>@use 'components/card';</code>
+            <code>@use 'components/button';</code>
+            <code>@use 'utilities/helpers';</code>
+        </pre>
+    </div>
+    <p class="lead s17">Кожен наступний шар лише <b>доповнює</b> попередні — правила перекриваються природним шляхом,
+        без <code>!important</code>-воєн.</p>
+</section>
+
+<section class="slide">
+    <h2>Нативний аналог: каскадні шари <code>@layer</code></h2>
+    <pre class="s16">
+        <code><span class="comment">/* оголошуємо порядок шарів один раз */</span></code>
+        <code>@layer reset, base, components, utilities;</code>
+        <code> </code>
+        <code>@layer components {</code>
+        <code>  #promo .card .title { color: navy; }   <span class="comment">/* (1,2,0) */</span></code>
+        <code>}</code>
+        <code> </code>
+        <code>@layer utilities {</code>
+        <code>  .text-red { color: red; }              <span
+            class="comment">/* (0,1,0) — але перемагає! */</span></code>
+        <code>}</code>
+    </pre>
+    <p class="lead s17">Шар, оголошений <b>пізніше</b>, перемагає незалежно від специфічності. Підтримка — усі
+        сучасні браузери (з 2022).</p>
+</section>
+
+<section class="slide">
+    <h2><code>@layer</code>: як браузер обирає переможця</h2>
+    <div class="columns two" style="grid-template-columns: 1fr 1.1fr; grid-column-gap: 40px;">
+        <div class="s17" style="line-height: 1.5;">
+            <p>Каскад перевіряє критерії <b>по черзі</b> — наступний лише тоді, коли попередній дав нічию:</p>
+            <ol>
+                <li>Походження та <code>!important</code></li>
+                <li><b>Шар</b> (<code>@layer</code>) ← <span class="ok">нове</span></li>
+                <li>Специфічність</li>
+                <li>Порядок у коді</li>
+            </ol>
+            <p class="muted">Тобто шари стоять <b>вище</b> за специфічність: порівнювати селектори з різних шарів
+                навіть не доводиться.</p>
+        </div>
+        <div class="s17" style="line-height: 1.5;">
+            <p><b>Три правила, які варто запам'ятати:</b></p>
+            <ul>
+                <li>Пізніший шар перемагає ранній.</li>
+                <li>Стилі <b>поза будь-яким шаром</b> перемагають усі шари.</li>
+                <li>З <code>!important</code> порядок <b>інвертується</b>: важливе правило з <b>раннього</b> шару
+                    сильніше за важливе з пізнього.
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2><code>@layer</code>: стилі поза шарами та <code>!important</code></h2>
+    <div class="columns two">
+        <pre class="s15">
+            <code>@layer base, components;</code>
+            <code> </code>
+            <code>@layer components {</code>
+            <code>  .btn { color: white; }</code>
+            <code>}</code>
+            <code> </code>
+            <code><span class="comment">/* поза шаром — перемагає */</span></code>
+            <code>a { color: blue; }</code>
+            <code> </code>
+            <code><span class="comment">/* &lt;a class="btn"&gt; → blue */</span></code>
+        </pre>
+        <pre class="s15">
+            <code>@layer base, components;</code>
+            <code> </code>
+            <code>@layer base {</code>
+            <code>  a { color: black !important; }</code>
+            <code>}</code>
+            <code>@layer components {</code>
+            <code>  .btn { color: red !important; }</code>
+            <code>}</code>
+            <code> </code>
+            <code><span class="comment">/* &lt;a class="btn"&gt; → black */</span></code>
+        </pre>
+    </div>
+    <p class="lead s17">Логіка: ранні шари (reset, base) задають «фундамент», і якщо вони кажуть
+        <code>!important</code> — пізніші шари не мають права це зламати.</p>
+</section>
+
+<section class="slide">
+    <h2><code>@layer</code>: способи оголошення</h2>
+    <div class="columns two">
+        <pre class="s15">
+            <code><span class="comment">/* 1. Лише порядок (інструкція) */</span></code>
+            <code>@layer reset, base, components;</code>
+            <code> </code>
+            <code><span class="comment">/* 2. Блок із правилами */</span></code>
+            <code>@layer base {</code>
+            <code>  body { margin: 0; }</code>
+            <code>}</code>
+            <code> </code>
+            <code><span class="comment">/* 3. Дописати в той самий шар</span></code>
+            <code><span class="comment">      (в іншому місці / файлі) */</span></code>
+            <code>@layer base {</code>
+            <code>  a { color: inherit; }</code>
+            <code>}</code>
+        </pre>
+        <pre class="s15">
+            <code><span class="comment">/* 4. Імпорт файлу одразу в шар */</span></code>
+            <code>@import url("reset.css") layer(reset);</code>
+            <code> </code>
+            <code><span class="comment">/* 5. Анонімний шар — не можна</span></code>
+            <code><span class="comment">      доповнити пізніше */</span></code>
+            <code>@layer {</code>
+            <code>  .tmp { outline: 1px solid red; }</code>
+            <code>}</code>
+            <code> </code>
+            <code><span class="comment">/* 6. Імпорт у шар + медіазапит */</span></code>
+            <code>@import url("print.css") layer(print) print;</code>
+        </pre>
+    </div>
+    <p class="lead s17">Порядок шарів фіксується при <b>першій появі</b> назви. Тому інструкцію
+        <code>@layer a, b, c;</code> ставлять на самий початок головного файлу.</p>
+</section>
+
+<section class="slide">
+    <h2>Вкладені шари та сторонні бібліотеки</h2>
+    <div class="columns two">
+        <pre class="s15">
+            <code><span class="comment">/* бібліотеку — у найнижчий шар */</span></code>
+            <code>@layer vendor, base, components;</code>
+            <code> </code>
+            <code>@import url("bootstrap.css")</code>
+            <code>        layer(vendor);</code>
+            <code> </code>
+            <code>@layer components {</code>
+            <code>  <span class="comment">/* (0,1,0) перебиває будь-який</span></code>
+            <code><span class="comment">     селектор Bootstrap */</span></code>
+            <code>  .btn { border-radius: 0; }</code>
+            <code>}</code>
+        </pre>
+        <pre class="s15">
+            <code><span class="comment">/* вкладені шари */</span></code>
+            <code>@layer components {</code>
+            <code>  @layer card, button;</code>
+            <code>  @layer card { .card { … } }</code>
+            <code>}</code>
+            <code> </code>
+            <code><span class="comment">/* звернення через крапку */</span></code>
+            <code>@layer components.button {</code>
+            <code>  .button { … }</code>
+            <code>}</code>
+        </pre>
+    </div>
+    <p class="lead s17">Головний практичний виграш: стилі UI-бібліотеки більше не змушують писати
+        <code>!important</code> чи «прокачувати» специфічність, щоб їх перевизначити.</p>
+</section>
+
+<section class="slide">
+    <h2>ITCSS → <code>@layer</code>: повна картина</h2>
+    <div class="columns two" style="grid-template-columns: 1.2fr 1fr; grid-column-gap: 40px;">
+        <pre class="s15">
+            <code><span class="comment">/* main.css */</span></code>
+            <code>@layer generic, elements, objects,</code>
+            <code>       components, utilities;</code>
+            <code> </code>
+            <code>@import url("generic/reset.css")  layer(generic);</code>
+            <code>@import url("elements/type.css")  layer(elements);</code>
+            <code>@import url("objects/grid.css")   layer(objects);</code>
+            <code>@import url("components/card.css")</code>
+            <code>                         layer(components);</code>
+            <code>@import url("utilities/text.css") layer(utilities);</code>
+        </pre>
+        <div class="s17" style="line-height: 1.5;">
+            <ul>
+                <li>Settings → <b>CSS custom properties</b> у <code>:root</code> (шар не потрібен).</li>
+                <li>Порядок шарів тепер гарантує <b>браузер</b>, а не дисципліна команди чи порядок
+                    <code>@use</code>.
+                </li>
+                <li>Utilities перемагають без <code>!important</code>.</li>
+                <li>Tailwind v4 сам генерує <code>@layer theme, base, components, utilities</code>.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Atomic CSS: один клас — одна властивість</h2>
+    <div class="columns two">
+        <pre class="s16">
+            <code>.flex        { display: flex; }</code>
+            <code>.items-center{ align-items: center; }</code>
+            <code>.p-4         { padding: 1rem; }</code>
+            <code>.text-center { text-align: center; }</code>
+            <code>.bg-white    { background: #fff; }</code>
+            <code>.rounded-lg  { border-radius: .5rem; }</code>
+        </pre>
+        <div class="s17" style="line-height: 1.5;">
+            <p>Замість «назвати компонент і описати його в CSS» — <b>збираємо вигляд прямо в HTML</b> з готових
+                «атомів».</p>
+            <p>Найвідоміша реалізація — <b>Tailwind CSS</b>: генерує лише ті утиліти, що реально використані в
+                розмітці.</p>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Tailwind CSS</h2>
+    <pre class="s14">
+        <code>&lt;div class="flex items-center justify-between p-4 bg-white rounded-lg shadow"&gt;</code>
+        <code>  &lt;h3 class="text-lg font-bold text-gray-900"&gt;Pug&lt;/h3&gt;</code>
+        <code>  &lt;a class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 md:px-6"&gt;Більше&lt;/a&gt;</code>
+        <code>&lt;/div&gt;</code>
+    </pre>
+    <table class="s16">
+        <tr>
+            <th>✅ Переваги</th>
+            <th>❌ Недоліки</th>
+        </tr>
+        <tr>
+            <td>Дуже швидка розробка, не треба вигадувати назви</td>
+            <td>HTML перевантажений класами</td>
+        </tr>
+        <tr>
+            <td>CSS майже не росте з розміром проєкту</td>
+            <td>Важче читати розмітку</td>
+        </tr>
+        <tr>
+            <td>Немає конфліктів і проблем зі специфічністю</td>
+            <td>Треба вивчити «словник» утиліт</td>
+        </tr>
+    </table>
+</section>
+
+<section class="slide">
+    <h2>Порівняння методологій</h2>
+    <table class="s15">
+        <tr>
+            <th>Методологія</th>
+            <th>Головна ідея</th>
+            <th>Що регулює</th>
+            <th>Ключове слово</th>
+        </tr>
+        <tr>
+            <td><b>BEM</b></td>
+            <td>Незалежні блоки</td>
+            <td>Іменування класів</td>
+            <td><code>block__elem--mod</code></td>
+        </tr>
+        <tr>
+            <td><b>OOCSS</b></td>
+            <td>Перевикористовувані об'єкти</td>
+            <td>Структура vs оформлення</td>
+            <td>structure / skin</td>
+        </tr>
+        <tr>
+            <td><b>SMACSS</b></td>
+            <td>5 категорій стилів</td>
+            <td>Файли + префікси</td>
+            <td>Base … Theme</td>
+        </tr>
+        <tr>
+            <td><b>ITCSS</b></td>
+            <td>Від загального до конкретного</td>
+            <td>Порядок і специфічність</td>
+            <td>перевернута піраміда</td>
+        </tr>
+        <tr>
+            <td><b>Atomic</b></td>
+            <td>Один клас — одна властивість</td>
+            <td>Утилітарні класи</td>
+            <td><code>.p-4</code>, <code>.flex</code></td>
+        </tr>
+    </table>
+</section>
+
+<section class="slide">
+    <h2>Що обрати? 🧭</h2>
+    <div class="map">
+        <div>
+            <h3>Навчальний / лендинг</h3>
+            <p><b>BEM</b> + проста структура:</p>
+            <p><code>settings → base → layout → components → utilities</code></p>
+        </div>
+        <div>
+            <h3>Великий сайт, команда</h3>
+            <p><b>ITCSS</b> (або <code>@layer</code>) + <b>BEM</b> + стани <code>is-*</code></p>
+        </div>
+        <div>
+            <h3>React / Vue / Angular</h3>
+            <p><b>CSS Modules</b>, scoped-стилі або <b>Tailwind</b> — ізоляцію дає інструмент</p>
+        </div>
+        <div>
+            <h3>Наш курс</h3>
+            <p><b>BEM обов'язково</b> + SCSS-partials за шарами ITCSS</p>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Сучасний CSS допомагає методологіям</h2>
+    <ul class="s17">
+        <li><b>Нативна вкладеність</b> (CSS Nesting) — як у SCSS, але без компіляції:
+            <code>.card { &amp;:hover { … } }</code></li>
+        <li><b><code>@layer</code></b> — порядок шарів замість війни специфічності (ідея ITCSS).</li>
+        <li><b><code>@scope</code></b> — обмежує стилі піддеревом DOM:
+            <code>@scope (.card) { img { … } }</code></li>
+        <li><b>Custom properties</b> — теми й модифікатори через змінні:
+            <code>.button--danger { --btn-bg: red; }</code></li>
+        <li><b><code>:where()</code></b> — селектор з нульовою специфічністю, зручний для base-стилів.</li>
     </ul>
-    <b>5. Створення основних блоків (глобальні стилі)</b>
-    <ul style="font-size: 19px;">
-        <li>Глобальні стилі для елементів: стилізуйте базові елементи (body, h1-h6, p, a, button).</li>
-        <li>Формування контейнерів: створіть стилі для основних контейнерів, наприклад .container, .wrapper, для
-            вирівнювання та центрування контенту.
+    <p class="lead s17">Інструменти змінюються, а <b>принципи</b> (низька специфічність, незалежні компоненти,
+        передбачуваний порядок) — лишаються.</p>
+</section>
+
+<section class="slide">
+    <h2>Workflow верстки: від макета до продакшну</h2>
+    <ol class="steps">
+        <li><b>1. Аналіз макета</b>блоки, компоненти, кольори, шрифти, breakpoints</li>
+        <li><b>2. Середовище</b>структура папок, Git, збирач</li>
+        <li><b>3. HTML-структура</b>семантичні теги, BEM-класи</li>
+        <li><b>4. Reset + змінні</b>normalize, settings</li>
+        <li><b>5. Глобальні стилі</b>типографіка, контейнери</li>
+        <li><b>6. Компоненти</b>header, footer, картки + медіазапити</li>
+        <li><b>7. Контент</b>секції з текстом, зображеннями</li>
+        <li><b>8. Тестування</b>браузери, екрани, клавіатура</li>
+        <li><b>9. Оптимізація</b>зображення, Lighthouse, мініфікація</li>
+    </ol>
+</section>
+
+<section class="slide">
+    <h2>Кроки 1–3: план, середовище, HTML</h2>
+    <ul class="s17">
+        <li><b>Аналіз макета (Figma):</b> визначте блоки та компоненти, що повторюються, палітру, шрифти, відступи,
+            breakpoints.
+        </li>
+        <li><b>💡 Лайфхак:</b> роздрукуйте або зробіть скріншот макета й <b>обведіть блоки</b> з BEM-назвами — структура
+            видна ще до першого рядка коду.
+        </li>
+        <li><b>Середовище:</b> <code>scss/</code>, <code>js/</code>, <code>images/</code>, <code>fonts/</code>;
+            <code>index.html</code>, normalize; <b>Git з першого дня</b>; Vite / Gulp.
+        </li>
+        <li><b>HTML:</b> семантика (<code>header</code>, <code>main</code>, <code>section</code>,
+            <code>footer</code>) + BEM-класи; компоненти — окремі Pug-partials.
         </li>
     </ul>
 </section>
 
 <section class="slide">
-    <h2>HTML, CSS workflow</h2>
-    <b>6. Розробка компонентів та модулів</b>
-    <ul style="font-size: 19px;">
-        <li>Початок з верхніх блоків: почніть з верстки header, footer, меню навігації та інших глобальних елементів.
-        </li>
-        <li>Стилізація компонентів: переходьте до верстки компонентів (картки, кнопки, форми) з урахуванням обраної
-            CSS-методології.
-        </li>
-        <li>Медіа-запити для адаптивності: при створенні стилів для кожного компонента одразу додавайте медіа-запити для
-            адаптації під різні екрани.
-        </li>
-    </ul>
-    <b>7. Розмітка та стилізація контентних блоків</b>
-    <ul style="font-size: 19px;">
-        <li>Основний контент: після компонентів переходьте до стилізації основних блоків контенту (наприклад, блоків з
-            текстом, зображеннями, відео).
-        </li>
-    </ul>
+    <h2>Кроки 4–7: стилі шар за шаром</h2>
+    <div class="columns two" style="grid-column-gap: 40px;">
+        <ul class="s16">
+            <li><b>4. Reset + змінні:</b> normalize, <code>box-sizing</code>, кольори/шрифти/breakpoints у
+                settings.
+            </li>
+            <li><b>5. Глобальні стилі:</b> <code>body</code>, <code>h1–h6</code>, <code>a</code>,
+                <code>.container</code>.
+            </li>
+            <li><b>6. Компоненти:</b> спершу header, footer, навігація, далі картки, кнопки, форми.</li>
+            <li><b>7. Контент:</b> секції сторінки з готових компонентів.</li>
+        </ul>
+        <pre class="s14">
+            <code>.card {</code>
+            <code>  display: grid;</code>
+            <code>  gap: 12px;</code>
+            <code> </code>
+            <code>  @media (min-width: 768px) {</code>
+            <code>    grid-template-columns: 1fr 2fr;</code>
+            <code>  }</code>
+            <code>}</code>
+        </pre>
+    </div>
+    <p class="lead s16">Медіазапити пишемо <b>одразу в компоненті</b>, а не окремим файлом «в кінці».</p>
 </section>
 
 <section class="slide">
-    <h2>HTML, CSS workflow</h2>
-    <b>8. Тестування та налагодження</b>
-    <ul style="font-size: 17px;">
-        <li>Тестування в браузерах: перевірте верстку у різних браузерах (Chrome, Firefox, Safari, Edge) та на різних
-            пристроях.
-        </li>
-        <li>Тестування на адаптивність: переконайтесь, що сайт виглядає коректно на мобільних, планшетах та десктопах.
-        </li>
-        <li>Виправлення помилок: налагодьте проблеми з версткою, якщо вони виникають на певних розмірах екрану чи в
-            конкретних браузерах.
-        </li>
-    </ul>
-    <b>9. Оптимізація та фінальні правки</b>
-    <ul style="font-size: 17px;">
-        <li>Оптимізація зображень: стискайте зображення для прискорення завантаження сторінок.
-        </li>
-        <li>
-            Тестування продуктивності: перевірте швидкість завантаження сторінки за допомогою інструментів, таких як
-            Google PageSpeed Insights або Lighthouse.
-        </li>
-        <li>
-            Оптимізація CSS: мінімізуйте CSS, видаліть зайві стилі або неактивний код.
-        </li>
-    </ul>
+    <h2>Кроки 8–9: тестування та оптимізація</h2>
+    <div class="columns two" style="grid-column-gap: 40px;">
+        <div>
+            <h3 class="s19">8. Тестування</h3>
+            <ul class="s16">
+                <li>Chrome, Firefox, <b>Safari</b>, Edge</li>
+                <li>Мобільні, планшети, десктопи (DevTools → Device Mode)</li>
+                <li>Навігація з клавіатури, видимий <code>:focus</code></li>
+                <li>validator.w3.org</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="s19">9. Оптимізація</h3>
+            <ul class="s16">
+                <li>Зображення: WebP / AVIF, <code>loading="lazy"</code></li>
+                <li><b>Lighthouse</b>, PageSpeed Insights</li>
+                <li>Мініфікація CSS, видалення невикористаних стилів</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <section class="slide">
-    <h2>HTML, CSS workflow</h2>
-    <img src="images/1.webp" alt="" width="260" style="display: block; margin: 0 auto">
+    <h2>✅ Чек-лист перед здачею проєкту</h2>
+    <div class="columns two s16" style="grid-column-gap: 30px; line-height: 1.6;">
+        <ul>
+            <li>Валідний HTML (0 помилок)</li>
+            <li>Семантичні теги, один <code>&lt;h1&gt;</code>, <code>alt</code> у зображень</li>
+            <li>Класи за <b>BEM</b></li>
+            <li>Немає стилів за id та <code>!important</code></li>
+            <li><code>box-sizing: border-box</code></li>
+        </ul>
+        <ul>
+            <li>Адаптивність 320–1920px без горизонтальної прокрутки</li>
+            <li>Працює в Chrome, Firefox, Safari</li>
+            <li>Видимий <code>:focus</code>, навігація з клавіатури</li>
+            <li>Оптимізовані зображення, <code>loading="lazy"</code></li>
+            <li>Lighthouse ≥ 90</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Підсумок і завдання</h2>
+    <div class="columns two" style="grid-column-gap: 40px;">
+        <div>
+            <h3 class="s19">Запам'ятати</h3>
+            <ul class="s16">
+                <li>Методологія = правила іменування + організації файлів</li>
+                <li>BEM: <code>block__element--modifier</code>, лише класи, без вкладеності в назвах</li>
+                <li>ITCSS / <code>@layer</code>: від загального до конкретного</li>
+                <li>Методології поєднують</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="s19">Практика</h3>
+            <ol class="s16">
+                <li>Перепишіть класи попередньої лаби за BEM</li>
+                <li>Розкладіть SCSS за шарами ITCSS</li>
+                <li>«Картка товару» трьома способами: BEM, OOCSS, Tailwind</li>
+            </ol>
+        </div>
+    </div>
 </section>
 
 <section class="slide">
@@ -409,4 +1070,3 @@
 <script src="../../../core/shower.js"></script>
 </body>
 </html>
-
